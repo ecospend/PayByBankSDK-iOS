@@ -74,6 +74,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		608F5CB12768C59D0053F379 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				608F5CB22768C59D0053F379 /* PaylinkMobileSDK-iOS */,
+			);
+			name = Sources;
+			path = ../../Sources;
+			sourceTree = "<group>";
+		};
+		608F5CB22768C59D0053F379 /* PaylinkMobileSDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				60E67A4F27676BBC0032A5C3 /* Network */,
+				60E67A6527676D350032A5C3 /* View */,
+				60DBDEBA27687A65001A7AD9 /* Resources */,
+				60E67A5527676BBC0032A5C3 /* Service */,
+				60E67A4A27676BBC0032A5C3 /* Shared */,
+				60E67A4C27676BBC0032A5C3 /* SDK.swift */,
+			);
+			path = "PaylinkMobileSDK-iOS";
+			sourceTree = "<group>";
+		};
 		60DBDEBA27687A65001A7AD9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,13 +103,6 @@
 				60E67A74276779B50032A5C3 /* SafariVC.xib */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		60DBDEBB27687AB3001A7AD9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		60E67A2627676AF70032A5C3 = {
@@ -111,13 +126,7 @@
 		60E67A3227676AF70032A5C3 /* PaylinkMobileSDK-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				60DBDEBB27687AB3001A7AD9 /* Model */,
-				60E67A4F27676BBC0032A5C3 /* Network */,
-				60E67A6527676D350032A5C3 /* View */,
-				60DBDEBA27687A65001A7AD9 /* Resources */,
-				60E67A5527676BBC0032A5C3 /* Service */,
-				60E67A4A27676BBC0032A5C3 /* Shared */,
-				60E67A4C27676BBC0032A5C3 /* SDK.swift */,
+				608F5CB12768C59D0053F379 /* Sources */,
 				60E67A3327676AF70032A5C3 /* PaylinkMobileSDK_iOS.h */,
 				60E67A3427676AF70032A5C3 /* PaylinkMobileSDK_iOS.docc */,
 			);

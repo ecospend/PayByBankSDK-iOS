@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '10.3'
   spec.requires_arc          = true
   spec.swift_version         = '5.0'
-  spec.source_files          = '**/PaylinkMobileSDK-iOS/PaylinkMobileSDK-iOS/**/*.{swift, h, m}'
-  spec.resources             = "**/PaylinkMobileSDK-iOS/PaylinkMobileSDK-iOS/Resources/*.xib"
+  spec.source_files          = '**/PaylinkMobileSDK-iOS/PaylinkMobileSDK-iOS/Sources/**/*.{swift, h, m}'
+  spec.resources             = "**/PaylinkMobileSDK-iOS/PaylinkMobileSDK-iOS/Sources/PaylinkMobileSDK-iOS/Resources/*.xib"
   spec.pod_target_xcconfig   = {'ENABLE_BITCODE' => 'NO'}
 end
