@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60E67A3527676AF70032A5C3 /* PaylinkMobileSDK_iOS.docc in Sources */ = {isa = PBXBuildFile; fileRef = 60E67A3427676AF70032A5C3 /* PaylinkMobileSDK_iOS.docc */; };
 		60E67A3B27676AF70032A5C3 /* PaylinkMobileSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* PaylinkMobileSDK_iOS.framework */; };
-		60E67A4027676AF70032A5C3 /* PaylinkMobileSDK_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E67A3F27676AF70032A5C3 /* PaylinkMobileSDK_iOSTests.swift */; };
 		60E67A4127676AF70032A5C3 /* PaylinkMobileSDK_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E67A3327676AF70032A5C3 /* PaylinkMobileSDK_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60E67A5927676BBC0032A5C3 /* SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E67A4C27676BBC0032A5C3 /* SDK.swift */; };
 		60E67A5A27676BBD0032A5C3 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E67A4E27676BBC0032A5C3 /* Encodable+.swift */; };
@@ -38,9 +36,7 @@
 /* Begin PBXFileReference section */
 		60E67A3027676AF70032A5C3 /* PaylinkMobileSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaylinkMobileSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E67A3327676AF70032A5C3 /* PaylinkMobileSDK_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaylinkMobileSDK_iOS.h; sourceTree = "<group>"; };
-		60E67A3427676AF70032A5C3 /* PaylinkMobileSDK_iOS.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PaylinkMobileSDK_iOS.docc; sourceTree = "<group>"; };
 		60E67A3A27676AF70032A5C3 /* PaylinkMobileSDK-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PaylinkMobileSDK-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		60E67A3F27676AF70032A5C3 /* PaylinkMobileSDK_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkMobileSDK_iOSTests.swift; sourceTree = "<group>"; };
 		60E67A4C27676BBC0032A5C3 /* SDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDK.swift; sourceTree = "<group>"; };
 		60E67A4E27676BBC0032A5C3 /* Encodable+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		60E67A5027676BBC0032A5C3 /* SDKNetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKNetworkError.swift; sourceTree = "<group>"; };
@@ -91,6 +87,7 @@
 				60E67A5527676BBC0032A5C3 /* Service */,
 				60E67A4A27676BBC0032A5C3 /* Shared */,
 				60E67A4C27676BBC0032A5C3 /* SDK.swift */,
+				60E67A3327676AF70032A5C3 /* PaylinkMobileSDK_iOS.h */,
 			);
 			path = "PaylinkMobileSDK-iOS";
 			sourceTree = "<group>";
@@ -108,8 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				608F5CB12768C59D0053F379 /* Sources */,
-				60E67A3227676AF70032A5C3 /* PaylinkMobileSDK-iOS */,
-				60E67A3E27676AF70032A5C3 /* PaylinkMobileSDK-iOSTests */,
 				60E67A3127676AF70032A5C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,23 +116,6 @@
 				60E67A3A27676AF70032A5C3 /* PaylinkMobileSDK-iOSTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		60E67A3227676AF70032A5C3 /* PaylinkMobileSDK-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				60E67A3327676AF70032A5C3 /* PaylinkMobileSDK_iOS.h */,
-				60E67A3427676AF70032A5C3 /* PaylinkMobileSDK_iOS.docc */,
-			);
-			path = "PaylinkMobileSDK-iOS";
-			sourceTree = "<group>";
-		};
-		60E67A3E27676AF70032A5C3 /* PaylinkMobileSDK-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				60E67A3F27676AF70032A5C3 /* PaylinkMobileSDK_iOSTests.swift */,
-			);
-			path = "PaylinkMobileSDK-iOSTests";
 			sourceTree = "<group>";
 		};
 		60E67A4A27676BBC0032A5C3 /* Shared */ = {
@@ -304,7 +282,6 @@
 				60E67A5C27676BBD0032A5C3 /* SDKNetworkLayer.swift in Sources */,
 				60E67A5F27676BBD0032A5C3 /* PaylinkAPI.swift in Sources */,
 				60E67A5B27676BBD0032A5C3 /* SDKNetworkError.swift in Sources */,
-				60E67A3527676AF70032A5C3 /* PaylinkMobileSDK_iOS.docc in Sources */,
 				60E67A75276779B50032A5C3 /* SafariVC.swift in Sources */,
 				60E67A5A27676BBD0032A5C3 /* Encodable+.swift in Sources */,
 			);
@@ -314,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E67A4027676AF70032A5C3 /* PaylinkMobileSDK_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
