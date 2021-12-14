@@ -74,6 +74,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60DBDEBA27687A65001A7AD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60E67A7A27677CC40032A5C3 /* WebViewVC.xib */,
+				60E67A74276779B50032A5C3 /* SafariVC.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		60DBDEBB27687AB3001A7AD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		60E67A2627676AF70032A5C3 = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +111,10 @@
 		60E67A3227676AF70032A5C3 /* PaylinkMobileSDK-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				60E67A5727676BBC0032A5C3 /* Model */,
+				60DBDEBB27687AB3001A7AD9 /* Model */,
 				60E67A4F27676BBC0032A5C3 /* Network */,
 				60E67A6527676D350032A5C3 /* View */,
+				60DBDEBA27687A65001A7AD9 /* Resources */,
 				60E67A5527676BBC0032A5C3 /* Service */,
 				60E67A4A27676BBC0032A5C3 /* Shared */,
 				60E67A4C27676BBC0032A5C3 /* SDK.swift */,
@@ -151,38 +168,13 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		60E67A5727676BBC0032A5C3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		60E67A6527676D350032A5C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				60E67A7827677C930032A5C3 /* WebViewVC */,
-				60E67A77276779C60032A5C3 /* SafariVC */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		60E67A77276779C60032A5C3 /* SafariVC */ = {
-			isa = PBXGroup;
-			children = (
-				60E67A74276779B50032A5C3 /* SafariVC.xib */,
+				60E67A7927677CC40032A5C3 /* WebViewVC.swift */,
 				60E67A73276779B50032A5C3 /* SafariVC.swift */,
 			);
-			path = SafariVC;
-			sourceTree = "<group>";
-		};
-		60E67A7827677C930032A5C3 /* WebViewVC */ = {
-			isa = PBXGroup;
-			children = (
-				60E67A7927677CC40032A5C3 /* WebViewVC.swift */,
-				60E67A7A27677CC40032A5C3 /* WebViewVC.xib */,
-			);
-			path = WebViewVC;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
