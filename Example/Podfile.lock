@@ -1,29 +1,16 @@
 PODS:
-  - Alamofire (5.4.4)
-  - Moya (15.0.0):
-    - Moya/Core (= 15.0.0)
-  - Moya/Core (15.0.0):
-    - Alamofire (~> 5.0)
   - PaylinkMobileSDK-iOS (1.0)
 
 DEPENDENCIES:
-  - Moya
   - PaylinkMobileSDK-iOS (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - Alamofire
-    - Moya
 
 EXTERNAL SOURCES:
   PaylinkMobileSDK-iOS:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
-  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
-  PaylinkMobileSDK-iOS: 1105dcf2d87168affd759761a8b5c3eb64ff12bd
+  PaylinkMobileSDK-iOS: 1fca35240156bc119dd659eadde32f01c0728bfb
 
-PODFILE CHECKSUM: a01dac528ec5df1b1d6f67bab08632cc9584629f
+PODFILE CHECKSUM: 8c6dac471a2ca01de48446e3d301038bff796c1a
 
 COCOAPODS: 1.10.1

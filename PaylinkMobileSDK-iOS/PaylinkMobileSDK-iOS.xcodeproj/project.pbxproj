@@ -77,6 +77,14 @@
 		608F5CB12768C59D0053F379 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				608F5CDF2768CE050053F379 /* PaylinkMobileSDK-iOS */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		608F5CDF2768CE050053F379 /* PaylinkMobileSDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
 				60E67A4F27676BBC0032A5C3 /* Network */,
 				60E67A6527676D350032A5C3 /* View */,
 				60DBDEBA27687A65001A7AD9 /* Resources */,
@@ -84,7 +92,7 @@
 				60E67A4A27676BBC0032A5C3 /* Shared */,
 				60E67A4C27676BBC0032A5C3 /* SDK.swift */,
 			);
-			path = Sources;
+			path = "PaylinkMobileSDK-iOS";
 			sourceTree = "<group>";
 		};
 		60DBDEBA27687A65001A7AD9 /* Resources */ = {
