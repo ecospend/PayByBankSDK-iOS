@@ -1,34 +1,29 @@
 //
 //  AppDelegate.swift
-//  Example
+//  Paylink SDK POC
 //
-//  Created by Berk Akkerman on 13.12.2021.
+//  Created by Yunus TÜR on 9.12.2021.
 //
 
 import UIKit
+import PaylinkMobileSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    lazy var mainWindow = UIWindow(frame: UIScreen.main.bounds)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        PaylinkSDK.configure(clientID: "910162c0-a0e6-40b8-b66d-f6a9d56bee0f",
+                             clientSecret: "c7667cce1d82212b39090e697e6cf1a300453d8af730ccce0878307b9fb43034")
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MainVC")
+        let nc = UINavigationController(rootViewController: vc)
+        mainWindow.rootViewController = nc
+        mainWindow.makeKeyAndVisible()
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
 }
-

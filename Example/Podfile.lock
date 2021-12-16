@@ -1,16 +1,16 @@
 PODS:
-  - PaylinkMobileSDK-iOS (1.0)
+  - PaylinkMobileSDK (1.0)
 
 DEPENDENCIES:
-  - PaylinkMobileSDK-iOS (from `../`)
+  - PaylinkMobileSDK (from `../`)
 
 EXTERNAL SOURCES:
-  PaylinkMobileSDK-iOS:
+  PaylinkMobileSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PaylinkMobileSDK-iOS: 1fca35240156bc119dd659eadde32f01c0728bfb
+  PaylinkMobileSDK: ec5b9c607851fc7a280a707b6183121a68ce331d
 
-PODFILE CHECKSUM: 8c6dac471a2ca01de48446e3d301038bff796c1a
+PODFILE CHECKSUM: 0b1b2129e4afa639a89d65204c9505abca9b43d7
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
