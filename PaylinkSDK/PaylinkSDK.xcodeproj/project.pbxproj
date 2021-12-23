@@ -145,7 +145,7 @@
 		D6F46002276B6E4C00D49C4E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D6F46009276B6E4C00D49C4E /* Aim */,
+				D6F46009276B6E4C00D49C4E /* Iam */,
 				D6F46003276B6E4C00D49C4E /* Paylink */,
 			);
 			path = Repository;
@@ -175,14 +175,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D6F46009276B6E4C00D49C4E /* Aim */ = {
+		D6F46009276B6E4C00D49C4E /* Iam */ = {
 			isa = PBXGroup;
 			children = (
 				D6F4600B276B6E4C00D49C4E /* Model */,
 				D6F4600A276B6E4C00D49C4E /* IamEndpoint.swift */,
 				D6F4600E276B6E4C00D49C4E /* IamRepository.swift */,
 			);
-			path = Aim;
+			path = Iam;
 			sourceTree = "<group>";
 		};
 		D6F4600B276B6E4C00D49C4E /* Model */ = {
