@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import PaylinkMobileSDK
+import PaylinkSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
