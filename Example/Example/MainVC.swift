@@ -66,7 +66,7 @@ extension MainVC {
               let creditorAccounType = PaylinkAccountType(rawValue: creditorAccountTypeTextField.text ?? ""),
               let creditorAccountIdentification = creditorAccountIdentificationTextField.text,
               let creditorAccountName = creditorAccountNameTextField.text,
-              let creditorAccountCurrency = creditorAccountCurrencyTextField.text else {
+              let creditorAccountCurrency = PaylinkCurrency(rawValue: creditorAccountCurrencyTextField.text ?? "") else {
                   return nil
               }
         return PaylinkCreateRequest(

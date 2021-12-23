@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - PaylinkCreateResponse
 public struct PaylinkCreateResponse: Codable {
     
     /// A system assigned unique identification for the Paylink.
@@ -18,14 +19,6 @@ public struct PaylinkCreateResponse: Codable {
     
     /// Base64 encoded QRCode image data that represents Paylink URL.
     public let qrCode: String?
-    
-    public init(uniqueID: String?,
-                paylinkURL: String?,
-                qrCode: String?) {
-        self.uniqueID = uniqueID
-        self.paylinkURL = paylinkURL
-        self.qrCode = qrCode
-    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"

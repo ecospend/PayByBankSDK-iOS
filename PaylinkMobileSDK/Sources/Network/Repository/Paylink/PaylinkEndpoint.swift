@@ -9,6 +9,9 @@ import Foundation
 
 enum PaylinkEndpoint {
     case createPaylink(PaylinkCreateRequest)
+    case getPaylink(PaylinkGetRequest)
+    case deletePaylink(PaylinkDeleteRequest)
+    case getPayments(PaylinkPaymentGetRequest)
 }
 
 extension PaylinkEndpoint: EndpointProtocol {
@@ -20,12 +23,17 @@ extension PaylinkEndpoint: EndpointProtocol {
     var path: String {
         switch self {
         case .createPaylink: return "/paylinks"
+        case .getPaylink(let request): return "/paylinks/\(request.paylinkID)"
+        case .deletePaylink(let request): return "/paylinks/\(request.paylinkID)"
+        case .getPayments(let request): return "/paylinks/\(request.paylinkID)/payments"
         }
     }
     
     var method: RequestMethod {
         switch self {
         case .createPaylink: return .post
+        case .getPaylink, .getPayments: return .get
+        case .deletePaylink: return .delete
         }
     }
     
@@ -42,25 +50,26 @@ extension PaylinkEndpoint: EndpointProtocol {
     
     var parameters: [String : Any?]? {
         switch self {
-        case .createPaylink: return nil
+        case .createPaylink, .getPaylink, .deletePaylink, .getPayments: return nil
         }
     }
     
     var body: Encodable? {
         switch self {
         case .createPaylink(let body): return body
+        case .getPaylink, .deletePaylink, .getPayments: return nil
         }
     }
     
     var bodySchema: RequestBodySchema? {
         switch self {
-        case .createPaylink: return .json
+        case .createPaylink, .getPaylink, .deletePaylink, .getPayments: return .json
         }
     }
     
     var requestType: RequestType {
         switch self {
-        case .createPaylink: return .data
+        case .createPaylink, .getPaylink, .deletePaylink, .getPayments: return .data
         }
     }
 }

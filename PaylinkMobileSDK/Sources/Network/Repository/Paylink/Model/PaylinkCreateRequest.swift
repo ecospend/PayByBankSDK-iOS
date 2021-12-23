@@ -100,7 +100,7 @@ public struct PaylinkCreateRequest: Codable {
 // MARK: - PaylinkAccount
 public struct PaylinkAccount: Codable {
     
-    /// Enum: "SortCode" "Iban" "Bban"
+    /// - Enum: "SortCode" "Iban" "Bban"
     public let type: PaylinkAccountType
     
     /// Account identification. The value of this parameter depends on the value of AccountType.
@@ -112,18 +112,25 @@ public struct PaylinkAccount: Codable {
     public let name: String
     
     /// Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
-    public let currency: String
-    
+    /// - Enum: "GBP" "USD" "EUR"
+    public let currency: PaylinkCurrency
     
     public init(type: PaylinkAccountType,
                 identification: String,
                 name: String,
-                currency: String) {
+                currency: PaylinkCurrency) {
         self.type = type
         self.identification = identification
         self.name = name
         self.currency = currency
     }
+}
+
+// MARK: - PaylinkCurrency
+public enum PaylinkCurrency: String, Codable {
+    case gbp = "GBP"
+    case usd = "USD"
+    case eur = "EUR"
 }
 
 // MARK: - PaylinkAccountType
@@ -183,7 +190,6 @@ public struct PaylinkNotificationOptions: Codable {
         self.phoneNumber = phoneNumber
     }
     
-    
     enum CodingKeys: String, CodingKey {
         case sendEmailNotification = "send_email_notification"
         case email
@@ -214,7 +220,6 @@ public struct PaylinkOptions: Codable {
     /// The Tip object model
     public let tip: PaylinkTip?
     
-    
     public init(autoRedirect: Bool?,
                 generateQrCode: Bool?,
                 allowPartialPayments: Bool?,
@@ -236,7 +241,7 @@ public struct PaylinkOptions: Codable {
     }
 }
 
-// MARK: - PaylinkTipOption
+// MARK: - PaylinkTip
 public struct PaylinkTip: Codable {
     
     /// Denotes whether tip requested from payer.
