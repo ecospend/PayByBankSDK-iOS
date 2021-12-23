@@ -21,6 +21,6 @@ let package = Package(
         .target(
             name: "PaylinkSDK",
             dependencies: [],
-            path: "PaylinkSDK/Sources")
+            path: "PaylinkSDK/Sources/Core")
     ]
 )
