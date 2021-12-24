@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		604EED6727746C320005D094 /* PaylinkReactModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 604EED6627746C320005D094 /* PaylinkReactModule.m */; };
-		604EED6927746C5A0005D094 /* PaylinkReactModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EED6827746C5A0005D094 /* PaylinkReactModule.swift */; };
 		60E67A3B27676AF70032A5C3 /* PaylinkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* PaylinkSDK.framework */; };
 		D681EA762771C32400A29870 /* PaylinkGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA752771C32400A29870 /* PaylinkGetResponse.swift */; };
 		D681EA782771CB4300A29870 /* PaylinkGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA772771CB4300A29870 /* PaylinkGetRequest.swift */; };
@@ -371,9 +369,7 @@
 				D681EA802771DB4100A29870 /* PaylinkPaymentGetResponse.swift in Sources */,
 				D6F4602B276B6E4C00D49C4E /* Networking.swift in Sources */,
 				D6F46023276B6E4C00D49C4E /* PaylinkCreateRequest.swift in Sources */,
-				604EED6927746C5A0005D094 /* PaylinkReactModule.swift in Sources */,
 				D6F46031276B6E4C00D49C4E /* PaylinkState.swift in Sources */,
-				604EED6727746C320005D094 /* PaylinkReactModule.m in Sources */,
 				D681EA762771C32400A29870 /* PaylinkGetResponse.swift in Sources */,
 				D6F4602F276B6E4C00D49C4E /* DIScope.swift in Sources */,
 				D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift.swift in Sources */,
