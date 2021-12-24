@@ -45,7 +45,7 @@ class MainVC: UIViewController {
 
     @IBAction func payButtomTapped(_ sender: Any) {
         guard let request = request else { return }
-        PaylinkSDK.initiate(request, viewController: self) { result in
+        PaylinkSDK.shared.initiate(request: request, viewController: self) { result in
             switch result {
             case .success(let response):
                 print(response)

@@ -28,38 +28,18 @@ class PaylinkRepository {
 extension PaylinkRepository: PaylinkRepositoryProtocol {
     
     func createPaylink(request: PaylinkCreateRequest, completion: @escaping (Result<PaylinkCreateResponse, Error>) -> Void) {
-        networking.execute(endpoint: PaylinkEndpoint.createPaylink(request), type: PaylinkCreateResponse.self) { result in
-            switch result {
-            case .success(let response): completion(.success(response))
-            case .failure(let error): completion(.failure(error))
-            }
-        }
+        networking.execute(endpoint: PaylinkEndpoint.createPaylink(request), type: PaylinkCreateResponse.self, completion: completion)
     }
     
     func getPaylink(request: PaylinkGetRequest, completion: @escaping (Result<PaylinkGetResponse, Error>) -> Void) {
-        networking.execute(endpoint: PaylinkEndpoint.getPaylink(request), type: PaylinkGetResponse.self) { result in
-            switch result {
-            case .success(let response): completion(.success(response))
-            case .failure(let error): completion(.failure(error))
-            }
-        }
+        networking.execute(endpoint: PaylinkEndpoint.getPaylink(request), type: PaylinkGetResponse.self, completion: completion)
     }
     
     func deletePaylink(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, Error>) -> Void) {
-        networking.execute(endpoint: PaylinkEndpoint.deletePaylink(request), type: Bool.self) { result in
-            switch result {
-            case .success(let response): completion(.success(response))
-            case .failure(let error): completion(.failure(error))
-            }
-        }
+        networking.execute(endpoint: PaylinkEndpoint.deletePaylink(request), type: Bool.self, completion: completion)
     }
     
     func getPayments(request: PaylinkPaymentGetRequest, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void) {
-        networking.execute(endpoint: PaylinkEndpoint.getPayments(request), type: [PaylinkPaymentGetResponse].self) { result in
-            switch result {
-            case .success(let response): completion(.success(response))
-            case .failure(let error): completion(.failure(error))
-            }
-        }
+        networking.execute(endpoint: PaylinkEndpoint.getPayments(request), type: [PaylinkPaymentGetResponse].self, completion: completion)
     }
 }

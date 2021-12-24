@@ -22,6 +22,7 @@ class Button: UIButton {
     
     
     func setupButton() {
+        isExclusiveTouch = true
         setShadow()
         setTitleColor(.white, for: .normal)
         backgroundColor = Color.blue

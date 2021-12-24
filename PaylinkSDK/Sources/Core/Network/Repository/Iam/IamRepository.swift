@@ -11,7 +11,7 @@ protocol IamRepositoryProtocol {
     
     /// The respond will return a bearer token that needs to be provided with any subsequent endpoint call within this api.
     /// A keypoint to bear in mind is the 'scope' property. If it is not provided /token endpoint will return a token covering all the scopes available to your client_id.
-    func getToken(request: IamTokenRequest, _ completion: @escaping (Result<IamTokenResponse?, Error>) -> Void)
+    func getToken(request: IamTokenRequest, completion: @escaping (Result<IamTokenResponse, Error>) -> Void)
 }
 
 class IamRepository {
@@ -26,7 +26,7 @@ class IamRepository {
 // MARK: - IamRepositoryProtocol
 extension IamRepository: IamRepositoryProtocol {
     
-    func getToken(request: IamTokenRequest, _ completion: @escaping (Result<IamTokenResponse?, Error>) -> Void) {
+    func getToken(request: IamTokenRequest, completion: @escaping (Result<IamTokenResponse, Error>) -> Void) {
         networking.execute(endpoint: IamEndpoint.token(request), type: IamTokenResponse.self) { result in
             switch result {
             case .success(let response):

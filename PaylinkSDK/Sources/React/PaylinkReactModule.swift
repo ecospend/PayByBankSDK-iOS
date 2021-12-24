@@ -15,7 +15,7 @@ class PaylinkReactModule: NSObject {
     
     @objc(configure:clientSecret:)
     func configure(_ clientID: String, clientSecret: String) {
-        PaylinkSDK.configure(clientID: clientID, clientSecret: clientSecret)
+        PaylinkSDK.shared.configure(clientID: clientID, clientSecret: clientSecret)
     }
 }
 
