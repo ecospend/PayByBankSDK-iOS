@@ -17,7 +17,7 @@ enum PaylinkEndpoint {
 extension PaylinkEndpoint: EndpointProtocol {
     
     var baseURL: String {
-        return "https://pis-api-sandbox.ecospend.com/api/v2.0"
+        return PaylinkState.Config.environment.paylinkEndpointURL
     }
     
     var path: String {

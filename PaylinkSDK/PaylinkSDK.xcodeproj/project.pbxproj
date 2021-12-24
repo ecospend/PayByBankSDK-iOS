@@ -15,6 +15,7 @@
 		D681EA802771DB4100A29870 /* PaylinkPaymentGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA7F2771DB4100A29870 /* PaylinkPaymentGetResponse.swift */; };
 		D6B2C94B277459C8004044C0 /* URLEncodedFormEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2C94A277459C8004044C0 /* URLEncodedFormEncoder.swift */; };
 		D6B2C95627747DD5004044C0 /* WebViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2C95527747DD5004044C0 /* WebViewVM.swift */; };
+		D6B2C9692775A4E4004044C0 /* PaylinkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2C9682775A4E4004044C0 /* PaylinkEnvironment.swift */; };
 		D6F46021276B6E4C00D49C4E /* PaylinkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46004276B6E4C00D49C4E /* PaylinkEndpoint.swift */; };
 		D6F46022276B6E4C00D49C4E /* PaylinkCreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46006276B6E4C00D49C4E /* PaylinkCreateResponse.swift */; };
 		D6F46023276B6E4C00D49C4E /* PaylinkCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46007276B6E4C00D49C4E /* PaylinkCreateRequest.swift */; };
@@ -60,6 +61,7 @@
 		D6B2C94A277459C8004044C0 /* URLEncodedFormEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedFormEncoder.swift; sourceTree = "<group>"; };
 		D6B2C94F27745D65004044C0 /* PaylinkSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaylinkSDK.h; sourceTree = "<group>"; };
 		D6B2C95527747DD5004044C0 /* WebViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVM.swift; sourceTree = "<group>"; };
+		D6B2C9682775A4E4004044C0 /* PaylinkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkEnvironment.swift; sourceTree = "<group>"; };
 		D6F46004276B6E4C00D49C4E /* PaylinkEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkEndpoint.swift; sourceTree = "<group>"; };
 		D6F46006276B6E4C00D49C4E /* PaylinkCreateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkCreateResponse.swift; sourceTree = "<group>"; };
 		D6F46007276B6E4C00D49C4E /* PaylinkCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkCreateRequest.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F46019276B6E4C00D49C4E /* PaylinkState.swift */,
+				D6B2C9682775A4E4004044C0 /* PaylinkEnvironment.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B2C9692775A4E4004044C0 /* PaylinkEnvironment.swift in Sources */,
 				D6F46021276B6E4C00D49C4E /* PaylinkEndpoint.swift in Sources */,
 				D681EA802771DB4100A29870 /* PaylinkPaymentGetResponse.swift in Sources */,
 				D6F4602B276B6E4C00D49C4E /* Networking.swift in Sources */,

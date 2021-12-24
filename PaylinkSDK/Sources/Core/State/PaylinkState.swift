@@ -10,15 +10,12 @@ import Foundation
 struct PaylinkState {
     
     struct Config {
+        static var environment: PaylinkEnvironment = .sandbox
         static var clientID: String?
         static var clientSecret: String?
     }
     
     struct Network {
         static var token: IamTokenResponse?
-    }
-    
-    struct Constant {
-        static let paylinkHost: String = "https://paylinkweb-sandbox.ecospend.com"
     }
 }

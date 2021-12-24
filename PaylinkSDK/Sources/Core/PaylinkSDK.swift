@@ -23,7 +23,8 @@ public final class PaylinkSDK {
 // MARK: - API
 public extension PaylinkSDK {
     
-    func configure(clientID: String, clientSecret: String) {
+    func configure(_ environment: PaylinkEnvironment, clientID: String, clientSecret: String) {
+        PaylinkState.Config.environment = environment
         PaylinkState.Config.clientID = clientID
         PaylinkState.Config.clientSecret = clientSecret
     }
@@ -48,7 +49,7 @@ public extension PaylinkSDK {
                 return complete(.failure(error))
             }
             
-            guard let url = URL(string: "\(PaylinkState.Constant.paylinkHost)/?uid=\(uid)") else {
+            guard let url = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(uid)") else {
                 return complete(.failure(NetworkError.unknown))
             }
             

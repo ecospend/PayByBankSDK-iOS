@@ -14,7 +14,7 @@ enum IamEndpoint {
 extension IamEndpoint: EndpointProtocol {
     
     var baseURL: String {
-        return "https://iamapi-px01.ecospend.com"
+        return PaylinkState.Config.environment.iamEndpointURL
     }
     
     var path: String {
