@@ -21,5 +21,11 @@ Pod::Spec.new do |spec|
     rn.dependency 'React'
     rn.dependency 'PaylinkSDK/Core'
   end
+  
+  spec.subspec 'Flutter' do |fl|
+    fl.source_files = '**/PaylinkSDK/Sources/Flutter/**/*.{m,swift}'
+    fl.dependency 'Flutter'
+    fl.dependency 'PaylinkSDK/Core'
+  end
 
 end
