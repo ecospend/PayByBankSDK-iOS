@@ -19,9 +19,25 @@ class WebViewVC: UIViewController {
         return view
     }()
     
-    lazy var progressView: UIProgressView = {
-        let view = UIProgressView(progressViewStyle: .bar)
-        view.translatesAutoresizingMaskIntoConstraints = false
+    lazy var loadingView: UIView = {
+        let view = UIView()
+        if #available(iOS 11.0, *) {
+            view.backgroundColor = UIColor(named: "viewBackground")
+        } else {
+            view.backgroundColor = .white
+        }
+        view.alpha = 0.7
+        return view
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let view: UIActivityIndicatorView = {
+            if #available(iOS 13.0, *) {
+                return UIActivityIndicatorView(style: .medium)
+            } else {
+                return UIActivityIndicatorView(style: .white)
+            }
+        }()
         return view
     }()
     
@@ -31,7 +47,7 @@ class WebViewVC: UIViewController {
         view.navigationDelegate = self
         view.allowsBackForwardNavigationGestures = true
         view.configuration.suppressesIncrementalRendering = true
-        view.load(URLRequest(url: paylink))
+        view.load(URLRequest(url: viewModel.model.paylinkURL))
         return view
     }()
     
@@ -40,8 +56,8 @@ class WebViewVC: UIViewController {
         return view
     }()
     
-    var paylink: URL!
-    private var observation: NSKeyValueObservation? = nil
+    var viewModel: WebViewVM!
+    var loadingCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,26 +66,50 @@ class WebViewVC: UIViewController {
         
         setupView()
         setupLayout()
-        setupNavigaionController()
+        setupNavigationController()
         
-        observation = webView.observe(\.estimatedProgress, options: [.new]) { [weak self] _, _ in
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appIsActivited),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+        
+        viewModel.getPayments()
+        
+        viewModel.dismiss { [weak self] in
             guard let self = self else { return }
-            self.progressView.progress = Float(self.webView.estimatedProgress)
-            self.progressView.isHidden = self.progressView.progress == 1
+            DispatchQueue.main.async {
+                self.navigationController?.dismiss(animated: true)
+            }
+        }
+        
+        viewModel.loading { [weak self] isLoading in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch isLoading {
+                case true: self.showActivityIndicator()
+                case false: self.hideActivityIndicator()
+                }
+            }
         }
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
+        viewModel.deletePaylink()
+    }
+    
+    @IBAction func appIsActivited() {
+        viewModel.getPayments()
     }
     
     deinit {
         webView.stopLoading()
-        observation = nil
         print("Deinit WebViewVC")
     }
 }
 
+// MARK: - Setup
 extension WebViewVC {
     
     func setupView() {
@@ -80,23 +120,21 @@ extension WebViewVC {
         }
         
         view.addSubview(stackView)
-        stackView.addArrangedSubview(progressView)
         stackView.addArrangedSubview(webView)
     }
     
     func setupLayout() {
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 0),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 0),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 0),
-        ])
-        NSLayoutConstraint.activate([
-            progressView.heightAnchor.constraint(equalToConstant: 4)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
     }
     
-    func setupNavigaionController() {
+    func setupNavigationController() {
+        navigationController?.navigationBar.isHidden = true
+        
         navigationItem.leftBarButtonItems = [closeButton]
         navigationController?.navigationBar.isTranslucent = false
         
@@ -112,17 +150,68 @@ extension WebViewVC {
     }
 }
 
+// MARK: - Loading
+extension WebViewVC {
+    
+    func showActivityIndicator() {
+        loadingCount += 1
+        guard loadingCount == 1 else { return }
+        
+        closeButton.isEnabled = false
+        loadingView.frame = view.bounds
+        loadingView.addSubview(activityIndicator)
+        activityIndicator.center = loadingView.center
+        view.addSubview(loadingView)
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        loadingCount -= 1
+        if loadingCount < 0 { loadingCount = 0 }
+        guard loadingCount == 0 else { return }
+        
+        closeButton.isEnabled = true
+        activityIndicator.stopAnimating()
+        loadingView.removeFromSuperview()
+    }
+}
+
 // MARK: - WKNavigationDelegate
 extension WebViewVC: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if let url = navigationAction.request.url,
-           url.host != paylink.host {
+        guard let url = navigationAction.request.url else {
+            return decisionHandler(.allow)
+        }
+        
+        switch url.host {
+        case viewModel.model.paylinkRedirectURL.host:
+            if let params = url.queryParameters,
+               params["error"] == "user_canceled",
+               params["paylink_id"] == viewModel.model.paylinkID {
+                viewModel.deletePaylink()
+                decisionHandler(.cancel)
+            } else {
+                decisionHandler(.cancel)
+            }
+        case viewModel.model.paylinkURL.host:
+            decisionHandler(.allow)
+        default:
             UIApplication.shared.open(url)
             decisionHandler(.cancel)
-        } else {
-            decisionHandler(.allow)
         }
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showActivityIndicator()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        hideActivityIndicator()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        hideActivityIndicator()
     }
 }
 

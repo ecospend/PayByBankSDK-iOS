@@ -29,7 +29,7 @@ public extension PaylinkSDK {
         PaylinkState.Config.clientSecret = clientSecret
     }
     
-    func open(uid: String, viewController: UIViewController, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void) {
+    func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void) {
         
         let dispatchBackgroundQueue = DispatchQueue.global()
         let dispatchGroup = DispatchGroup()
@@ -49,24 +49,28 @@ public extension PaylinkSDK {
                 return complete(.failure(error))
             }
             
-            guard let url = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(uid)") else {
+            guard let paylinkURL = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(paylinkID)") else {
                 return complete(.failure(NetworkError.unknown))
             }
             
-            let request = PaylinkPaymentGetRequest(paylinkID: uid)
-            let result = self.getPayments(inGroup: dispatchGroup, request: request)
+            let request = PaylinkGetRequest(paylinkID: paylinkID)
+            let result = self.getPaylink(inGroup: dispatchGroup, request: request)
             
-            switch result {
-            case .success(let payments):
+            if case .failure(let error) = result {
+                return complete(.failure(error))
+            }
+            
+            if case .success(let paylink) = result,
+               let redirectURL = URL(string: paylink.redirectURL ?? "") {
                 DispatchQueue.main.async {
-                    let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: url)!
+                    let model = WebViewSceneModel(paylinkID: paylinkID,
+                                                  paylinkURL: paylinkURL,
+                                                  paylinkRedirectURL: redirectURL,
+                                                  paymentsCompletionHandler: completion)
+                    let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
                     let nc = UINavigationController(rootViewController: vc)
-                    viewController.present(nc, animated: true) {
-                        complete(.success(payments))
-                    }
+                    viewController.present(nc, animated: true)
                 }
-            case .failure(let error):
-                complete(.failure(error))
             }
         }
     }
@@ -98,25 +102,29 @@ public extension PaylinkSDK {
             }
             
             guard case .success(let createResponse) = createResult,
-                  let uid = createResponse.uniqueID,
-                  let url = URL(string: createResponse.paylinkURL ?? "") else {
+                  let paylinkID = createResponse.uniqueID,
+                  let paylinkURL = URL(string: createResponse.paylinkURL ?? "") else {
                       return complete(.failure(NetworkError.unknown))
                   }
             
-            let request = PaylinkPaymentGetRequest(paylinkID: uid)
-            let result = self.getPayments(inGroup: dispatchGroup, request: request)
+            let request = PaylinkGetRequest(paylinkID: paylinkID)
+            let result = self.getPaylink(inGroup: dispatchGroup, request: request)
             
-            switch result {
-            case .success(let payments):
+            if case .failure(let error) = result {
+                return complete(.failure(error))
+            }
+            
+            if case .success(let paylink) = result,
+               let redirectURL = URL(string: paylink.redirectURL ?? "") {
                 DispatchQueue.main.async {
-                    let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: url)!
+                    let model = WebViewSceneModel(paylinkID: paylinkID,
+                                                  paylinkURL: paylinkURL,
+                                                  paylinkRedirectURL: redirectURL,
+                                                  paymentsCompletionHandler: completion)
+                    let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
                     let nc = UINavigationController(rootViewController: vc)
-                    viewController.present(nc, animated: true) {
-                        complete(.success(payments))
-                    }
+                    viewController.present(nc, animated: true)
                 }
-            case .failure(let error):
-                complete(.failure(error))
             }
         }
     }
@@ -142,9 +150,15 @@ private extension PaylinkSDK {
             PaylinkRepository(networking: DIContainer.shared.resolve(type: NetworkingProtocol.self)!)
         }
         
+        DIContainer.shared.register(type: WebViewVM.self, scope: .transient) { argument in
+            let vm = WebViewVM(paylinkRepository: DIContainer.shared.resolve(type: PaylinkRepositoryProtocol.self)!,
+                               model: argument as! WebViewSceneModel)
+            return vm
+        }
+        
         DIContainer.shared.register(type: WebViewVC.self, scope: .transient) { argument in
             let vc = WebViewVC()
-            vc.paylink = (argument as! URL)
+            vc.viewModel = DIContainer.shared.resolve(type: WebViewVM.self, arguments: argument as! WebViewSceneModel)!
             return vc
         }
     }
@@ -182,10 +196,10 @@ private extension PaylinkSDK {
         return result
     }
     
-    func getPayments(inGroup group: DispatchGroup, request: PaylinkPaymentGetRequest) -> Result<[PaylinkPaymentGetResponse], Error> {
-        var result: Result<[PaylinkPaymentGetResponse], Error>!
+    func getPaylink(inGroup group: DispatchGroup, request: PaylinkGetRequest) -> Result<PaylinkGetResponse, Error> {
+        var result: Result<PaylinkGetResponse, Error>!
         group.enter()
-        paylinkRepository.getPayments(request: request) { _result in
+        paylinkRepository.getPaylink(request: request) { _result in
             result = _result
             group.leave()
         }

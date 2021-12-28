@@ -19,6 +19,28 @@ class MainVC: UIViewController {
     @IBOutlet weak var creditorAccountNameTextField: UITextField!
     @IBOutlet weak var creditorAccountCurrencyTextField: UITextField!
     
+    lazy var loadingView: UIView = {
+        let view = UIView()
+        if #available(iOS 11.0, *) {
+            view.backgroundColor = UIColor(named: "viewBackground")
+        } else {
+            view.backgroundColor = .white
+        }
+        view.alpha = 0.7
+        return view
+    }()
+    
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let view: UIActivityIndicatorView = {
+            if #available(iOS 13.0, *) {
+                return UIActivityIndicatorView(style: .medium)
+            } else {
+                return UIActivityIndicatorView(style: .white)
+            }
+        }()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -45,6 +67,7 @@ class MainVC: UIViewController {
 
     @IBAction func payButtomTapped(_ sender: Any) {
         guard let request = request else { return }
+        showActivityIndicator()
         PaylinkSDK.shared.initiate(request: request, viewController: self) { result in
             switch result {
             case .success(let response):
@@ -52,6 +75,7 @@ class MainVC: UIViewController {
             case .failure(let error):
                 print(error)
             }
+            self.hideActivityIndicator()
         }
     }
 }
@@ -81,6 +105,23 @@ extension MainVC {
                 currency: creditorAccountCurrency
             )
         )
+    }
+}
+
+// MARK: - Loading
+extension MainVC {
+    
+    func showActivityIndicator() {
+        loadingView.frame = view.bounds
+        loadingView.addSubview(activityIndicator)
+        activityIndicator.center = loadingView.center
+        view.addSubview(loadingView)
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+        loadingView.removeFromSuperview()
     }
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		60E67A3B27676AF70032A5C3 /* PaylinkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* PaylinkSDK.framework */; };
+		D6460C1D2779E05200109908 /* WebViewSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6460C1C2779E05200109908 /* WebViewSceneModel.swift */; };
+		D6460C20277AE7A900109908 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6460C1F277AE7A900109908 /* URL+.swift */; };
 		D681EA762771C32400A29870 /* PaylinkGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA752771C32400A29870 /* PaylinkGetResponse.swift */; };
 		D681EA782771CB4300A29870 /* PaylinkGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA772771CB4300A29870 /* PaylinkGetRequest.swift */; };
 		D681EA7B2771D39900A29870 /* PaylinkDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA7A2771D39900A29870 /* PaylinkDeleteRequest.swift */; };
@@ -53,6 +55,8 @@
 		604EED6827746C5A0005D094 /* PaylinkReactModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkReactModule.swift; sourceTree = "<group>"; };
 		60E67A3027676AF70032A5C3 /* PaylinkSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaylinkSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E67A3A27676AF70032A5C3 /* PaylinkSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaylinkSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6460C1C2779E05200109908 /* WebViewSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewSceneModel.swift; sourceTree = "<group>"; };
+		D6460C1F277AE7A900109908 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		D681EA752771C32400A29870 /* PaylinkGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGetResponse.swift; sourceTree = "<group>"; };
 		D681EA772771CB4300A29870 /* PaylinkGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGetRequest.swift; sourceTree = "<group>"; };
 		D681EA7A2771D39900A29870 /* PaylinkDeleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkDeleteRequest.swift; sourceTree = "<group>"; };
@@ -231,8 +235,8 @@
 		D6F46018276B6E4C00D49C4E /* State */ = {
 			isa = PBXGroup;
 			children = (
-				D6F46019276B6E4C00D49C4E /* PaylinkState.swift */,
 				D6B2C9682775A4E4004044C0 /* PaylinkEnvironment.swift */,
+				D6F46019276B6E4C00D49C4E /* PaylinkState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -240,6 +244,7 @@
 		D6F4601B276B6E4C00D49C4E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D6460C1C2779E05200109908 /* WebViewSceneModel.swift */,
 				D6F4601C276B6E4C00D49C4E /* WebViewVC.swift */,
 				D6B2C95527747DD5004044C0 /* WebViewVM.swift */,
 			);
@@ -250,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F4601E276B6E4C00D49C4E /* Encodable+.swift */,
+				D6460C1F277AE7A900109908 /* URL+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -396,8 +402,10 @@
 				D6F4602A276B6E4C00D49C4E /* ApiErrorResponse.swift in Sources */,
 				D6F4602E276B6E4C00D49C4E /* DIComponent.swift in Sources */,
 				D681EA7E2771DB1C00A29870 /* PaylinkPaymentGetRequest.swift in Sources */,
+				D6460C20277AE7A900109908 /* URL+.swift in Sources */,
 				D681EA782771CB4300A29870 /* PaylinkGetRequest.swift in Sources */,
 				D6F46022276B6E4C00D49C4E /* PaylinkCreateResponse.swift in Sources */,
+				D6460C1D2779E05200109908 /* WebViewSceneModel.swift in Sources */,
 				D6F4606C276B7A6900D49C4E /* PaylinkSDK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
