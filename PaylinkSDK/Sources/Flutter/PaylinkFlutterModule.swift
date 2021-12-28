@@ -5,7 +5,6 @@
 //  Created by Berk Akkerman on 27.12.2021.
 //
 
-import Foundation
 import Flutter
 
 public class PaylinkFlutterModule {
@@ -17,7 +16,7 @@ public class PaylinkFlutterModule {
     }
     
     static var rootViewController: UIViewController? {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+        guard let appDelegate = UIApplication.shared.delegate as? FlutterAppDelegate,
               let controller = appDelegate.window?.rootViewController else { return nil }
         return controller
     }

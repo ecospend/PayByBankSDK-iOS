@@ -5,8 +5,6 @@
 //  Created by Berk Akkerman on 28.12.2021.
 //
 
-import Foundation
-
 enum PaylinkFlutterMethod: String {
     
     case configure

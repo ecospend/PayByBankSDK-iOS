@@ -157,9 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				60D95BF5277AF24300AF7BB9 /* Protocol */,
-				60D95BF3277AF24300AF7BB9 /* PaylinkOpenMethodFlutterHandler.swift */,
-				60D95BF4277AF24300AF7BB9 /* PaylinkInitiateMethodFlutterHandler.swift */,
 				60D95BF7277AF24300AF7BB9 /* PaylinkConfigureMethodFlutterHandler.swift */,
+				60D95BF4277AF24300AF7BB9 /* PaylinkInitiateMethodFlutterHandler.swift */,
+				60D95BF3277AF24300AF7BB9 /* PaylinkOpenMethodFlutterHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";

@@ -5,6 +5,8 @@
 //  Created by Berk Akkerman on 28.12.2021.
 //
 
+import Flutter
+
 class PaylinkInitiateMethodFlutterHandler: PaylinkFlutterMethodHandler {
     
     func handle(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
