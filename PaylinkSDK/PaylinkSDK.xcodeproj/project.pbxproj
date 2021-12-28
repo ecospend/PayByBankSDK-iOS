@@ -53,6 +53,12 @@
 /* Begin PBXFileReference section */
 		604EED6627746C320005D094 /* PaylinkReactModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaylinkReactModule.m; sourceTree = "<group>"; };
 		604EED6827746C5A0005D094 /* PaylinkReactModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkReactModule.swift; sourceTree = "<group>"; };
+		60D95BF3277AF24300AF7BB9 /* PaylinkOpenMethodFlutterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkOpenMethodFlutterHandler.swift; sourceTree = "<group>"; };
+		60D95BF4277AF24300AF7BB9 /* PaylinkInitiateMethodFlutterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkInitiateMethodFlutterHandler.swift; sourceTree = "<group>"; };
+		60D95BF6277AF24300AF7BB9 /* PaylinkFlutterMethodHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkFlutterMethodHandler.swift; sourceTree = "<group>"; };
+		60D95BF7277AF24300AF7BB9 /* PaylinkConfigureMethodFlutterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkConfigureMethodFlutterHandler.swift; sourceTree = "<group>"; };
+		60D95BF8277AF24300AF7BB9 /* PaylinkFlutterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkFlutterMethod.swift; sourceTree = "<group>"; };
+		60D95BF9277AF24400AF7BB9 /* PaylinkFlutterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkFlutterModule.swift; sourceTree = "<group>"; };
 		60E67A3027676AF70032A5C3 /* PaylinkSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaylinkSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E67A3A27676AF70032A5C3 /* PaylinkSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaylinkSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6460C1C2779E05200109908 /* WebViewSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewSceneModel.swift; sourceTree = "<group>"; };
@@ -131,13 +137,43 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		60843FE52779AAD8000D5793 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				60D95BF2277AF24300AF7BB9 /* Handler */,
+				60D95BF8277AF24300AF7BB9 /* PaylinkFlutterMethod.swift */,
+				60D95BF9277AF24400AF7BB9 /* PaylinkFlutterModule.swift */,
+			);
+			path = Flutter;
+			sourceTree = "<group>";
+		};
 		608F5CB12768C59D0053F379 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				604EED74277485320005D094 /* Core */,
+				60843FE52779AAD8000D5793 /* Flutter */,
 				604EED6527746BEF0005D094 /* React */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		60D95BF2277AF24300AF7BB9 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				60D95BF5277AF24300AF7BB9 /* Protocol */,
+				60D95BF7277AF24300AF7BB9 /* PaylinkConfigureMethodFlutterHandler.swift */,
+				60D95BF4277AF24300AF7BB9 /* PaylinkInitiateMethodFlutterHandler.swift */,
+				60D95BF3277AF24300AF7BB9 /* PaylinkOpenMethodFlutterHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		60D95BF5277AF24300AF7BB9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				60D95BF6277AF24300AF7BB9 /* PaylinkFlutterMethodHandler.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		60E67A2627676AF70032A5C3 = {
