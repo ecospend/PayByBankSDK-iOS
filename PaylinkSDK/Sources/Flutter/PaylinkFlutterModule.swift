@@ -28,6 +28,11 @@ public class PaylinkFlutterModule {
     }
     
     public func start() {
+       
+        handleMethods()
+    }
+    
+    private func handleMethods() {
         channel.setMethodCallHandler { (methodCall: FlutterMethodCall, result: @escaping FlutterResult) in
             guard let method = PaylinkFlutterMethod(rawValue: methodCall.method) else {
                 print("Unknown method invoked")

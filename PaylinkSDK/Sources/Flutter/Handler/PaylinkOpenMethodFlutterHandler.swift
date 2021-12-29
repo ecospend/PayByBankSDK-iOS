@@ -15,7 +15,7 @@ extension PaylinkOpenMethodFlutterHandler {
     public func open(uid: String, flutterResult: @escaping FlutterResult) {
         guard let rootViewController = PaylinkFlutterModule.rootViewController else { return }
         
-        PaylinkSDK.shared.open(uid: uid, viewController: rootViewController) { result in
+        PaylinkSDK.shared.open(paylinkID: uid, viewController: rootViewController) { result in
             switch result {
             case .success(let model):
                 flutterResult(model)

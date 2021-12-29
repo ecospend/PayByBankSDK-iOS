@@ -50,7 +50,7 @@ extension PaylinkInitiateMethodFlutterHandler {
         PaylinkSDK.shared.initiate(request: request, viewController: rootViewController) { result in
             switch result {
             case .success(let model):
-                flutterResult(model)
+                flutterResult(model.last.dictionary)
             case .failure(let error):
                 flutterResult(error)
             }
