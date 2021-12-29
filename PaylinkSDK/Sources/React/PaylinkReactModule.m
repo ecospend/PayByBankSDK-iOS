@@ -10,10 +10,10 @@
 @interface RCT_EXTERN_MODULE(PaylinkReactModule, NSObject)
 RCT_EXTERN_METHOD(configure:(NSString *) clientId
                   clientSecret:(NSString *) clientSecret)
-////////// EXAMPLES //////////
-RCT_EXTERN_METHOD(authenticate:(NSString *) name
+RCT_EXTERN_METHOD(initiate:(NSDictionary *)request
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
-RCT_EXTERN_METHOD(beep)
-RCT_EXTERN_METHOD(openNativeVC)
+RCT_EXTERN_METHOD(open:(NSString *) uid
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 @end

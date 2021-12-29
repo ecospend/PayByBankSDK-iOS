@@ -13,40 +13,82 @@ import UIKit
 @objc(PaylinkReactModule)
 class PaylinkReactModule: NSObject {
     
+    static var rootViewController: UIViewController? {
+        guard let controller = UIApplication.shared.windows.first?.rootViewController else { return nil }
+        return controller
+    }
+    
     @objc(configure:clientSecret:)
     func configure(_ clientID: String, clientSecret: String) {
-        PaylinkSDK.shared.configure(clientID: clientID, clientSecret: clientSecret)
+        PaylinkSDK.shared.configure(.sandbox, clientID: clientID, clientSecret: clientSecret)
     }
-}
-
-// TODO: - Example(Delete this extension)
-extension PaylinkReactModule {
     
-    @objc(authenticate:resolver:rejecter:)
-    func authenticate(_ name:  String,
-                      resolver resolve: RCTPromiseResolveBlock,
-                      rejecter reject:RCTPromiseRejectBlock) -> Void {
+    @objc(initiate:resolver:rejecter:)
+    public func initiate(_ arguments: [String: Any],
+                         resolver resolve: @escaping RCTPromiseResolveBlock,
+                         rejecter reject: @escaping RCTPromiseRejectBlock) {
         
-        if name.contains("a") {
-            resolve(true)
-        } else {
-            reject("401",
-                   "Authentication Failed",
-                   NSError(domain: "Authentication", code: 401, userInfo: ["code": "401", "domain": "ExamplePromise"]))
-        }
-    }
-    
-    @objc func openNativeVC() {
         DispatchQueue.main.async {
-            guard let viewController = UIApplication.shared.windows.first?.rootViewController else { return }
-            let vc = UIViewController()
-            vc.view.backgroundColor = .red
-            let nc = UINavigationController(rootViewController: vc)
-            viewController.present(nc, animated: true, completion: nil)
+            guard let rootViewController = PaylinkReactModule.rootViewController else { return }
+            
+            guard let redirectUrlString = arguments["redirect_url"] as? String,
+                  let redirectURL = URL(string: redirectUrlString),
+                  let amount = arguments["amount"] as? Double,
+                  let reference = arguments["reference"] as? String,
+                  let description = arguments["description"] as? String,
+                  let creditorAccountDict = arguments["creditor_account"] as? [String: Any],
+                  let creditorAccountTypeString = creditorAccountDict["type"] as? String,
+                  let creditorAccountType = PaylinkAccountType(rawValue: creditorAccountTypeString),
+                  let creditorIdentification = creditorAccountDict["identification"] as? String,
+                  let creditorName = creditorAccountDict["name"] as? String,
+                  let currencyString = creditorAccountDict["currency"] as? String,
+                  let currency = PaylinkCurrency(rawValue: currencyString)
+            else { return }
+            
+            let request = PaylinkCreateRequest(
+                redirectURL: redirectURL.absoluteString,
+                amount: Decimal(amount),
+                reference: reference,
+                description: description,
+                creditorAccount: PaylinkAccount(
+                    type: creditorAccountType,
+                    identification: creditorIdentification,
+                    name: creditorName,
+                    currency: currency
+                )
+            )
+            
+            PaylinkSDK.shared.initiate(request: request, viewController: rootViewController) { result in
+                switch result {
+                case .success(let model):
+                    resolve(model)
+                case .failure(let error):
+                    reject("0",
+                           error.localizedDescription,
+                           NSError(domain: "PaylinkSDK", code: 0, userInfo: ["code": "0", "domain": "PaylinkSDK"]))
+                }
+            }
         }
     }
     
-    @objc func beep() {
-        AudioServicesPlaySystemSound(1052)
+    @objc(open:resolver:rejecter:)
+    public func open(_ uid: String,
+                     resolver resolve: @escaping RCTPromiseResolveBlock,
+                     rejecter reject: @escaping RCTPromiseRejectBlock) {
+        DispatchQueue.main.async {
+            guard let rootViewController = PaylinkReactModule.rootViewController else { return }
+            
+            PaylinkSDK.shared.open(paylinkID: uid, viewController: rootViewController) { result in
+                switch result {
+                case .success(let model):
+                    resolve(model)
+                case .failure(let error):
+                    reject("0",
+                           error.localizedDescription,
+                           NSError(domain: "PaylinkSDK", code: 0, userInfo: ["code": "0", "domain": "PaylinkSDK"]))
+                }
+            }
+            
+        }
     }
 }
