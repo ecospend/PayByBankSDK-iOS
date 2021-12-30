@@ -8,9 +8,13 @@
 import Foundation
 
 public enum PaylinkError: Error {
+    /// Unknown error.
     case unknown(Error? = nil)
+    /// Wrong `clientID` or `clientSecret`.
     case notConfigured
+    /// Wrong Paylink.
     case wrongPaylink
+    /// Network Error.
     case network(NetworkError)
     
     init(error: Error) {
@@ -28,7 +32,7 @@ public enum PaylinkError: Error {
             guard let error = error else {
                 return message
             }
-            return "\(message) (\(error)"
+            return "\(message) (\(error))"
         case .notConfigured:
             return "Wrong `clientID` or `clientSecret`."
         case .wrongPaylink:

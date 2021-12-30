@@ -9,9 +9,14 @@ import Foundation
 
 // MARK: - PaylinkResult
 public struct PaylinkResult: Codable {
+    /// Unique id value of paylink.
     public let paylinkID: String
+    /// Paylink URL.
     public let paylinkURL: URL
+    /// Payments of paylink.
     public let payments: [PaylinkPaymentGetResponse]
+    /// Status of paylink.
+    /// - Enum: "Deleted"  "Initiated" "Completed"
     public let status: PaylinkStatus
 }
 
