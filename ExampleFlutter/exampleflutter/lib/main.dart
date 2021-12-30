@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:convert';
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -138,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.indigo,
                 textColor: Colors.white,
                 onPressed: () {
-                  initiate();
+                  initiate(context);
                 })
                 ), 
           ]
@@ -162,8 +164,9 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  void initiate() async {
-    Map<String, dynamic> value;   
+  void initiate(BuildContext context) async {
+
+    Object? resultObject;
 
     Map<String, dynamic> arguments = {
       "amount" :  double.tryParse(amountController.text) ?? 0,
@@ -179,11 +182,50 @@ class _MyHomePageState extends State<MyHomePage> {
     }; 
 
     try {
-      value = await platform.invokeMethod("initiate", arguments);
-      // FIXME: value = Null
-      print(value);
+      resultObject = await platform.invokeMethod("initiate", arguments);  
+      var result = PaymentResult(resultObject);
+      showAlertDialog(context, result.status);
+
     } catch(e) {
       print("error" + e.toString());
     }
+  }
+}
+
+void showAlertDialog(BuildContext context, String? result) {
+
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text("OK"),
+    onPressed: () { 
+      Navigator.of(context).pop();
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Payment Result"),
+    content: Text(result ?? "Unknown"),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+class PaymentResult {
+  
+  String? status;
+  
+  PaymentResult(Object? object) {
+      Map<String, dynamic> map = jsonDecode(json.encode(object)); 
+      this.status = map['status'];
   }
 }
