@@ -68,12 +68,21 @@ class MainVC: UIViewController {
     @IBAction func payButtomTapped(_ sender: Any) {
         guard let request = request else { return }
         showActivityIndicator()
-        PaylinkSDK.shared.initiate(request: request, viewController: self) { result in
+        PaylinkSDK.shared.initiate(request: request, viewController: self) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let response):
                 print(response)
+                
+                switch response.status {
+                case .initiated: self.showToast(message: "Paylink was initiated")
+                case .completed: self.showToast(message: "Paylink was completed")
+                case .deleted: self.showToast(message: "Paylink was deleted")
+                }
             case .failure(let error):
-                print("\(error.localizedDescription)")
+                print(error)
+                self.showToast(message: "Error: \(error.localizedDescription)")
             }
             self.hideActivityIndicator()
         }
@@ -105,6 +114,29 @@ extension MainVC {
                 currency: creditorAccountCurrency
             )
         )
+    }
+}
+
+// MARK: - Toast
+extension MainVC {
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: 100, width: 200, height: 50))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 25;
+        toastLabel.clipsToBounds = true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
 
