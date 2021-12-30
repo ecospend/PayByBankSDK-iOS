@@ -157,16 +157,16 @@ private extension Networking {
                 return .failure(NetworkError.noData)
             }
         case 400...499:
-            return .failure(NetworkError.badRequest(apiError(data)?.localizedDescription ?? error?.localizedDescription))
+            return .failure(NetworkError.badRequest(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         case 500...599:
-            return .failure(NetworkError.serverError(apiError(data)?.localizedDescription ?? error?.localizedDescription))
+            return .failure(NetworkError.serverError(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         default:
-            return .failure(NetworkError.unknown)
+            return .failure(NetworkError.unknown(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         }
     }
     
-    private func apiError(_ data: Any?) -> ApiErrorResponse? {
+    private func repositoryError(_ data: Any?) -> RepositoryErrorResponse? {
         guard let data = data as? Data else { return nil }
-        return try? JSONDecoder().decode(ApiErrorResponse.self, from: data)
+        return try? JSONDecoder().decode(RepositoryErrorResponse.self, from: data)
     }
 }

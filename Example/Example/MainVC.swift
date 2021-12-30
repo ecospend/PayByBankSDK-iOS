@@ -73,7 +73,7 @@ class MainVC: UIViewController {
             case .success(let response):
                 print(response)
             case .failure(let error):
-                print(error)
+                print("\(error.localizedDescription)")
             }
             self.hideActivityIndicator()
         }

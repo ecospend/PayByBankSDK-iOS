@@ -36,7 +36,7 @@ extension PaylinkEnvironment: PaylinkEnvironmentProtocol {
     
     var paylinkURL: String {
         switch self {
-        case .production: return "https://paylinkv2.ecospend.com"
+        case .production: return "https://paylinkv2.sb.ecospend.com"
         case .sandbox: return "https://paylinkweb-sandbox.ecospend.com"
         }
     }

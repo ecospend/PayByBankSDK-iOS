@@ -23,18 +23,18 @@ public final class PaylinkSDK {
 // MARK: - API
 public extension PaylinkSDK {
     
-    func configure(_ environment: PaylinkEnvironment, clientID: String, clientSecret: String) {
+    func configure(environment: PaylinkEnvironment, clientID: String, clientSecret: String) {
         PaylinkState.Config.environment = environment
         PaylinkState.Config.clientID = clientID
         PaylinkState.Config.clientSecret = clientSecret
     }
     
-    func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void) {
+    func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         
         let dispatchBackgroundQueue = DispatchQueue.global()
         let dispatchGroup = DispatchGroup()
         
-        let complete: (Result<[PaylinkPaymentGetResponse], Error>) -> Void = { result in
+        let complete: (Result<PaylinkResult, PaylinkError>) -> Void = { result in
             DispatchQueue.main.async {
                 completion(result)
             }
@@ -42,22 +42,22 @@ public extension PaylinkSDK {
         
         dispatchBackgroundQueue.async(group: dispatchGroup) { [weak self] in
             guard let self = self else {
-                return complete(.failure(NetworkError.unknown))
+                return complete(.failure(PaylinkError.unknown(nil)))
             }
             
             if case .failure(let error) = self.getToken(inGroup: dispatchGroup) {
-                return complete(.failure(error))
+                return complete(.failure(PaylinkError(error: error)))
             }
             
             guard let paylinkURL = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(paylinkID)") else {
-                return complete(.failure(NetworkError.unknown))
+                return complete(.failure(PaylinkError.wrongPaylink))
             }
             
             let request = PaylinkGetRequest(paylinkID: paylinkID)
             let result = self.getPaylink(inGroup: dispatchGroup, request: request)
             
             if case .failure(let error) = result {
-                return complete(.failure(error))
+                return complete(.failure(PaylinkError(error: error)))
             }
             
             if case .success(let paylink) = result,
@@ -66,7 +66,7 @@ public extension PaylinkSDK {
                     let model = WebViewSceneModel(paylinkID: paylinkID,
                                                   paylinkURL: paylinkURL,
                                                   paylinkRedirectURL: redirectURL,
-                                                  paymentsCompletionHandler: completion)
+                                                  completionHandler: completion)
                     let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
                     let nc = UINavigationController(rootViewController: vc)
                     viewController.present(nc, animated: true)
@@ -75,12 +75,12 @@ public extension PaylinkSDK {
         }
     }
     
-    func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void) {
+    func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         
         let dispatchBackgroundQueue = DispatchQueue.global()
         let dispatchGroup = DispatchGroup()
         
-        let complete: (Result<[PaylinkPaymentGetResponse], Error>) -> Void = { result in
+        let complete: (Result<PaylinkResult, PaylinkError>) -> Void = { result in
             DispatchQueue.main.async {
                 completion(result)
             }
@@ -88,30 +88,30 @@ public extension PaylinkSDK {
         
         dispatchBackgroundQueue.async { [weak self] in
             guard let self = self else {
-                return complete(.failure(NetworkError.unknown))
+                return complete(.failure(PaylinkError.unknown(nil)))
             }
             
             if case .failure(let error) = self.getToken(inGroup: dispatchGroup) {
-                return complete(.failure(error))
+                return complete(.failure(PaylinkError(error: error)))
             }
             
             let createResult = self.createPaylink(inGroup: dispatchGroup, request: request)
             
             if case .failure(let error) = createResult {
-                return complete(.failure(error))
+                return complete(.failure(PaylinkError(error: error)))
             }
             
             guard case .success(let createResponse) = createResult,
                   let paylinkID = createResponse.uniqueID,
                   let paylinkURL = URL(string: createResponse.paylinkURL ?? "") else {
-                      return complete(.failure(NetworkError.unknown))
+                      return complete(.failure(PaylinkError.wrongPaylink))
                   }
             
             let request = PaylinkGetRequest(paylinkID: paylinkID)
             let result = self.getPaylink(inGroup: dispatchGroup, request: request)
             
             if case .failure(let error) = result {
-                return complete(.failure(error))
+                return complete(.failure(PaylinkError(error: error)))
             }
             
             if case .success(let paylink) = result,
@@ -120,7 +120,7 @@ public extension PaylinkSDK {
                     let model = WebViewSceneModel(paylinkID: paylinkID,
                                                   paylinkURL: paylinkURL,
                                                   paylinkRedirectURL: redirectURL,
-                                                  paymentsCompletionHandler: completion)
+                                                  completionHandler: completion)
                     let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
                     let nc = UINavigationController(rootViewController: vc)
                     viewController.present(nc, animated: true)
@@ -170,7 +170,7 @@ private extension PaylinkSDK {
     func getToken(inGroup group: DispatchGroup) -> Result<IamTokenResponse, Error> {
         guard let clientID = PaylinkState.Config.clientID,
               let clietSecret = PaylinkState.Config.clientSecret else {
-                  return .failure(NetworkError.unknown)
+                  return .failure(PaylinkError.notConfigured)
               }
         
         let request = IamTokenRequest(clientID: clientID, clientSecret: clietSecret)

@@ -11,5 +11,5 @@ struct WebViewSceneModel {
     let paylinkID: String
     let paylinkURL: URL
     let paylinkRedirectURL: URL
-    let paymentsCompletionHandler: (Result<[PaylinkPaymentGetResponse], Error>) -> Void
+    let completionHandler: (Result<PaylinkResult, PaylinkError>) -> Void
 }

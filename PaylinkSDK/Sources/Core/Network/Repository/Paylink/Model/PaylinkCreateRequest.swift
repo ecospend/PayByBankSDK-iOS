@@ -17,7 +17,7 @@ public struct PaylinkCreateRequest: Codable {
     /// Payment amount in decimal format.
     public let amount: Decimal
     
-    // Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    /// Payment reference that will be displayed on the bank statement. 18 characters MAX.
     public let reference: String
     
     /// Description for the payment. 255 character MAX.
@@ -36,10 +36,10 @@ public struct PaylinkCreateRequest: Codable {
     /// If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
     public let merchantUserID: String?
     
-    /// The Creditor Account model
+    /// It is the account that will receive the payment.
     public let creditorAccount: PaylinkAccount
     
-    /// The Debtor Account model
+    /// It is the account from which the payment will be taken.
     public let debtorAccount: PaylinkAccount?
     
     /// The Paylink Options model
@@ -48,12 +48,26 @@ public struct PaylinkCreateRequest: Codable {
     /// The Notification Options model
     public let notificationOptions: PaylinkNotificationOptions?
     
-    /// The PaymentOptions model
+    /// The Payment Options model
     public let paymentOptions: PaylinkPaymentOptions?
     
-    /// The LimitOptions model
+    /// The Limit Options model
     public let limitOptions: PaylinkLimitOptions?
     
+    /// - Parameters:
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the paylink journey. This URL must be registered by your Admin on the Ecospend Management Console, prior to being used in the API calls.
+    ///     - amount: Payment amount in decimal format.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - bankID: Unique identification string assigned to the bank by our system. If value is set, Paylink will not display any UI and execute an instant redirect to the debtor's banking system. If value is not set, Paylink will display the PSU a bank selection screen.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user. If you are providing this service directly to the end-users, then you can assign that Id to this parameter. If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
+    ///     - creditorAccount: It is the account that will receive the payment.
+    ///     - debtorAccount: It is the account from which the payment will be taken.
+    ///     - paylinkOptions: The Paylink Options model
+    ///     - notificationOptions: The Notification Options model
+    ///     - paymentOptions: The Payment Options model
+    ///     - limitOptions: The Limit Options model
     public init(redirectURL: String,
                 amount: Decimal,
                 reference: String,
@@ -115,6 +129,11 @@ public struct PaylinkAccount: Codable {
     /// - Enum: "GBP" "USD" "EUR"
     public let currency: PaylinkCurrency
     
+    ///  - Parameters:
+    ///     - type: Enum: "SortCode" "Iban" "Bban"
+    ///     - identification: Account identification. The value of this parameter depends on the value of AccountType. If type = “SortCode” then a 6-digit SortCode appended with a 8-digit Account Number merged into a 14-digit value, with no dashes in between. For type = “IBAN” the IBAN of the account (compliant with [ISO 13616-1](https://en.wikipedia.org/wiki/International_Bank_Account_Number#Structure)) and for type = “BNAN” the BBAN of the account must be set.
+    ///     - name: Full legal name of the account owner.
+    ///     - currency: Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format. - Enum: "GBP" "USD" "EUR"
     public init(type: PaylinkAccountType,
                 identification: String,
                 name: String,
@@ -152,6 +171,10 @@ public struct PaylinkLimitOptions: Codable {
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: String?
     
+    /// - Parameters:
+    ///     - count: Maximum successfull payment count limit.
+    ///     - amount: Maximum amount value for collecting payment with the paylink.
+    ///     - date: Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public init(count: Int?,
                 amount: Decimal?,
                 date: String?) {
@@ -180,6 +203,11 @@ public struct PaylinkNotificationOptions: Codable {
     /// - Warning: This field is **mandatory** if `sendSMSNotification` is true.
     public let phoneNumber: String?
     
+    /// - Parameters:
+    ///     - sendEmailNotification: Optional parameter for Gateway to send an email notification to the PSU with the Paylink URL. Defaults to false.
+    ///     - email: The email address that the email notification will be sent to. This field is **mandatory** if `sendEmailNotification` is true.
+    ///     - sendSMSNotification: Optional parameter for Gateway to send an SMS notification to the PSU with the Paylink URL. Defaults to false.
+    ///     - phoneNumber: The phone number (including the country dial-in code) that the SMS notification will be sent to. This field is **mandatory** if `sendSMSNotification` is true.
     public init(sendEmailNotification: Bool?,
                 email: String?,
                 sendSMSNotification: Bool?,
@@ -220,6 +248,12 @@ public struct PaylinkOptions: Codable {
     /// The Tip object model
     public let tip: PaylinkTip?
     
+    /// - Parameters:
+    ///     - autoRedirect: After the payment directly returns to the tenant's url if set to true. Defaults to false.
+    ///     - generateQrCode: Optional parameter for getting a QRCode image in Base64 format with the response. Defaults to false.
+    ///     - allowPartialPayments: Optional parameter for allowing user to pay total amount partially. When this value is set, paylink will be expired total amount is comppublic leted. Defaults to false.
+    ///     - disableQrCode: Optional parameter for displaying a QR Code on the paylink screens, that enables users to transfer their journey from desktop to mobile easily. This feature is only visible on desktop view.
+    ///     - tip: The Tip object model
     public init(autoRedirect: Bool?,
                 generateQrCode: Bool?,
                 allowPartialPayments: Bool?,
@@ -260,6 +294,12 @@ public struct PaylinkTip: Codable {
     /// The tip options that will be listed on the Tip Request Page.
     public let options: [PaylinkTipOption]?
     
+    /// - Parameters:
+    ///     - requestTip: Denotes whether tip requested from payer.
+    ///     - title: The Title of the Tip Request Page.
+    ///     - text: The informative text on the Tip Request Page.
+    ///     - isRequired: Tip can be configured as required. In this case the payer will be forced to select or enter tip amount.
+    ///     - options: The tip options that will be listed on the Tip Request Page.
     public init(requestTip: Bool?,
                 title: String?,
                 text: String?,
@@ -291,6 +331,9 @@ public struct PaylinkTipOption: Codable {
     /// - Can be left empy or set to zero(0) if type is manual.
     public let value: Double
     
+    /// - Parameters:
+    ///     - type: Tip options type. Enum: "Amount" "Percentage" "Manual"
+    ///     - value: Tip options value. Can be left empy or set to zero(0) if type is manual.
     public init(type: PaylinkTipOptionType,
                 value: Double) {
         self.type = type
@@ -319,6 +362,10 @@ public struct PaylinkPaymentOptions: Codable {
     /// - Default is false.
     public let forPayout: Bool?
     
+    /// - Parameters:
+    ///     - paymentRails: Payment rails information of the paylink.
+    ///     - getRefundInfo: Set true, if you would like to get back the debtor's account information that the payment is made from. Defaults to true.
+    ///     - forPayout: Specifies that the payment is for payout operation. Default is false.
     public init(paymentRails: String?,
                 getRefundInfo: Bool?,
                 forPayout: Bool?) {
