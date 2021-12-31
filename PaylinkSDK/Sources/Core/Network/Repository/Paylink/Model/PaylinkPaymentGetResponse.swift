@@ -3,6 +3,7 @@
 //  PaylinkMobileSDK
 //
 //  Created by Yunus TÜR on 21.12.2021.
+//  Copyright © 2021 Ecospend. All rights reserved.
 //
 
 import Foundation

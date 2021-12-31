@@ -3,6 +3,7 @@
 //  Runner
 //
 //  Created by Berk Akkerman on 28.12.2021.
+//  Copyright © 2021 Ecospend. All rights reserved.
 //
 
 import Flutter
@@ -21,7 +22,7 @@ class PaylinkConfigureMethodFlutterHandler: PaylinkFlutterMethodHandler {
 extension PaylinkConfigureMethodFlutterHandler {
     
     public func configure(environment: PaylinkEnvironment = .sandbox, clientID: String, clientSecret: String, flutterResult: FlutterResult) {
-        PaylinkSDK.shared.configure(.sandbox, clientID: clientID, clientSecret: clientSecret)
+        PaylinkSDK.shared.configure(environment: .sandbox, clientID: clientID, clientSecret: clientSecret)
         flutterResult(())
     }
 }

@@ -3,6 +3,7 @@
 //  PaylinkSDK
 //
 //  Created by Berk Akkerman on 23.12.2021.
+//  Copyright © 2021 Ecospend. All rights reserved.
 //
 
 #import "RCTBridgeModule.h"

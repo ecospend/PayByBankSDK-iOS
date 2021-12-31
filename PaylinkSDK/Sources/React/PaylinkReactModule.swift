@@ -3,6 +3,7 @@
 //  PaylinkSDK
 //
 //  Created by Berk Akkerman on 23.12.2021.
+//  Copyright © 2021 Ecospend. All rights reserved.
 //
 
 import Foundation
@@ -20,7 +21,7 @@ class PaylinkReactModule: NSObject {
     
     @objc(configure:clientSecret:)
     func configure(_ clientID: String, clientSecret: String) {
-        PaylinkSDK.shared.configure(.sandbox, clientID: clientID, clientSecret: clientSecret)
+        PaylinkSDK.shared.configure(environment: .sandbox, clientID: clientID, clientSecret: clientSecret)
     }
     
     @objc(initiate:resolver:rejecter:)
