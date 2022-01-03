@@ -12,7 +12,17 @@ import React
 import UIKit
 
 @objc(PaylinkReactModule)
-class PaylinkReactModule: NSObject {
+class PaylinkReactModule: RCTEventEmitter {
+    
+    enum Event: String, CaseIterable {
+        case initiate
+        case open
+    }
+    
+    // Returns an array of your named events
+    override func supportedEvents() -> [String]! {
+        return Event.allCases.map { $0.rawValue }
+    }
     
     static var rootViewController: UIViewController? {
         guard let controller = UIApplication.shared.windows.first?.rootViewController else { return nil }
@@ -24,13 +34,13 @@ class PaylinkReactModule: NSObject {
         PaylinkSDK.shared.configure(environment: .sandbox, clientID: clientID, clientSecret: clientSecret)
     }
     
-    @objc(initiate:resolver:rejecter:)
+    @objc(initiate:errorCallback:)
     public func initiate(_ arguments: [String: Any],
-                         resolver resolve: @escaping RCTPromiseResolveBlock,
-                         rejecter reject: @escaping RCTPromiseRejectBlock) {
+                         errorCallback: @escaping RCTResponseSenderBlock) {
         
         DispatchQueue.main.async {
             guard let rootViewController = PaylinkReactModule.rootViewController else { return }
+            let failure = { (error: Error) in errorCallback([error]) }
             
             guard let redirectUrlString = arguments["redirect_url"] as? String,
                   let redirectURL = URL(string: redirectUrlString),
@@ -62,31 +72,27 @@ class PaylinkReactModule: NSObject {
             PaylinkSDK.shared.initiate(request: request, viewController: rootViewController) { result in
                 switch result {
                 case .success(let model):
-                    resolve(model)
+                    self.sendEvent(withName: Event.initiate.rawValue, body: model.dictionary)
                 case .failure(let error):
-                    reject("0",
-                           error.localizedDescription,
-                           NSError(domain: "PaylinkSDK", code: 0, userInfo: ["code": "0", "domain": "PaylinkSDK"]))
+                    failure(error)
                 }
             }
         }
     }
     
-    @objc(open:resolver:rejecter:)
+    @objc(open:_:)
     public func open(_ uid: String,
-                     resolver resolve: @escaping RCTPromiseResolveBlock,
-                     rejecter reject: @escaping RCTPromiseRejectBlock) {
+                     _ errorCallback: @escaping RCTResponseSenderBlock) {
         DispatchQueue.main.async {
             guard let rootViewController = PaylinkReactModule.rootViewController else { return }
+            let failure = { (error: Error) in errorCallback([error]) }
             
             PaylinkSDK.shared.open(paylinkID: uid, viewController: rootViewController) { result in
                 switch result {
                 case .success(let model):
-                    resolve(model)
+                    self.sendEvent(withName: Event.open.rawValue, body: model.dictionary)
                 case .failure(let error):
-                    reject("0",
-                           error.localizedDescription,
-                           NSError(domain: "PaylinkSDK", code: 0, userInfo: ["code": "0", "domain": "PaylinkSDK"]))
+                    failure(error)
                 }
             }
             

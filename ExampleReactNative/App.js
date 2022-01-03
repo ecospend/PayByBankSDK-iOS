@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -17,7 +17,8 @@ import {
   useColorScheme,
   View,
   Pressable,
-  TextInput
+  TextInput,
+  Alert  
 } from 'react-native';
 
 import {
@@ -25,7 +26,7 @@ import {
   Header
 } from 'react-native/Libraries/NewAppScreen';
 
-import { NativeModules } from 'react-native';
+import { NativeModules, NativeEventEmitter } from 'react-native';
 const { PaylinkReactModule } = NativeModules;
 
 const Section = ({children, title}): Node => {
@@ -44,10 +45,11 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  // FIXME: Crashes after return from external browser on success
-  // maybe configure should be called from 'didFinishLaunchingWithOptions' 
-  // (clientID, clientSecret)
-  PaylinkReactModule.configure("910162c0-a0e6-40b8-b66d-f6a9d56bee0f", "c7667cce1d82212b39090e697e6cf1a300453d8af730ccce0878307b9fb43034");
+  const emitter = new NativeEventEmitter(PaylinkReactModule);
+
+  useEffect(() => {
+    PaylinkReactModule.configure("910162c0-a0e6-40b8-b66d-f6a9d56bee0f", "c7667cce1d82212b39090e697e6cf1a300453d8af730ccce0878307b9fb43034");
+  });
 
   const [redirectionURL, onRedirectURLChange] = React.useState("https://preprodenv.pengpay.io/paycompleted");
   const [amount, onAmountChange] = React.useState("11.3");
@@ -71,15 +73,26 @@ const App: () => Node = () => {
         "name" : name
       }
     }; 
-    console.log(request);
 
-    PaylinkReactModule.initiate(request)
-    .then((result)=> {
-      console.log(result);
-    }, e => {
-      console.log(e.error);
-    });
-  };
+    emitter.addListener(
+      'initiate',
+      result => {
+        showResultAlert(result.status);        
+      }
+    );
+
+    PaylinkReactModule.initiate(request, callback => {});
+  }
+
+  const showResultAlert = (message) => {
+    Alert.alert(
+      "Payment sResult",
+      message,
+      [       
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ]
+    );
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
