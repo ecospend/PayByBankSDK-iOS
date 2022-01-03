@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "PaylinkSDK",
+    name: "Paylink",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "PaylinkSDK",
-            targets: ["PaylinkSDK"]),
+            name: "Paylink",
+            targets: ["Paylink"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -19,8 +19,8 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "PaylinkSDK",
+            name: "Paylink",
             dependencies: [],
-            path: "PaylinkSDK/Sources/Core")
+            path: "Paylink/Sources/Core")
     ]
 )

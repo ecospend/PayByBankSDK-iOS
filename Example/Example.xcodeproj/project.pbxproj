@@ -187,10 +187,10 @@
 		608F5CB62768C8F50053F379 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60DB8F652774B5C300AE132E /* PaylinkSDK.framework */,
-				608F5CC22768C8F50053F379 /* Pods_Example.framework */,
-				608F5CC42768C8F50053F379 /* Pods_Example_ExampleUITests.framework */,
-				608F5CC62768C8F50053F379 /* Pods_ExampleTests.framework */,
+				60DB8F652774B5C300AE132E /* PaylinkSDK */,
+				608F5CC22768C8F50053F379 /* Pods-Example */,
+				608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */,
+				608F5CC62768C8F50053F379 /* Pods-ExampleTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 				605411C527676A2C0044D861 /* Sources */,
 				605411C627676A2C0044D861 /* Frameworks */,
 				605411C727676A2C0044D861 /* Resources */,
-				0DC43C908465FB2C07FF9037 /* [CP] Embed Pods Frameworks */,
+				A136495F9B30DC2EEEBA1D09 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,7 +289,7 @@
 				605411E527676A2D0044D861 /* Sources */,
 				605411E627676A2D0044D861 /* Frameworks */,
 				605411E727676A2D0044D861 /* Resources */,
-				3417EEECF9CED01D2CC424C3 /* [CP] Embed Pods Frameworks */,
+				A14715AAFECC064443275428 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -353,7 +353,7 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		608F5CC22768C8F50053F379 /* Pods_Example.framework */ = {
+		608F5CC22768C8F50053F379 /* Pods-Example */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			name = "Pods-Example";
@@ -361,7 +361,7 @@
 			remoteRef = 608F5CC12768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		608F5CC42768C8F50053F379 /* Pods_Example_ExampleUITests.framework */ = {
+		608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			name = "Pods-Example-ExampleUITests";
@@ -369,7 +369,7 @@
 			remoteRef = 608F5CC32768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		608F5CC62768C8F50053F379 /* Pods_ExampleTests.framework */ = {
+		608F5CC62768C8F50053F379 /* Pods-ExampleTests */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			name = "Pods-ExampleTests";
@@ -377,7 +377,7 @@
 			remoteRef = 608F5CC52768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		60DB8F652774B5C300AE132E /* PaylinkSDK.framework */ = {
+		60DB8F652774B5C300AE132E /* PaylinkSDK */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			name = PaylinkSDK;
@@ -437,40 +437,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0DC43C908465FB2C07FF9037 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3417EEECF9CED01D2CC424C3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		73339B4D4E60912E3DAECAA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -491,6 +457,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A136495F9B30DC2EEEBA1D09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A14715AAFECC064443275428 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE0738D3350D95CE6D4110C7 /* [CP] Check Pods Manifest.lock */ = {
