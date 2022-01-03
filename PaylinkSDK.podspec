@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   
   spec.subspec 'Core' do |core|
     core.source_files = '**/PaylinkSDK/Sources/Core/**/*.{swift,h,m}'
-    core.resources    = "**/PaylinkSDK/Sources/Core/Resources/*.xib"
+    core.resources    = '**/PaylinkSDK/Sources/Core/Resources/**/*.{xib,strings}'
   end
   
   spec.subspec 'React' do |rn|

@@ -15,9 +15,9 @@ public enum NetworkError: Error {
     /// The server response was invalid (unexpected format).
     case invalidResponse
     /// The request was rejected: 400-499
-    case badRequest(String?)
+    case badRequest(Int, String?)
     /// Encoutered a server error.
-    case serverError(String?)
+    case serverError(Int, String?)
     /// There was an error parsing the data.
     case parseError(String?)
     /// Unknown error.
@@ -26,33 +26,25 @@ public enum NetworkError: Error {
     public var localizedDescription: String {
         switch self {
         case .noData:
-            return "No data received from the server."
+            return PaylinkStrings.network_error_no_data.localized
         case .invalidResponse:
-            return "The server response was invalid (unexpected format)."
-        case .badRequest(let error):
-            let message = "The request was rejected: 400-499."
-            guard let error = error else {
-                return message
-            }
-            return "\(message) (\(error)"
-        case .serverError(let error):
-            let message = "Encoutered a server error."
-            guard let error = error else {
-                return message
-            }
-            return "\(message) (\(error)"
-        case .parseError(let error):
-            let message = "There was an error parsing the data."
-            guard let error = error else {
-                return message
-            }
-            return "\(message) (\(error)"
-        case .unknown(let error):
-            let message = "Unknown error."
-            guard let error = error else {
-                return message
-            }
-            return "\(message) (\(error)"
+            return PaylinkStrings.network_error_invalid_response.localized
+        case .badRequest(let status, let message):
+            let error = PaylinkStrings.network_error_bad_request(status).localized
+            guard let message = message else { return error }
+            return PaylinkStrings.detailed_error(error, message).localized
+        case .serverError(let status, let message):
+            let error = PaylinkStrings.network_error_server_error(status).localized
+            guard let message = message else { return error }
+            return PaylinkStrings.detailed_error(error, message).localized
+        case .parseError(let message):
+            let error = PaylinkStrings.network_error_parse_error.localized
+            guard let message = message else { return error }
+            return PaylinkStrings.detailed_error(error, message).localized
+        case .unknown(let message):
+            let error = PaylinkStrings.network_error_unknown.localized
+            guard let message = message else { return error }
+            return PaylinkStrings.detailed_error(error, message).localized
         }
     }
 }

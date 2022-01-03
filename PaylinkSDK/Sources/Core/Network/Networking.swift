@@ -47,7 +47,7 @@ class Networking: NetworkingProtocol {
     func execute<T: Decodable>(endpoint: EndpointProtocol, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionTask? {
         // Create a URL request.
         guard let urlRequest = endpoint.urlRequest else {
-            completion(.failure(NetworkError.badRequest("Invalid URL for: \(endpoint)")))
+            completion(.failure(NetworkError.badRequest(0, PaylinkStrings.network_error_invalid_url("\(endpoint)").localized)))
             return nil
         }
         // Create a URLSessionTask to execute the URLRequest.
@@ -158,9 +158,9 @@ private extension Networking {
                 return .failure(NetworkError.noData)
             }
         case 400...499:
-            return .failure(NetworkError.badRequest(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
+            return .failure(NetworkError.badRequest(urlResponse.statusCode,repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         case 500...599:
-            return .failure(NetworkError.serverError(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
+            return .failure(NetworkError.serverError(urlResponse.statusCode, repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         default:
             return .failure(NetworkError.unknown(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         }

@@ -10,7 +10,7 @@ import Foundation
 
 public enum PaylinkError: Error {
     /// Unknown error.
-    case unknown(Error? = nil)
+    case unknown(Error?)
     /// Wrong `clientID` or `clientSecret`.
     case notConfigured
     /// Wrong Paylink.
@@ -28,18 +28,16 @@ public enum PaylinkError: Error {
     
     public var localizedDescription: String {
         switch self {
-        case .unknown(let error):
-            let message = "Unknown error."
-            guard let error = error else {
-                return message
-            }
-            return "\(message) (\(error))"
+        case .unknown(let message):
+            let error = PaylinkStrings.paylink_error_unknown.localized
+            guard let message = message else { return error }
+            return PaylinkStrings.detailed_error(error, message.localizedDescription).localized
         case .notConfigured:
-            return "Wrong `clientID` or `clientSecret`."
+            return PaylinkStrings.paylink_error_not_configured.localized
         case .wrongPaylink:
-            return "Wrong Paylink."
+            return PaylinkStrings.paylink_error_wrong_paylink.localized
         case .network(let networkError):
-            return "Network Error: \(networkError.localizedDescription)"
+            return PaylinkStrings.paylink_error_network(networkError.localizedDescription).localized
         }
     }
 }

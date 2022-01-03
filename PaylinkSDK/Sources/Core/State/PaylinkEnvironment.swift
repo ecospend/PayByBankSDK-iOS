@@ -12,6 +12,7 @@ protocol PaylinkEnvironmentProtocol {
     var iamEndpointURL: String { get }
     var paylinkEndpointURL: String { get }
     var paylinkURL: String { get }
+    var localizableTableName: String { get }
 }
 
 public enum PaylinkEnvironment {
@@ -40,5 +41,9 @@ extension PaylinkEnvironment: PaylinkEnvironmentProtocol {
         case .production: return "https://paylinkv2.sb.ecospend.com"
         case .sandbox: return "https://paylinkweb-sandbox.ecospend.com"
         }
+    }
+    
+    var localizableTableName: String {
+        return "Paylink"
     }
 }
