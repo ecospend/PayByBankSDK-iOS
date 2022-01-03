@@ -6,7 +6,7 @@ target 'Example' do
   use_frameworks!
 
   # Pods for Example
-  pod 'PaylinkSDK/Core', :path => '../'
+  pod 'Paylink/Core', :path => '../'
 
   target 'ExampleTests' do
     inherit! :search_paths
@@ -17,4 +17,12 @@ target 'Example' do
     # Pods for testing
   end
 
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
 end

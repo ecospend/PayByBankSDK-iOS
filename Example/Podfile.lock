@@ -1,16 +1,16 @@
 PODS:
-  - PaylinkSDK/Core (1.0)
+  - Paylink/Core (1.0)
 
 DEPENDENCIES:
-  - PaylinkSDK/Core (from `../`)
+  - Paylink/Core (from `../`)
 
 EXTERNAL SOURCES:
-  PaylinkSDK:
+  Paylink:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PaylinkSDK: 1c7af7f724300867ab8880aee8c7430985d28e95
+  Paylink: 7b8c3ac70ca5b41df3dfca8043d06e834a378e1b
 
-PODFILE CHECKSUM: a7853b436974c71aa9c4a98b3908127c0ffa3adf
+PODFILE CHECKSUM: d96a22c7aa7315c69e99798d9952a6620c0224bf
 
 COCOAPODS: 1.11.2
