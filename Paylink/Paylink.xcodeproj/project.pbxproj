@@ -6,6 +6,20 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		60008B4027842BDB00F5D01A /* Universal-Paylink */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 60008B4127842BDB00F5D01A /* Build configuration list for PBXAggregateTarget "Universal-Paylink" */;
+			buildPhases = (
+				60008B4427842C0100F5D01A /* Universal Framework(iOS +  iOS simulator) */,
+			);
+			dependencies = (
+			);
+			name = "Universal-Paylink";
+			productName = "Universal-Paylink";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		60E67A3B27676AF70032A5C3 /* Paylink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* Paylink.framework */; };
 		D629E7A62782DBE2004B91C8 /* PaylinkStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E7A52782DBE2004B91C8 /* PaylinkStrings.swift */; };
@@ -409,6 +423,9 @@
 				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = Ecospend;
 				TargetAttributes = {
+					60008B4027842BDB00F5D01A = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					60E67A2F27676AF70032A5C3 = {
 						CreatedOnToolsVersion = 13.1;
 						LastSwiftMigration = 1320;
@@ -433,6 +450,7 @@
 			targets = (
 				60E67A2F27676AF70032A5C3 /* Paylink */,
 				60E67A3927676AF70032A5C3 /* PaylinkTests */,
+				60008B4027842BDB00F5D01A /* Universal-Paylink */,
 			);
 		};
 /* End PBXProject section */
@@ -454,6 +472,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60008B4427842C0100F5D01A /* Universal Framework(iOS +  iOS simulator) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Universal Framework(iOS +  iOS simulator)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\necho \"Universal(iOS + iOS Simulator) framework generation started\"\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\necho \"Output directory created at ${UNIVERSAL_OUTPUTFOLDER}\"\n\necho \"Step 1. Build Device version\"\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build -quiet\necho \"Step 1 completed\"\n\necho \"Step 2. Build simulator version\"\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" EXCLUDED_ARCHS=\"arm64\" clean build -quiet\necho \"Step 2 completed\"\n\necho \"Step 3. Copy the framework structure (from iphoneos build) to the universal folder\"\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\necho \"Step 3 completed\"\n\necho \"Step 4. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\"\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\necho \"Step 4 completed\"\n\necho \"Step 5. Merge device and simulator .swiftmodule files\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\necho \"Step 5 completed\"\n\necho \"Step 6. Create universal binary file using lipo and place the combined executable in the copied framework directory\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\necho \"Step 6 completed\"\n\ncd \"${PROJECT_DIR}\"\nmkdir -p build\n\necho \"Step 7. Convenience step to copy the framework to the project's directory\"\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}/build\"\necho \"Step 7 completed\"\n\necho \"Generation process completed successfully\"\necho \"Framework is ready at \"${UNIVERSAL_OUTPUTFOLDER}\"\"\n\nopen \"${UNIVERSAL_OUTPUTFOLDER}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60E67A2C27676AF70032A5C3 /* Sources */ = {
@@ -526,6 +565,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		60008B4227842BDB00F5D01A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS566YMMA9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		60008B4327842BDB00F5D01A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WS566YMMA9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		60E67A4227676AF70032A5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -760,6 +817,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		60008B4127842BDB00F5D01A /* Build configuration list for PBXAggregateTarget "Universal-Paylink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60008B4227842BDB00F5D01A /* Debug */,
+				60008B4327842BDB00F5D01A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		60E67A2A27676AF70032A5C3 /* Build configuration list for PBXProject "Paylink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

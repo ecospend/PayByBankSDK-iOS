@@ -26,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		60008B3B2784215700F5D01A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E9F69371A477DCE2FD4EF595B913D2D5;
+			remoteInfo = Paylink;
+		};
 		605411E027676A2D0044D861 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 605411C127676A2C0044D861 /* Project object */;
@@ -60,13 +67,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 630CABE8F692FCDBFD1B122A2D0CE388;
 			remoteInfo = "Pods-ExampleTests";
-		};
-		60DB8F642774B5C300AE132E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3043B2E39FA2C052B112FE964752679D;
-			remoteInfo = PaylinkSDK;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -187,10 +187,10 @@
 		608F5CB62768C8F50053F379 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60DB8F652774B5C300AE132E /* PaylinkSDK */,
-				608F5CC22768C8F50053F379 /* Pods-Example */,
-				608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */,
-				608F5CC62768C8F50053F379 /* Pods-ExampleTests */,
+				60008B3C2784215700F5D01A /* Paylink.framework */,
+				608F5CC22768C8F50053F379 /* Pods_Example.framework */,
+				608F5CC42768C8F50053F379 /* Pods_Example_ExampleUITests.framework */,
+				608F5CC62768C8F50053F379 /* Pods_ExampleTests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,36 +353,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		608F5CC22768C8F50053F379 /* Pods-Example */ = {
+		60008B3C2784215700F5D01A /* Paylink.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = "Pods-Example";
+			path = Paylink.framework;
+			remoteRef = 60008B3B2784215700F5D01A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		608F5CC22768C8F50053F379 /* Pods_Example.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
 			path = Pods_Example.framework;
 			remoteRef = 608F5CC12768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */ = {
+		608F5CC42768C8F50053F379 /* Pods_Example_ExampleUITests.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = "Pods-Example-ExampleUITests";
 			path = Pods_Example_ExampleUITests.framework;
 			remoteRef = 608F5CC32768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		608F5CC62768C8F50053F379 /* Pods-ExampleTests */ = {
+		608F5CC62768C8F50053F379 /* Pods_ExampleTests.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = "Pods-ExampleTests";
 			path = Pods_ExampleTests.framework;
 			remoteRef = 608F5CC52768C8F50053F379 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		60DB8F652774B5C300AE132E /* PaylinkSDK */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = PaylinkSDK;
-			path = PaylinkSDK.framework;
-			remoteRef = 60DB8F642774B5C300AE132E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
