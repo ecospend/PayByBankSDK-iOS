@@ -41,7 +41,16 @@ class TextField: UITextField {
     func setupTextField() {
         borderStyle = .none
         layer.cornerRadius = 8
-        backgroundColor = Color.mediterranean
-        textColor = .white
+        backgroundColor = .white
+        setShadow()
+    }
+    
+    private func setShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.1
+        clipsToBounds = true
+        layer.masksToBounds = false
     }
 }

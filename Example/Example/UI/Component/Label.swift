@@ -22,7 +22,7 @@ class Label: UILabel {
     }
 
     func setupLabel() {
-        textColor = Color.blueMartina
+        textColor = .systemIndigo
         font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
     }

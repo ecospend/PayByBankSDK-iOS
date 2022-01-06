@@ -8,6 +8,7 @@
 
 import UIKit
 import Paylink
+import AVFoundation
 
 class MainVC: UIViewController {
 
@@ -19,6 +20,8 @@ class MainVC: UIViewController {
     @IBOutlet weak var creditorAccountIdentificationTextField: UITextField!
     @IBOutlet weak var creditorAccountNameTextField: UITextField!
     @IBOutlet weak var creditorAccountCurrencyTextField: UITextField!
+    @IBOutlet weak var mainAreaStackView: UIStackView!
+    @IBOutlet weak var creditorAccountAreaStackView: UIStackView!
     
     lazy var loadingView: UIView = {
         let view = UIView()
@@ -44,7 +47,16 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        let inputAreas = [mainAreaStackView, creditorAccountAreaStackView]
+        
+        inputAreas.forEach { view in
+            view?.layer.cornerRadius = 8
+            view?.layer.borderWidth = 2
+            view?.layer.borderColor = UIColor.systemIndigo.cgColor
+            view?.clipsToBounds = true
+        }
+        
         redirectURLTextField.delegate = self
         amountTextField.delegate = self
         referenceTextField.delegate = self
@@ -64,9 +76,13 @@ class MainVC: UIViewController {
         creditorAccountCurrencyTextField.text = "GBP"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     // MARK: Action
-
-    @IBAction func payButtomTapped(_ sender: Any) {
+    @IBAction func payButtonTapped(_ sender: Any) {
         guard let request = request else { return }
         showActivityIndicator()
         Paylink.shared.initiate(request: request, viewController: self) { [weak self] result in
@@ -77,9 +93,9 @@ class MainVC: UIViewController {
                 print(response)
                 
                 switch response.status {
-                case .initiated: self.showToast(message: "Paylink was initiated")
-                case .completed: self.showToast(message: "Paylink was completed")
-                case .deleted: self.showToast(message: "Paylink was deleted")
+                case .initiated: self.showToast(message: "Paylink initiated")
+                case .completed: self.showToast(message: "Paylink completed")
+                case .deleted: self.showToast(message: "Paylink deleted")
                 }
             case .failure(let error):
                 print(error)
@@ -122,9 +138,8 @@ extension MainVC {
 extension MainVC {
     
     func showToast(message : String) {
-        
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: 100, width: 200, height: 50))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         toastLabel.textAlignment = .center;
@@ -133,6 +148,7 @@ extension MainVC {
         toastLabel.layer.cornerRadius = 25;
         toastLabel.clipsToBounds = true
         self.view.addSubview(toastLabel)
+        speak(with: message)
         UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
@@ -164,5 +180,17 @@ extension MainVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - Speak
+extension MainVC {
+    
+    func speak(with text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        utterance.rate = 0.5
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
     }
 }

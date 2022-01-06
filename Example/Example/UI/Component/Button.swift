@@ -15,22 +15,19 @@ class Button: UIButton {
         setupButton()
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }
     
-    
     func setupButton() {
         isExclusiveTouch = true
         setShadow()
         setTitleColor(.white, for: .normal)
-        backgroundColor = Color.blue
+        backgroundColor = .systemIndigo
         titleLabel?.font = Font.primary
         layer.cornerRadius = frame.height / 2
     }
-    
     
     private func setShadow() {
         layer.shadowColor = UIColor.black.cgColor
