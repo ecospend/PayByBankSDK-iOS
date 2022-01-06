@@ -1,25 +1,25 @@
 PODS:
   - Flutter (2.5)
-  - PaylinkSDK/Core (1.0)
-  - PaylinkSDK/Flutter (1.0):
+  - Paylink/Core (1.0)
+  - Paylink/Flutter (1.0):
     - Flutter
-    - PaylinkSDK/Core
+    - Paylink/Core
 
 DEPENDENCIES:
-  - PaylinkSDK/Flutter (from `../../../`)
+  - Paylink/Flutter (from `../../../`)
 
 SPEC REPOS:
   trunk:
     - Flutter
 
 EXTERNAL SOURCES:
-  PaylinkSDK:
+  Paylink:
     :path: "../../../"
 
 SPEC CHECKSUMS:
   Flutter: 4e094eefe76d76f60537272587a6eb1abcf12d09
-  PaylinkSDK: 12de7fc9241ad7aaf67af8c69b79f8b6d5a58a51
+  Paylink: e7d31d03ee95da787e65a075f35cede57a4fefcc
 
-PODFILE CHECKSUM: 812feb6772455f7a5769ff035e80ad41d4c79a15
+PODFILE CHECKSUM: b3eb33fefeeb48017525c483adcaf80efeff809c
 
 COCOAPODS: 1.10.1

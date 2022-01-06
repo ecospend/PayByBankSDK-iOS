@@ -6,7 +6,7 @@ platform :ios, '11.0'
 target 'ExampleReactNative' do
   config = use_native_modules!
   
-  pod 'PaylinkSDK/React', :path => '../../'
+  pod 'Paylink/React', :path => '../../'
 
   use_react_native!(
     :path => config[:reactNativePath],

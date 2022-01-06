@@ -6,5 +6,5 @@ target 'Runner' do
   use_frameworks!
 
   # Pods for Runner
-  pod 'PaylinkSDK/Flutter', :path => '../../../'
+  pod 'Paylink/Flutter', :path => '../../../'
 end
