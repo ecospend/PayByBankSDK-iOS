@@ -9,7 +9,8 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '10.3'
   spec.requires_arc          = true
   spec.swift_version         = '5.0'
-  spec.pod_target_xcconfig   = {'ENABLE_BITCODE' => 'NO'}
+  spec.pod_target_xcconfig   = {'ENABLE_BITCODE' => 'YES'}
+  spec.default_subspec       = 'Core'
   
   spec.subspec 'Core' do |core|
     core.source_files = '**/Paylink/Sources/Core/**/*.{swift,h,m}'
@@ -27,5 +28,5 @@ Pod::Spec.new do |spec|
     fl.dependency 'Flutter'
     fl.dependency 'Paylink/Core'
   end
-
+  
 end
