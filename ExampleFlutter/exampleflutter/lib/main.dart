@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+import 'dart:async';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  static const platform = const MethodChannel("paylink/flutter");
+  static const MethodChannel platform = const MethodChannel("paylink/flutter");
+  static const EventChannel paymentInitiateEventChannel = EventChannel('paylink/initiateEvent');
 
   final redirectURLController = TextEditingController();
   final amountController = TextEditingController();
@@ -47,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
    @override
   void initState() {
     super.initState();
+    paymentInitiateEventChannel.receiveBroadcastStream().listen(_onEvent, onError: _onError);
     redirectURLController.text = "https://preprodenv.pengpay.io/paycompleted";
     amountController.text = "11.3";
     referenceController.text = "Sample Reference";
@@ -57,9 +60,21 @@ class _MyHomePageState extends State<MyHomePage> {
     currencyController.text = "GBP";
   }
 
+  void _onEvent(Object? event) {
+      print(event);
+      var result = PaymentResult(event);
+      String jsonResult = jsonEncode(result);
+      print(jsonResult);
+      _showToast(context, result.status);
+  }
+
+  void _onError(Object error) {
+    print(error);
+  }
+
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -70,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ListView(
                       shrinkWrap: true,
                       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                      children: [             
+                      children: [
                         TextFormField(
                         controller: redirectURLController,
                         decoration: const InputDecoration(
@@ -130,38 +145,23 @@ class _MyHomePageState extends State<MyHomePage> {
                           border: UnderlineInputBorder(),
                           labelText: 'Currency("GBP", "EUR", etc.)',
                         ),
-                      ),  
-                    ],           
-              ),   
+                      ),
+                    ],
+              ),
              Padding(
               padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
               child: RaisedButton(
-                child: Text("Pay with Paylink"), 
+                child: Text("Pay with Paylink"),
                 color: Colors.indigo,
                 textColor: Colors.white,
                 onPressed: () {
                   initiate(context);
                 })
-                ), 
+                ),
           ]
         )
-      ),    
+      ),
     );
-  }
-
-  void open() async {
-    String value;
-
-    Map<String, String> arguments = {
-      "uid": "a02ac408-563a-4e55-a5e2-3aebc119f908"
-    };
-
-    try {
-      value = await platform.invokeMethod("open", arguments);
-      print(value);
-    } catch(e) {
-      print(e);
-    }
   }
 
   void initiate(BuildContext context) async {
@@ -179,53 +179,35 @@ class _MyHomePageState extends State<MyHomePage> {
         "type" : accountTypeController.text,
         "name" : nameController.text
       }
-    }; 
+    };
 
     try {
-      resultObject = await platform.invokeMethod("initiate", arguments);  
-      var result = PaymentResult(resultObject);
-      showAlertDialog(context, result.status);
-
+      await platform.invokeMethod("initiate", arguments);
     } catch(e) {
       print("error" + e.toString());
     }
   }
 }
 
-void showAlertDialog(BuildContext context, String? result) {
-
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { 
-      Navigator.of(context).pop();
-    },
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("Payment Result"),
-    content: Text(result ?? "Unknown"),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
+void _showToast(BuildContext context, String? result) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text(result ?? ""),
+      ),
+    );
 }
 
 class PaymentResult {
-  
+
   String? status;
-  
+
   PaymentResult(Object? object) {
-      Map<String, dynamic> map = jsonDecode(json.encode(object)); 
+      Map<String, dynamic> map = jsonDecode(json.encode(object));
       this.status = map['status'];
   }
+
+  Map toJson() => {
+        'status': status,
+      };
 }

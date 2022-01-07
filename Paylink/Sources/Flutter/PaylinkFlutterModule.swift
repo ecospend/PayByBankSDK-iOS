@@ -8,12 +8,16 @@
 
 import Flutter
 
-public class PaylinkFlutterModule {
+public class PaylinkFlutterModule: NSObject {
     
     public static let shared = PaylinkFlutterModule()
     
-    public var channelName: String {
+    private var channelName: String {
         return "paylink/flutter"
+    }
+    
+    private var eventChannelName: String {
+        return "paylink/initiateEvent"
     }
     
     static var rootViewController: UIViewController? {
@@ -23,23 +27,42 @@ public class PaylinkFlutterModule {
     }
     
     private var channel: FlutterMethodChannel!
+    private var eventChannel: FlutterEventChannel!
+    private var eventSink: FlutterEventSink?
     
-    private init() {
-        channel = FlutterMethodChannel(name: channelName, binaryMessenger: Self.rootViewController as! FlutterBinaryMessenger)
+    private override init() {
+        super.init()        
     }
     
     public func start() {
-       
+        let binaryMessenger = Self.rootViewController as! FlutterBinaryMessenger
+        channel = FlutterMethodChannel(name: channelName, binaryMessenger: binaryMessenger)
+        eventChannel = FlutterEventChannel(name: eventChannelName, binaryMessenger: binaryMessenger)
+        eventChannel.setStreamHandler(self)
         handleMethods()
     }
     
     private func handleMethods() {
         channel.setMethodCallHandler { (methodCall: FlutterMethodCall, result: @escaping FlutterResult) in
-            guard let method = PaylinkFlutterMethod(rawValue: methodCall.method) else {
+            guard let method = PaylinkFlutterMethod(rawValue: methodCall.method), let sink = self.eventSink else {
                 print("Unknown method invoked")
                 return
             }
-            method.handler.handle(methodCall: methodCall, result: result)
+            method.handler.handle(methodCall: methodCall, sink: sink)
         }
+    }
+}
+
+// MARK: - Event
+extension PaylinkFlutterModule: FlutterStreamHandler {
+    
+    public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        self.eventSink = events
+        return nil
+    }
+    
+    public func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        self.eventSink = nil
+        return nil
     }
 }
