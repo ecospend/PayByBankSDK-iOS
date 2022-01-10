@@ -31,107 +31,95 @@ public extension Paylink {
     }
     
     func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
-        
+        execute(type: .open(paylinkID), viewController: viewController, completion: completion)
+    }
+    
+    func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
+        execute(type: .initiate(request), viewController: viewController, completion: completion)
+    }
+}
+
+// MARK: - Logic
+private extension Paylink {
+    
+    enum PaylinkExecuteType {
+        case open(String)
+        case initiate(PaylinkCreateRequest)
+    }
+    
+    func execute(type: PaylinkExecuteType, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         let dispatchBackgroundQueue = DispatchQueue.global()
         let dispatchGroup = DispatchGroup()
         
-        let complete: (Result<PaylinkResult, PaylinkError>) -> Void = { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
-        
-        dispatchBackgroundQueue.async(group: dispatchGroup) { [weak self] in
+        dispatchBackgroundQueue.async { [weak self] in
             guard let self = self else {
-                return complete(.failure(PaylinkError.unknown(nil)))
+                return DispatchQueue.main.async { completion(.failure(PaylinkError.unknown(nil))) }
             }
             
-            if case .failure(let error) = self.getToken(inGroup: dispatchGroup) {
-                return complete(.failure(PaylinkError(error: error)))
-            }
+            // Generate WebViewSceneModel
+            let sceneResult: Result<WebViewSceneModel, Error> = {
+                
+                // Completion of GetPaylink
+                let getPaylinkCompletion: (String?) -> Result<WebViewSceneModel, Error> = { paylinkID in
+                    guard let paylinkID = paylinkID else { return .failure(PaylinkError.wrongPaylink) }
+                    
+                    switch self.getPaylink(inGroup: dispatchGroup, request: PaylinkGetRequest(paylinkID: paylinkID)) {
+                    case .success(let response):
+                        guard let paylinkID = response.uniqueID,
+                              let paylinkURL = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(paylinkID)"),
+                              let redirectURL = URL(string: response.redirectURL ?? "") else {
+                                  return .failure(PaylinkError.wrongPaylink)
+                              }
+                        return .success(WebViewSceneModel(paylinkID: paylinkID,
+                                                          paylinkURL: paylinkURL,
+                                                          paylinkRedirectURL: redirectURL,
+                                                          completionHandler: completion,
+                                                          dismissHandler: { self.resetDI() }))
+                    case .failure(let error):
+                        return .failure(PaylinkError(error: error))
+                    }
+                }
+                
+                // Get Access Token
+                switch self.getToken(inGroup: dispatchGroup){
+                case .success: break
+                case .failure(let error): return .failure(PaylinkError(error: error))
+                }
+                
+                // Handle for type
+                switch type {
+                case .open(let paylinkID):
+                    // Get Paylink
+                    return getPaylinkCompletion(paylinkID)
+                case .initiate(let request):
+                    // Create Paylink
+                    switch self.createPaylink(inGroup: dispatchGroup, request: request) {
+                    case .success(let response):
+                        // Get Paylink
+                        return getPaylinkCompletion(response.uniqueID)
+                    case .failure(let error):
+                        return .failure(PaylinkError(error: error))
+                    }
+                }
+            }()
             
-            guard let paylinkURL = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(paylinkID)") else {
-                return complete(.failure(PaylinkError.wrongPaylink))
-            }
-            
-            let request = PaylinkGetRequest(paylinkID: paylinkID)
-            let result = self.getPaylink(inGroup: dispatchGroup, request: request)
-            
-            if case .failure(let error) = result {
-                return complete(.failure(PaylinkError(error: error)))
-            }
-            
-            if case .success(let paylink) = result,
-               let redirectURL = URL(string: paylink.redirectURL ?? "") {
+            switch sceneResult {
+            case .success(let model):
                 DispatchQueue.main.async {
-                    let model = WebViewSceneModel(paylinkID: paylinkID,
-                                                  paylinkURL: paylinkURL,
-                                                  paylinkRedirectURL: redirectURL,
-                                                  completionHandler: completion)
                     let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
                     let nc = UINavigationController(rootViewController: vc)
                     viewController.present(nc, animated: true)
                 }
-            }
-        }
-    }
-    
-    func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
-        
-        let dispatchBackgroundQueue = DispatchQueue.global()
-        let dispatchGroup = DispatchGroup()
-        
-        let complete: (Result<PaylinkResult, PaylinkError>) -> Void = { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
-        
-        dispatchBackgroundQueue.async { [weak self] in
-            guard let self = self else {
-                return complete(.failure(PaylinkError.unknown(nil)))
-            }
-            
-            if case .failure(let error) = self.getToken(inGroup: dispatchGroup) {
-                return complete(.failure(PaylinkError(error: error)))
-            }
-            
-            let createResult = self.createPaylink(inGroup: dispatchGroup, request: request)
-            
-            if case .failure(let error) = createResult {
-                return complete(.failure(PaylinkError(error: error)))
-            }
-            
-            guard case .success(let createResponse) = createResult,
-                  let paylinkID = createResponse.uniqueID,
-                  let paylinkURL = URL(string: createResponse.paylinkURL ?? "") else {
-                      return complete(.failure(PaylinkError.wrongPaylink))
-                  }
-            
-            let request = PaylinkGetRequest(paylinkID: paylinkID)
-            let result = self.getPaylink(inGroup: dispatchGroup, request: request)
-            
-            if case .failure(let error) = result {
-                return complete(.failure(PaylinkError(error: error)))
-            }
-            
-            if case .success(let paylink) = result,
-               let redirectURL = URL(string: paylink.redirectURL ?? "") {
+            case .failure(let error):
                 DispatchQueue.main.async {
-                    let model = WebViewSceneModel(paylinkID: paylinkID,
-                                                  paylinkURL: paylinkURL,
-                                                  paylinkRedirectURL: redirectURL,
-                                                  completionHandler: completion)
-                    let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
-                    let nc = UINavigationController(rootViewController: vc)
-                    viewController.present(nc, animated: true)
+                    completion(.failure(PaylinkError(error: error)))
                 }
             }
         }
     }
 }
 
-// MARK: - Setup
+// MARK: - DI
 private extension Paylink {
     
     func setupDI() {
@@ -162,6 +150,10 @@ private extension Paylink {
             vc.viewModel = DIContainer.shared.resolve(type: WebViewVM.self, arguments: argument as! WebViewSceneModel)!
             return vc
         }
+    }
+    
+    func resetDI() {
+        DIContainer.shared.reset()
     }
 }
 

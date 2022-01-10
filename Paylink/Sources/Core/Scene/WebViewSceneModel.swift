@@ -13,4 +13,5 @@ struct WebViewSceneModel {
     let paylinkURL: URL
     let paylinkRedirectURL: URL
     let completionHandler: (Result<PaylinkResult, PaylinkError>) -> Void
+    var dismissHandler: () -> Void
 }

@@ -106,7 +106,6 @@ class WebViewVC: UIViewController {
     
     deinit {
         webView.stopLoading()
-        print("Deinit WebViewVC")
     }
 }
 

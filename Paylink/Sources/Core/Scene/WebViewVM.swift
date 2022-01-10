@@ -11,10 +11,10 @@ import Foundation
 class WebViewVM {
     
     private let paylinkRepository: PaylinkRepositoryProtocol
-    let model: WebViewSceneModel
+    var model: WebViewSceneModel
     
-    private var dismissCompletionHandler: (() -> Void)?
-    private var loadingCompletionHandler: ((Bool) -> Void)?
+    private var dismissHandler: (() -> Void)?
+    private var loadingHandler: ((Bool) -> Void)?
     
     init(paylinkRepository: PaylinkRepositoryProtocol,
          model: WebViewSceneModel) {
@@ -23,55 +23,61 @@ class WebViewVM {
     }
 }
 
+// MARK: - Handler
+extension WebViewVM {
+    
+    func dismiss(_ completion: @escaping () -> Void) {
+        dismissHandler = completion
+    }
+    
+    func loading(_ completion: @escaping (Bool) -> Void) {
+        loadingHandler = completion
+    }
+}
+
 // MARK: - Logic
 private extension WebViewVM {
     
     func handle(payments: [PaylinkPaymentGetResponse], isDeleted: Bool = false, error: Error? = nil) {
         if let error = error {
-            return model.completionHandler(.failure(PaylinkError(error: error)))
+            model.completionHandler(.failure(PaylinkError(error: error)))
+            return
         }
         
         if isDeleted {
-            dismissCompletionHandler?()
-            
             let result = PaylinkResult(paylinkID: model.paylinkID,
                                        paylinkURL: model.paylinkURL,
                                        payments: payments,
                                        status: .deleted)
-            return model.completionHandler(.success(result))
+            model.completionHandler(.success(result))
+            dismiss()
+            return
         }
         
         if isCompleted(for: payments) {
-            dismissCompletionHandler?()
-            
             let result = PaylinkResult(paylinkID: model.paylinkID,
                                        paylinkURL: model.paylinkURL,
                                        payments: payments,
                                        status: .completed)
-            return model.completionHandler(.success(result))
+            model.completionHandler(.success(result))
+            dismiss()
+            return
         }
         
         let result = PaylinkResult(paylinkID: model.paylinkID,
                                    paylinkURL: model.paylinkURL,
                                    payments: payments,
                                    status: .initiated)
-        return model.completionHandler(.success(result))
+        model.completionHandler(.success(result))
     }
     
     func isCompleted(for payments: [PaylinkPaymentGetResponse]) -> Bool {
         return payments.contains(where: { $0.status == .completed || $0.status == .verified })
     }
-}
-
-// MARK: - Handler
-extension WebViewVM {
     
-    func dismiss(_ completion: @escaping () -> Void) {
-        self.dismissCompletionHandler = completion
-    }
-    
-    func loading(_ completion: @escaping (Bool) -> Void) {
-        self.loadingCompletionHandler = completion
+    func dismiss() {
+        dismissHandler?()
+        model.dismissHandler()
     }
 }
 
@@ -79,7 +85,7 @@ extension WebViewVM {
 extension WebViewVM {
     
     func getPayments() {
-        loadingCompletionHandler?(true)
+        loadingHandler?(true)
         let request = PaylinkPaymentGetRequest(paylinkID: model.paylinkID)
         paylinkRepository.getPayments(request: request) { [weak self] result in
             guard let self = self else { return }
@@ -89,12 +95,12 @@ extension WebViewVM {
             case .failure(let error): self.handle(payments: [], error: error)
             }
             
-            self.loadingCompletionHandler?(false)
+            self.loadingHandler?(false)
         }
     }
     
     func deletePaylink() {
-        loadingCompletionHandler?(true)
+        loadingHandler?(true)
         // Payment
         let request = PaylinkPaymentGetRequest(paylinkID: model.paylinkID)
         paylinkRepository.getPayments(request: request) { [weak self] result in
@@ -105,7 +111,7 @@ extension WebViewVM {
                 switch self.isCompleted(for: payments) {
                 case true:
                     self.handle(payments: payments)
-                    self.loadingCompletionHandler?(false)
+                    self.loadingHandler?(false)
                 case false:
                     let request = PaylinkDeleteRequest(paylinkID: self.model.paylinkID)
                     self.paylinkRepository.deletePaylink(request: request) { [weak self] result in
@@ -116,12 +122,12 @@ extension WebViewVM {
                         case .failure(let error): self.handle(payments: [], error: error)
                         }
                         
-                        self.loadingCompletionHandler?(false)
+                        self.loadingHandler?(false)
                     }
                 }
             case .failure(let error):
                 self.handle(payments: [], error: error)
-                self.loadingCompletionHandler?(false)
+                self.loadingHandler?(false)
             }
         }
     }
