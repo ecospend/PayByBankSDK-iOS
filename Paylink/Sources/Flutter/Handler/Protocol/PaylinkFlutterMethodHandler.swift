@@ -9,5 +9,5 @@
 import Flutter
 
 protocol PaylinkFlutterMethodHandler {
-    func handle(methodCall: FlutterMethodCall, result: @escaping FlutterResult)
+    func handle(methodCall: FlutterMethodCall, sink: @escaping FlutterEventSink)
 }

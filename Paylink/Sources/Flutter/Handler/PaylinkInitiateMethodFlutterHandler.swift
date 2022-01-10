@@ -10,7 +10,13 @@ import Flutter
 
 class PaylinkInitiateMethodFlutterHandler: PaylinkFlutterMethodHandler {
     
-    func handle(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
+    var rootViewController: UIViewController? {
+        guard let appDelegate = UIApplication.shared.delegate as? FlutterAppDelegate,
+              let controller = appDelegate.window?.rootViewController else { return nil }
+        return controller
+    }
+    
+    func handle(methodCall: FlutterMethodCall, sink: @escaping FlutterEventSink) {
         guard let arguments = methodCall.arguments as? [String: Any],
               let redirectUrlString = arguments["redirect_url"] as? String,
               let redirectURL = URL(string: redirectUrlString),
@@ -38,23 +44,24 @@ class PaylinkInitiateMethodFlutterHandler: PaylinkFlutterMethodHandler {
                 currency: currency
             )
         )
-        self.initiate(request: request, flutterResult: result)
+        self.initiate(request: request, sink: sink)
     }
 }
 
 // MARK: - Initiate
 extension PaylinkInitiateMethodFlutterHandler {
     
-    public func initiate(request: PaylinkCreateRequest, flutterResult: @escaping FlutterResult) {
+    public func initiate(request: PaylinkCreateRequest, sink: @escaping FlutterEventSink) {
         guard let rootViewController = PaylinkFlutterModule.rootViewController else { return }
         
         Paylink.shared.initiate(request: request, viewController: rootViewController) { result in
             switch result {
-            case .success(let model):
-                guard let paymentResult = model.last?.dictionary else { return }
-                flutterResult(paymentResult)
-            case .failure(let error):
-                flutterResult(error)
+                case .success(let model):
+                    guard let paymentResult = model.dictionary else { return }
+                    sink(paymentResult)
+                case .failure(let error):
+                    let flutterError = FlutterError(code: "Initiate Error", message: error.localizedDescription, details: (error as NSError).userInfo)
+                    sink(flutterError)
             }
         }
     }
