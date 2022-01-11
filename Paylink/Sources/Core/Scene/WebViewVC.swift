@@ -56,6 +56,8 @@ class WebViewVC: UIViewController {
     
     lazy var webView: WKWebView = {
         let view = WKWebView()
+        view.scrollView.alwaysBounceVertical = false
+        view.scrollView.bounces = false
         view.uiDelegate = self
         view.navigationDelegate = self
         view.allowsBackForwardNavigationGestures = true
