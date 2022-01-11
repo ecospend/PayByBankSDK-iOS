@@ -20,13 +20,25 @@ class WebViewVC: UIViewController {
         return view
     }()
     
+    lazy var topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var closeButton: UIButton = {
+        let view = UIButton()
+        view.addTarget(self, action: #selector(closeButtonTapped(_:)), for: .touchUpInside)
+        view.backgroundColor = .clear
+        view.setImage(PaylinkImages.close.image, for: .normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var loadingView: UIView = {
         let view = UIView()
-        if #available(iOS 11.0, *) {
-            view.backgroundColor = UIColor(named: "viewBackground")
-        } else {
-            view.backgroundColor = .white
-        }
+        view.backgroundColor = PaylinkColors.viewBackground.color
         view.alpha = 0.7
         return view
     }()
@@ -52,11 +64,6 @@ class WebViewVC: UIViewController {
         return view
     }()
     
-    lazy var closeButton: UIBarButtonItem = {
-        let view = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonTapped(_:)))
-        return view
-    }()
-    
     var viewModel: WebViewVM!
     var loadingCount = 0
     
@@ -67,7 +74,6 @@ class WebViewVC: UIViewController {
         
         setupView()
         setupLayout()
-        setupNavigationController()
         
         NotificationCenter.default.addObserver(
             self,
@@ -113,13 +119,17 @@ class WebViewVC: UIViewController {
 extension WebViewVC {
     
     func setupView() {
-        if #available(iOS 11.0, *) {
-            view.backgroundColor = UIColor(named: "viewBackground")
-        } else {
-            view.backgroundColor = .white
+        
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
         }
         
+        navigationController?.navigationBar.isHidden = true
+        
+        view.backgroundColor = PaylinkColors.viewBackground.color
         view.addSubview(stackView)
+        stackView.addArrangedSubview(topView)
+        topView.addSubview(closeButton)
         stackView.addArrangedSubview(webView)
     }
     
@@ -130,23 +140,13 @@ extension WebViewVC {
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
-    }
-    
-    func setupNavigationController() {
-        navigationController?.navigationBar.isHidden = true
-        
-        navigationItem.leftBarButtonItems = [closeButton]
-        navigationController?.navigationBar.isTranslucent = false
-        
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.backgroundColor = UIColor(named: "navigationBarBackground")
-        } else {
-            navigationController?.navigationBar.backgroundColor = .white
-        }
-        
-        if #available(iOS 13.0, *) {
-            isModalInPresentation = true
-        }
+        NSLayoutConstraint.activate([
+            closeButton.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -16),
+            closeButton.topAnchor.constraint(equalTo: topView.topAnchor, constant: 16),
+            closeButton.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -16),
+            closeButton.heightAnchor.constraint(equalToConstant: 30),
+            closeButton.widthAnchor.constraint(equalToConstant: 30)
+        ])
     }
 }
 
@@ -157,7 +157,6 @@ extension WebViewVC {
         loadingCount += 1
         guard loadingCount == 1 else { return }
         
-        closeButton.isEnabled = false
         loadingView.frame = view.bounds
         loadingView.addSubview(activityIndicator)
         activityIndicator.center = loadingView.center
@@ -170,7 +169,6 @@ extension WebViewVC {
         if loadingCount < 0 { loadingCount = 0 }
         guard loadingCount == 0 else { return }
         
-        closeButton.isEnabled = true
         activityIndicator.stopAnimating()
         loadingView.removeFromSuperview()
     }

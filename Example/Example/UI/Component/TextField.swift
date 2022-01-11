@@ -42,6 +42,7 @@ class TextField: UITextField {
         borderStyle = .none
         layer.cornerRadius = 8
         backgroundColor = .white
+        textColor = .black
         setShadow()
     }
     
