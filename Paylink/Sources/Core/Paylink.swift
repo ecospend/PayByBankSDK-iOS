@@ -24,16 +24,28 @@ public final class Paylink {
 // MARK: - API
 public extension Paylink {
     
+    /// - Parameters:
+    ///     - environment: Enum "Sandbox" "Production"
+    ///     - clientID: Unique identification string assigned to the client by our system
+    ///     - clientSecret: Secret string assigned to the client by our system
     func configure(environment: PaylinkEnvironment, clientID: String, clientSecret: String) {
         PaylinkState.Config.environment = environment
         PaylinkState.Config.clientID = clientID
         PaylinkState.Config.clientSecret = clientSecret
     }
     
+    /// - Parameters:
+    ///     - paylinkID: Unique id value of paylink.
+    ///     - viewController: UIViewController that provides to present bank selection
+    ///     - completion: It provides to handle result or error
     func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         execute(type: .open(paylinkID), viewController: viewController, completion: completion)
     }
     
+    /// - Parameters:
+    ///     - request: Request to create paylink
+    ///     - viewController: UIViewController that provides to present bank selection
+    ///     - completion: It provides to handle result or error
     func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         execute(type: .initiate(request), viewController: viewController, completion: completion)
     }

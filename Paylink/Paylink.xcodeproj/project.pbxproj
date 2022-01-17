@@ -86,6 +86,10 @@
 		D629E7A52782DBE2004B91C8 /* PaylinkStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkStrings.swift; sourceTree = "<group>"; };
 		D629E7A82782DC94004B91C8 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		D629E7AC2782E089004B91C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Paylink.strings; sourceTree = "<group>"; };
+		D634604C27955C6D001B9496 /* XamarinPaylinkCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XamarinPaylinkCreateRequest.swift; sourceTree = "<group>"; };
+		D634604F279566AA001B9496 /* XamarinPaylinkPaymentGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XamarinPaylinkPaymentGetResponse.swift; sourceTree = "<group>"; };
+		D63460512795997B001B9496 /* XamarinPaylinkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XamarinPaylinkResult.swift; sourceTree = "<group>"; };
+		D634605327959BC2001B9496 /* PaylinkXamarinModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkXamarinModule.swift; sourceTree = "<group>"; };
 		D6460C1C2779E05200109908 /* WebViewSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewSceneModel.swift; sourceTree = "<group>"; };
 		D6460C1F277AE7A900109908 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		D6460C26277DCD1800109908 /* PaylinkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkResult.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		608F5CB12768C59D0053F379 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D634604A27955BF1001B9496 /* Xamarin */,
 				604EED74277485320005D094 /* Core */,
 				60843FE52779AAD8000D5793 /* Flutter */,
 				604EED6527746BEF0005D094 /* React */,
@@ -249,6 +254,25 @@
 				D629E7AD2782E089004B91C8 /* Paylink.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		D634604A27955BF1001B9496 /* Xamarin */ = {
+			isa = PBXGroup;
+			children = (
+				D634604B27955BF8001B9496 /* Model */,
+				D634605327959BC2001B9496 /* PaylinkXamarinModule.swift */,
+			);
+			path = Xamarin;
+			sourceTree = "<group>";
+		};
+		D634604B27955BF8001B9496 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D634604C27955C6D001B9496 /* XamarinPaylinkCreateRequest.swift */,
+				D634604F279566AA001B9496 /* XamarinPaylinkPaymentGetResponse.swift */,
+				D63460512795997B001B9496 /* XamarinPaylinkResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D6460C23277DBF0D00109908 /* Model */ = {

@@ -15,9 +15,9 @@ protocol PaylinkEnvironmentProtocol {
     var localizableTableName: String { get }
 }
 
-public enum PaylinkEnvironment {
-    case production
-    case sandbox
+public enum PaylinkEnvironment: String {
+    case production = "Production"
+    case sandbox = "Sandbox"
 }
 
 extension PaylinkEnvironment: PaylinkEnvironmentProtocol {
