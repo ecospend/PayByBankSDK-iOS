@@ -40,7 +40,7 @@ public class PaylinkXamarinModule : NSObject {
     ///     - request: Request to create paylink
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
-    @objc func initiate(request: XamarinPaylinkCreateRequest, viewController: UIViewController, completion: @escaping (XamarinPaylinkResult?, Error?) -> Void) {
+    @objc public func initiate(request: XamarinPaylinkCreateRequest, viewController: UIViewController, completion: @escaping (XamarinPaylinkResult?, Error?) -> Void) {
         Paylink.shared.initiate(request: request.paylinkCreateRequest,
                                 viewController: viewController) { result in
             switch result {

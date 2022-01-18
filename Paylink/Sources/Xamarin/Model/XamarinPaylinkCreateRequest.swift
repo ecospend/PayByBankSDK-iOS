@@ -69,7 +69,7 @@ public class XamarinPaylinkCreateRequest: NSObject, Codable {
     ///     - notificationOptions: The Notification Options model
     ///     - paymentOptions: The Payment Options model
     ///     - limitOptions: The Limit Options model
-    @objc internal init(redirectURL: String,
+    @objc public init(redirectURL: String,
                       amount: Decimal,
                       paymentReference: String,
                       paymentDescription: String? = nil,
