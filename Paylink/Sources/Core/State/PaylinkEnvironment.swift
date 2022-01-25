@@ -11,7 +11,6 @@ import Foundation
 protocol PaylinkEnvironmentProtocol {
     var iamEndpointURL: String { get }
     var paylinkEndpointURL: String { get }
-    var paylinkURL: String { get }
     var localizableTableName: String { get }
 }
 
@@ -31,15 +30,8 @@ extension PaylinkEnvironment: PaylinkEnvironmentProtocol {
     
     var paylinkEndpointURL: String {
         switch self {
-        case .production: return "https://pis-api.ecospend.com/api/v2.0"
-        case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.0"
-        }
-    }
-    
-    var paylinkURL: String {
-        switch self {
-        case .production: return "https://paylinkv2.ecospend.com"
-        case .sandbox: return "https://paylinkv2.sb.ecospend.com"
+        case .production: return "https://pis-api.ecospend.com/api/v2.1"
+        case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"
         }
     }
     

@@ -27,6 +27,9 @@ public struct PaylinkGetResponse: Codable {
     /// This URL must be registered by your Admin on the Ecospend Management Console, prior to being used in the API calls.
     public let redirectURL: String?
     
+    /// The URL to open bank selection screen
+    public let url: String?
+    
     /// Unique identification string assigned to the bank by our system.
     /// If value is set, Paylink will not display any UI and execute an instant redirect to the debtor's banking system.
     /// If value is not set, Paylink will display the PSU a bank selection screen.
@@ -61,7 +64,7 @@ public struct PaylinkGetResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
         case redirectURL = "redirect_url"
-        case amount, reference, description
+        case url, amount, reference, description
         case bankID = "bank_id"
         case merchantID = "merchant_id"
         case merchantUserID = "merchant_user_id"

@@ -78,7 +78,7 @@ private extension Paylink {
                     switch self.getPaylink(inGroup: dispatchGroup, request: PaylinkGetRequest(paylinkID: paylinkID)) {
                     case .success(let response):
                         guard let paylinkID = response.uniqueID,
-                              let paylinkURL = URL(string: "\(PaylinkState.Config.environment.paylinkURL)/?uid=\(paylinkID)"),
+                              let paylinkURL = URL(string: response.url ?? ""),
                               let redirectURL = URL(string: response.redirectURL ?? "") else {
                                   return .failure(PaylinkError.wrongPaylink)
                               }

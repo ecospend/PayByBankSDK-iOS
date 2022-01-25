@@ -185,10 +185,10 @@
 		608F5CB12768C59D0053F379 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D634604A27955BF1001B9496 /* Xamarin */,
 				604EED74277485320005D094 /* Core */,
 				60843FE52779AAD8000D5793 /* Flutter */,
 				604EED6527746BEF0005D094 /* React */,
+				D634604A27955BF1001B9496 /* Xamarin */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
