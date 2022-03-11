@@ -62,7 +62,7 @@ class WebViewVC: UIViewController {
         view.navigationDelegate = self
         view.allowsBackForwardNavigationGestures = true
         view.configuration.suppressesIncrementalRendering = true
-        view.load(URLRequest(url: viewModel.model.paylinkURL))
+        view.load(URLRequest(url: viewModel.handler.webViewURL))
         return view
     }()
     
@@ -76,6 +76,7 @@ class WebViewVC: UIViewController {
         
         setupView()
         setupLayout()
+        appIsActivited()
         
         NotificationCenter.default.addObserver(
             self,
@@ -83,8 +84,6 @@ class WebViewVC: UIViewController {
             name: UIApplication.didBecomeActiveNotification,
             object: nil
         )
-        
-        viewModel.getPayments()
         
         viewModel.dismiss { [weak self] in
             guard let self = self else { return }
@@ -105,11 +104,11 @@ class WebViewVC: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        viewModel.deletePaylink()
+        viewModel.handler.deleteLink()
     }
     
     @IBAction func appIsActivited() {
-        viewModel.getPayments()
+        viewModel.handler.checkStatus()
     }
     
     deinit {
@@ -180,26 +179,8 @@ extension WebViewVC {
 extension WebViewVC: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        guard let url = navigationAction.request.url else {
-            return decisionHandler(.allow)
-        }
-        
-        switch url.host {
-        case viewModel.model.paylinkRedirectURL.host:
-            if let params = url.queryParameters,
-               params["error"] == "user_canceled",
-               params["paylink_id"] == viewModel.model.paylinkID {
-                viewModel.deletePaylink()
-                decisionHandler(.cancel)
-            } else {
-                decisionHandler(.cancel)
-            }
-        case viewModel.model.paylinkURL.host:
-            decisionHandler(.allow)
-        default:
-            UIApplication.shared.open(url)
-            decisionHandler(.cancel)
-        }
+        let decision = viewModel.handler.getWebViewDecision(url: navigationAction.request.url)
+        decisionHandler(decision)
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

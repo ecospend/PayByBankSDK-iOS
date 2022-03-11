@@ -68,11 +68,11 @@ private extension Paylink {
                 return DispatchQueue.main.async { completion(.failure(PaylinkError.unknown(nil))) }
             }
             
-            // Generate WebViewSceneModel
-            let sceneResult: Result<WebViewSceneModel, Error> = {
+            // Generate PaylinkAPIHandler
+            let handlerResult: Result<PaylinkAPIHandler, Error> = {
                 
                 // Completion of GetPaylink
-                let getPaylinkCompletion: (String?) -> Result<WebViewSceneModel, Error> = { paylinkID in
+                let getPaylinkCompletion: (String?) -> Result<PaylinkAPIHandler, Error> = { paylinkID in
                     guard let paylinkID = paylinkID else { return .failure(PaylinkError.wrongPaylink) }
                     
                     switch self.getPaylink(inGroup: dispatchGroup, request: PaylinkGetRequest(paylinkID: paylinkID)) {
@@ -82,11 +82,16 @@ private extension Paylink {
                               let redirectURL = URL(string: response.redirectURL ?? "") else {
                                   return .failure(PaylinkError.wrongPaylink)
                               }
-                        return .success(WebViewSceneModel(paylinkID: paylinkID,
-                                                          paylinkURL: paylinkURL,
-                                                          paylinkRedirectURL: redirectURL,
-                                                          completionHandler: completion,
-                                                          dismissHandler: { self.resetDI() }))
+                        let handler = PaylinkAPIHandler(uniqueID: paylinkID,
+                                                        webViewURL: paylinkURL,
+                                                        redirectURL: redirectURL,
+                                                        paylinkRepository: self.paylinkRepository) { [weak self] result in
+                            if case .success(let paylinkResult) = result, paylinkResult.status != .initiated {
+                                self?.resetDI()
+                            }
+                            completion(result)
+                        }
+                        return .success(handler)
                     case .failure(let error):
                         return .failure(PaylinkError(error: error))
                     }
@@ -115,7 +120,7 @@ private extension Paylink {
                 }
             }()
             
-            switch sceneResult {
+            switch handlerResult {
             case .success(let model):
                 DispatchQueue.main.async {
                     let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
@@ -152,14 +157,14 @@ private extension Paylink {
         }
         
         DIContainer.shared.register(type: WebViewVM.self, scope: .transient) { argument in
-            let vm = WebViewVM(paylinkRepository: DIContainer.shared.resolve(type: PaylinkRepositoryProtocol.self)!,
-                               model: argument as! WebViewSceneModel)
+            let vm = WebViewVM(handler: argument as! PaylinkAPIHandler,
+                               paylinkRepository: DIContainer.shared.resolve(type: PaylinkRepositoryProtocol.self)!)
             return vm
         }
         
         DIContainer.shared.register(type: WebViewVC.self, scope: .transient) { argument in
             let vc = WebViewVC()
-            vc.viewModel = DIContainer.shared.resolve(type: WebViewVM.self, arguments: argument as! WebViewSceneModel)!
+            vc.viewModel = DIContainer.shared.resolve(type: WebViewVM.self, arguments: argument as! PaylinkAPIHandler)!
             return vc
         }
     }

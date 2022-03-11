@@ -41,7 +41,7 @@ import Foundation
 /// while older encodings may expect spaces to be replaced with `+`.
 ///
 /// This type is largely based on Vapor's [`url-encoded-form`](https://github.com/vapor/url-encoded-form) project.
-public final class URLEncodedFormEncoder {
+internal final class URLEncodedFormEncoder {
     /// Encoding to use for `Array` values.
     public enum ArrayEncoding {
         /// An empty set of square brackets ("[]") are appended to the key for every value. This is the default encoding.
