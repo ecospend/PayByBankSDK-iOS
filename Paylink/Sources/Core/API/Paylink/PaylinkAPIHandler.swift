@@ -51,6 +51,10 @@ extension PaylinkAPIHandler {
         case webViewURL.host:
             handle(status: .initiated)
             return .allow
+        case "www.ecospend.com", "register.fca.org.uk":
+            UIApplication.shared.open(url)
+            handle(status: .initiated)
+            return .cancel
         default:
             UIApplication.shared.open(url)
             handle(status: .redirected)
