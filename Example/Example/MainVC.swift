@@ -94,8 +94,8 @@ class MainVC: UIViewController {
                 
                 switch response.status {
                 case .initiated: self.showToast(message: "Paylink initiated")
-                case .completed: self.showToast(message: "Paylink completed")
-                case .deleted: self.showToast(message: "Paylink deleted")
+                case .canceled: self.showToast(message: "Paylink canceled")
+                case .redirected: self.showToast(message: "Paylink redirected")
                 }
             case .failure(let error):
                 print(error)

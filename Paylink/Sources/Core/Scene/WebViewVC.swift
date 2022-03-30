@@ -76,14 +76,6 @@ class WebViewVC: UIViewController {
         
         setupView()
         setupLayout()
-        appIsActivited()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(appIsActivited),
-            name: UIApplication.didBecomeActiveNotification,
-            object: nil
-        )
         
         viewModel.dismiss { [weak self] in
             guard let self = self else { return }
@@ -104,11 +96,7 @@ class WebViewVC: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        viewModel.handler.deleteLink()
-    }
-    
-    @IBAction func appIsActivited() {
-        viewModel.handler.checkStatus()
+        viewModel.handler.cancelLink()
     }
     
     deinit {

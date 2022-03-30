@@ -21,7 +21,7 @@ public struct PaylinkResult: Codable {
 
 // MARK: - PaylinkStatus
 public enum PaylinkStatus: String, Codable {
-    case deleted = "Deleted"
+    case canceled = "Canceled"
     case initiated = "Initiated"
-    case completed = "Completed"
+    case redirected = "Redirected"
 }

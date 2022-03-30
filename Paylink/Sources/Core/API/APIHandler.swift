@@ -14,13 +14,12 @@ protocol APIHandlerProtocol {
     var webViewURL: URL { get }
     var redirectURL: URL { get }
     var completionHandler: (Result<PaylinkResult, PaylinkError>) -> Void { get }
-    var delegate: APIHandlerWebViewProtocol? { get set }
+    var delegate: APIHandlerDelegate? { get set }
     func getWebViewDecision(url: URL?) -> WKNavigationActionPolicy
-    func checkStatus()
-    func deleteLink()
+    func cancelLink()
 }
 
-protocol APIHandlerWebViewProtocol: NSObject {
+protocol APIHandlerDelegate: AnyObject {
     func handler(_ handler: APIHandlerProtocol, isLoading: Bool)
     func handler(_ handler: APIHandlerProtocol, isCompleted: Bool)
 }

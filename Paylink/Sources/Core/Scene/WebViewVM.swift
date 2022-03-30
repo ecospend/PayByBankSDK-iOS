@@ -39,7 +39,7 @@ extension WebViewVM {
 }
 
 // MARK: - APIHandlerResultProtocol
-extension WebViewVM: APIHandlerWebViewProtocol {
+extension WebViewVM: APIHandlerDelegate {
     
     func handler(_ handler: APIHandlerProtocol, isLoading: Bool) {
         loadingHandler?(isLoading)
