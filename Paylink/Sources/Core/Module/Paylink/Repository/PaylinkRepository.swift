@@ -12,8 +12,6 @@ protocol PaylinkRepositoryProtocol {
     
     func createPaylink(request: PaylinkCreateRequest, completion: @escaping (Result<PaylinkCreateResponse, Error>) -> Void)
     func getPaylink(request: PaylinkGetRequest, completion: @escaping (Result<PaylinkGetResponse, Error>) -> Void)
-    func deletePaylink(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, Error>) -> Void)
-    func getPayments(request: PaylinkPaymentGetRequest, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void)
 }
 
 class PaylinkRepository {
@@ -34,13 +32,5 @@ extension PaylinkRepository: PaylinkRepositoryProtocol {
     
     func getPaylink(request: PaylinkGetRequest, completion: @escaping (Result<PaylinkGetResponse, Error>) -> Void) {
         networking.execute(endpoint: PaylinkEndpoint.getPaylink(request), type: PaylinkGetResponse.self, completion: completion)
-    }
-    
-    func deletePaylink(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, Error>) -> Void) {
-        networking.execute(endpoint: PaylinkEndpoint.deletePaylink(request), type: Bool.self, completion: completion)
-    }
-    
-    func getPayments(request: PaylinkPaymentGetRequest, completion: @escaping (Result<[PaylinkPaymentGetResponse], Error>) -> Void) {
-        networking.execute(endpoint: PaylinkEndpoint.getPayments(request), type: [PaylinkPaymentGetResponse].self, completion: completion)
     }
 }

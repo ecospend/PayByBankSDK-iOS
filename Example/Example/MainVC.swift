@@ -85,7 +85,7 @@ class MainVC: UIViewController {
     @IBAction func payButtonTapped(_ sender: Any) {
         guard let request = request else { return }
         showActivityIndicator()
-        Paylink.shared.initiate(request: request, viewController: self) { [weak self] result in
+        PayByBank.paylink.initiate(request: request, viewController: self) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

@@ -27,6 +27,7 @@
 		D629E7A62782DBE2004B91C8 /* PaylinkStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E7A52782DBE2004B91C8 /* PaylinkStrings.swift */; };
 		D629E7A92782DC94004B91C8 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D629E7A82782DC94004B91C8 /* Array+.swift */; };
 		D629E7AB2782E089004B91C8 /* Paylink.strings in Resources */ = {isa = PBXBuildFile; fileRef = D629E7AD2782E089004B91C8 /* Paylink.strings */; };
+		D630E37A27FADC2600AAAD67 /* PayByBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630E37927FADC2600AAAD67 /* PayByBank.swift */; };
 		D6460C20277AE7A900109908 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6460C1F277AE7A900109908 /* URL+.swift */; };
 		D6460C27277DCD1800109908 /* PaylinkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6460C26277DCD1800109908 /* PaylinkResult.swift */; };
 		D6460C2A277E1D3B00109908 /* PaylinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6460C29277E1D3B00109908 /* PaylinkError.swift */; };
@@ -89,6 +90,7 @@
 		D629E7A52782DBE2004B91C8 /* PaylinkStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkStrings.swift; sourceTree = "<group>"; };
 		D629E7A82782DC94004B91C8 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		D629E7AC2782E089004B91C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Paylink.strings; sourceTree = "<group>"; };
+		D630E37927FADC2600AAAD67 /* PayByBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayByBank.swift; sourceTree = "<group>"; };
 		D634604C27955C6D001B9496 /* XamarinPaylinkCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XamarinPaylinkCreateRequest.swift; sourceTree = "<group>"; };
 		D634604F279566AA001B9496 /* XamarinPaylinkPaymentGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XamarinPaylinkPaymentGetResponse.swift; sourceTree = "<group>"; };
 		D63460512795997B001B9496 /* XamarinPaylinkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XamarinPaylinkResult.swift; sourceTree = "<group>"; };
@@ -160,17 +162,16 @@
 		604EED74277485320005D094 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				D620E35127DB23410058AEEA /* API */,
 				D6F46014276B6E4C00D49C4E /* DI */,
 				D6F4601D276B6E4C00D49C4E /* Extension */,
 				D6460C23277DBF0D00109908 /* Model */,
+				D630E37327FAD73C00AAAD67 /* Module */,
 				D6F46001276B6E4C00D49C4E /* Network */,
 				D60D73832782D5D600694857 /* Resources */,
 				D6F4601B276B6E4C00D49C4E /* Scene */,
 				D6F46018276B6E4C00D49C4E /* State */,
 				D6F4601F276B6E4C00D49C4E /* SupportedFiles */,
 				D629E7A42782DBCA004B91C8 /* Util */,
-				D6F4606A276B7A6900D49C4E /* Paylink.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -241,23 +242,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D620E35127DB23410058AEEA /* API */ = {
-			isa = PBXGroup;
-			children = (
-				D620E35427DB23760058AEEA /* Paylink */,
-				D620E35227DB23570058AEEA /* APIHandler.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		D620E35427DB23760058AEEA /* Paylink */ = {
-			isa = PBXGroup;
-			children = (
-				D620E35527DB23890058AEEA /* PaylinkAPIHandler.swift */,
-			);
-			path = Paylink;
-			sourceTree = "<group>";
-		};
 		D629E7A42782DBCA004B91C8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +258,51 @@
 				D629E7AD2782E089004B91C8 /* Paylink.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		D630E37327FAD73C00AAAD67 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				D630E37827FADC1000AAAD67 /* PayByBank */,
+				D630E37427FAD74100AAAD67 /* Paylink */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		D630E37427FAD74100AAAD67 /* Paylink */ = {
+			isa = PBXGroup;
+			children = (
+				D630E37527FADAD800AAAD67 /* Handler */,
+				D630E37627FADAE500AAAD67 /* Repository */,
+				D6F4606A276B7A6900D49C4E /* Paylink.swift */,
+			);
+			path = Paylink;
+			sourceTree = "<group>";
+		};
+		D630E37527FADAD800AAAD67 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				D620E35527DB23890058AEEA /* PaylinkAPIHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		D630E37627FADAE500AAAD67 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D6F46005276B6E4C00D49C4E /* Model */,
+				D6F46004276B6E4C00D49C4E /* PaylinkEndpoint.swift */,
+				D6F46008276B6E4C00D49C4E /* PaylinkRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D630E37827FADC1000AAAD67 /* PayByBank */ = {
+			isa = PBXGroup;
+			children = (
+				D630E37927FADC2600AAAD67 /* PayByBank.swift */,
+			);
+			path = PayByBank;
 			sourceTree = "<group>";
 		};
 		D634604A27955BF1001B9496 /* Xamarin */ = {
@@ -298,6 +327,7 @@
 		D6460C23277DBF0D00109908 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D620E35227DB23570058AEEA /* APIHandler.swift */,
 				D6460C29277E1D3B00109908 /* PaylinkError.swift */,
 				D6460C26277DCD1800109908 /* PaylinkResult.swift */,
 			);
@@ -320,20 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				D6F46009276B6E4C00D49C4E /* Iam */,
-				D6F46003276B6E4C00D49C4E /* Paylink */,
 				D6F46010276B6E4C00D49C4E /* RepositoryErrorResponse.swift */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		D6F46003276B6E4C00D49C4E /* Paylink */ = {
-			isa = PBXGroup;
-			children = (
-				D6F46005276B6E4C00D49C4E /* Model */,
-				D6F46004276B6E4C00D49C4E /* PaylinkEndpoint.swift */,
-				D6F46008276B6E4C00D49C4E /* PaylinkRepository.swift */,
-			);
-			path = Paylink;
 			sourceTree = "<group>";
 		};
 		D6F46005276B6E4C00D49C4E /* Model */ = {
@@ -565,6 +584,7 @@
 				D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift.swift in Sources */,
 				D6F46034276B6E4C00D49C4E /* Encodable+.swift in Sources */,
 				D620E35627DB23890058AEEA /* PaylinkAPIHandler.swift in Sources */,
+				D630E37A27FADC2600AAAD67 /* PayByBank.swift in Sources */,
 				D67CCEA9278C6B0D00D27CE0 /* PaylinkImages.swift in Sources */,
 				D6F46029276B6E4C00D49C4E /* EndpointProtocol.swift in Sources */,
 				D629E7A92782DC94004B91C8 /* Array+.swift in Sources */,

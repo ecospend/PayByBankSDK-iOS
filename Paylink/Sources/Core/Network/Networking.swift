@@ -94,17 +94,13 @@ private extension Networking {
         let result = verify(data: data, urlResponse: urlResponse, error: error)
         switch result {
         case .success(let data):
-            DispatchQueue.main.async {
-                if let decoded = try? JSONDecoder().decode(T.self, from: data) {
-                    completion(.success(decoded))
-                } else {
-                    completion(.failure(NetworkError.invalidResponse))
-                }
+            if let decoded = try? JSONDecoder().decode(T.self, from: data) {
+                completion(.success(decoded))
+            } else {
+                completion(.failure(NetworkError.invalidResponse))
             }
         case .failure(let error):
-            DispatchQueue.main.async {
-                completion(.failure(error))
-            }
+            completion(.failure(error))
         }
     }
     
@@ -123,18 +119,14 @@ private extension Networking {
         let result = verify(data: fileUrl, urlResponse: urlResponse, error: error)
         switch result {
         case .success(let url):
-            DispatchQueue.main.async {
-                if let decoded = url as? T {
-                    completion(.success(decoded))
-                } else {
-                    completion(.failure(NetworkError.invalidResponse))
-                }
+            if let decoded = url as? T {
+                completion(.success(decoded))
+            } else {
+                completion(.failure(NetworkError.invalidResponse))
             }
             
         case .failure(let error):
-            DispatchQueue.main.async {
-                completion(.failure(error))
-            }
+            completion(.failure(error))
         }
     }
 }
