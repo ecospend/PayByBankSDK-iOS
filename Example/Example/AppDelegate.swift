@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
-//  Paylink SDK POC
+//  PayByBank SDK POC
 //
 //  Created by Yunus TÜR on 9.12.2021.
 //  Copyright © 2021 Ecospend. All rights reserved.
 //
 
 import UIKit
-import Paylink
+import PayByBank
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
