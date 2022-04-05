@@ -39,6 +39,10 @@ class Networking: NetworkingProtocol {
         self.networkSession = networkSession
     }
     
+    deinit {
+        networkSession.invalidateSession()
+    }
+    
     /// Executes a request.
     /// - Parameters:
     ///   - endpoint: Instance conforming to `EndpointProtocol`

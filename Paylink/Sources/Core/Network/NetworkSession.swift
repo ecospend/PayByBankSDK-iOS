@@ -30,6 +30,10 @@ protocol NetworkSessionProtocol {
     ///   - progressHandler: Optional `ProgressHandler` callback.
     ///   - completion: he completion handler for the upload task.
     func uploadTask(with request: URLRequest, from fileURL: URL, progressHandler: ProgressHandler?, completion: @escaping (Data?, URLResponse?, Error?)-> Void) -> URLSessionUploadTask?
+    
+    /// Invalidate session calling with `finishTasksAndInvalidate` and `invalidateAndCancel` methods.
+    /// - Warning: Session should be invalidated when not needed becasue URLSession strongly retains its delegate. For more information: [func invalidateandcancel()](https://developer.apple.com/documentation/foundation/urlsession/1411538-invalidateandcancel)
+    func invalidateSession()
 }
 
 /// Class handling the creation of URLSessionTaks and responding to URSessionDelegate callbacks.
@@ -88,8 +92,6 @@ class NetworkSession: NSObject {
     }
     
     deinit {
-        // We have to invalidate the session becasue URLSession strongly retains its delegate. https://developer.apple.com/documentation/foundation/urlsession/1411538-invalidateandcancel
-        session.invalidateAndCancel()
         session = nil
     }
 }
@@ -118,6 +120,11 @@ extension NetworkSession: NetworkSessionProtocol {
         // Set the associated progress handler for this task.
         set(handlers: (progressHandler, nil), for: uploadTask)
         return uploadTask
+    }
+    
+    func invalidateSession() {
+        session.finishTasksAndInvalidate()
+        session.invalidateAndCancel()
     }
 }
 

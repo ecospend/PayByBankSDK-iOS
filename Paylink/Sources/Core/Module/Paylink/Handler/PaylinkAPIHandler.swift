@@ -17,18 +17,14 @@ class PaylinkAPIHandler: APIHandlerProtocol {
     let completionHandler: (Result<PaylinkResult, PaylinkError>) -> Void
     weak var delegate: APIHandlerDelegate?
     
-    private let paylinkRepository: PaylinkRepositoryProtocol
-    
     init(uniqueID: String,
          webViewURL: URL,
          redirectURL: URL,
-         paylinkRepository: PaylinkRepositoryProtocol,
          completionHandler: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         self.uniqueID = uniqueID
         self.webViewURL = webViewURL
         self.redirectURL = redirectURL
         self.completionHandler = completionHandler
-        self.paylinkRepository = paylinkRepository
     }
 }
 

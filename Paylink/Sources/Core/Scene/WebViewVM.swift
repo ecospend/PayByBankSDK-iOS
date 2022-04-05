@@ -10,16 +10,13 @@ import Foundation
 
 class WebViewVM: NSObject {
     
-    private let paylinkRepository: PaylinkRepositoryProtocol
     var handler: APIHandlerProtocol
     
     private var dismissHandler: (() -> Void)?
     private var loadingHandler: ((Bool) -> Void)?
     
-    init(handler: APIHandlerProtocol,
-         paylinkRepository: PaylinkRepositoryProtocol) {
+    init(handler: APIHandlerProtocol) {
         self.handler = handler
-        self.paylinkRepository = paylinkRepository
         super.init()
         //
         self.handler.delegate = self

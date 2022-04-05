@@ -8,10 +8,16 @@
 
 import Foundation
 
-protocol PaylinkRepositoryProtocol {
-    
+typealias PaylinkRepositoryProtocol = PaylinkRepositoryAsyncProtocol & PaylinkRepositorySyncProtocol
+
+protocol PaylinkRepositoryAsyncProtocol {
     func createPaylink(request: PaylinkCreateRequest, completion: @escaping (Result<PaylinkCreateResponse, Error>) -> Void)
     func getPaylink(request: PaylinkGetRequest, completion: @escaping (Result<PaylinkGetResponse, Error>) -> Void)
+}
+
+protocol PaylinkRepositorySyncProtocol {
+    func createPaylink(request: PaylinkCreateRequest) -> Result<PaylinkCreateResponse, Error>
+    func getPaylink(request: PaylinkGetRequest) -> Result<PaylinkGetResponse, Error>
 }
 
 class PaylinkRepository {
@@ -23,8 +29,8 @@ class PaylinkRepository {
     }
 }
 
-// MARK: - IamRepositoryProtocol
-extension PaylinkRepository: PaylinkRepositoryProtocol {
+// MARK: - IamRepositoryAsyncProtocol
+extension PaylinkRepository: PaylinkRepositoryAsyncProtocol {
     
     func createPaylink(request: PaylinkCreateRequest, completion: @escaping (Result<PaylinkCreateResponse, Error>) -> Void) {
         networking.execute(endpoint: PaylinkEndpoint.createPaylink(request), type: PaylinkCreateResponse.self, completion: completion)
@@ -32,5 +38,35 @@ extension PaylinkRepository: PaylinkRepositoryProtocol {
     
     func getPaylink(request: PaylinkGetRequest, completion: @escaping (Result<PaylinkGetResponse, Error>) -> Void) {
         networking.execute(endpoint: PaylinkEndpoint.getPaylink(request), type: PaylinkGetResponse.self, completion: completion)
+    }
+}
+
+// MARK: - IamRepositorySyncProtocol
+extension PaylinkRepository: PaylinkRepositorySyncProtocol {
+    
+    func createPaylink(request: PaylinkCreateRequest) -> Result<PaylinkCreateResponse, Error> {
+        let semaphore = DispatchSemaphore(value: 0)
+        var result: Result<PaylinkCreateResponse, Error> = .failure(PaylinkError.unknown(nil))
+        
+        createPaylink(request: request) { _result in
+            result = _result
+            semaphore.signal()
+        }
+        
+        semaphore.wait()
+        return result
+    }
+    
+    func getPaylink(request: PaylinkGetRequest) -> Result<PaylinkGetResponse, Error> {
+        let semaphore = DispatchSemaphore(value: 0)
+        var result: Result<PaylinkGetResponse, Error> = .failure(PaylinkError.unknown(nil))
+        
+        getPaylink(request: request) { _result in
+            result = _result
+            semaphore.signal()
+        }
+        
+        semaphore.wait()
+        return result
     }
 }

@@ -11,11 +11,10 @@ import UIKit
 
 public final class Paylink {
     
-    private var getToken: () -> Result<IamTokenResponse, Error>
+    private let factory: PaylinkFactoryProtocol
     
-    internal init(tokenClosure: @escaping () -> Result<IamTokenResponse, Error>) {
-        self.getToken = tokenClosure
-        setupDI()
+    internal init(factory: PaylinkFactoryProtocol) {
+        self.factory = factory
     }
 }
 
@@ -54,7 +53,10 @@ private extension Paylink {
     
     func execute(type: PaylinkExecuteType, viewController: UIViewController, completion: @escaping (Result<PaylinkResult, PaylinkError>) -> Void) {
         
-        switch getToken() {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let paylinkRepository = factory.makePaylinkRepository()
+        
+        switch iamRepository.getToken() {
         case .success: break
         case .failure(let error): return completion(.failure(PaylinkError(error: error)))
         }
@@ -62,16 +64,16 @@ private extension Paylink {
         let paylinkGetResult: Result<PaylinkGetResponse, Error> = {
             switch type {
             case .open(let paylinkID):
-                switch getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)){
+                switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)){
                 case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
-                switch createPaylink(request: request) {
+                switch paylinkRepository.createPaylink(request: request) {
                 case .success(let createResponse):
                     guard let paylinkID = createResponse.uniqueID else { return .failure(PaylinkError.wrongPaylink) }
                     
-                    switch getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)){
+                    switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)){
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
                     }
@@ -81,7 +83,7 @@ private extension Paylink {
             }
         }()
         
-        let handlerResult: Result<PaylinkAPIHandler, Error> = {
+        let handlerResult: Result<APIHandlerProtocol, Error> = {
             switch paylinkGetResult {
             case .success(let response):
                 guard let paylinkID = response.uniqueID,
@@ -89,15 +91,10 @@ private extension Paylink {
                       let redirectURL = URL(string: response.redirectURL ?? "") else {
                     return .failure(PaylinkError.wrongPaylink)
                 }
-                let handler = PaylinkAPIHandler(uniqueID: paylinkID,
-                                                webViewURL: paylinkURL,
-                                                redirectURL: redirectURL,
-                                                paylinkRepository: DIContainer.shared.resolve(type: PaylinkRepositoryProtocol.self)!) { [weak self] result in
-                    if case .success(let paylinkResult) = result, paylinkResult.status != .initiated {
-                        self?.resetDI()
-                    }
-                    completion(result)
-                }
+                let handler = factory.makePaylinkAPIHandler(uniqueID: paylinkID,
+                                                            webViewURL: paylinkURL,
+                                                            redirectURL: redirectURL,
+                                                            completionHandler: completion)
                 return .success(handler)
             case .failure(let error):
                 return .failure(error)
@@ -105,9 +102,9 @@ private extension Paylink {
         }()
         
         switch handlerResult {
-        case .success(let model):
+        case .success(let handler):
             DispatchQueue.main.async {
-                let vc = DIContainer.shared.resolve(type: WebViewVC.self, arguments: model)!
+                let vc = self.factory.payByBankFactory.makeWebViewVC(handler: handler)
                 let nc = UINavigationController(rootViewController: vc)
                 viewController.present(nc, animated: true)
             }
@@ -116,51 +113,5 @@ private extension Paylink {
                 completion(.failure(PaylinkError(error: error)))
             }
         }
-    }
-}
-
-// MARK: - DI
-private extension Paylink {
-    
-    func setupDI() {
-        DIContainer.shared.register(type: PaylinkRepositoryProtocol.self, scope: .singleton) { _ in
-            PaylinkRepository(networking: DIContainer.shared.resolve(type: NetworkingProtocol.self)!)
-        }
-    }
-    
-    func resetDI() {
-        DIContainer.shared.reset()
-    }
-}
-
-// MARK: - Networking
-private extension Paylink {
-    
-    func createPaylink(request: PaylinkCreateRequest) -> Result<PaylinkCreateResponse, Error> {
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: Result<PaylinkCreateResponse, Error> = .failure(PaylinkError.unknown(nil))
-        let paylinkRepository = DIContainer.shared.resolve(type: PaylinkRepositoryProtocol.self)!
-        
-        paylinkRepository.createPaylink(request: request) { _result in
-            result = _result
-            semaphore.signal()
-        }
-        
-        semaphore.wait()
-        return result
-    }
-    
-    func getPaylink(request: PaylinkGetRequest) -> Result<PaylinkGetResponse, Error> {
-        let semaphore = DispatchSemaphore(value: 0)
-        var result: Result<PaylinkGetResponse, Error> = .failure(PaylinkError.unknown(nil))
-        let paylinkRepository = DIContainer.shared.resolve(type: PaylinkRepositoryProtocol.self)!
-        
-        paylinkRepository.getPaylink(request: request) { _result in
-            result = _result
-            semaphore.signal()
-        }
-        
-        semaphore.wait()
-        return result
     }
 }
