@@ -27,7 +27,7 @@ class PaylinkHandler: PayByBankHandlerProtocol {
         self.completionHandler = completionHandler
     }
     
-    func getWebViewDecision(url: URL?) -> WKNavigationActionPolicy {
+    func webViewDecision(url: URL?) -> WKNavigationActionPolicy {
         guard let url = url else { return .allow }
         
         switch url.host {
@@ -43,7 +43,7 @@ class PaylinkHandler: PayByBankHandlerProtocol {
         case webViewURL.host:
             handle(status: .initiated)
             return .allow
-        case "www.ecospend.com", "register.fca.org.uk":
+        case PayByBankConstant.URLHost.ecospend, PayByBankConstant.URLHost.fca:
             UIApplication.shared.open(url)
             handle(status: .initiated)
             return .cancel

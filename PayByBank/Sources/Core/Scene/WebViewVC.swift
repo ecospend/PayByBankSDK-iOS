@@ -72,8 +72,6 @@ class WebViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Paylink"
-        
         setupView()
         setupLayout()
         
@@ -167,7 +165,7 @@ extension WebViewVC {
 extension WebViewVC: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        let decision = viewModel.handler.getWebViewDecision(url: navigationAction.request.url)
+        let decision = viewModel.handler.webViewDecision(url: navigationAction.request.url)
         decisionHandler(decision)
     }
     

@@ -15,7 +15,7 @@ protocol PayByBankHandlerProtocol {
     var redirectURL: URL { get }
     var completionHandler: (Result<PayByBankResult, PayByBankError>) -> Void { get }
     var delegate: PayByBankHandlerDelegate? { get set }
-    func getWebViewDecision(url: URL?) -> WKNavigationActionPolicy
+    func webViewDecision(url: URL?) -> WKNavigationActionPolicy
     func cancelLink()
 }
 

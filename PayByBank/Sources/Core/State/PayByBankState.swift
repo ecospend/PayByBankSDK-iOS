@@ -19,8 +19,4 @@ struct PayByBankState {
     struct Network {
         static var token: IamTokenResponse?
     }
-    
-    struct GCD {
-        static let dispatchQueue = DispatchQueue(label: "com.ecospend.paybybank")
-    }
 }

@@ -26,7 +26,7 @@ public extension Paylink {
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
     func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
-        PayByBankState.GCD.dispatchQueue.async {
+        PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .open(paylinkID), viewController: viewController, completion: completion)
         }
         
@@ -37,7 +37,7 @@ public extension Paylink {
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
     func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
-        PayByBankState.GCD.dispatchQueue.async {
+        PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
         }
     }
