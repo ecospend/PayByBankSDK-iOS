@@ -21,6 +21,8 @@ public final class Paylink {
 // MARK: - API
 public extension Paylink {
     
+    /// Opens webview using with `unique_id` of paylink
+    ///
     /// - Parameters:
     ///     - paylinkID: Unique id value of paylink.
     ///     - viewController: UIViewController that provides to present bank selection
@@ -32,6 +34,8 @@ public extension Paylink {
         
     }
     
+    /// Opens webview using with request model of paylink
+    ///
     /// - Parameters:
     ///     - request: Request to create paylink
     ///     - viewController: UIViewController that provides to present bank selection

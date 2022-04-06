@@ -54,7 +54,7 @@ class PaylinkHandler: PayByBankHandlerProtocol {
         }
     }
     
-    func cancelLink() {
+    func closeTapped() {
         handle(status: .canceled)
     }
 }

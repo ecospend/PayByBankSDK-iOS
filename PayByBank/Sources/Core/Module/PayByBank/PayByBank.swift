@@ -15,6 +15,10 @@ public final class PayByBank {
 // MARK: - API
 public extension PayByBank {
     
+    /// Sets configuration for all PayByBank APIs
+    ///
+    /// - Warning: This method should be called before using any PayByBank API, otherwise each API returns an error as `PayByBankError.notConfigured`.
+    ///
     /// - Parameters:
     ///     - environment: Enum "Sandbox" "Production"
     ///     - clientID: Unique identification string assigned to the client by our system
@@ -25,6 +29,8 @@ public extension PayByBank {
         PayByBankState.Config.clientSecret = clientSecret
     }
     
+    
+    /// Paylink API
     static var paylink: Paylink {
         return Paylink(factory: PaylinkFactory(payByBankFactory: PayByBankFactory()))
     }

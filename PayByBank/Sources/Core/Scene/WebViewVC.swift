@@ -94,7 +94,7 @@ class WebViewVC: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        viewModel.handler.cancelLink()
+        viewModel.handler.closeTapped()
     }
     
     deinit {
