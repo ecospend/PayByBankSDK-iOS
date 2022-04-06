@@ -26,13 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		60008B3B2784215700F5D01A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E9F69371A477DCE2FD4EF595B913D2D5;
-			remoteInfo = Paylink;
-		};
 		605411E027676A2D0044D861 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 605411C127676A2C0044D861 /* Project object */;
@@ -67,6 +60,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 630CABE8F692FCDBFD1B122A2D0CE388;
 			remoteInfo = "Pods-ExampleTests";
+		};
+		D630E3BD27FDAC9600AAAD67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22CF4473548B319322179C041F6D489A;
+			remoteInfo = PayByBank;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -187,10 +187,10 @@
 		608F5CB62768C8F50053F379 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60008B3C2784215700F5D01A /* Paylink.framework */,
-				608F5CC22768C8F50053F379 /* Pods_Example.framework */,
-				608F5CC42768C8F50053F379 /* Pods_Example_ExampleUITests.framework */,
-				608F5CC62768C8F50053F379 /* Pods_ExampleTests.framework */,
+				D630E3BE27FDAC9600AAAD67 /* PayByBank */,
+				608F5CC22768C8F50053F379 /* Pods-Example */,
+				608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */,
+				608F5CC62768C8F50053F379 /* Pods-ExampleTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,6 +252,7 @@
 				605411C627676A2C0044D861 /* Frameworks */,
 				605411C727676A2C0044D861 /* Resources */,
 				E917602971191CDF1901576F /* [CP] Embed Pods Frameworks */,
+				D630E3B827FDAC9600AAAD67 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -353,32 +354,36 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		60008B3C2784215700F5D01A /* Paylink.framework */ = {
+		608F5CC22768C8F50053F379 /* Pods-Example */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Paylink.framework;
-			remoteRef = 60008B3B2784215700F5D01A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		608F5CC22768C8F50053F379 /* Pods_Example.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
+			name = "Pods-Example";
 			path = Pods_Example.framework;
 			remoteRef = 608F5CC12768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		608F5CC42768C8F50053F379 /* Pods_Example_ExampleUITests.framework */ = {
+		608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
+			name = "Pods-Example-ExampleUITests";
 			path = Pods_Example_ExampleUITests.framework;
 			remoteRef = 608F5CC32768C8F50053F379 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		608F5CC62768C8F50053F379 /* Pods_ExampleTests.framework */ = {
+		608F5CC62768C8F50053F379 /* Pods-ExampleTests */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
+			name = "Pods-ExampleTests";
 			path = Pods_ExampleTests.framework;
 			remoteRef = 608F5CC52768C8F50053F379 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D630E3BE27FDAC9600AAAD67 /* PayByBank */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			name = PayByBank;
+			path = PayByBank.framework;
+			remoteRef = D630E3BD27FDAC9600AAAD67 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -493,6 +498,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D630E3B827FDAC9600AAAD67 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		E917602971191CDF1901576F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

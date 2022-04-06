@@ -9,17 +9,17 @@
 import UIKit
 
 class TextField: UITextField {
-    
+
     struct Constants {
         static let sidePadding: CGFloat = 10
         static let topPadding: CGFloat = 8
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()
     }
-    
+
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return CGRect(
             x: bounds.origin.x + Constants.sidePadding,
@@ -28,16 +28,16 @@ class TextField: UITextField {
             height: bounds.size.height - Constants.topPadding * 2
         )
     }
-    
+
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return self.textRect(forBounds: bounds)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupTextField()
     }
-    
+
     func setupTextField() {
         borderStyle = .none
         layer.cornerRadius = 8
@@ -45,7 +45,7 @@ class TextField: UITextField {
         textColor = .black
         setShadow()
     }
-    
+
     private func setShadow() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
