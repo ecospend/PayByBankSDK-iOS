@@ -1,5 +1,5 @@
 //
-//  IamTokenRequest.swift.swift
+//  IamTokenRequest.swift
 //  PayByBank
 //
 //  Created by Yunus TÜR on 15.12.2021.

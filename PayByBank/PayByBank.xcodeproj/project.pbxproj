@@ -47,7 +47,7 @@
 		D6F46023276B6E4C00D49C4E /* PaylinkCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46007276B6E4C00D49C4E /* PaylinkCreateRequest.swift */; };
 		D6F46024276B6E4C00D49C4E /* PaylinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46008276B6E4C00D49C4E /* PaylinkRepository.swift */; };
 		D6F46025276B6E4C00D49C4E /* IamEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4600A276B6E4C00D49C4E /* IamEndpoint.swift */; };
-		D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4600C276B6E4C00D49C4E /* IamTokenRequest.swift.swift */; };
+		D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4600C276B6E4C00D49C4E /* IamTokenRequest.swift */; };
 		D6F46027276B6E4C00D49C4E /* IamTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4600D276B6E4C00D49C4E /* IamTokenResponse.swift */; };
 		D6F46028276B6E4C00D49C4E /* IamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4600E276B6E4C00D49C4E /* IamRepository.swift */; };
 		D6F46029276B6E4C00D49C4E /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4600F276B6E4C00D49C4E /* EndpointProtocol.swift */; };
@@ -111,7 +111,7 @@
 		D6F46007276B6E4C00D49C4E /* PaylinkCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkCreateRequest.swift; sourceTree = "<group>"; };
 		D6F46008276B6E4C00D49C4E /* PaylinkRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkRepository.swift; sourceTree = "<group>"; };
 		D6F4600A276B6E4C00D49C4E /* IamEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IamEndpoint.swift; sourceTree = "<group>"; };
-		D6F4600C276B6E4C00D49C4E /* IamTokenRequest.swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IamTokenRequest.swift.swift; sourceTree = "<group>"; };
+		D6F4600C276B6E4C00D49C4E /* IamTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IamTokenRequest.swift; sourceTree = "<group>"; };
 		D6F4600D276B6E4C00D49C4E /* IamTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IamTokenResponse.swift; sourceTree = "<group>"; };
 		D6F4600E276B6E4C00D49C4E /* IamRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IamRepository.swift; sourceTree = "<group>"; };
 		D6F4600F276B6E4C00D49C4E /* EndpointProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 		D6F4600B276B6E4C00D49C4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D6F4600C276B6E4C00D49C4E /* IamTokenRequest.swift.swift */,
+				D6F4600C276B6E4C00D49C4E /* IamTokenRequest.swift */,
 				D6F4600D276B6E4C00D49C4E /* IamTokenResponse.swift */,
 			);
 			path = Model;
@@ -570,7 +570,7 @@
 				D6F46031276B6E4C00D49C4E /* PayByBankState.swift in Sources */,
 				D681EA762771C32400A29870 /* PaylinkGetResponse.swift in Sources */,
 				D629E7A62782DBE2004B91C8 /* PayByBankStrings.swift in Sources */,
-				D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift.swift in Sources */,
+				D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift in Sources */,
 				D6F46034276B6E4C00D49C4E /* Encodable+.swift in Sources */,
 				D620E35627DB23890058AEEA /* PaylinkHandler.swift in Sources */,
 				D630E37A27FADC2600AAAD67 /* PayByBank.swift in Sources */,
