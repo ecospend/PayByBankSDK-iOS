@@ -18,4 +18,8 @@ struct PayByBankConstant {
         static let ecospend = "www.ecospend.com"
         static let fca = "register.fca.org.uk"
     }
+    
+    struct Localizable {
+        static let tableName = "PayByBank"
+    }
 }
