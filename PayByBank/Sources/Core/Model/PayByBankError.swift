@@ -8,7 +8,8 @@
 
 import Foundation
 
-public enum PayByBankError: LocalizedError {
+/// Enum of SDK Errors
+public enum PayByBankError: Error {
     /// Unknown error.
     case unknown(Error?)
     /// Wrong `clientID` or `clientSecret`.
@@ -25,8 +26,11 @@ public enum PayByBankError: LocalizedError {
         default: self = .unknown(error)
         }
     }
+}
+// MARK: - LocalizedError
+extension PayByBankError: LocalizedError {
     
-    public var localizedDescription: String {
+    public var errorDescription: String? {
         switch self {
         case .unknown(let message):
             let error = PayByBankStrings.paybybank_error_unknown.localized

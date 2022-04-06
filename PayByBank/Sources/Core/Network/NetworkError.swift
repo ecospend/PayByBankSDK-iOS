@@ -9,7 +9,7 @@
 import Foundation
 
 /// Enum of API Errors
-public enum NetworkError: LocalizedError {
+public enum NetworkError: Error {
     /// No data received from the server.
     case noData
     /// The server response was invalid (unexpected format).
@@ -22,8 +22,12 @@ public enum NetworkError: LocalizedError {
     case parseError(String?)
     /// Unknown error.
     case unknown(String?)
+}
+
+// MARK: - LocalizedError
+extension NetworkError: LocalizedError {
     
-    public var localizedDescription: String {
+    public var errorDescription: String? {
         switch self {
         case .noData:
             return PayByBankStrings.network_error_no_data.localized
