@@ -31,7 +31,6 @@ public extension Paylink {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .open(paylinkID), viewController: viewController, completion: completion)
         }
-        
     }
     
     /// Opens webview using with request model of paylink
@@ -68,7 +67,7 @@ private extension Paylink {
         let paylinkGetResult: Result<PaylinkGetResponse, Error> = {
             switch type {
             case .open(let paylinkID):
-                switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)){
+                switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)) {
                 case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
@@ -77,7 +76,7 @@ private extension Paylink {
                 case .success(let createResponse):
                     guard let paylinkID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
                     
-                    switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)){
+                    switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
                     }

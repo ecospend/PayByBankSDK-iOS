@@ -35,7 +35,7 @@ public class PaylinkFlutterModule: NSObject {
     }
     
     public func start() {
-        let binaryMessenger = Self.rootViewController as! FlutterBinaryMessenger
+        guard let binaryMessenger = Self.rootViewController as? FlutterBinaryMessenger else { return }
         channel = FlutterMethodChannel(name: channelName, binaryMessenger: binaryMessenger)
         eventChannel = FlutterEventChannel(name: eventChannelName, binaryMessenger: binaryMessenger)
         eventChannel.setStreamHandler(self)
@@ -43,7 +43,7 @@ public class PaylinkFlutterModule: NSObject {
     }
     
     private func handleMethods() {
-        channel.setMethodCallHandler { (methodCall: FlutterMethodCall, result: @escaping FlutterResult) in
+        channel.setMethodCallHandler { (methodCall: FlutterMethodCall, _: @escaping FlutterResult) in
             guard let method = PaylinkFlutterMethod(rawValue: methodCall.method), let sink = self.eventSink else {
                 print("Unknown method invoked")
                 return

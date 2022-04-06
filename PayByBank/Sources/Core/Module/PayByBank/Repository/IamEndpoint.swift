@@ -36,7 +36,7 @@ extension IamEndpoint: EndpointProtocol {
         ]
     }
     
-    var parameters: [String : Any?]? {
+    var parameters: [String: Any?]? {
         switch self {
         case .token: return nil
         }

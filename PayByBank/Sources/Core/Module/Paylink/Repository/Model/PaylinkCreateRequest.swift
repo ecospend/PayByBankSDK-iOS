@@ -6,6 +6,8 @@
 //  Copyright © 2021 Ecospend. All rights reserved.
 //
 
+// swiftlint:disable line_length
+
 import Foundation
 
 // MARK: - PaylinkCreateRequest

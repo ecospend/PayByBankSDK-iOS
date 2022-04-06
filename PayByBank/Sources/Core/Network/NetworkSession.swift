@@ -6,6 +6,8 @@
 //  Copyright © 2021 Ecospend. All rights reserved.
 //
 
+// swiftlint:disable line_length
+
 import Foundation
 
 /// Protocol to which network session handling classes must conform to.
@@ -29,7 +31,7 @@ protocol NetworkSessionProtocol {
     ///   - fileURL: The source file `URL`.
     ///   - progressHandler: Optional `ProgressHandler` callback.
     ///   - completion: he completion handler for the upload task.
-    func uploadTask(with request: URLRequest, from fileURL: URL, progressHandler: ProgressHandler?, completion: @escaping (Data?, URLResponse?, Error?)-> Void) -> URLSessionUploadTask?
+    func uploadTask(with request: URLRequest, from fileURL: URL, progressHandler: ProgressHandler?, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionUploadTask?
     
     /// Invalidate session calling with `finishTasksAndInvalidate` and `invalidateAndCancel` methods.
     /// - Warning: Session should be invalidated when not needed becasue URLSession strongly retains its delegate. For more information: [func invalidateandcancel()](https://developer.apple.com/documentation/foundation/urlsession/1411538-invalidateandcancel)
@@ -46,7 +48,7 @@ class NetworkSession: NSObject {
     private typealias ProgressAndCompletionHandlers = (progress: ProgressHandler?, completion: ((URL?, URLResponse?, Error?) -> Void)?)
     
     /// Dictionary containing associations of `ProgressAndCompletionHandlers` to `URLSessionTask` instances.
-    private var taskToHandlersMap: [URLSessionTask : ProgressAndCompletionHandlers] = [:]
+    private var taskToHandlersMap: [URLSessionTask: ProgressAndCompletionHandlers] = [:]
     
     /// Convenience initializer.
     public override convenience init() {
@@ -74,7 +76,6 @@ class NetworkSession: NSObject {
         super.init()
         self.session = URLSession(configuration: configuration, delegate: self, delegateQueue: delegateQueue)
     }
-    
     
     /// Associates a `URLSessionTask` instance with its `ProgressAndCompletionHandlers`
     /// - Parameters:

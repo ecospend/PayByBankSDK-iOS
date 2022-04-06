@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @objc(PaylinkXamarinModule)
-public class PaylinkXamarinModule : NSObject {
+public class PaylinkXamarinModule: NSObject {
     
     /// - Parameters:
     ///     - environment: Enum "Sandbox" "Production"

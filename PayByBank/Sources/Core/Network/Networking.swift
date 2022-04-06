@@ -65,12 +65,10 @@ class Networking: NetworkingProtocol {
             task = networkSession.downloadTask(request: urlRequest, progressHandler: progressHandler, completionHandler: { [weak self] (fileUrl, urlResponse, error) in
                 self?.handleFileTaskResponse(fileUrl: fileUrl, urlResponse: urlResponse, error: error, completion: completion)
             })
-            break
         case .upload(let fileURL, let progressHandler):
             task = networkSession.uploadTask(with: urlRequest, from: fileURL, progressHandler: progressHandler, completion: { [weak self] (data, urlResponse, error) in
                 self?.handleJsonTaskResponse(data: data, urlResponse: urlResponse, error: error, completion: completion)
             })
-            break
         }
         // Start the task.
         task?.resume()
@@ -135,7 +133,6 @@ private extension Networking {
     }
 }
 
-
 // MARK: - Util
 private extension Networking {
     
@@ -154,7 +151,7 @@ private extension Networking {
                 return .failure(NetworkError.noData)
             }
         case 400...499:
-            return .failure(NetworkError.badRequest(urlResponse.statusCode,repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
+            return .failure(NetworkError.badRequest(urlResponse.statusCode, repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         case 500...599:
             return .failure(NetworkError.serverError(urlResponse.statusCode, repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         default:

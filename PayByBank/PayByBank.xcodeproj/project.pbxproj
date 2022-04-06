@@ -446,6 +446,7 @@
 				60E67A2C27676AF70032A5C3 /* Sources */,
 				60E67A2D27676AF70032A5C3 /* Frameworks */,
 				60E67A2E27676AF70032A5C3 /* Resources */,
+				D630E3C027FDAE3100AAAD67 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -554,6 +555,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\necho \"Universal(iOS + iOS Simulator) framework generation started\"\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\necho \"Output directory created at ${UNIVERSAL_OUTPUTFOLDER}\"\n\necho \"Step 1. Build Device version\"\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build -quiet\necho \"Step 1 completed\"\n\necho \"Step 2. Build simulator version\"\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" EXCLUDED_ARCHS=\"arm64\" clean build -quiet\necho \"Step 2 completed\"\n\necho \"Step 3. Copy the framework structure (from iphoneos build) to the universal folder\"\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\necho \"Step 3 completed\"\n\necho \"Step 4. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\"\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\necho \"Step 4 completed\"\n\necho \"Step 5. Merge device and simulator .swiftmodule files\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\necho \"Step 5 completed\"\n\necho \"Step 6. Create universal binary file using lipo and place the combined executable in the copied framework directory\"\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\necho \"Step 6 completed\"\n\ncd \"${PROJECT_DIR}\"\nmkdir -p build\nDESTINATION_FOLDER=\"${PROJECT_DIR}/build\"\n\necho \"Step 7. Convenience step to copy the framework to the project's directory\"\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${DESTINATION_FOLDER}\"\necho \"Step 7 completed\"\n\necho \"Generation process completed successfully\"\necho \"Framework is ready at ${DESTINATION_FOLDER}\"\n\nopen \"${DESTINATION_FOLDER}\"\n";
+		};
+		D630E3C027FDAE3100AAAD67 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -125,7 +125,7 @@ extension WebViewVC {
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
         NSLayoutConstraint.activate([
             closeButton.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -16),

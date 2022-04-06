@@ -46,7 +46,7 @@ extension PayByBankStrings {
     var localized: String {
         let value = NSLocalizedString(name,
                                       tableName: PayByBankConstant.Localizable.tableName,
-                                      bundle:  Bundle(for: Paylink.self),
+                                      bundle: Bundle(for: Paylink.self),
                                       comment: "")
         guard let arguments = arguments else { return value }
         return String(format: value, arguments: arguments.map { String(describing: $0) })

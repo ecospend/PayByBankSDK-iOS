@@ -44,7 +44,7 @@ extension PaylinkEndpoint: EndpointProtocol {
         return headers
     }
     
-    var parameters: [String : Any?]? {
+    var parameters: [String: Any?]? {
         switch self {
         case .createPaylink, .getPaylink: return nil
         }

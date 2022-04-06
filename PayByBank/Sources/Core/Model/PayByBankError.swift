@@ -20,10 +20,12 @@ public enum PayByBankError: Error {
     case network(NetworkError)
     
     init(error: Error) {
-        switch error {
-        case is PayByBankError: self = error as! PayByBankError
-        case is NetworkError: self = .network(error as! NetworkError)
-        default: self = .unknown(error)
+        if let error = error as? PayByBankError {
+            self = error
+        } else if let error = error as? NetworkError {
+            self = .network(error)
+        } else {
+            self = .unknown(error)
         }
     }
 }

@@ -9,17 +9,17 @@
 import UIKit
 
 class Button: UIButton {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }
-    
+
     func setupButton() {
         isExclusiveTouch = true
         setShadow()
@@ -28,7 +28,7 @@ class Button: UIButton {
         titleLabel?.font = Font.primary
         layer.cornerRadius = frame.height / 2
     }
-    
+
     private func setShadow() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)

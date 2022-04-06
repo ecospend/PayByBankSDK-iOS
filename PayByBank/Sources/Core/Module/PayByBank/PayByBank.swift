@@ -29,7 +29,6 @@ public extension PayByBank {
         PayByBankState.Config.clientSecret = clientSecret
     }
     
-    
     /// Paylink API
     static var paylink: Paylink {
         return Paylink(factory: PaylinkFactory(payByBankFactory: PayByBankFactory()))

@@ -64,7 +64,7 @@ extension EndpointProtocol {
             return nil
         }
         // Add the request path to the existing base URL path
-        urlComponents.path = urlComponents.path + path
+        urlComponents.path += path
         // Add query items to the request URL
         urlComponents.queryItems = queryItems
         
@@ -127,7 +127,6 @@ enum RequestBodySchema: String {
 /// Type alias used for HTTP request headers.
 typealias ReaquestHeaders = [String: String]
 /// Type alias used for HTTP request parameters. Used for query parameters for GET requests and in the HTTP body for POST, PUT and PATCH requests.
-typealias RequestParameters = [String : Any?]
+typealias RequestParameters = [String: Any?]
 /// Type alias used for the HTTP request download/upload progress.
 typealias ProgressHandler = (Float) -> Void
-

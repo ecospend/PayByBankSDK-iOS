@@ -56,12 +56,12 @@ extension PaylinkInitiateMethodFlutterHandler {
         
         Paylink.shared.initiate(request: request, viewController: rootViewController) { result in
             switch result {
-                case .success(let model):
-                    guard let paymentResult = model.dictionary else { return }
-                    sink(paymentResult)
-                case .failure(let error):
-                    let flutterError = FlutterError(code: "Initiate Error", message: error.localizedDescription, details: (error as NSError).userInfo)
-                    sink(flutterError)
+            case .success(let model):
+                guard let paymentResult = model.dictionary else { return }
+                sink(paymentResult)
+            case .failure(let error):
+                let flutterError = FlutterError(code: "Initiate Error", message: error.localizedDescription, details: (error as NSError).userInfo)
+                sink(flutterError)
             }
         }
     }

@@ -137,21 +137,21 @@ extension MainVC {
 // MARK: - Toast
 extension MainVC {
     
-    func showToast(message : String) {
+    func showToast(message: String) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: 100, width: 200, height: 50))
         toastLabel.backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = .systemFont(ofSize: 14, weight: .semibold)
-        toastLabel.textAlignment = .center;
+        toastLabel.textAlignment = .center
         toastLabel.text = message
         toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 25;
+        toastLabel.layer.cornerRadius = 25
         toastLabel.clipsToBounds = true
         self.view.addSubview(toastLabel)
         speak(with: message)
         UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
+        }, completion: { _ in
             toastLabel.removeFromSuperview()
         })
     }

@@ -22,6 +22,8 @@
 //  THE SOFTWARE.
 //
 
+// swiftlint:disable file_length
+
 import Foundation
 
 /// An object that encodes instances into URL-encoded query strings.
