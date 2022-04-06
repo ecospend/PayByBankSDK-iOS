@@ -11,7 +11,7 @@ import Foundation
 struct PayByBankConstant {
     
     struct GCD {
-        static let dispatchQueue = DispatchQueue(label: "com.ecospend.paybybank")
+        static let dispatchQueue = DispatchQueue(label: "com.ecospend.paybybank", attributes: .concurrent)
     }
     
     struct URLHost {
