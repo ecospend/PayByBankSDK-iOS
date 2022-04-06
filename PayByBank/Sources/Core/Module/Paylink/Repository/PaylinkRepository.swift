@@ -1,6 +1,6 @@
 //
 //  PayByBankRepository.swift
-//  PayByBank SDK POC
+//  PayByBank
 //
 //  Created by Yunus TÜR on 16.12.2021.
 //  Copyright © 2021 Ecospend. All rights reserved.
