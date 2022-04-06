@@ -1,5 +1,5 @@
 //
-//  PayByBankAPIHandler.swift
+//  PaylinkHandler.swift
 //  PayByBank
 //
 //  Created by Yunus TÜR on 11.03.2022.
@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 
-class PaylinkAPIHandler: PayByBankHandlerProtocol {
+class PaylinkHandler: PayByBankHandlerProtocol {
     
     let uniqueID: String
     let webViewURL: URL
@@ -26,10 +26,6 @@ class PaylinkAPIHandler: PayByBankHandlerProtocol {
         self.redirectURL = redirectURL
         self.completionHandler = completionHandler
     }
-}
-
-// MARK: - PayByBankHandlerProtocol
-extension PaylinkAPIHandler {
     
     func getWebViewDecision(url: URL?) -> WKNavigationActionPolicy {
         guard let url = url else { return .allow }
@@ -64,7 +60,7 @@ extension PaylinkAPIHandler {
 }
 
 // MARK: - Logic
-private extension PaylinkAPIHandler {
+private extension PaylinkHandler {
     
     func handle(status: PayByBankStatus) {
         if status != .initiated {

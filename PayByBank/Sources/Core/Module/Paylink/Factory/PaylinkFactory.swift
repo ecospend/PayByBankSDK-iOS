@@ -36,6 +36,6 @@ extension PaylinkFactory {
                                webViewURL: URL,
                                redirectURL: URL,
                                completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
-        return PaylinkAPIHandler(uniqueID: uniqueID, webViewURL: webViewURL, redirectURL: redirectURL, completionHandler: completionHandler)
+        return PaylinkHandler(uniqueID: uniqueID, webViewURL: webViewURL, redirectURL: redirectURL, completionHandler: completionHandler)
     }
 }
