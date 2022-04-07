@@ -35,7 +35,7 @@ public struct DatalinkCreateRequest: Codable {
     /// The permissions which will be asked to the users while connecting their account.
     /// Determines which data will be fetched
     /// If it is not set, system will automatically set all the permissions
-    public let permissions: [String]?
+    public let permissions: [ConsentPermission]?
     
     public let datalinkOptions: DatalinkOptions
     
@@ -62,7 +62,7 @@ public struct DatalinkCreateRequest: Codable {
                 merchantUserId: String?,
                 consentEndDate: String?,
                 expiryDate: String?,
-                permissions: [String]?,
+                permissions: [ConsentPermission]?,
                 datalinkOptions: DatalinkOptions,
                 notificationOptions: NotificationOptions,
                 financialReport: FinancialReport) {
@@ -210,7 +210,7 @@ public struct CategoryAggregationParameters: Codable {
 }
 
 // MARK: - DistrubutionPeriod
-public enum DistrubutionPeriod: Codable {
+public enum DistrubutionPeriod: String, Codable {
     case month
     case quarter
     case year

@@ -8,9 +8,8 @@
 
 import UIKit
 import PayByBank
-import AVFoundation
 
-class DatalinkVC: UIViewController {
+class DatalinkVC: ViewController {
     
     @IBOutlet weak var datalinkStackView: UIStackView!
     @IBOutlet weak var datalinkOptionsStackView: UIStackView!
@@ -26,28 +25,6 @@ class DatalinkVC: UIViewController {
     @IBOutlet weak var generateQRSwitch: UISwitch!
     @IBOutlet weak var allowMultipleConsentSwitch: UISwitch!
     @IBOutlet weak var generateFinancialReportSwitch: UISwitch!
-    
-    lazy var loadingView: UIView = {
-        let view = UIView()
-        if #available(iOS 11.0, *) {
-            view.backgroundColor = UIColor(named: "viewBackground")
-        } else {
-            view.backgroundColor = .white
-        }
-        view.alpha = 0.7
-        return view
-    }()
-    
-    lazy var activityIndicator: UIActivityIndicatorView = {
-        let view: UIActivityIndicatorView = {
-            if #available(iOS 13.0, *) {
-                return UIActivityIndicatorView(style: .medium)
-            } else {
-                return UIActivityIndicatorView(style: .white)
-            }
-        }()
-        return view
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +46,16 @@ class DatalinkVC: UIViewController {
         expiryDateTextField.delegate = self
         permissionsTextField.delegate = self
         
-        redirectURLTextField.text = "https://preprodenv.pengpay.io/paycompleted"
-        bankIdTextField.text = "11.3"
-        merchantIdTextField.text = "Sample Reference"
-        merchantUserIdTextField.text = "Sample Description"
+        autoRedirectSwitch.isOn = false
+        redirectURLTextField.text = "https://preprodenv.pengpay.io/accountcompleted"
+        bankIdTextField.text = UUID().uuidString // TODO: fix
+        merchantIdTextField.text = "Merchant Id"
+        merchantUserIdTextField.text = "Merchant User Id"
         consentEndDateTextField.text = "2023-08-24T14:15:22Z"
         expiryDateTextField.text = "2023-08-24T14:15:22Z"
-        permissionsTextField.text = "0,1,2,3"
+        permissionsTextField.text = [ConsentPermission.balance, ConsentPermission.account, ConsentPermission.trasactions]
+            .map { $0.rawValue }
+            .joined(separator: ",")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,7 +104,10 @@ extension DatalinkVC {
         
         let permissions = permissionsTextField.text?
             .trimmingCharacters(in: .whitespacesAndNewlines)
-            .split(separator: ",") as? [String]
+            .split(separator: ",")
+            .map { ConsentPermission(rawValue: String($0)) }
+            .filter { $0 != nil }
+            .map { $0! }
         
         let datalinkOptions = DatalinkOptions(autoRedirect: autoRedirectSwitch.isOn,
                                               generateQrCode: generateQRSwitch.isOn,
@@ -132,7 +115,7 @@ extension DatalinkVC {
                                               generateFinancialReport: generateFinancialReportSwitch.isOn)
         
         let notificationOptions = NotificationOptions(sendEmailNotification: false,
-                                                      email: "",
+                                                      email: "example@email.com",
                                                       sendSMSNotification: false,
                                                       phoneNumber: "")
         
@@ -159,63 +142,11 @@ extension DatalinkVC {
     }
 }
 
-// MARK: - Toast
-extension DatalinkVC {
-    
-    func showToast(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: 100, width: 200, height: 50))
-        toastLabel.backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = .systemFont(ofSize: 14, weight: .semibold)
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 25
-        toastLabel.clipsToBounds = true
-        self.view.addSubview(toastLabel)
-        speak(with: message)
-        UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: { _ in
-            toastLabel.removeFromSuperview()
-        })
-    }
-}
-
-// MARK: - Loading
-extension DatalinkVC {
-    
-    func showActivityIndicator() {
-        loadingView.frame = view.bounds
-        loadingView.addSubview(activityIndicator)
-        activityIndicator.center = loadingView.center
-        view.addSubview(loadingView)
-        activityIndicator.startAnimating()
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
-        loadingView.removeFromSuperview()
-    }
-}
-
 // MARK: - UITextFieldDelegate
 extension DatalinkVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-// MARK: - Speak
-extension DatalinkVC {
-    
-    func speak(with text: String) {
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-        utterance.rate = 0.5
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
     }
 }

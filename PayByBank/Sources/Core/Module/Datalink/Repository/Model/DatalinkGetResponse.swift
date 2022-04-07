@@ -22,7 +22,7 @@ public struct DatalinkGetResponse: Codable {
     public let merchantUserId: String?
     
     /// Permissions that determine which data is fetched.
-    public let permissions: [DataAccessConsentPermission]?
+    public let permissions: [ConsentPermission]?
     
     public let datalinkOptions: DatalinkOptions?
     
@@ -33,18 +33,6 @@ public struct DatalinkGetResponse: Codable {
     public let dataLink: DatalinkModel?
     
     public let consents: [ConsentModel]?
-}
-
-// MARK: - DataAccessConsentPermission
-public enum DataAccessConsentPermission: String, Codable {
-    case account = "Account"
-    case balance = "Balance"
-    case transactions = "Transactions"
-    case directDebits = "DirectDebits"
-    case standingOrders = "StandingOrders"
-    case parties = "Parties"
-    case scheduledPayments = "ScheduledPayments"
-    case statements = "Statements"
 }
 
 // MARK: - Datalink
@@ -108,4 +96,17 @@ public enum ConsentStatus: String, Codable {
    case revoked = "Revoked"
    case expired = "Expired"
    case revocationPending = "RevocationPending"
+}
+
+// MARK: - ConsentPermission
+public enum ConsentPermission: String, Codable {
+    case account = "Account"
+    case balance = "Balance"
+    case trasactions = "Transactions"
+    case directDebits = "DirectDebits"
+    case standingOrders = "StandingOrders"
+    case parties = "Parties"
+    case scheduledPayments = "ScheduledPayments"
+    case statements = "Statements"
+    case offers = "Offers"
 }

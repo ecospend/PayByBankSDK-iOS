@@ -9,6 +9,4 @@
 import Foundation
 import UIKit
 
-class TabsVC: UITabBarController {
-    
-}
+class TabsVC: UITabBarController {}
