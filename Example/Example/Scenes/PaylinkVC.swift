@@ -10,7 +10,7 @@ import UIKit
 import PayByBank
 import AVFoundation
 
-class MainVC: UIViewController {
+class PaylinkVC: UIViewController {
 
     @IBOutlet weak var redirectURLTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
@@ -107,7 +107,7 @@ class MainVC: UIViewController {
 }
 
 // MARK: - Logic
-extension MainVC {
+extension PaylinkVC {
     
     var request: PaylinkCreateRequest? {
         guard let redirectURL = URL(string: redirectURLTextField.text ?? ""),
@@ -135,7 +135,7 @@ extension MainVC {
 }
 
 // MARK: - Toast
-extension MainVC {
+extension PaylinkVC {
     
     func showToast(message: String) {
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: 100, width: 200, height: 50))
@@ -158,7 +158,7 @@ extension MainVC {
 }
 
 // MARK: - Loading
-extension MainVC {
+extension PaylinkVC {
     
     func showActivityIndicator() {
         loadingView.frame = view.bounds
@@ -175,7 +175,7 @@ extension MainVC {
 }
 
 // MARK: - UITextFieldDelegate
-extension MainVC: UITextFieldDelegate {
+extension PaylinkVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -184,7 +184,7 @@ extension MainVC: UITextFieldDelegate {
 }
 
 // MARK: - Speak
-extension MainVC {
+extension PaylinkVC {
     
     func speak(with text: String) {
         let utterance = AVSpeechUtterance(string: text)
