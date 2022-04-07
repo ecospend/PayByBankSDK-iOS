@@ -44,6 +44,17 @@ public extension Paylink {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
         }
     }
+    
+    /// Soft deletes Paylink with given id
+    ///
+    /// - Parameters:
+    ///     - paylinkID: Unique id value of paylink.
+    ///     - completion: It provides to handle result or error
+    func delete(paylinkID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.delete(request: PaylinkDeleteRequest(paylinkID: paylinkID), completion: completion)
+        }
+    }
 }
 
 // MARK: - Logic
@@ -115,6 +126,21 @@ private extension Paylink {
             DispatchQueue.main.async {
                 completion(.failure(PayByBankError(error: error)))
             }
+        }
+    }
+    
+    func delete(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let paylinkRepository = factory.makePaylinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        }
+        
+        switch paylinkRepository.deletePaylink(request: request) {
+        case .success(let isDeleted): return completion(.success(isDeleted))
+        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }
     }
 }
