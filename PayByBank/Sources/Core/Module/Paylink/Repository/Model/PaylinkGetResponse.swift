@@ -44,16 +44,16 @@ public struct PaylinkGetResponse: Codable {
     public let merchantUserID: String?
     
     /// The Creditor Account model
-    public let creditorAccount: PaylinkAccountResponse?
+    public let creditorAccount: PayByBankAccountResponse?
     
     /// The Debtor Account model
-    public let debtorAccount: PaylinkAccountResponse?
+    public let debtorAccount: PayByBankAccountResponse?
     
     /// The Paylink Options model
     public let paylinkOptions: PaylinkOptionsResponse?
     
     /// The Notification Options model
-    public let notificationOptions: PaylinkNotificationOptionsResponse?
+    public let notificationOptions: PayByBankNotificationOptionsResponse?
     
     /// The PaymentOptions model
     public let paymentOptions: PaylinkPaymentOptionsResponse?
@@ -75,26 +75,6 @@ public struct PaylinkGetResponse: Codable {
         case paymentOptions = "payment_options"
         case limitOptions = "limit_options"
     }
-}
-
-// MARK: - PaylinkAccountResponse
-public struct PaylinkAccountResponse: Codable {
-    
-    /// - Enum: "SortCode" "Iban" "Bban"
-    public let type: PaylinkAccountType?
-    
-    /// The identification that you provided with the request.
-    public let identification: String?
-    
-    /// The owner_name that you provided with the PaymentRequest.
-    public let name: String?
-    
-    /// Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
-    /// - Enum: "GBP" "USD" "EUR"
-    public let currency: PaylinkCurrency?
-    
-    /// The bic that you provided with the PaymentRequest (if any).
-    public let bic: String?
 }
 
 // MARK: - PaylinkOptionsResponse
@@ -145,21 +125,6 @@ public struct PaylinkTipResponse: Codable {
         case title, text
         case isRequired = "is_required"
         case options
-    }
-}
-
-// MARK: - PaylinkNotificationOptionsResponse
-public struct PaylinkNotificationOptionsResponse: Codable {
-    
-    /// True if SendEmailNotification is true and email was sent successfully, otherwise false
-    let isEmailSent: Bool?
-    
-    /// True if SendSmsNotification is true and sms was sent successfully, otherwise false
-    let isSmsSent: Bool?
-    
-    enum CodingKeys: String, CodingKey {
-        case isEmailSent = "is_email_sent"
-        case isSmsSent = "is_sms_sent"
     }
 }
 

@@ -16,7 +16,7 @@ enum PaylinkEndpoint {
 extension PaylinkEndpoint: EndpointProtocol {
     
     var baseURL: String {
-        return PayByBankState.Config.environment.paylinkEndpointURL
+        return PayByBankState.Config.environment.pisEndpointURL
     }
     
     var path: String {

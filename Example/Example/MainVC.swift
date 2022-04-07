@@ -85,7 +85,7 @@ class MainVC: UIViewController {
     @IBAction func payButtonTapped(_ sender: Any) {
         guard let request = request else { return }
         showActivityIndicator()
-        PayByBank.paylink.initiate(request: request, viewController: self) { [weak self] result in
+        PayByBank.frPayment.initiate(request: request, viewController: self) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -109,27 +109,30 @@ class MainVC: UIViewController {
 // MARK: - Logic
 extension MainVC {
     
-    var request: PaylinkCreateRequest? {
+    var request: FrPaymentCreateRequest? {
         guard let redirectURL = URL(string: redirectURLTextField.text ?? ""),
               let amount = Decimal(string: amountTextField.text ?? ""),
               let reference = referenceTextField.text,
-              let creditorAccounType = PaylinkAccountType(rawValue: creditorAccountTypeTextField.text ?? ""),
+              let creditorAccounType = PayByBankAccountType(rawValue: creditorAccountTypeTextField.text ?? ""),
               let creditorAccountIdentification = creditorAccountIdentificationTextField.text,
               let creditorAccountName = creditorAccountNameTextField.text,
-              let creditorAccountCurrency = PaylinkCurrency(rawValue: creditorAccountCurrencyTextField.text ?? "") else {
+              let creditorAccountCurrency = PayByBankCurrency(rawValue: creditorAccountCurrencyTextField.text ?? "") else {
                   return nil
               }
-        return PaylinkCreateRequest(
+        return FrPaymentCreateRequest(
             redirectURL: redirectURL.absoluteString,
             amount: amount,
             reference: reference,
             description: descriptionTextField.text,
-            creditorAccount: PaylinkAccount(
+            creditorAccount: PayByBankAccountRequest(
                 type: creditorAccounType,
                 identification: creditorAccountIdentification,
                 name: creditorAccountName,
                 currency: creditorAccountCurrency
-            )
+            ),
+            firstPaymentDate: "2023-08-24T14:15:22Z",
+            numberOfPayments: 1,
+            period: .weekly
         )
     }
 }

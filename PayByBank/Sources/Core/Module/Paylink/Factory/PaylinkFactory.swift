@@ -11,10 +11,10 @@ import Foundation
 protocol PaylinkFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
     func makePaylinkRepository() -> PaylinkRepositoryProtocol
-    func makePaylinkAPIHandler(uniqueID: String,
-                               webViewURL: URL,
-                               redirectURL: URL,
-                               completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol
+    func makePaylinkHandler(uniqueID: String,
+                            webViewURL: URL,
+                            redirectURL: URL,
+                            completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol
 }
 
 class PaylinkFactory: PaylinkFactoryProtocol {
@@ -32,10 +32,10 @@ extension PaylinkFactory {
         return PaylinkRepository(networking: payByBankFactory.makeNetworking())
     }
     
-    func makePaylinkAPIHandler(uniqueID: String,
-                               webViewURL: URL,
-                               redirectURL: URL,
-                               completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
+    func makePaylinkHandler(uniqueID: String,
+                            webViewURL: URL,
+                            redirectURL: URL,
+                            completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
         return PaylinkHandler(uniqueID: uniqueID, webViewURL: webViewURL, redirectURL: redirectURL, completionHandler: completionHandler)
     }
 }

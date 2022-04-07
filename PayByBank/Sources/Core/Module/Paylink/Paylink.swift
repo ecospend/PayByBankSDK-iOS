@@ -94,10 +94,10 @@ private extension Paylink {
                       let redirectURL = URL(string: response.redirectURL ?? "") else {
                     return .failure(PayByBankError.wrongLink)
                 }
-                let handler = factory.makePaylinkAPIHandler(uniqueID: paylinkID,
-                                                            webViewURL: paylinkURL,
-                                                            redirectURL: redirectURL,
-                                                            completionHandler: completion)
+                let handler = factory.makePaylinkHandler(uniqueID: paylinkID,
+                                                         webViewURL: paylinkURL,
+                                                         redirectURL: redirectURL,
+                                                         completionHandler: completion)
                 return .success(handler)
             case .failure(let error):
                 return .failure(error)

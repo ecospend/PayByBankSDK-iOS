@@ -33,4 +33,9 @@ public extension PayByBank {
     static var paylink: Paylink {
         return Paylink(factory: PaylinkFactory(payByBankFactory: PayByBankFactory()))
     }
+    
+    /// FrPayment API
+    static var frPayment: FrPayment {
+        return FrPayment(factory: FrPaymentFactory(payByBankFactory: PayByBankFactory()))
+    }
 }

@@ -29,7 +29,7 @@ class PaylinkRepository {
     }
 }
 
-// MARK: - IamRepositoryAsyncProtocol
+// MARK: - PaylinkRepositoryAsyncProtocol
 extension PaylinkRepository: PaylinkRepositoryAsyncProtocol {
     
     func createPaylink(request: PaylinkCreateRequest, completion: @escaping (Result<PaylinkCreateResponse, Error>) -> Void) {
@@ -41,7 +41,7 @@ extension PaylinkRepository: PaylinkRepositoryAsyncProtocol {
     }
 }
 
-// MARK: - IamRepositorySyncProtocol
+// MARK: - PaylinkRepositorySyncProtocol
 extension PaylinkRepository: PaylinkRepositorySyncProtocol {
     
     func createPaylink(request: PaylinkCreateRequest) -> Result<PaylinkCreateResponse, Error> {
