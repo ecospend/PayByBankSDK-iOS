@@ -167,6 +167,10 @@ extension WebViewVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let decision = viewModel.handler.webViewDecision(url: navigationAction.request.url)
         decisionHandler(decision)
+        
+        if decision == .cancel {
+            hideActivityIndicator()
+        }
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
