@@ -10,7 +10,8 @@ import Foundation
 
 protocol PayByBankEnvironmentProtocol {
     var iamEndpointURL: String { get }
-    var pisEndpointURL: String { get }
+    var paylinkEndpointURL: String { get }
+    var frPaymentEndpointURL: String { get }
 }
 
 public enum PayByBankEnvironment: String {
@@ -27,7 +28,14 @@ extension PayByBankEnvironment: PayByBankEnvironmentProtocol {
         }
     }
     
-    var pisEndpointURL: String {
+    var paylinkEndpointURL: String {
+        switch self {
+        case .production: return "https://pis-api.ecospend.com/api/v2.1"
+        case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"
+        }
+    }
+    
+    var frPaymentEndpointURL: String {
         switch self {
         case .production: return "https://pis-api.ecospend.com/api/v2.1"
         case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"

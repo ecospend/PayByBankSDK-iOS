@@ -17,7 +17,7 @@ enum FrPaymentEndpoint {
 extension FrPaymentEndpoint: EndpointProtocol {
     
     var baseURL: String {
-        return PayByBankState.Config.environment.pisEndpointURL
+        return PayByBankState.Config.environment.frPaymentEndpointURL
     }
     
     var path: String {
