@@ -11,14 +11,14 @@ import Foundation
 // MARK: - PaylinkDeleteRequest
 public struct PaylinkDeleteRequest: Codable {
     
-    /// Paylink ID to query
-    public let paylinkID: String
+    /// Unique id value to delete Paylink
+    public let uniqueID: String
     
-    public init(paylinkID: String) {
-        self.paylinkID = paylinkID
+    public init(uniqueID: String) {
+        self.uniqueID = uniqueID
     }
     
     enum CodingKeys: String, CodingKey {
-        case paylinkID = "paylink_id"
+        case uniqueID = "unique_id"
     }
 }

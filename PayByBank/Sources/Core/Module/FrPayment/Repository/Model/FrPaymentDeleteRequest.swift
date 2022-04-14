@@ -11,14 +11,14 @@ import Foundation
 // MARK: - FrPaymentDeleteRequest
 public struct FrPaymentDeleteRequest: Codable {
     
-    /// FrPayment ID to query
-    public let frPaymentID: String
+    /// Unique id value to delete FrPayment
+    public let uniqueID: String
     
-    public init(frPaymentID: String) {
-        self.frPaymentID = frPaymentID
+    public init(uniqueID: String) {
+        self.uniqueID = uniqueID
     }
     
     enum CodingKeys: String, CodingKey {
-        case frPaymentID = "fr_payment_id"
+        case uniqueID = "unique_id"
     }
 }

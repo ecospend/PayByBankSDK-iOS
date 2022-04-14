@@ -23,8 +23,8 @@ extension FrPaymentEndpoint: EndpointProtocol {
     var path: String {
         switch self {
         case .createFrPayment: return "/fr-payments"
-        case .getFrPayment(let request): return "/fr-payments/\(request.frPaymentID)"
-        case .deleteFrPayment(let request): return "/fr-payments/\(request.frPaymentID)"
+        case .getFrPayment(let request): return "/fr-payments/\(request.uniqueID)"
+        case .deleteFrPayment(let request): return "/fr-payments/\(request.uniqueID)"
         }
     }
     

@@ -23,8 +23,8 @@ extension PaylinkEndpoint: EndpointProtocol {
     var path: String {
         switch self {
         case .createPaylink: return "/paylinks"
-        case .getPaylink(let request): return "/paylinks/\(request.paylinkID)"
-        case .deletePaylink(let request): return "/paylinks/\(request.paylinkID)"
+        case .getPaylink(let request): return "/paylinks/\(request.uniqueID)"
+        case .deletePaylink(let request): return "/paylinks/\(request.uniqueID)"
         }
     }
     

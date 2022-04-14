@@ -21,22 +21,22 @@ public final class FrPayment {
 // MARK: - API
 public extension FrPayment {
     
-    /// Opens webview using with `unique_id` of paylink
+    /// Opens webview using with `uniqueID` of FrPayment
     ///
     /// - Parameters:
-    ///     - frPaymentID: Unique id value of FrPayment.
+    ///     - uniqueID: Unique id value of FrPayment.
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
-    func open(frPaymentID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    func open(uniqueID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.execute(type: .open(frPaymentID), viewController: viewController, completion: completion)
+            self.execute(type: .open(uniqueID), viewController: viewController, completion: completion)
         }
     }
     
-    /// Opens webview using with request model of paylink
+    /// Opens webview using with request model of FrPayment
     ///
     /// - Parameters:
-    ///     - request: Request to create FrPayment
+    ///     - uniqueID: Request to create FrPayment
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
     func initiate(request: FrPaymentCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
@@ -48,11 +48,11 @@ public extension FrPayment {
     /// Soft deletes FrPayment with given id
     ///
     /// - Parameters:
-    ///     - frPaymentID: Unique id value of FrPayment.
+    ///     - uniqueID: Unique id value of FrPayment.
     ///     - completion: It provides to handle result or error
-    func delete(frPaymentID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.delete(request: FrPaymentDeleteRequest(frPaymentID: frPaymentID), completion: completion)
+            self.delete(request: FrPaymentDeleteRequest(uniqueID: uniqueID), completion: completion)
         }
     }
 }
@@ -77,17 +77,17 @@ private extension FrPayment {
         
         let frPaymentGetResult: Result<FrPaymentGetResponse, Error> = {
             switch type {
-            case .open(let frPaymentID):
-                switch frPaymentRepository.getFrPayment(request: FrPaymentGetRequest(frPaymentID: frPaymentID)) {
+            case .open(let uniqueID):
+                switch frPaymentRepository.getFrPayment(request: FrPaymentGetRequest(uniqueID: uniqueID)) {
                 case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
                 switch frPaymentRepository.createFrPayment(request: request) {
                 case .success(let createResponse):
-                    guard let frPaymentID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
+                    guard let uniqueID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
                     
-                    switch frPaymentRepository.getFrPayment(request: FrPaymentGetRequest(frPaymentID: frPaymentID)) {
+                    switch frPaymentRepository.getFrPayment(request: FrPaymentGetRequest(uniqueID: uniqueID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
                     }
@@ -100,12 +100,12 @@ private extension FrPayment {
         let handlerResult: Result<PayByBankHandlerProtocol, Error> = {
             switch frPaymentGetResult {
             case .success(let response):
-                guard let frPaymentID = response.uniqueID,
+                guard let uniqueID = response.uniqueID,
                       let frPaymentURL = URL(string: response.url ?? ""),
                       let redirectURL = URL(string: response.redirectURL ?? "") else {
                     return .failure(PayByBankError.wrongLink)
                 }
-                let handler = factory.makeFrPaymentHandler(uniqueID: frPaymentID,
+                let handler = factory.makeFrPaymentHandler(uniqueID: uniqueID,
                                                            webViewURL: frPaymentURL,
                                                            redirectURL: redirectURL,
                                                            completionHandler: completion)
