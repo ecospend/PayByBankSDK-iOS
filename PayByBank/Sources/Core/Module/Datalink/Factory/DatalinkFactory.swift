@@ -8,13 +8,8 @@
 import Foundation
 
 protocol DatalinkFactoryProtocol {
-    func makeNetworkSession() -> NetworkSessionProtocol
-    func makeNetworking() -> NetworkingProtocol
-    func makeIamRepository() -> IamRepositoryProtocol
-    func makeDatalinkAsnycRepository() -> DatalinkRepositoryAsyncProtocol
-    func makeDatalinkSnycRepository() -> DatalinkRepositorySyncProtocol
-    func makeWebViewVM(handler: PayByBankHandlerProtocol) -> WebViewVM
-    func makeWebViewVC(handler: PayByBankHandlerProtocol) -> WebViewVC
+    var payByBankFactory: PayByBankFactoryProtocol { get }
+    func makeDatalinkRepository() -> DatalinkRepositoryProtocol
     func makeDatalinkHandler(uniqueID: String,
                              webViewURL: URL,
                              redirectURL: URL,
@@ -23,34 +18,17 @@ protocol DatalinkFactoryProtocol {
 
 class DatalinkFactory: DatalinkFactoryProtocol {
     
-    func makeNetworkSession() -> NetworkSessionProtocol {
-        return NetworkSession()
-    }
+    let payByBankFactory: PayByBankFactoryProtocol
     
-    func makeNetworking() -> NetworkingProtocol {
-        return Networking(networkSession: makeNetworkSession())
+    init(payByBankFactory: PayByBankFactoryProtocol) {
+        self.payByBankFactory = payByBankFactory
     }
+}
+
+extension DatalinkFactory {
     
-    func makeIamRepository() -> IamRepositoryProtocol {
-        return IamRepository(networking: makeNetworking())
-    }
-    
-    func makeDatalinkAsnycRepository() -> DatalinkRepositoryAsyncProtocol {
-        return DatalinkRepository(networking: makeNetworking())
-    }
-    
-    func makeDatalinkSnycRepository() -> DatalinkRepositorySyncProtocol {
-        return DatalinkRepository(networking: makeNetworking())
-    }
-    
-    func makeWebViewVM(handler: PayByBankHandlerProtocol) -> WebViewVM {
-        return WebViewVM(handler: handler)
-    }
-    
-    func makeWebViewVC(handler: PayByBankHandlerProtocol) -> WebViewVC {
-        let vc = WebViewVC()
-        vc.viewModel = makeWebViewVM(handler: handler)
-        return vc
+    func makeDatalinkRepository() -> DatalinkRepositoryProtocol {
+        return DatalinkRepository(networking: payByBankFactory.makeNetworking())
     }
     
     func makeDatalinkHandler(uniqueID: String, webViewURL: URL, redirectURL: URL, completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {

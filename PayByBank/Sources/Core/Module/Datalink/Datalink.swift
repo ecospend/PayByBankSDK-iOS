@@ -77,8 +77,8 @@ private extension Datalink {
     
     func execute(type: DatalinkExecuteType, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         
-        let datalinkRepository = factory.makeDatalinkSnycRepository()
-        let iamRepository = factory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
         
         switch iamRepository.getToken() {
         case .success: break
@@ -128,7 +128,7 @@ private extension Datalink {
         switch handlerResult {
         case .success(let handler):
             DispatchQueue.main.async {
-                let vc = self.factory.makeWebViewVC(handler: handler)
+                let vc = self.factory.payByBankFactory.makeWebViewVC(handler: handler)
                 let nc = UINavigationController(rootViewController: vc)
                 viewController.present(nc, animated: true)
             }
@@ -140,8 +140,8 @@ private extension Datalink {
     }
     
     func delete(request: DatalinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
-        let iamRepository = factory.makeIamRepository()
-        let datalinkRepository = factory.makeDatalinkSnycRepository()
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
@@ -155,8 +155,8 @@ private extension Datalink {
     }
     
     func getConsentDatalink(request: DatalinkGetConsentDatalinkRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
-        let iamRepository = factory.makeIamRepository()
-        let datalinkRepository = factory.makeDatalinkSnycRepository()
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break

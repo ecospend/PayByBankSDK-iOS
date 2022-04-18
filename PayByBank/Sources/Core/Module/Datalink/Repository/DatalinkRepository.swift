@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias DatalinkRepositoryProtocol = DatalinkRepositoryAsyncProtocol & DatalinkRepositorySyncProtocol
+
 protocol DatalinkRepositoryAsyncProtocol {
     func create(request: DatalinkCreateRequest, completion: @escaping (Result<DatalinkCreateResponse, Error>) -> Void)
     func get(request: DatalinkGetRequest, completion: @escaping (Result<DatalinkGetResponse, Error>) -> Void)
