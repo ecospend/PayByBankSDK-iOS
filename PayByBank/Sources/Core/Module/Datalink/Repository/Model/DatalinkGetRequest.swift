@@ -10,9 +10,9 @@ import Foundation
 // MARK: - DatalinkGetRequest
 struct DatalinkGetRequest: Codable {
     
-    let uniqueId: String
+    let uniqueID: String
     
     enum CodingKeys: String, CodingKey {
-        case uniqueId = "unique_id"
+        case uniqueID = "unique_id"
     }
 }

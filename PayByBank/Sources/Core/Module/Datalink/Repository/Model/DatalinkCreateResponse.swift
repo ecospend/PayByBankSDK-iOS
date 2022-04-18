@@ -12,7 +12,7 @@ struct DatalinkCreateResponse: Codable {
     
     /// A system assigned unique identification for the Datalink.
     /// - This value is also a part of the URL.
-    let uniqueId: String?
+    let uniqueID: String?
     
     /// Unique Datalink URL that you will need to redirect PSU in order the account access consent to proceed.
     let url: String?
@@ -21,7 +21,7 @@ struct DatalinkCreateResponse: Codable {
     let qrCode: String?
     
     enum CodingKeys: String, CodingKey {
-        case uniqueId = "unique_id"
+        case uniqueID = "unique_id"
         case url
         case qrCode = "qr_code"
     }

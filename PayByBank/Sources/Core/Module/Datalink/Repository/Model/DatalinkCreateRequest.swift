@@ -16,15 +16,15 @@ public struct DatalinkCreateRequest: Codable {
     /// Unique identification string assigned to the bank by our system.
     /// If value is set, Datalink will not display any UI and execute an instant redirect to the debtor's banking system.
     /// If value is not set, Datalink will display the PSU a bank selection screen.
-    public let bankId: String?
+    public let bankID: String?
     
     /// If you are providing our Data service to your own business clients (merchants), then you should set the Id of your merchant.
-    public let merchantId: String?
+    public let merchantID: String?
     
     /// The Id of the end-user.
     /// If you are providing this service directly to the end-users, then you can assign that Id to this parameter.
     /// If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
-    public let merchantUserId: String?
+    public let merchantUserID: String?
     
     /// The date indicating when consent will end.
     public let consentEndDate: String?
@@ -37,17 +37,17 @@ public struct DatalinkCreateRequest: Codable {
     /// If it is not set, system will automatically set all the permissions
     public let permissions: [ConsentPermission]?
     
-    public let datalinkOptions: DatalinkOptions
+    public let datalinkOptions: DatalinkOptions?
     
-    public let notificationOptions: NotificationOptions
+    public let notificationOptions: PaylinkNotificationOptions?
     
-    public let financialReport: FinancialReport
+    public let financialReport: FinancialReport?
     
     enum CodingKeys: String, CodingKey {
         case redirectURL = "redirect_url"
-        case bankId = "bank_id"
-        case merchantId = "merchant_id"
-        case merchantUserId = "merchant_user_id"
+        case bankID = "bank_id"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
         case consentEndDate = "consent_end_date"
         case expiryDate = "expiry_date"
         case permissions
@@ -57,19 +57,19 @@ public struct DatalinkCreateRequest: Codable {
     }
     
     public init(redirectURL: String,
-                bankId: String?,
-                merchantId: String?,
-                merchantUserId: String?,
+                bankID: String?,
+                merchantID: String?,
+                merchantUserID: String?,
                 consentEndDate: String?,
                 expiryDate: String?,
                 permissions: [ConsentPermission]?,
-                datalinkOptions: DatalinkOptions,
-                notificationOptions: NotificationOptions,
-                financialReport: FinancialReport) {
+                datalinkOptions: DatalinkOptions?,
+                notificationOptions: PaylinkNotificationOptions?,
+                financialReport: FinancialReport?) {
         self.redirectURL = redirectURL
-        self.bankId = bankId
-        self.merchantId = merchantId
-        self.merchantUserId = merchantUserId
+        self.bankID = bankID
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
         self.consentEndDate = consentEndDate
         self.expiryDate = expiryDate
         self.permissions = permissions
@@ -82,21 +82,22 @@ public struct DatalinkCreateRequest: Codable {
 // MARK: - DatalinkOptions
 public struct DatalinkOptions: Codable {
     
-    /// Determines if the PSU will see a completed page by Ecospend. If it is set true, then PSU will be redirected directly to Tenant's redirect page If it is set false, then PSU will see the consent completed page wihch provided by the Ecospend
+    /// Determines if the PSU will see a completed page by Ecospend.
+    /// If it is set true, then PSU will be redirected directly to Tenant's redirect page If it is set false, then PSU will see the consent completed page wihch provided by the Ecospend
     public let autoRedirect: Bool
     
     /// Optional parameter for getting a QRCode image in Base64 format with the response.
-    /// * Defaults to false.
+    /// - Note: Defaults to false.
     public let generateQrCode: Bool
     
     /// Optional parameter for allowing user to create consent multiply
     /// - When this value is set, datalink will be ask for connect an another account at the end of journey.
-    /// - Defaults to false.
+    /// - Note: Defaults to false.
     public let allowMultipleConsent: Bool
     
     /// Optional parameter to enable generating financial report
     /// - When this value is set, datalink will be give an option to redirect financial report at the end of journey.
-    /// - Defaults to false.
+    /// - Note: Defaults to false.
     public let generateFinancialReport: Bool
     
     enum CodingKeys: String, CodingKey {
@@ -114,42 +115,6 @@ public struct DatalinkOptions: Codable {
         self.generateQrCode = generateQrCode
         self.allowMultipleConsent = allowMultipleConsent
         self.generateFinancialReport = generateFinancialReport
-    }
-}
-
-// MARK: - NotificationOptions
-public struct NotificationOptions: Codable {
-    /// Optional parameter for Gateway to send an email notification to the PSU with the Datalink URL.
-    /// - Defaults to false.
-    public let sendEmailNotification: Bool
-    
-    /// The email address that the email notification will be sent to.
-    /// - This field is **mandatory** if send_email_notification is true.
-    public let email: String?
-    
-    /// Optional parameter for Gateway to send an SMS notification to the PSU with the Datalink URL.
-    /// - Defaults to false.
-    public let sendSMSNotification: Bool
-    
-    /// The phone number (including the country dial-in code) that the SMS notification will be sent to.
-    /// - This field is **mandatory** if send_sms_notification is true.
-    public let phoneNumber: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case sendEmailNotification = "send_email_notification"
-        case email
-        case sendSMSNotification = "send_sms_notification"
-        case phoneNumber = "phone_number"
-    }
-    
-    public init(sendEmailNotification: Bool,
-                email: String?,
-                sendSMSNotification: Bool,
-                phoneNumber: String?) {
-        self.sendEmailNotification = sendEmailNotification
-        self.email = email
-        self.sendSMSNotification = sendSMSNotification
-        self.phoneNumber = phoneNumber
     }
 }
 

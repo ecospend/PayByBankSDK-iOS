@@ -60,6 +60,7 @@ extension ViewController {
         toastLabel.textColor = UIColor.white
         toastLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         toastLabel.textAlignment = .center
+        toastLabel.numberOfLines = 0
         toastLabel.text = message
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 25

@@ -151,13 +151,10 @@ private extension Networking {
                 return .failure(NetworkError.noData)
             }
         case 400...499:
-            debugPrint("\(urlResponse.statusCode)", String(data: data! as! Data, encoding: .utf8)!)
             return .failure(NetworkError.badRequest(urlResponse.statusCode, repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         case 500...599:
-            debugPrint("\(urlResponse.statusCode)", String(data: data! as! Data, encoding: .utf8)!)
             return .failure(NetworkError.serverError(urlResponse.statusCode, repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         default:
-            debugPrint("\(urlResponse.statusCode)", String(data: data! as! Data, encoding: .utf8)!)
             return .failure(NetworkError.unknown(repositoryError(data)?.localizedDescription ?? error?.localizedDescription))
         }
     }

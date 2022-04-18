@@ -15,10 +15,10 @@ protocol DatalinkFactoryProtocol {
     func makeDatalinkSnycRepository() -> DatalinkRepositorySyncProtocol
     func makeWebViewVM(handler: PayByBankHandlerProtocol) -> WebViewVM
     func makeWebViewVC(handler: PayByBankHandlerProtocol) -> WebViewVC
-    func makeDatalinkAPIHandler(uniqueID: String,
-                                webViewURL: URL,
-                                redirectURL: URL,
-                                completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol
+    func makeDatalinkHandler(uniqueID: String,
+                             webViewURL: URL,
+                             redirectURL: URL,
+                             completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol
 }
 
 class DatalinkFactory: DatalinkFactoryProtocol {
@@ -51,10 +51,10 @@ class DatalinkFactory: DatalinkFactoryProtocol {
         let vc = WebViewVC()
         vc.viewModel = makeWebViewVM(handler: handler)
         return vc
-    }    
+    }
     
-    func makeDatalinkAPIHandler(uniqueID: String, webViewURL: URL, redirectURL: URL, completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
-        return PaylinkHandler(uniqueID: uniqueID,
+    func makeDatalinkHandler(uniqueID: String, webViewURL: URL, redirectURL: URL, completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
+        return DatalinkHandler(uniqueID: uniqueID,
                               webViewURL: webViewURL,
                               redirectURL: redirectURL,
                               completionHandler: completionHandler)

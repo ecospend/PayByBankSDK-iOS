@@ -28,12 +28,11 @@ class DatalinkHandler: PayByBankHandlerProtocol {
     
     func webViewDecision(url: URL?) -> WKNavigationActionPolicy {
         guard let url = url else { return .allow }
-        
         switch url.host {
         case redirectURL.host:
             if let params = url.queryParameters,
                params["error"] == "user_canceled",
-               params["paylink_id"] == uniqueID {
+               params["datalink_id"] == uniqueID {
                 handle(status: .canceled)
                 return .cancel
             } else {

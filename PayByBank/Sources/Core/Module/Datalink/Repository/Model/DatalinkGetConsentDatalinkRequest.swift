@@ -10,9 +10,9 @@ import Foundation
 // MARK: - DatalinkGetConsentDatalinkRequest
 struct DatalinkGetConsentDatalinkRequest: Codable {
     
-    let consentId: Bool
+    let consentID: String
     
     enum CodingKeys: String, CodingKey {
-        case consentId = "consent_id"
+        case consentID = "consent_id"
     }
 }

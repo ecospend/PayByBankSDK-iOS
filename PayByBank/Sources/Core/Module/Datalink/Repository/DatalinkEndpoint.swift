@@ -23,9 +23,9 @@ extension DatalinkEndpoint: EndpointProtocol {
     var path: String {
         switch self {
         case .create: return "/datalink"
-        case .get(let request): return "/datalink\(request.uniqueId)"
-        case .delete(let request): return "/datalink\(request.uniqueId)"
-        case .getConsentDatalink(let request): return "/datalink/consent/\(request.consentId)"
+        case .get(let request): return "/datalink/\(request.uniqueID)"
+        case .delete(let request): return "/datalink/\(request.uniqueID)"
+        case .getConsentDatalink(let request): return "/datalink/consent/\(request.consentID)"
         }
     }
     
@@ -48,7 +48,7 @@ extension DatalinkEndpoint: EndpointProtocol {
         return headers
     }
     
-    var parameters: [String : Any?]? {
+    var parameters: [String: Any?]? {
         return nil
     }
     

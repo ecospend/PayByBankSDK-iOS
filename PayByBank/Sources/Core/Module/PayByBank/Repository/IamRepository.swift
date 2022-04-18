@@ -33,8 +33,8 @@ extension IamRepository: IamRepositoryAsyncProtocol {
     func getToken(completion: @escaping (Result<IamTokenResponse, Error>) -> Void) {
         guard let clientID = PayByBankState.Config.clientID,
               let clietSecret = PayByBankState.Config.clientSecret else {
-            return completion(.failure(PayByBankError.notConfigured))
-        }
+                  return completion(.failure(PayByBankError.notConfigured))
+              }
         
         let request = IamTokenRequest(clientID: clientID, clientSecret: clietSecret)
         networking.execute(endpoint: IamEndpoint.token(request), type: IamTokenResponse.self) { result in
@@ -57,7 +57,7 @@ extension IamRepository: IamRepositorySyncProtocol {
         let semaphore = DispatchSemaphore(value: 0)
         var result: Result<IamTokenResponse, Error>!
         
-        getToken() { _result in
+        getToken { _result in
             result = _result
             semaphore.signal()
         }

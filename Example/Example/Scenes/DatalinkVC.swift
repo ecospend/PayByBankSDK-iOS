@@ -28,7 +28,6 @@ class DatalinkVC: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let inputAreas = [datalinkStackView, datalinkOptionsStackView]
         
         inputAreas.forEach { view in
@@ -47,10 +46,15 @@ class DatalinkVC: ViewController {
         permissionsTextField.delegate = self
         
         autoRedirectSwitch.isOn = false
+        generateQRSwitch.isOn = false
+        generateFinancialReportSwitch.isOn = false
+        allowMultipleConsentSwitch.isOn = false
+        
         redirectURLTextField.text = "https://preprodenv.pengpay.io/accountcompleted"
-        bankIdTextField.text = UUID().uuidString // TODO: fix
-        merchantIdTextField.text = "Merchant Id"
-        merchantUserIdTextField.text = "Merchant User Id"
+        bankIdTextField.text = nil
+        merchantIdTextField.text = nil
+        merchantUserIdTextField.text = nil
+        /////////////////
         consentEndDateTextField.text = "2023-08-24T14:15:22Z"
         expiryDateTextField.text = "2023-08-24T14:15:22Z"
         permissionsTextField.text = [ConsentPermission.balance, ConsentPermission.account, ConsentPermission.trasactions]
@@ -114,10 +118,10 @@ extension DatalinkVC {
                                               allowMultipleConsent: allowMultipleConsentSwitch.isOn,
                                               generateFinancialReport: generateFinancialReportSwitch.isOn)
         
-        let notificationOptions = NotificationOptions(sendEmailNotification: false,
-                                                      email: "example@email.com",
-                                                      sendSMSNotification: false,
-                                                      phoneNumber: "")
+        let notificationOptions = PaylinkNotificationOptions(sendEmailNotification: false,
+                                                             email: "example@email.com",
+                                                             sendSMSNotification: false,
+                                                             phoneNumber: "")
         
         let financialReport = FinancialReport(filters: Filters(startDate: "2020-08-24T14:15:22Z", currency: .gbp),
                                               parameters: FinancialReportParameters(affordability: nil,
@@ -129,10 +133,10 @@ extension DatalinkVC {
                                                                                     categoryAggregation: CategoryAggregationParameters(distributionPeriod: .year)),
                                               outputSettings: OutputSettings(displayPii: true))
         
-         return DatalinkCreateRequest(redirectURL: redirectURL,
-                                     bankId: bankId,
-                                     merchantId: merchantId,
-                                     merchantUserId: merchantUserId,
+        return DatalinkCreateRequest(redirectURL: redirectURL,
+                                     bankID: bankId,
+                                     merchantID: merchantId,
+                                     merchantUserID: merchantUserId,
                                      consentEndDate: consentEndDate,
                                      expiryDate: expriyDate,
                                      permissions: permissions,
