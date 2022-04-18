@@ -21,6 +21,17 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6010C056280D82AF00057125 /* DatalinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C048280D82AF00057125 /* DatalinkHandler.swift */; };
+		6010C057280D82AF00057125 /* DatalinkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C04A280D82AF00057125 /* DatalinkEndpoint.swift */; };
+		6010C058280D82AF00057125 /* DatalinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C04B280D82AF00057125 /* DatalinkRepository.swift */; };
+		6010C059280D82AF00057125 /* DatalinkCreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C04D280D82AF00057125 /* DatalinkCreateResponse.swift */; };
+		6010C05A280D82AF00057125 /* DatalinkGetConsentDatalinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C04E280D82AF00057125 /* DatalinkGetConsentDatalinkRequest.swift */; };
+		6010C05B280D82AF00057125 /* DatalinkGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C04F280D82AF00057125 /* DatalinkGetResponse.swift */; };
+		6010C05C280D82AF00057125 /* DatalinkCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C050280D82AF00057125 /* DatalinkCreateRequest.swift */; };
+		6010C05D280D82AF00057125 /* DatalinkGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C051280D82AF00057125 /* DatalinkGetRequest.swift */; };
+		6010C05E280D82AF00057125 /* DatalinkDeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C052280D82AF00057125 /* DatalinkDeleteRequest.swift */; };
+		6010C05F280D82AF00057125 /* Datalink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C053280D82AF00057125 /* Datalink.swift */; };
+		6010C060280D82AF00057125 /* DatalinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6010C055280D82AF00057125 /* DatalinkFactory.swift */; };
 		60E67A3B27676AF70032A5C3 /* PayByBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* PayByBank.framework */; };
 		D620E35327DB23570058AEEA /* PayByBankHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620E35227DB23570058AEEA /* PayByBankHandler.swift */; };
 		D620E35627DB23890058AEEA /* PaylinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620E35527DB23890058AEEA /* PaylinkHandler.swift */; };
@@ -72,6 +83,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6010C048280D82AF00057125 /* DatalinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkHandler.swift; sourceTree = "<group>"; };
+		6010C04A280D82AF00057125 /* DatalinkEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkEndpoint.swift; sourceTree = "<group>"; };
+		6010C04B280D82AF00057125 /* DatalinkRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkRepository.swift; sourceTree = "<group>"; };
+		6010C04D280D82AF00057125 /* DatalinkCreateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkCreateResponse.swift; sourceTree = "<group>"; };
+		6010C04E280D82AF00057125 /* DatalinkGetConsentDatalinkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkGetConsentDatalinkRequest.swift; sourceTree = "<group>"; };
+		6010C04F280D82AF00057125 /* DatalinkGetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkGetResponse.swift; sourceTree = "<group>"; };
+		6010C050280D82AF00057125 /* DatalinkCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkCreateRequest.swift; sourceTree = "<group>"; };
+		6010C051280D82AF00057125 /* DatalinkGetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkGetRequest.swift; sourceTree = "<group>"; };
+		6010C052280D82AF00057125 /* DatalinkDeleteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkDeleteRequest.swift; sourceTree = "<group>"; };
+		6010C053280D82AF00057125 /* Datalink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datalink.swift; sourceTree = "<group>"; };
+		6010C055280D82AF00057125 /* DatalinkFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatalinkFactory.swift; sourceTree = "<group>"; };
 		604EED6627746C320005D094 /* PaylinkReactModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaylinkReactModule.m; sourceTree = "<group>"; };
 		604EED6827746C5A0005D094 /* PaylinkReactModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkReactModule.swift; sourceTree = "<group>"; };
 		60D95BF3277AF24300AF7BB9 /* PaylinkOpenMethodFlutterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkOpenMethodFlutterHandler.swift; sourceTree = "<group>"; };
@@ -144,6 +166,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6010C046280D82AF00057125 /* Datalink */ = {
+			isa = PBXGroup;
+			children = (
+				6010C047280D82AF00057125 /* Handler */,
+				6010C049280D82AF00057125 /* Repository */,
+				6010C053280D82AF00057125 /* Datalink.swift */,
+				6010C054280D82AF00057125 /* Factory */,
+			);
+			path = Datalink;
+			sourceTree = "<group>";
+		};
+		6010C047280D82AF00057125 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				6010C048280D82AF00057125 /* DatalinkHandler.swift */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		6010C049280D82AF00057125 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6010C04A280D82AF00057125 /* DatalinkEndpoint.swift */,
+				6010C04B280D82AF00057125 /* DatalinkRepository.swift */,
+				6010C04C280D82AF00057125 /* Model */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6010C04C280D82AF00057125 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6010C04D280D82AF00057125 /* DatalinkCreateResponse.swift */,
+				6010C04E280D82AF00057125 /* DatalinkGetConsentDatalinkRequest.swift */,
+				6010C04F280D82AF00057125 /* DatalinkGetResponse.swift */,
+				6010C050280D82AF00057125 /* DatalinkCreateRequest.swift */,
+				6010C051280D82AF00057125 /* DatalinkGetRequest.swift */,
+				6010C052280D82AF00057125 /* DatalinkDeleteRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6010C054280D82AF00057125 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				6010C055280D82AF00057125 /* DatalinkFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		604EED6527746BEF0005D094 /* React */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +328,7 @@
 		D630E37327FAD73C00AAAD67 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				6010C046280D82AF00057125 /* Datalink */,
 				D630E37827FADC1000AAAD67 /* PayByBank */,
 				D630E37427FAD74100AAAD67 /* Paylink */,
 			);
@@ -582,18 +655,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6B2C9692775A4E4004044C0 /* PayByBankEnvironment.swift in Sources */,
+				6010C05B280D82AF00057125 /* DatalinkGetResponse.swift in Sources */,
+				6010C05E280D82AF00057125 /* DatalinkDeleteRequest.swift in Sources */,
 				D6F46021276B6E4C00D49C4E /* PaylinkEndpoint.swift in Sources */,
 				D6F4602B276B6E4C00D49C4E /* Networking.swift in Sources */,
 				D6B2C95627747DD5004044C0 /* WebViewVM.swift in Sources */,
+				6010C05D280D82AF00057125 /* DatalinkGetRequest.swift in Sources */,
 				D6F46023276B6E4C00D49C4E /* PaylinkCreateRequest.swift in Sources */,
 				D6F46031276B6E4C00D49C4E /* PayByBankState.swift in Sources */,
 				D681EA762771C32400A29870 /* PaylinkGetResponse.swift in Sources */,
+				6010C060280D82AF00057125 /* DatalinkFactory.swift in Sources */,
 				D629E7A62782DBE2004B91C8 /* PayByBankStrings.swift in Sources */,
 				D6F46026276B6E4C00D49C4E /* IamTokenRequest.swift in Sources */,
 				D6F46034276B6E4C00D49C4E /* Encodable+.swift in Sources */,
+				6010C05F280D82AF00057125 /* Datalink.swift in Sources */,
 				D620E35627DB23890058AEEA /* PaylinkHandler.swift in Sources */,
 				D630E37A27FADC2600AAAD67 /* PayByBank.swift in Sources */,
 				D67CCEA9278C6B0D00D27CE0 /* PayByBankImages.swift in Sources */,
+				6010C058280D82AF00057125 /* DatalinkRepository.swift in Sources */,
 				D6F46029276B6E4C00D49C4E /* EndpointProtocol.swift in Sources */,
 				D629E7A92782DC94004B91C8 /* Array+.swift in Sources */,
 				D6F46027276B6E4C00D49C4E /* IamTokenResponse.swift in Sources */,
@@ -603,17 +682,22 @@
 				D6F46024276B6E4C00D49C4E /* PaylinkRepository.swift in Sources */,
 				D6F4602C276B6E4C00D49C4E /* NetworkSession.swift in Sources */,
 				D6F46033276B6E4C00D49C4E /* WebViewVC.swift in Sources */,
+				6010C056280D82AF00057125 /* DatalinkHandler.swift in Sources */,
 				D630E38F27FC537F00AAAD67 /* PayByBankFactory.swift in Sources */,
 				D6F4602D276B6E4C00D49C4E /* NetworkError.swift in Sources */,
+				6010C057280D82AF00057125 /* DatalinkEndpoint.swift in Sources */,
 				D67CCEA6278C5D5F00D27CE0 /* PayByBankColors.swift in Sources */,
 				D6B2C94B277459C8004044C0 /* URLEncodedFormEncoder.swift in Sources */,
 				D6F4602A276B6E4C00D49C4E /* RepositoryErrorResponse.swift in Sources */,
+				6010C05C280D82AF00057125 /* DatalinkCreateRequest.swift in Sources */,
 				D6460C20277AE7A900109908 /* URL+.swift in Sources */,
 				D681EA782771CB4300A29870 /* PaylinkGetRequest.swift in Sources */,
 				D6F46022276B6E4C00D49C4E /* PaylinkCreateResponse.swift in Sources */,
 				D6460C27277DCD1800109908 /* PayByBankResult.swift in Sources */,
 				D6F4606C276B7A6900D49C4E /* Paylink.swift in Sources */,
 				D630E3B127FD95B100AAAD67 /* PayByBankConstant.swift in Sources */,
+				6010C059280D82AF00057125 /* DatalinkCreateResponse.swift in Sources */,
+				6010C05A280D82AF00057125 /* DatalinkGetConsentDatalinkRequest.swift in Sources */,
 				D620E35327DB23570058AEEA /* PayByBankHandler.swift in Sources */,
 				D630E39127FC550800AAAD67 /* PaylinkFactory.swift in Sources */,
 			);

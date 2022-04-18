@@ -8,9 +8,8 @@
 
 import UIKit
 import PayByBank
-import AVFoundation
 
-class MainVC: UIViewController {
+class PaylinkVC: ViewController {
 
     @IBOutlet weak var redirectURLTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
@@ -22,28 +21,6 @@ class MainVC: UIViewController {
     @IBOutlet weak var creditorAccountCurrencyTextField: UITextField!
     @IBOutlet weak var mainAreaStackView: UIStackView!
     @IBOutlet weak var creditorAccountAreaStackView: UIStackView!
-    
-    lazy var loadingView: UIView = {
-        let view = UIView()
-        if #available(iOS 11.0, *) {
-            view.backgroundColor = UIColor(named: "viewBackground")
-        } else {
-            view.backgroundColor = .white
-        }
-        view.alpha = 0.7
-        return view
-    }()
-    
-    lazy var activityIndicator: UIActivityIndicatorView = {
-        let view: UIActivityIndicatorView = {
-            if #available(iOS 13.0, *) {
-                return UIActivityIndicatorView(style: .medium)
-            } else {
-                return UIActivityIndicatorView(style: .white)
-            }
-        }()
-        return view
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,7 +84,7 @@ class MainVC: UIViewController {
 }
 
 // MARK: - Logic
-extension MainVC {
+extension PaylinkVC {
     
     var request: PaylinkCreateRequest? {
         guard let redirectURL = URL(string: redirectURLTextField.text ?? ""),
@@ -134,63 +111,11 @@ extension MainVC {
     }
 }
 
-// MARK: - Toast
-extension MainVC {
-    
-    func showToast(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: 100, width: 200, height: 50))
-        toastLabel.backgroundColor = UIColor.systemIndigo.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = .systemFont(ofSize: 14, weight: .semibold)
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 25
-        toastLabel.clipsToBounds = true
-        self.view.addSubview(toastLabel)
-        speak(with: message)
-        UIView.animate(withDuration: 3.0, delay: 1, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: { _ in
-            toastLabel.removeFromSuperview()
-        })
-    }
-}
-
-// MARK: - Loading
-extension MainVC {
-    
-    func showActivityIndicator() {
-        loadingView.frame = view.bounds
-        loadingView.addSubview(activityIndicator)
-        activityIndicator.center = loadingView.center
-        view.addSubview(loadingView)
-        activityIndicator.startAnimating()
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
-        loadingView.removeFromSuperview()
-    }
-}
-
 // MARK: - UITextFieldDelegate
-extension MainVC: UITextFieldDelegate {
+extension PaylinkVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-// MARK: - Speak
-extension MainVC {
-    
-    func speak(with text: String) {
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-        utterance.rate = 0.5
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
     }
 }

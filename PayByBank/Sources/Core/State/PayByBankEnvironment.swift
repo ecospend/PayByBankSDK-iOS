@@ -33,4 +33,11 @@ extension PayByBankEnvironment: PayByBankEnvironmentProtocol {
         case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"
         }
     }
+    
+    var datalinkEndpointURL: String {
+        switch self {
+        case .production: return "https://aisapi.ecospend.com/api/v2.0"
+        case .sandbox: return "https://aisapi.sb.ecospend.com/api/v2.0"
+        }
+    }
 }

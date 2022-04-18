@@ -11,6 +11,9 @@
 		605411E427676A2D0044D861 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605411E327676A2D0044D861 /* ExampleTests.swift */; };
 		605411EE27676A2E0044D861 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605411ED27676A2E0044D861 /* ExampleUITests.swift */; };
 		605411F027676A2E0044D861 /* ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605411EF27676A2E0044D861 /* ExampleUITestsLaunchTests.swift */; };
+		606AD00527FED5BD00F18782 /* DatalinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD00427FED5BD00F18782 /* DatalinkVC.swift */; };
+		606AD00827FED73500F18782 /* TabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD00727FED73500F18782 /* TabsVC.swift */; };
+		606AD01227FF21D200F18782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD01127FF21D200F18782 /* ViewController.swift */; };
 		60FD543027758D7000EB7080 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD542F27758D6F00EB7080 /* Button.swift */; };
 		60FD543227758E7B00EB7080 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD543127758E7B00EB7080 /* Label.swift */; };
 		60FD543527758FEC00EB7080 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD543427758FEC00EB7080 /* TextField.swift */; };
@@ -19,7 +22,7 @@
 		95DDCE539A93406FCC280303 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39B598098C0F066E7EEEC69 /* Pods_ExampleTests.framework */; };
 		D6F46041276B6EAB00D49C4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */; };
 		D6F46042276B6EAB00D49C4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6F4603C276B6EAB00D49C4E /* Assets.xcassets */; };
-		D6F46044276B6EAB00D49C4E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603E276B6EAB00D49C4E /* MainVC.swift */; };
+		D6F46044276B6EAB00D49C4E /* PaylinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603E276B6EAB00D49C4E /* PaylinkVC.swift */; };
 		D6F46046276B6F4900D49C4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F46045276B6F4900D49C4E /* LaunchScreen.storyboard */; };
 		D6F46048276B6F6600D49C4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F46047276B6F6600D49C4E /* Main.storyboard */; };
 		FDD9496B85DDB50D1C7D641C /* Pods_Example_ExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225621A28AB641ACAF024272 /* Pods_Example_ExampleUITests.framework */; };
@@ -81,6 +84,9 @@
 		605411E927676A2E0044D861 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		605411ED27676A2E0044D861 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		605411EF27676A2E0044D861 /* ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		606AD00427FED5BD00F18782 /* DatalinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkVC.swift; sourceTree = "<group>"; };
+		606AD00727FED73500F18782 /* TabsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsVC.swift; sourceTree = "<group>"; };
+		606AD01127FF21D200F18782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		608F5CB52768C8F50053F379 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		60DB8F5C2774B5C300AE132E /* PaylinkSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PaylinkSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E67A672767716F0032A5C3 /* PaylinkMobileSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PaylinkMobileSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +103,7 @@
 		D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6F4603C276B6EAB00D49C4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6F4603D276B6EAB00D49C4E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6F4603E276B6EAB00D49C4E /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		D6F4603E276B6EAB00D49C4E /* PaylinkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkVC.swift; sourceTree = "<group>"; };
 		D6F46045276B6F4900D49C4E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6F46047276B6F6600D49C4E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,12 +162,13 @@
 		605411CB27676A2C0044D861 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				606AD00C27FF219400F18782 /* Extension */,
+				606AD00627FED5F500F18782 /* Scenes */,
 				60FD543327758F0400EB7080 /* UI */,
 				D6F4603D276B6EAB00D49C4E /* Info.plist */,
 				D6F46045276B6F4900D49C4E /* LaunchScreen.storyboard */,
 				D6F46047276B6F6600D49C4E /* Main.storyboard */,
 				D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */,
-				D6F4603E276B6EAB00D49C4E /* MainVC.swift */,
 				D6F4603C276B6EAB00D49C4E /* Assets.xcassets */,
 			);
 			path = Example;
@@ -182,6 +189,23 @@
 				605411EF27676A2E0044D861 /* ExampleUITestsLaunchTests.swift */,
 			);
 			path = ExampleUITests;
+			sourceTree = "<group>";
+		};
+		606AD00627FED5F500F18782 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				606AD00427FED5BD00F18782 /* DatalinkVC.swift */,
+				D6F4603E276B6EAB00D49C4E /* PaylinkVC.swift */,
+				606AD00727FED73500F18782 /* TabsVC.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		606AD00C27FF219400F18782 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		608F5CB62768C8F50053F379 /* Products */ = {
@@ -223,6 +247,7 @@
 				60FD542A27758D5300EB7080 /* Component */,
 				60FD54372775903600EB7080 /* Color.swift */,
 				60FD54392775906800EB7080 /* Font.swift */,
+				606AD01127FF21D200F18782 /* ViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -541,12 +566,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				606AD01227FF21D200F18782 /* ViewController.swift in Sources */,
 				D6F46041276B6EAB00D49C4E /* AppDelegate.swift in Sources */,
 				60FD543027758D7000EB7080 /* Button.swift in Sources */,
 				60FD543A2775906800EB7080 /* Font.swift in Sources */,
 				60FD543227758E7B00EB7080 /* Label.swift in Sources */,
+				606AD00827FED73500F18782 /* TabsVC.swift in Sources */,
+				606AD00527FED5BD00F18782 /* DatalinkVC.swift in Sources */,
 				60FD543527758FEC00EB7080 /* TextField.swift in Sources */,
-				D6F46044276B6EAB00D49C4E /* MainVC.swift in Sources */,
+				D6F46044276B6EAB00D49C4E /* PaylinkVC.swift in Sources */,
 				60FD54382775903600EB7080 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +743,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -746,6 +775,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
