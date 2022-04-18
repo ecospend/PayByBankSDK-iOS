@@ -67,7 +67,7 @@ class MainVC: UIViewController {
         creditorAccountCurrencyTextField.delegate = self
         
         redirectURLTextField.text = "https://preprodenv.pengpay.io/paycompleted"
-        amountTextField.text = "11.3"
+        amountTextField.text = "9.99"
         referenceTextField.text = "Sample Reference"
         descriptionTextField.text = "Sample Description"
         creditorAccountTypeTextField.text = "SortCode"

@@ -34,7 +34,7 @@ class FrPaymentHandler: PayByBankHandlerProtocol {
         case redirectURL.host:
             if let params = url.queryParameters,
                params["error"] == "user_canceled",
-               params["paylink_id"] == uniqueID {
+               params["fr_payment_id"] == uniqueID {
                 handle(status: .canceled)
                 return .cancel
             } else {
