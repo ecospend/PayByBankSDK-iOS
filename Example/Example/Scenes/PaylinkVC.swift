@@ -1,5 +1,5 @@
 //
-//  FrPaymentVC.swift
+//  PaylinkVC.swift
 //  PayByBank
 //
 //  Created by Yunus TÜR on 9.12.2021.
@@ -9,8 +9,8 @@
 import UIKit
 import PayByBank
 
-class FrPaymentVC: ViewController {
-
+class PaylinkVC: ViewController {
+    
     @IBOutlet weak var redirectURLTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var referenceTextField: UITextField!
@@ -62,7 +62,7 @@ class FrPaymentVC: ViewController {
     @IBAction func payButtonTapped(_ sender: Any) {
         guard let request = request else { return }
         showActivityIndicator()
-        PayByBank.frPayment.initiate(request: request, viewController: self) { [weak self] result in
+        PayByBank.paylink.initiate(request: request, viewController: self) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -70,9 +70,9 @@ class FrPaymentVC: ViewController {
                 print(response)
                 
                 switch response.status {
-                case .initiated: self.showToast(message: "FrPayment initiated")
-                case .canceled: self.showToast(message: "FrPayment canceled")
-                case .redirected: self.showToast(message: "FrPayment redirected")
+                case .initiated: self.showToast(message: "Paylink initiated")
+                case .canceled: self.showToast(message: "Paylink canceled")
+                case .redirected: self.showToast(message: "Paylink redirected")
                 }
             case .failure(let error):
                 print(error)
@@ -84,9 +84,9 @@ class FrPaymentVC: ViewController {
 }
 
 // MARK: - Logic
-extension FrPaymentVC {
+extension PaylinkVC {
     
-    var request: FrPaymentCreateRequest? {
+    var request: PaylinkCreateRequest? {
         guard let redirectURL = URL(string: redirectURLTextField.text ?? ""),
               let amount = Decimal(string: amountTextField.text ?? ""),
               let reference = referenceTextField.text,
@@ -94,9 +94,9 @@ extension FrPaymentVC {
               let creditorAccountIdentification = creditorAccountIdentificationTextField.text,
               let creditorAccountName = creditorAccountNameTextField.text,
               let creditorAccountCurrency = PayByBankCurrency(rawValue: creditorAccountCurrencyTextField.text ?? "") else {
-                  return nil
-              }
-        return FrPaymentCreateRequest(
+            return nil
+        }
+        return PaylinkCreateRequest(
             redirectURL: redirectURL.absoluteString,
             amount: amount,
             reference: reference,
@@ -106,16 +106,13 @@ extension FrPaymentVC {
                 identification: creditorAccountIdentification,
                 name: creditorAccountName,
                 currency: creditorAccountCurrency
-            ),
-            firstPaymentDate: "2023-08-24T14:15:22Z",
-            numberOfPayments: 1,
-            period: .weekly
+            )
         )
     }
 }
 
 // MARK: - UITextFieldDelegate
-extension FrPaymentVC: UITextFieldDelegate {
+extension PaylinkVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

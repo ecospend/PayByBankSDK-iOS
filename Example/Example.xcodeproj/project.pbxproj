@@ -20,6 +20,7 @@
 		60FD54382775903600EB7080 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD54372775903600EB7080 /* Color.swift */; };
 		60FD543A2775906800EB7080 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD54392775906800EB7080 /* Font.swift */; };
 		95DDCE539A93406FCC280303 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39B598098C0F066E7EEEC69 /* Pods_ExampleTests.framework */; };
+		D622D58E280D9258005E0BEF /* PaylinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D622D58D280D9258005E0BEF /* PaylinkVC.swift */; };
 		D6F46041276B6EAB00D49C4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */; };
 		D6F46042276B6EAB00D49C4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6F4603C276B6EAB00D49C4E /* Assets.xcassets */; };
 		D6F46044276B6EAB00D49C4E /* FrPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603E276B6EAB00D49C4E /* FrPaymentVC.swift */; };
@@ -100,6 +101,7 @@
 		A34EEA0F53FEFF0BDE4A0E21 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleTests/Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A39B598098C0F066E7EEEC69 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B8136B371DF2FEB06EC3EC /* Pods-Example-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-ExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D622D58D280D9258005E0BEF /* PaylinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkVC.swift; sourceTree = "<group>"; };
 		D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6F4603C276B6EAB00D49C4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6F4603D276B6EAB00D49C4E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				606AD00427FED5BD00F18782 /* DatalinkVC.swift */,
 				D6F4603E276B6EAB00D49C4E /* FrPaymentVC.swift */,
 				606AD00727FED73500F18782 /* TabsVC.swift */,
+				D622D58D280D9258005E0BEF /* PaylinkVC.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				606AD00527FED5BD00F18782 /* DatalinkVC.swift in Sources */,
 				60FD543527758FEC00EB7080 /* TextField.swift in Sources */,
 				D6F46044276B6EAB00D49C4E /* FrPaymentVC.swift in Sources */,
+				D622D58E280D9258005E0BEF /* PaylinkVC.swift in Sources */,
 				60FD54382775903600EB7080 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
