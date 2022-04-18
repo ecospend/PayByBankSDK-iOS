@@ -184,6 +184,10 @@ extension WebViewVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         hideActivityIndicator()
     }
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        hideActivityIndicator()
+    }
 }
 
 // MARK: - WKUIDelegate

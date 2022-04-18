@@ -38,4 +38,9 @@ public extension PayByBank {
     static var frPayment: FrPayment {
         return FrPayment(factory: FrPaymentFactory(payByBankFactory: PayByBankFactory()))
     }
+    
+    /// Datalink API
+    static var datalink: Datalink {
+        return Datalink(factory: DatalinkFactory())
+    }
 }
