@@ -96,6 +96,7 @@ private extension Datalink {
                 switch datalinkRepository.create(request: request) {
                 case .success(let createResponse):
                     guard let uniqueID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
+                    
                     switch datalinkRepository.get(request: DatalinkGetRequest(uniqueID: uniqueID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
@@ -116,9 +117,9 @@ private extension Datalink {
                           return .failure(PayByBankError.wrongLink)
                       }
                 let handler = factory.makeDatalinkHandler(uniqueID: datalinkID,
-                                                            webViewURL: datalinkURL,
-                                                            redirectURL: redirectURL,
-                                                            completionHandler: completion)
+                                                          webViewURL: datalinkURL,
+                                                          redirectURL: redirectURL,
+                                                          completionHandler: completion)
                 return .success(handler)
             case .failure(let error):
                 return .failure(error)

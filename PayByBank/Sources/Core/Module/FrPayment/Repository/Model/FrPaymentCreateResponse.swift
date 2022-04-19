@@ -16,22 +16,22 @@ public struct FrPaymentCreateResponse: Codable {
     public let uniqueID: String?
     
     /// Unique FrPayment URL that you will need to redirect PSU in order the payment to proceed.
-    public let paylinkURL: String?
+    public let url: String?
     
     /// Base64 encoded QRCode image data that represents FrPayment URL.
     public let qrCode: String?
     
     public init(uniqueID: String?,
-                paylinkURL: String?,
+                url: String?,
                 qrCode: String?) {
         self.uniqueID = uniqueID
-        self.paylinkURL = paylinkURL
+        self.url = url
         self.qrCode = qrCode
     }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
-        case paylinkURL = "url"
+        case url = "url"
         case qrCode = "qr_code"
     }
 }
