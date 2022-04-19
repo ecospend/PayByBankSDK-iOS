@@ -67,23 +67,23 @@ public struct VRPlinkCreateRequest: Codable {
     /// The VRPlink Limit Options model
     public let vrplinkLimitOptions: VRPlinkLimitOptions?
     
-    public init(redirectURL: String?,
-                bankID: String?,
+    public init(redirectURL: String? = nil,
+                bankID: String? = nil,
                 reason: VRPReason,
-                type: VRPType?,
-                verifyCreditorAccount: Bool?,
-                verifyDebtorAccount: Bool?,
-                merchantID: String?,
-                merchantUserID: String?,
-                reference: String?,
-                description: String?,
-                creditorAccount: PayByBankAccountRequest?,
-                debtorAccount: PayByBankAccountRequest?,
-                vrpOptions: VRPOptions?,
-                limitOptions: VRPLimitOptions?,
-                notificationOptions: PayByBankNotificationOptionsRequest?,
-                vrplinkOptions: VRPlinkOptions?,
-                vrplinkLimitOptions: VRPlinkLimitOptions?) {
+                type: VRPType? = nil,
+                verifyCreditorAccount: Bool? = nil,
+                verifyDebtorAccount: Bool? = nil,
+                merchantID: String? = nil,
+                merchantUserID: String? = nil,
+                reference: String? = nil,
+                description: String? = nil,
+                creditorAccount: PayByBankAccountRequest? = nil,
+                debtorAccount: PayByBankAccountRequest? = nil,
+                vrpOptions: VRPOptions? = nil,
+                limitOptions: VRPLimitOptions? = nil,
+                notificationOptions: PayByBankNotificationOptionsRequest? = nil,
+                vrplinkOptions: VRPlinkOptions? = nil,
+                vrplinkLimitOptions: VRPlinkLimitOptions? = nil) {
         self.redirectURL = redirectURL
         self.bankID = bankID
         self.reason = reason

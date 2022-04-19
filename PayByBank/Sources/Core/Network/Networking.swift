@@ -59,6 +59,7 @@ class Networking: NetworkingProtocol {
         switch endpoint.requestType {
         case .data:
             task = networkSession.dataTask(with: urlRequest, completionHandler: { [weak self] (data, urlResponse, error) in
+                dump(urlResponse)
                 self?.handleJsonTaskResponse(data: data, urlResponse: urlResponse, error: error, completion: completion)
             })
         case .download(let progressHandler):
