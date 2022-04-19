@@ -44,22 +44,54 @@ public struct PaylinkGetResponse: Codable {
     public let merchantUserID: String?
     
     /// The Creditor Account model
-    public let creditorAccount: PaylinkAccountResponse?
+    public let creditorAccount: PayByBankAccountResponse?
     
     /// The Debtor Account model
-    public let debtorAccount: PaylinkAccountResponse?
+    public let debtorAccount: PayByBankAccountResponse?
     
     /// The Paylink Options model
     public let paylinkOptions: PaylinkOptionsResponse?
     
     /// The Notification Options model
-    public let notificationOptions: PaylinkNotificationOptionsResponse?
+    public let notificationOptions: PayByBankNotificationOptionsResponse?
     
     /// The PaymentOptions model
     public let paymentOptions: PaylinkPaymentOptionsResponse?
     
     /// The LimitOptions model
     public let limitOptions: PaylinkLimitOptionsResponse?
+    
+    public init(uniqueID: String?,
+                amount: Decimal?,
+                reference: String?,
+                description: String?,
+                redirectURL: String?,
+                url: String?,
+                bankID: String?,
+                merchantID: String?,
+                merchantUserID: String?,
+                creditorAccount: PayByBankAccountResponse?,
+                debtorAccount: PayByBankAccountResponse?,
+                paylinkOptions: PaylinkOptionsResponse?,
+                notificationOptions: PayByBankNotificationOptionsResponse?,
+                paymentOptions: PaylinkPaymentOptionsResponse?,
+                limitOptions: PaylinkLimitOptionsResponse?) {
+        self.uniqueID = uniqueID
+        self.amount = amount
+        self.reference = reference
+        self.description = description
+        self.redirectURL = redirectURL
+        self.url = url
+        self.bankID = bankID
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.creditorAccount = creditorAccount
+        self.debtorAccount = debtorAccount
+        self.paylinkOptions = paylinkOptions
+        self.notificationOptions = notificationOptions
+        self.paymentOptions = paymentOptions
+        self.limitOptions = limitOptions
+    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
@@ -77,26 +109,6 @@ public struct PaylinkGetResponse: Codable {
     }
 }
 
-// MARK: - PaylinkAccountResponse
-public struct PaylinkAccountResponse: Codable {
-    
-    /// - Enum: "SortCode" "Iban" "Bban"
-    public let type: PaylinkAccountType?
-    
-    /// The identification that you provided with the request.
-    public let identification: String?
-    
-    /// The owner_name that you provided with the PaymentRequest.
-    public let name: String?
-    
-    /// Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
-    /// - Enum: "GBP" "USD" "EUR"
-    public let currency: PaylinkCurrency?
-    
-    /// The bic that you provided with the PaymentRequest (if any).
-    public let bic: String?
-}
-
 // MARK: - PaylinkOptionsResponse
 public struct PaylinkOptionsResponse: Codable {
     
@@ -112,6 +124,16 @@ public struct PaylinkOptionsResponse: Codable {
     
     /// The Tip object model
     public let tip: PaylinkTipResponse?
+    
+    public init(autoRedirect: Bool?,
+                allowPartialPayments: Bool?,
+                disableQrCode: Bool?,
+                tip: PaylinkTipResponse?) {
+        self.autoRedirect = autoRedirect
+        self.allowPartialPayments = allowPartialPayments
+        self.disableQrCode = disableQrCode
+        self.tip = tip
+    }
     
     enum CodingKeys: String, CodingKey {
         case autoRedirect = "auto_redirect"
@@ -140,26 +162,23 @@ public struct PaylinkTipResponse: Codable {
     /// The tip options that will be listed on the Tip Request Page.
     public let options: [PaylinkTipOption]?
     
+    public init(requestTip: Bool?,
+                title: String?,
+                text: String?,
+                isRequired: Bool?,
+                options: [PaylinkTipOption]?) {
+        self.requestTip = requestTip
+        self.title = title
+        self.text = text
+        self.isRequired = isRequired
+        self.options = options
+    }
+    
     enum CodingKeys: String, CodingKey {
         case requestTip = "request_tip"
         case title, text
         case isRequired = "is_required"
         case options
-    }
-}
-
-// MARK: - PaylinkNotificationOptionsResponse
-public struct PaylinkNotificationOptionsResponse: Codable {
-    
-    /// True if SendEmailNotification is true and email was sent successfully, otherwise false
-    let isEmailSent: Bool?
-    
-    /// True if SendSmsNotification is true and sms was sent successfully, otherwise false
-    let isSmsSent: Bool?
-    
-    enum CodingKeys: String, CodingKey {
-        case isEmailSent = "is_email_sent"
-        case isSmsSent = "is_sms_sent"
     }
 }
 
@@ -176,6 +195,14 @@ public struct PaylinkPaymentOptionsResponse: Codable {
     /// Specifies that the payment is for payout operation.
     /// - Default is false.
     public let forPayout: Bool?
+    
+    public init(paymentRails: String?,
+                getRefundInfo: Bool?,
+                forPayout: Bool?) {
+        self.paymentRails = paymentRails
+        self.getRefundInfo = getRefundInfo
+        self.forPayout = forPayout
+    }
     
     enum CodingKeys: String, CodingKey {
         case paymentRails = "payment_rails"
@@ -198,6 +225,16 @@ public struct PaylinkLimitOptionsResponse: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: String?
+    
+    public init(isLimitExceeded: Bool?,
+                count: Int?,
+                amount: Decimal?,
+                date: String?) {
+        self.isLimitExceeded = isLimitExceeded
+        self.count = count
+        self.amount = amount
+        self.date = date
+    }
     
     enum CodingKeys: String, CodingKey {
         case isLimitExceeded = "limit_exceeded"

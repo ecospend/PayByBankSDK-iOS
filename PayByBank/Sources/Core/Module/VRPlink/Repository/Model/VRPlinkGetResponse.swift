@@ -54,10 +54,10 @@ public struct VRPlinkGetResponse: Codable {
     public let verifyDebtorAccount: Bool?
     
     /// It is the account that will receive the payment.
-    public let creditorAccount: PaylinkAccountResponse?
+    public let creditorAccount: PayByBankAccountResponse?
     
     /// It is the account from which the payment will be taken.
-    public let debtorAccount: PaylinkAccountResponse?
+    public let debtorAccount: PayByBankAccountResponse?
     
     /// The VRP Options model
     public let vrpOptions: VRPOptionsResponse?
@@ -66,13 +66,53 @@ public struct VRPlinkGetResponse: Codable {
     public let limitOptions: VRPLimitOptionsResponse?
     
     /// The Notification Options model
-    public let notificationOptions: PaylinkNotificationOptionsResponse?
+    public let notificationOptions: PayByBankNotificationOptionsResponse?
     
     /// The VRPlink Options model
     public let vrplinkOptions: VRPlinkOptionsResponse?
     
     /// The VRPlink Limit Options model
     public let vrplinkLimitOptions: VRPlinkLimitOptionsResponse?
+    
+    public init(uniqueID: String?,
+                reference: String?,
+                description: String?,
+                redirectURL: String?,
+                url: String?,
+                bankID: String?,
+                merchantID: String?,
+                merchantUserID: String?,
+                type: VRPType?,
+                reason: VRPReason?,
+                verifyCreditorAccount: Bool?,
+                verifyDebtorAccount: Bool?,
+                creditorAccount: PayByBankAccountResponse?,
+                debtorAccount: PayByBankAccountResponse?,
+                vrpOptions: VRPOptionsResponse?,
+                limitOptions: VRPLimitOptionsResponse?,
+                notificationOptions: PayByBankNotificationOptionsResponse?,
+                vrplinkOptions: VRPlinkOptionsResponse?,
+                vrplinkLimitOptions: VRPlinkLimitOptionsResponse?) {
+        self.uniqueID = uniqueID
+        self.reference = reference
+        self.description = description
+        self.redirectURL = redirectURL
+        self.url = url
+        self.bankID = bankID
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.type = type
+        self.reason = reason
+        self.verifyCreditorAccount = verifyCreditorAccount
+        self.verifyDebtorAccount = verifyDebtorAccount
+        self.creditorAccount = creditorAccount
+        self.debtorAccount = debtorAccount
+        self.vrpOptions = vrpOptions
+        self.limitOptions = limitOptions
+        self.notificationOptions = notificationOptions
+        self.vrplinkOptions = vrplinkOptions
+        self.vrplinkLimitOptions = vrplinkLimitOptions
+    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
@@ -102,7 +142,7 @@ public struct VRPLimitOptionsResponse: Codable {
     
     /// Currency code in ISO 4217 format.
     /// - Enum: "GBP" "USD" "EUR"
-    public let currency: PaylinkCurrency?
+    public let currency: PayByBankCurrency?
     
     /// Maximum single payment amount in decimal format.
     public let singlePaymentAmount: Decimal?
@@ -149,6 +189,36 @@ public struct VRPLimitOptionsResponse: Codable {
     /// - Enum: "Consent" "Calendar"
     public let yearlyAlignment: VRPAlignment?
     
+    public init(currency: PayByBankCurrency?,
+                singlePaymentAmount: Decimal?,
+                dailyAmount: Decimal?,
+                weeklyAmount: Decimal?,
+                fortnightlyAmount: Decimal?,
+                monthlyAmount: Decimal?,
+                halfYearlyAmount: Decimal?,
+                yearlyAmount: Decimal?,
+                dailyAlignment: VRPAlignment?,
+                weeklyAlignment: VRPAlignment?,
+                fortnightlyAlignment: VRPAlignment?,
+                monthlyAlignment: VRPAlignment?,
+                halfYearlyAlignment: VRPAlignment?,
+                yearlyAlignment: VRPAlignment?) {
+        self.currency = currency
+        self.singlePaymentAmount = singlePaymentAmount
+        self.dailyAmount = dailyAmount
+        self.weeklyAmount = weeklyAmount
+        self.fortnightlyAmount = fortnightlyAmount
+        self.monthlyAmount = monthlyAmount
+        self.halfYearlyAmount = halfYearlyAmount
+        self.yearlyAmount = yearlyAmount
+        self.dailyAlignment = dailyAlignment
+        self.weeklyAlignment = weeklyAlignment
+        self.fortnightlyAlignment = fortnightlyAlignment
+        self.monthlyAlignment = monthlyAlignment
+        self.halfYearlyAlignment = halfYearlyAlignment
+        self.yearlyAlignment = yearlyAlignment
+    }
+    
     enum CodingKeys: String, CodingKey {
         case currency = "currency"
         case singlePaymentAmount = "single_payment_amount"
@@ -180,6 +250,14 @@ public struct VRPOptionsResponse: Codable {
     /// - Note: If not provided, defaults to 'true'.
     public let getRefundInfo: Bool?
     
+    public init(validFrom: String?,
+                validTo: String?,
+                getRefundInfo: Bool?) {
+        self.validFrom = validFrom
+        self.validTo = validTo
+        self.getRefundInfo = getRefundInfo
+    }
+    
     enum CodingKeys: String, CodingKey {
         case getRefundInfo = "get_refund_info"
         case validFrom = "valid_from"
@@ -192,6 +270,10 @@ public struct VRPlinkLimitOptionsResponse: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: String?
+    
+    public init(date: String?) {
+        self.date = date
+    }
     
     enum CodingKeys: String, CodingKey {
         case date
@@ -219,6 +301,20 @@ public struct VRPlinkOptionsResponse: Codable {
     
     /// If you are set true, no redirect after vrp.
     public let dontRedirect: Bool?
+    
+    public init(generateQrCode: Bool?,
+                disableQrCode: Bool?,
+                autoRedirect: Bool?,
+                clientID: String?,
+                tenantID: String?,
+                dontRedirect: Bool?) {
+        self.generateQrCode = generateQrCode
+        self.disableQrCode = disableQrCode
+        self.autoRedirect = autoRedirect
+        self.clientID = clientID
+        self.tenantID = tenantID
+        self.dontRedirect = dontRedirect
+    }
     
     enum CodingKeys: String, CodingKey {
         case generateQrCode = "generate_qr_code"

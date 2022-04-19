@@ -58,10 +58,10 @@ public struct VRPlinkRecord: Codable {
     public let type: VRPType?
     
     /// It is the account that will receive the payment.
-    public let creditorAccount: PaylinkAccountResponse?
+    public let creditorAccount: PayByBankAccountResponse?
     
     /// It is the account from which the payment will be taken.
-    public let debtorAccount: PaylinkAccountResponse?
+    public let debtorAccount: PayByBankAccountResponse?
     
     /// Failure reason of the failed payments
     public let failureMessage: String?
@@ -74,6 +74,48 @@ public struct VRPlinkRecord: Codable {
     
     /// If you are set true, no redirect after vrp.
     public let dontRedirect: Bool?
+    
+    public init(uniqueID: String?,
+                clientID: String?,
+                tenantID: Int?,
+                id: String?,
+                bankReferenceID: String?,
+                dateCreated: String?,
+                bankID: String?,
+                status: String?,
+                description: String?,
+                reference: String?,
+                merchantID: String?,
+                merchantUserID: String?,
+                redirectURL: String?,
+                type: VRPType?,
+                creditorAccount: PayByBankAccountResponse?,
+                debtorAccount: PayByBankAccountResponse?,
+                failureMessage: String?,
+                validFrom: String?,
+                validTo: String?,
+                dontRedirect: Bool?) {
+        self.uniqueID = uniqueID
+        self.clientID = clientID
+        self.tenantID = tenantID
+        self.id = id
+        self.bankReferenceID = bankReferenceID
+        self.dateCreated = dateCreated
+        self.bankID = bankID
+        self.status = status
+        self.description = description
+        self.reference = reference
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.redirectURL = redirectURL
+        self.type = type
+        self.creditorAccount = creditorAccount
+        self.debtorAccount = debtorAccount
+        self.failureMessage = failureMessage
+        self.validFrom = validFrom
+        self.validTo = validTo
+        self.dontRedirect = dontRedirect
+    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"

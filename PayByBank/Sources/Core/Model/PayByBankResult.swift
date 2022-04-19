@@ -17,6 +17,11 @@ public struct PayByBankResult: Codable {
     /// Status of paylink.
     /// - Enum: "Deleted" "Initiated" "Completed"
     public let status: PayByBankStatus
+    
+    public init(uniqueID: String, status: PayByBankStatus) {
+        self.uniqueID = uniqueID
+        self.status = status
+    }
 }
 
 // MARK: - PaylinkStatus

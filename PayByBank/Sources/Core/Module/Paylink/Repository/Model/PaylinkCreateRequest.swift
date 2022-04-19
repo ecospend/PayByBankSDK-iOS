@@ -40,16 +40,16 @@ public struct PaylinkCreateRequest: Codable {
     public let merchantUserID: String?
     
     /// It is the account that will receive the payment.
-    public let creditorAccount: PaylinkAccount
+    public let creditorAccount: PayByBankAccountRequest
     
     /// It is the account from which the payment will be taken.
-    public let debtorAccount: PaylinkAccount?
+    public let debtorAccount: PayByBankAccountRequest?
     
     /// The Paylink Options model
     public let paylinkOptions: PaylinkOptions?
     
     /// The Notification Options model
-    public let notificationOptions: PaylinkNotificationOptions?
+    public let notificationOptions: PayByBankNotificationOptionsRequest?
     
     /// The Payment Options model
     public let paymentOptions: PaylinkPaymentOptions?
@@ -78,10 +78,10 @@ public struct PaylinkCreateRequest: Codable {
                 bankID: String? = nil,
                 merchantID: String? = nil,
                 merchantUserID: String? = nil,
-                creditorAccount: PaylinkAccount,
-                debtorAccount: PaylinkAccount? = nil,
+                creditorAccount: PayByBankAccountRequest,
+                debtorAccount: PayByBankAccountRequest? = nil,
                 paylinkOptions: PaylinkOptions? = nil,
-                notificationOptions: PaylinkNotificationOptions? = nil,
+                notificationOptions: PayByBankNotificationOptionsRequest? = nil,
                 paymentOptions: PaylinkPaymentOptions? = nil,
                 limitOptions: PaylinkLimitOptions? = nil) {
         self.redirectURL = redirectURL
@@ -114,54 +114,6 @@ public struct PaylinkCreateRequest: Codable {
     }
 }
 
-// MARK: - PaylinkAccount
-public struct PaylinkAccount: Codable {
-    
-    /// - Enum: "SortCode" "Iban" "Bban"
-    public let type: PaylinkAccountType
-    
-    /// Account identification. The value of this parameter depends on the value of AccountType.
-    /// If type = “SortCode” then a 6-digit SortCode appended with a 8-digit Account Number merged into a 14-digit value, with no dashes in between.
-    /// For type = “IBAN” the IBAN of the account (compliant with [ISO 13616-1](https://en.wikipedia.org/wiki/International_Bank_Account_Number#Structure)) and for type = “BNAN” the BBAN of the account must be set.
-    public let identification: String
-    
-    /// Full legal name of the account owner.
-    public let name: String
-    
-    /// Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
-    /// - Enum: "GBP" "USD" "EUR"
-    public let currency: PaylinkCurrency
-    
-    ///  - Parameters:
-    ///     - type: Enum: "SortCode" "Iban" "Bban"
-    ///     - identification: Account identification. The value of this parameter depends on the value of AccountType. If type = “SortCode” then a 6-digit SortCode appended with a 8-digit Account Number merged into a 14-digit value, with no dashes in between. For type = “IBAN” the IBAN of the account (compliant with [ISO 13616-1](https://en.wikipedia.org/wiki/International_Bank_Account_Number#Structure)) and for type = “BNAN” the BBAN of the account must be set.
-    ///     - name: Full legal name of the account owner.
-    ///     - currency: Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format. - Enum: "GBP" "USD" "EUR"
-    public init(type: PaylinkAccountType,
-                identification: String,
-                name: String,
-                currency: PaylinkCurrency) {
-        self.type = type
-        self.identification = identification
-        self.name = name
-        self.currency = currency
-    }
-}
-
-// MARK: - PaylinkCurrency
-public enum PaylinkCurrency: String, Codable {
-    case gbp = "GBP"
-    case usd = "USD"
-    case eur = "EUR"
-}
-
-// MARK: - PaylinkAccountType
-public enum PaylinkAccountType: String, Codable {
-    case sortCode = "SortCode"
-    case iban = "Iban"
-    case bban = "Bban"
-}
-
 // MARK: - PaylinkLimitOptions
 public struct PaylinkLimitOptions: Codable {
     
@@ -184,48 +136,6 @@ public struct PaylinkLimitOptions: Codable {
         self.count = count
         self.amount = amount
         self.date = date
-    }
-}
-
-// MARK: - PaylinkNotificationOptions
-public struct PaylinkNotificationOptions: Codable {
-    
-    /// Optional parameter for Gateway to send an email notification to the PSU with the Paylink URL.
-    /// - Defaults to false.
-    public let sendEmailNotification: Bool?
-    
-    /// The email address that the email notification will be sent to.
-    /// - Warning: This field is **mandatory** if `sendEmailNotification` is true.
-    public let email: String?
-    
-    /// Optional parameter for Gateway to send an SMS notification to the PSU with the Paylink URL.
-    /// - Defaults to false.
-    public let sendSMSNotification: Bool?
-    
-    /// The phone number (including the country dial-in code) that the SMS notification will be sent to.
-    /// - Warning: This field is **mandatory** if `sendSMSNotification` is true.
-    public let phoneNumber: String?
-    
-    /// - Parameters:
-    ///     - sendEmailNotification: Optional parameter for Gateway to send an email notification to the PSU with the Paylink URL. Defaults to false.
-    ///     - email: The email address that the email notification will be sent to. This field is **mandatory** if `sendEmailNotification` is true.
-    ///     - sendSMSNotification: Optional parameter for Gateway to send an SMS notification to the PSU with the Paylink URL. Defaults to false.
-    ///     - phoneNumber: The phone number (including the country dial-in code) that the SMS notification will be sent to. This field is **mandatory** if `sendSMSNotification` is true.
-    public init(sendEmailNotification: Bool?,
-                email: String?,
-                sendSMSNotification: Bool?,
-                phoneNumber: String?) {
-        self.sendEmailNotification = sendEmailNotification
-        self.email = email
-        self.sendSMSNotification = sendSMSNotification
-        self.phoneNumber = phoneNumber
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case sendEmailNotification = "send_email_notification"
-        case email
-        case sendSMSNotification = "send_sms_notification"
-        case phoneNumber = "phone_number"
     }
 }
 
@@ -327,7 +237,7 @@ public struct PaylinkTip: Codable {
 public struct PaylinkTipOption: Codable {
     
     /// Tip options type.
-    /// Enum: "Amount" "Percentage" "Manual"
+    /// - Note: Enum: "Amount" "Percentage" "Manual"
     public let type: PaylinkTipOptionType
     
     /// Tip options value.

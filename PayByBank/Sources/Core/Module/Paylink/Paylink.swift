@@ -21,15 +21,15 @@ public final class Paylink {
 // MARK: - API
 public extension Paylink {
     
-    /// Opens webview using with `unique_id` of paylink
+    /// Opens webview using with `uniqueID` of paylink
     ///
     /// - Parameters:
-    ///     - paylinkID: Unique id value of paylink.
+    ///     - uniqueID: Unique id value of paylink.
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
-    func open(paylinkID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    func open(uniqueID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.execute(type: .open(paylinkID), viewController: viewController, completion: completion)
+            self.execute(type: .open(uniqueID), viewController: viewController, completion: completion)
         }
     }
     
@@ -42,6 +42,17 @@ public extension Paylink {
     func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
+        }
+    }
+    
+    /// Soft deletes Paylink with given id
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value of paylink.
+    ///     - completion: It provides to handle result or error
+    func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.delete(request: PaylinkDeleteRequest(uniqueID: uniqueID), completion: completion)
         }
     }
 }
@@ -66,17 +77,17 @@ private extension Paylink {
         
         let paylinkGetResult: Result<PaylinkGetResponse, Error> = {
             switch type {
-            case .open(let paylinkID):
-                switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)) {
+            case .open(let uniqueID):
+                switch paylinkRepository.getPaylink(request: PaylinkGetRequest(uniqueID: uniqueID)) {
                 case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
                 switch paylinkRepository.createPaylink(request: request) {
                 case .success(let createResponse):
-                    guard let paylinkID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
+                    guard let uniqueID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
                     
-                    switch paylinkRepository.getPaylink(request: PaylinkGetRequest(paylinkID: paylinkID)) {
+                    switch paylinkRepository.getPaylink(request: PaylinkGetRequest(uniqueID: uniqueID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
                     }
@@ -89,15 +100,15 @@ private extension Paylink {
         let handlerResult: Result<PayByBankHandlerProtocol, Error> = {
             switch paylinkGetResult {
             case .success(let response):
-                guard let paylinkID = response.uniqueID,
+                guard let uniqueID = response.uniqueID,
                       let paylinkURL = URL(string: response.url ?? ""),
                       let redirectURL = URL(string: response.redirectURL ?? "") else {
                     return .failure(PayByBankError.wrongLink)
                 }
-                let handler = factory.makePaylinkAPIHandler(uniqueID: paylinkID,
-                                                            webViewURL: paylinkURL,
-                                                            redirectURL: redirectURL,
-                                                            completionHandler: completion)
+                let handler = factory.makePaylinkHandler(uniqueID: uniqueID,
+                                                         webViewURL: paylinkURL,
+                                                         redirectURL: redirectURL,
+                                                         completionHandler: completion)
                 return .success(handler)
             case .failure(let error):
                 return .failure(error)
@@ -115,6 +126,21 @@ private extension Paylink {
             DispatchQueue.main.async {
                 completion(.failure(PayByBankError(error: error)))
             }
+        }
+    }
+    
+    func delete(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let paylinkRepository = factory.makePaylinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        }
+        
+        switch paylinkRepository.deletePaylink(request: request) {
+        case .success(let isDeleted): return completion(.success(isDeleted))
+        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }
     }
 }

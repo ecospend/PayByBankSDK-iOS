@@ -47,10 +47,10 @@ public struct VRPlinkCreateRequest: Codable {
     public let description: String?
     
     /// It is the account that will receive the payment.
-    public let creditorAccount: PaylinkAccount?
+    public let creditorAccount: PayByBankAccountRequest?
     
     /// It is the account from which the payment will be taken.
-    public let debtorAccount: PaylinkAccount?
+    public let debtorAccount: PayByBankAccountRequest?
     
     /// The VRP Options model
     public let vrpOptions: VRPOptions?
@@ -59,7 +59,7 @@ public struct VRPlinkCreateRequest: Codable {
     public let limitOptions: VRPLimitOptions?
     
     /// The Notification Options model
-    public let notificationOptions: PaylinkNotificationOptions?
+    public let notificationOptions: PayByBankNotificationOptionsRequest?
     
     /// The VRPlink Options model
     public let vrplinkOptions: VRPlinkOptions?
@@ -77,11 +77,11 @@ public struct VRPlinkCreateRequest: Codable {
                 merchantUserID: String?,
                 reference: String?,
                 description: String?,
-                creditorAccount: PaylinkAccount?,
-                debtorAccount: PaylinkAccount?,
+                creditorAccount: PayByBankAccountRequest?,
+                debtorAccount: PayByBankAccountRequest?,
                 vrpOptions: VRPOptions?,
                 limitOptions: VRPLimitOptions?,
-                notificationOptions: PaylinkNotificationOptions?,
+                notificationOptions: PayByBankNotificationOptionsRequest?,
                 vrplinkOptions: VRPlinkOptions?,
                 vrplinkLimitOptions: VRPlinkLimitOptions?) {
         self.redirectURL = redirectURL
@@ -141,9 +141,10 @@ public enum VRPType: String, Codable {
 
 // MARK: - VRPLimitOptions
 public struct VRPLimitOptions: Codable {
+    
     /// Currency code in ISO 4217 format.
     /// - Enum: "GBP" "USD" "EUR"
-    public let currency: PaylinkCurrency?
+    public let currency: PayByBankCurrency?
     
     /// Maximum single payment amount in decimal format.
     public let singlePaymentAmount: Decimal?
@@ -190,6 +191,36 @@ public struct VRPLimitOptions: Codable {
     /// - Enum: "Consent" "Calendar"
     public let yearlyAlignment: VRPAlignment?
     
+    public init(currency: PayByBankCurrency?,
+                singlePaymentAmount: Decimal?,
+                dailyAmount: Decimal?,
+                weeklyAmount: Decimal?,
+                fortnightlyAmount: Decimal?,
+                monthlyAmount: Decimal?,
+                halfYearlyAmount: Decimal?,
+                yearlyAmount: Decimal?,
+                dailyAlignment: VRPAlignment?,
+                weeklyAlignment: VRPAlignment?,
+                fortnightlyAlignment: VRPAlignment?,
+                monthlyAlignment: VRPAlignment?,
+                halfYearlyAlignment: VRPAlignment?,
+                yearlyAlignment: VRPAlignment?) {
+        self.currency = currency
+        self.singlePaymentAmount = singlePaymentAmount
+        self.dailyAmount = dailyAmount
+        self.weeklyAmount = weeklyAmount
+        self.fortnightlyAmount = fortnightlyAmount
+        self.monthlyAmount = monthlyAmount
+        self.halfYearlyAmount = halfYearlyAmount
+        self.yearlyAmount = yearlyAmount
+        self.dailyAlignment = dailyAlignment
+        self.weeklyAlignment = weeklyAlignment
+        self.fortnightlyAlignment = fortnightlyAlignment
+        self.monthlyAlignment = monthlyAlignment
+        self.halfYearlyAlignment = halfYearlyAlignment
+        self.yearlyAlignment = yearlyAlignment
+    }
+    
     enum CodingKeys: String, CodingKey {
         case currency
         case singlePaymentAmount = "single_payment_amount"
@@ -227,6 +258,14 @@ public struct VRPOptions: Codable {
     /// - Note: If not provided, defaults to 'true'.
     public let getRefundInfo: Bool?
     
+    public init(validFrom: String?,
+                validTo: String?,
+                getRefundInfo: Bool?) {
+        self.validFrom = validFrom
+        self.validTo = validTo
+        self.getRefundInfo = getRefundInfo
+    }
+    
     enum CodingKeys: String, CodingKey {
         case validFrom = "valid_from"
         case validTo = "valid_to"
@@ -239,6 +278,10 @@ public struct VRPlinkLimitOptions: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: String?
+    
+    public init(date: String?) {
+        self.date = date
+    }
 }
 
 // MARK: - VRPlinkOptions
@@ -256,6 +299,16 @@ public struct VRPlinkOptions: Codable {
     
     /// If you are set true, no redirect after vrp.
     public let dontRedirect: Bool?
+    
+    public init(generateQrCode: Bool?,
+                disableQrCode: Bool?,
+                autoRedirect: Bool?,
+                dontRedirect: Bool?) {
+        self.generateQrCode = generateQrCode
+        self.disableQrCode = disableQrCode
+        self.autoRedirect = autoRedirect
+        self.dontRedirect = dontRedirect
+    }
     
     enum CodingKeys: String, CodingKey {
         case generateQrCode = "generate_qr_code"

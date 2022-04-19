@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             clientSecret: "c7667cce1d82212b39090e697e6cf1a300453d8af730ccce0878307b9fb43034")
 
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "MainVC")
+        let vc = sb.instantiateViewController(withIdentifier: "TabsVC")
         let nc = UINavigationController(rootViewController: vc)
         mainWindow.rootViewController = nc
         mainWindow.makeKeyAndVisible()
