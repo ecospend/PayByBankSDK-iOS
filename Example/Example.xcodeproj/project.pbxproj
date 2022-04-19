@@ -164,7 +164,6 @@
 		605411CB27676A2C0044D861 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				606AD00C27FF219400F18782 /* Extension */,
 				606AD00627FED5F500F18782 /* Scenes */,
 				60FD543327758F0400EB7080 /* UI */,
 				D6F4603D276B6EAB00D49C4E /* Info.plist */,
@@ -202,13 +201,6 @@
 				D622D58D280D9258005E0BEF /* PaylinkVC.swift */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		606AD00C27FF219400F18782 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		608F5CB62768C8F50053F379 /* Products */ = {

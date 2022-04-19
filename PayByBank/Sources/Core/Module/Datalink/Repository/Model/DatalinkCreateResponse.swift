@@ -8,17 +8,25 @@
 import Foundation
 
 // MARK: - DatalinkCreateResponse
-struct DatalinkCreateResponse: Codable {
+public struct DatalinkCreateResponse: Codable {
     
     /// A system assigned unique identification for the Datalink.
     /// - This value is also a part of the URL.
-    let uniqueID: String?
+    public let uniqueID: String?
     
     /// Unique Datalink URL that you will need to redirect PSU in order the account access consent to proceed.
-    let url: String?
+    public let url: String?
     
     /// Base64 encoded QRCode image data that represents Datalink URL.
-    let qrCode: String?
+    public let qrCode: String?
+    
+    public init(uniqueID: String?,
+                url: String?,
+                qrCode: String?) {
+        self.uniqueID = uniqueID
+        self.url = url
+        self.qrCode = qrCode
+    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"

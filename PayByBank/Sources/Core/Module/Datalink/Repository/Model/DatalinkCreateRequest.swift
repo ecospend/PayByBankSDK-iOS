@@ -43,6 +43,28 @@ public struct DatalinkCreateRequest: Codable {
     
     public let financialReport: FinancialReport?
     
+    public init(redirectURL: String,
+                bankID: String? = nil,
+                merchantID: String? = nil,
+                merchantUserID: String? = nil,
+                consentEndDate: String,
+                expiryDate: String? = nil,
+                permissions: [ConsentPermission]? = nil,
+                datalinkOptions: DatalinkOptions? = nil,
+                notificationOptions: PayByBankNotificationOptionsRequest? = nil,
+                financialReport: FinancialReport? = nil) {
+        self.redirectURL = redirectURL
+        self.bankID = bankID
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.consentEndDate = consentEndDate
+        self.expiryDate = expiryDate
+        self.permissions = permissions
+        self.datalinkOptions = datalinkOptions
+        self.notificationOptions = notificationOptions
+        self.financialReport = financialReport
+    }
+    
     enum CodingKeys: String, CodingKey {
         case redirectURL = "redirect_url"
         case bankID = "bank_id"
@@ -55,28 +77,6 @@ public struct DatalinkCreateRequest: Codable {
         case notificationOptions = "notification_options"
         case financialReport = "financial_report"
     }
-    
-    public init(redirectURL: String,
-                bankID: String?,
-                merchantID: String?,
-                merchantUserID: String?,
-                consentEndDate: String?,
-                expiryDate: String?,
-                permissions: [ConsentPermission]?,
-                datalinkOptions: DatalinkOptions?,
-                notificationOptions: PayByBankNotificationOptionsRequest?,
-                financialReport: FinancialReport?) {
-        self.redirectURL = redirectURL
-        self.bankID = bankID
-        self.merchantID = merchantID
-        self.merchantUserID = merchantUserID
-        self.consentEndDate = consentEndDate
-        self.expiryDate = expiryDate
-        self.permissions = permissions
-        self.datalinkOptions = datalinkOptions
-        self.notificationOptions = notificationOptions
-        self.financialReport = financialReport
-    }
 }
 
 // MARK: - DatalinkOptions
@@ -84,21 +84,31 @@ public struct DatalinkOptions: Codable {
     
     /// Determines if the PSU will see a completed page by Ecospend.
     /// If it is set true, then PSU will be redirected directly to Tenant's redirect page If it is set false, then PSU will see the consent completed page wihch provided by the Ecospend
-    public let autoRedirect: Bool
+    public let autoRedirect: Bool?
     
     /// Optional parameter for getting a QRCode image in Base64 format with the response.
     /// - Note: Defaults to false.
-    public let generateQrCode: Bool
+    public let generateQrCode: Bool?
     
     /// Optional parameter for allowing user to create consent multiply
     /// - When this value is set, datalink will be ask for connect an another account at the end of journey.
     /// - Note: Defaults to false.
-    public let allowMultipleConsent: Bool
+    public let allowMultipleConsent: Bool?
     
     /// Optional parameter to enable generating financial report
     /// - When this value is set, datalink will be give an option to redirect financial report at the end of journey.
     /// - Note: Defaults to false.
-    public let generateFinancialReport: Bool
+    public let generateFinancialReport: Bool?
+    
+    public init(autoRedirect: Bool?,
+                generateQrCode: Bool?,
+                allowMultipleConsent: Bool?,
+                generateFinancialReport: Bool?) {
+        self.autoRedirect = autoRedirect
+        self.generateQrCode = generateQrCode
+        self.allowMultipleConsent = allowMultipleConsent
+        self.generateFinancialReport = generateFinancialReport
+    }
     
     enum CodingKeys: String, CodingKey {
         case autoRedirect = "auto_redirect"
@@ -106,31 +116,27 @@ public struct DatalinkOptions: Codable {
         case allowMultipleConsent = "allow_multiple_consent"
         case generateFinancialReport = "generate_financial_report"
     }
-    
-    public init(autoRedirect: Bool,
-                generateQrCode: Bool,
-                allowMultipleConsent: Bool,
-                generateFinancialReport: Bool) {
-        self.autoRedirect = autoRedirect
-        self.generateQrCode = generateQrCode
-        self.allowMultipleConsent = allowMultipleConsent
-        self.generateFinancialReport = generateFinancialReport
-    }
 }
 
 // MARK: - FinancialReport
 public struct FinancialReport: Codable {
     
-    public let filters: Filters
-    public let parameters: FinancialReportParameters
-    public let outputSettings: OutputSettings
+    public let filters: Filters?
+    public let parameters: FinancialReportParameters?
+    public let outputSettings: OutputSettings?
     
-    public init(filters: Filters,
-                parameters: FinancialReportParameters,
-                outputSettings: OutputSettings) {
+    public init(filters: Filters?,
+                parameters: FinancialReportParameters?,
+                outputSettings: OutputSettings?) {
         self.filters = filters
         self.parameters = parameters
         self.outputSettings = outputSettings
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case filters = "filters"
+        case parameters = "parameters"
+        case outputSettings = "output_settings"
     }
 }
 
@@ -138,9 +144,19 @@ public struct FinancialReport: Codable {
 public struct FinancialReportParameters: Codable {
     
     public let affordability: [AffordabilityParameters]?
-    public let verification: VerificationParameters
-    public let financial: FinancialMultiParameters
-    public let categoryAggregation: CategoryAggregationParameters
+    public let verification: VerificationParameters?
+    public let financial: FinancialMultiParameters?
+    public let categoryAggregation: CategoryAggregationParameters?
+    
+    public init(affordability: [AffordabilityParameters]?,
+                verification: VerificationParameters?,
+                financial: FinancialMultiParameters?,
+                categoryAggregation: CategoryAggregationParameters?) {
+        self.affordability = affordability
+        self.verification = verification
+        self.financial = financial
+        self.categoryAggregation = categoryAggregation
+    }
     
     enum CodingKeys: String, CodingKey {
         case affordability
@@ -148,29 +164,19 @@ public struct FinancialReportParameters: Codable {
         case financial
         case categoryAggregation = "category_aggregation"
     }
-    
-    public init(affordability: [AffordabilityParameters]?,
-                verification: VerificationParameters,
-                financial: FinancialMultiParameters,
-                categoryAggregation: CategoryAggregationParameters) {
-        self.affordability = affordability
-        self.verification = verification
-        self.financial = financial
-        self.categoryAggregation = categoryAggregation
-    }
 }
 
 // MARK: - CategoryAggregationParameters
 public struct CategoryAggregationParameters: Codable {
     
-    public let distributionPeriod: DistrubutionPeriod
+    public let distributionPeriod: DistrubutionPeriod?
+    
+    public init(distributionPeriod: DistrubutionPeriod?) {
+        self.distributionPeriod = distributionPeriod
+    }
     
     enum CodingKeys: String, CodingKey {
         case distributionPeriod = "distribution_period"
-    }
-    
-    public init(distributionPeriod: DistrubutionPeriod) {
-        self.distributionPeriod = distributionPeriod
     }
 }
 
@@ -184,9 +190,9 @@ public enum DistrubutionPeriod: String, Codable {
 // MARK: - AffordabilityType
 public struct AffordabilityParameters: Codable {
     
-    public let type: [AffordabilityType]
+    public let type: [AffordabilityType]?
     
-    public init(type: [AffordabilityType]) {
+    public init(type: [AffordabilityType]?) {
         self.type = type
     }
 }
@@ -213,18 +219,21 @@ public struct VerificationParameters: Codable {
     /// Provide an 'email address' for the account holder to verify agains AIS data.
     public let email: String?
     
+    public init(name: String?,
+                phoneNumbers: [String]?,
+                address: String?,
+                email: String?) {
+        self.name = name
+        self.phoneNumbers = phoneNumbers
+        self.address = address
+        self.email = email
+    }
+    
     enum CodingKeys: String, CodingKey {
         case name
         case phoneNumbers = "phone_numbers"
         case address
         case email
-    }
-    
-    public init(name: String?, phoneNumbers: [String]?, address: String?, email: String?) {
-        self.name = name
-        self.phoneNumbers = phoneNumbers
-        self.address = address
-        self.email = email
     }
 }
 
@@ -232,9 +241,9 @@ public struct VerificationParameters: Codable {
 public struct FinancialMultiParameters: Codable {
     
     /// Set this property to 'true' if you want Financials data included in the response.
-    public let financial: Bool
+    public let financial: Bool?
     
-    public init(financial: Bool) {
+    public init(financial: Bool?) {
         self.financial = financial
     }
 }
@@ -243,20 +252,20 @@ public struct FinancialMultiParameters: Codable {
 public struct Filters: Codable {
     
     /// Start date of the data which will be processed. Must be set the start date of the period you want.
-    public let startDate: String
+    public let startDate: String?
     
     /// Currency code in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
     public let currency: PayByBankCurrency?
     
-    enum CodingKeys: String, CodingKey {
-        case startDate = "start_date"
-        case currency
-    }
-    
-    public init(startDate: String,
+    public init(startDate: String?,
                 currency: PayByBankCurrency?) {
         self.startDate = startDate
         self.currency = currency
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case startDate = "start_date"
+        case currency
     }
 }
 
@@ -264,13 +273,13 @@ public struct Filters: Codable {
 public struct OutputSettings: Codable {
     
     /// Depending on the value, the PII (Personal Data) will be returned or omitted from the response and the generated datalink pages. Default is 'false'
-    public let displayPii: Bool
+    public let displayPii: Bool?
+    
+    public init(displayPii: Bool?) {
+        self.displayPii = displayPii
+    }
     
     enum CodingKeys: String, CodingKey {
         case displayPii = "display_pii"
-    }
-    
-    public init(displayPii: Bool) {
-        self.displayPii = displayPii
     }
 }

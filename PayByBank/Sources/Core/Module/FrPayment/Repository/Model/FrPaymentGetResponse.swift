@@ -67,6 +67,40 @@ public struct FrPaymentGetResponse: Codable {
     /// - Note: Defaults to false.
     public let allowFrpCustomerChanges: Bool?
     
+    public init(uniqueID: String?,
+                amount: Decimal?,
+                reference: String?,
+                description: String?,
+                redirectURL: String?,
+                url: String?,
+                bankID: String?,
+                merchantID: String?,
+                merchantUserID: String?,
+                creditorAccount: PayByBankAccountResponse?,
+                debtorAccount: PayByBankAccountResponse?,
+                frPaymentOptions: FrPaymentOptionsResponse?,
+                firstPaymentDate: String?,
+                numberOfPayments: Int?,
+                period: FrPaymentPeriod?,
+                allowFrpCustomerChanges: Bool?) {
+        self.uniqueID = uniqueID
+        self.amount = amount
+        self.reference = reference
+        self.description = description
+        self.redirectURL = redirectURL
+        self.url = url
+        self.bankID = bankID
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.creditorAccount = creditorAccount
+        self.debtorAccount = debtorAccount
+        self.frPaymentOptions = frPaymentOptions
+        self.firstPaymentDate = firstPaymentDate
+        self.numberOfPayments = numberOfPayments
+        self.period = period
+        self.allowFrpCustomerChanges = allowFrpCustomerChanges
+    }
+    
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
         case amount, reference, description
@@ -109,6 +143,22 @@ public struct FrPaymentOptionsResponse: Codable {
     
     /// Customizes editable option of fields
     public let editableFields: FrPaymentEditableField?
+    
+    public init(clientID: String?,
+                tenantID: String?,
+                getRefundInfo: Bool?,
+                firstPaymentAmount: Decimal?,
+                lastPaymentAmount: Decimal?,
+                disableQrCode: Bool?,
+                editableFields: FrPaymentEditableField?) {
+        self.clientID = clientID
+        self.tenantID = tenantID
+        self.getRefundInfo = getRefundInfo
+        self.firstPaymentAmount = firstPaymentAmount
+        self.lastPaymentAmount = lastPaymentAmount
+        self.disableQrCode = disableQrCode
+        self.editableFields = editableFields
+    }
     
     enum CodingKeys: String, CodingKey {
         case clientID = "client_id"

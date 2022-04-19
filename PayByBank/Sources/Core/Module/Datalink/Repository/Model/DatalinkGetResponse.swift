@@ -34,6 +34,26 @@ public struct DatalinkGetResponse: Codable {
     
     public let consents: [ConsentModel]?
     
+    public init(redirectionURL: String?,
+                merchantID: String?,
+                merchantUserID: String?,
+                permissions: [ConsentPermission]?,
+                datalinkOptions: DatalinkOptions?,
+                notificationOptions: PayByBankNotificationOptionsResponse?,
+                financialReport: FinancialReport?,
+                datalink: DatalinkModel?,
+                consents: [ConsentModel]?) {
+        self.redirectionURL = redirectionURL
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.permissions = permissions
+        self.datalinkOptions = datalinkOptions
+        self.notificationOptions = notificationOptions
+        self.financialReport = financialReport
+        self.datalink = datalink
+        self.consents = consents
+    }
+    
     enum CodingKeys: String, CodingKey {
         case redirectionURL = "redirect_url"
         case merchantID = "merchant_id"
@@ -62,6 +82,16 @@ public struct DatalinkModel: Codable {
     
     /// Expiry date of the link.
     public let expireDate: String?
+    
+    public init(uniqueID: String?,
+                url: String?,
+                qrCode: String?,
+                expireDate: String?) {
+        self.uniqueID = uniqueID
+        self.url = url
+        self.qrCode = qrCode
+        self.expireDate = expireDate
+    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
@@ -94,6 +124,22 @@ public struct ConsentModel: Codable {
     
     /// The date indicating when consent will end.
     public let consentEndDate: String?
+    
+    public init(consentID: String?,
+                status: ConsentStatus?,
+                dateCreated: String?,
+                bankReferenceID: String?,
+                consentExpiryDate: String?,
+                bankID: String?,
+                consentEndDate: String?) {
+        self.consentID = consentID
+        self.status = status
+        self.dateCreated = dateCreated
+        self.bankReferenceID = bankReferenceID
+        self.consentExpiryDate = consentExpiryDate
+        self.bankID = bankID
+        self.consentEndDate = consentEndDate
+    }
     
     enum CodingKeys: String, CodingKey {
         case consentID = "consent_id"

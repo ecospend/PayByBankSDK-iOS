@@ -157,6 +157,7 @@ public enum FrPaymentStandingOrderType: String, Codable {
 
 // MARK: - FrPaymentOptions
 public struct FrPaymentOptions: Codable {
+    
     /// Set true, if you would like to get back the debtor's account information that the payment is made from.
     /// - Note: Defaults to true.
     public let getRefundInfo: Bool?
@@ -180,6 +181,22 @@ public struct FrPaymentOptions: Codable {
     
     /// Customizes editable options of fields
     public let editableFields: FrPaymentEditableField?
+    
+    public init(getRefundInfo: Bool?,
+                firstPaymentAmount: Decimal?,
+                lastPaymentAmount: Decimal?,
+                autoRedirect: Bool?,
+                generateQrCode: Bool?,
+                disableQrCode: Bool?,
+                editableFields: FrPaymentEditableField?) {
+        self.getRefundInfo = getRefundInfo
+        self.firstPaymentAmount = firstPaymentAmount
+        self.lastPaymentAmount = lastPaymentAmount
+        self.autoRedirect = autoRedirect
+        self.generateQrCode = generateQrCode
+        self.disableQrCode = disableQrCode
+        self.editableFields = editableFields
+    }
     
     enum CodingKeys: String, CodingKey {
         case getRefundInfo = "get_refund_info"
@@ -212,6 +229,20 @@ public struct FrPaymentEditableField: Codable {
     
     /// Editable status of  number of payments field
     public let numberOfPayments: Bool?
+    
+    public init(firstPaymentDate: Bool?,
+                firstPaymentAmount: Bool?,
+                lastPaymentAmount: Bool?,
+                amount: Bool?,
+                period: Bool?,
+                numberOfPayments: Bool?) {
+        self.firstPaymentDate = firstPaymentDate
+        self.firstPaymentAmount = firstPaymentAmount
+        self.lastPaymentAmount = lastPaymentAmount
+        self.amount = amount
+        self.period = period
+        self.numberOfPayments = numberOfPayments
+    }
     
     enum CodingKeys: String, CodingKey {
         case firstPaymentDate = "first_payment_date"

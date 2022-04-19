@@ -26,4 +26,16 @@ public struct PayByBankAccountResponse: Codable {
     
     /// The bic that you provided with the PaymentRequest (if any).
     public let bic: String?
+    
+    public init(type: PayByBankAccountType?,
+                identification: String?,
+                name: String?,
+                currency: PayByBankCurrency?,
+                bic: String?) {
+        self.type = type
+        self.identification = identification
+        self.name = name
+        self.currency = currency
+        self.bic = bic
+    }
 }
