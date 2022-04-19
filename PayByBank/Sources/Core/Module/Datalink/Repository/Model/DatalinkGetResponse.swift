@@ -26,13 +26,33 @@ public struct DatalinkGetResponse: Codable {
     
     public let datalinkOptions: DatalinkOptions?
     
-    public let notificationOptions: PaylinkNotificationOptionsResponse?
+    public let notificationOptions: PayByBankNotificationOptionsResponse?
     
     public let financialReport: FinancialReport?
     
     public let datalink: DatalinkModel?
     
     public let consents: [ConsentModel]?
+    
+    public init(redirectionURL: String?,
+                merchantID: String?,
+                merchantUserID: String?,
+                permissions: [ConsentPermission]?,
+                datalinkOptions: DatalinkOptions?,
+                notificationOptions: PayByBankNotificationOptionsResponse?,
+                financialReport: FinancialReport?,
+                datalink: DatalinkModel?,
+                consents: [ConsentModel]?) {
+        self.redirectionURL = redirectionURL
+        self.merchantID = merchantID
+        self.merchantUserID = merchantUserID
+        self.permissions = permissions
+        self.datalinkOptions = datalinkOptions
+        self.notificationOptions = notificationOptions
+        self.financialReport = financialReport
+        self.datalink = datalink
+        self.consents = consents
+    }
     
     enum CodingKeys: String, CodingKey {
         case redirectionURL = "redirect_url"
@@ -52,16 +72,26 @@ public struct DatalinkModel: Codable {
     
     /// A system assigned unique identification for the Datalink.
     /// - This value is also a part of the URL.
-    let uniqueID: String?
+    public let uniqueID: String?
     
     /// Unique Datalink URL that you will need to redirect PSU in order the data access consent to proceed.
-    let url: String?
+    public let url: String?
     
     /// Base64 encoded QRCode image data that represents Datalink URL.
-    let qrCode: String?
+    public let qrCode: String?
     
     /// Expiry date of the link.
-    let expireDate: String?
+    public let expireDate: String?
+    
+    public init(uniqueID: String?,
+                url: String?,
+                qrCode: String?,
+                expireDate: String?) {
+        self.uniqueID = uniqueID
+        self.url = url
+        self.qrCode = qrCode
+        self.expireDate = expireDate
+    }
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
@@ -94,6 +124,22 @@ public struct ConsentModel: Codable {
     
     /// The date indicating when consent will end.
     public let consentEndDate: String?
+    
+    public init(consentID: String?,
+                status: ConsentStatus?,
+                dateCreated: String?,
+                bankReferenceID: String?,
+                consentExpiryDate: String?,
+                bankID: String?,
+                consentEndDate: String?) {
+        self.consentID = consentID
+        self.status = status
+        self.dateCreated = dateCreated
+        self.bankReferenceID = bankReferenceID
+        self.consentExpiryDate = consentExpiryDate
+        self.bankID = bankID
+        self.consentEndDate = consentEndDate
+    }
     
     enum CodingKeys: String, CodingKey {
         case consentID = "consent_id"

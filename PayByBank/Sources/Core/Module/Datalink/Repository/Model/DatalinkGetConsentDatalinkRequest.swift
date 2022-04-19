@@ -8,9 +8,13 @@
 import Foundation
 
 // MARK: - DatalinkGetConsentDatalinkRequest
-struct DatalinkGetConsentDatalinkRequest: Codable {
+public struct DatalinkGetConsentDatalinkRequest: Codable {
     
-    let consentID: String
+    public let consentID: String
+    
+    public init(consentID: String) {
+        self.consentID = consentID
+    }
     
     enum CodingKeys: String, CodingKey {
         case consentID = "consent_id"

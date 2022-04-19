@@ -1,30 +1,30 @@
 //
-//  PayByBank.swift
+//  FrPayment.swift
 //  PayByBank
 //
-//  Created by Yunus TÜR on 14.12.2021.
-//  Copyright © 2021 Ecospend. All rights reserved.
+//  Created by Yunus TÜR on 7.04.2022.
+//  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-public final class Paylink {
+public final class FrPayment {
     
-    private let factory: PaylinkFactoryProtocol
+    private let factory: FrPaymentFactoryProtocol
     
-    internal init(factory: PaylinkFactoryProtocol) {
+    internal init(factory: FrPaymentFactoryProtocol) {
         self.factory = factory
     }
 }
 
 // MARK: - API
-public extension Paylink {
+public extension FrPayment {
     
-    /// Opens webview using with `uniqueID` of paylink
+    /// Opens webview using with `uniqueID` of FrPayment
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of paylink.
+    ///     - uniqueID: Unique id value of FrPayment.
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
     func open(uniqueID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
@@ -33,61 +33,61 @@ public extension Paylink {
         }
     }
     
-    /// Opens webview using with request model of paylink
+    /// Opens webview using with request model of FrPayment
     ///
     /// - Parameters:
-    ///     - request: Request to create paylink
+    ///     - uniqueID: Request to create FrPayment
     ///     - viewController: UIViewController that provides to present bank selection
     ///     - completion: It provides to handle result or error
-    func initiate(request: PaylinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    func initiate(request: FrPaymentCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
         }
     }
     
-    /// Soft deletes Paylink with given id
+    /// Soft deletes FrPayment with given id
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of paylink.
+    ///     - uniqueID: Unique id value of FrPayment.
     ///     - completion: It provides to handle result or error
     func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.delete(request: PaylinkDeleteRequest(uniqueID: uniqueID), completion: completion)
+            self.delete(request: FrPaymentDeleteRequest(uniqueID: uniqueID), completion: completion)
         }
     }
 }
 
 // MARK: - Logic
-private extension Paylink {
+private extension FrPayment {
     
-    enum PaylinkExecuteType {
+    enum FrPaymentExecuteType {
         case open(String)
-        case initiate(PaylinkCreateRequest)
+        case initiate(FrPaymentCreateRequest)
     }
     
-    func execute(type: PaylinkExecuteType, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    func execute(type: FrPaymentExecuteType, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         
         let iamRepository = factory.payByBankFactory.makeIamRepository()
-        let paylinkRepository = factory.makePaylinkRepository()
+        let frPaymentRepository = factory.makeFrPaymentRepository()
         
         switch iamRepository.getToken() {
         case .success: break
         case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }
         
-        let paylinkGetResult: Result<PaylinkGetResponse, Error> = {
+        let frPaymentGetResult: Result<FrPaymentGetResponse, Error> = {
             switch type {
             case .open(let uniqueID):
-                switch paylinkRepository.getPaylink(request: PaylinkGetRequest(uniqueID: uniqueID)) {
+                switch frPaymentRepository.getFrPayment(request: FrPaymentGetRequest(uniqueID: uniqueID)) {
                 case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
-                switch paylinkRepository.createPaylink(request: request) {
+                switch frPaymentRepository.createFrPayment(request: request) {
                 case .success(let createResponse):
                     guard let uniqueID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
                     
-                    switch paylinkRepository.getPaylink(request: PaylinkGetRequest(uniqueID: uniqueID)) {
+                    switch frPaymentRepository.getFrPayment(request: FrPaymentGetRequest(uniqueID: uniqueID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
                     }
@@ -98,17 +98,17 @@ private extension Paylink {
         }()
         
         let handlerResult: Result<PayByBankHandlerProtocol, Error> = {
-            switch paylinkGetResult {
+            switch frPaymentGetResult {
             case .success(let response):
                 guard let uniqueID = response.uniqueID,
-                      let paylinkURL = URL(string: response.url ?? ""),
+                      let frPaymentURL = URL(string: response.url ?? ""),
                       let redirectURL = URL(string: response.redirectURL ?? "") else {
                     return .failure(PayByBankError.wrongLink)
                 }
-                let handler = factory.makePaylinkHandler(uniqueID: uniqueID,
-                                                         webViewURL: paylinkURL,
-                                                         redirectURL: redirectURL,
-                                                         completionHandler: completion)
+                let handler = factory.makeFrPaymentHandler(uniqueID: uniqueID,
+                                                           webViewURL: frPaymentURL,
+                                                           redirectURL: redirectURL,
+                                                           completionHandler: completion)
                 return .success(handler)
             case .failure(let error):
                 return .failure(error)
@@ -129,16 +129,16 @@ private extension Paylink {
         }
     }
     
-    func delete(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func delete(request: FrPaymentDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
-        let paylinkRepository = factory.makePaylinkRepository()
+        let frPaymentRepository = factory.makeFrPaymentRepository()
         
         switch iamRepository.getToken() {
         case .success: break
         case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }
         
-        switch paylinkRepository.deletePaylink(request: request) {
+        switch frPaymentRepository.deleteFrPayment(request: request) {
         case .success(let isDeleted): return completion(.success(isDeleted))
         case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }

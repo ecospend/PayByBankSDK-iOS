@@ -20,7 +20,7 @@ public final class Datalink {
 // MARK: - API
 public extension Datalink {
     
-    /// Opens webview using with `unique_id` of datalink
+    /// Opens webview using with `uniqueID` of datalink
     ///
     /// - Parameters:
     ///     - uniqueID: Unique id value of datalink.
@@ -55,7 +55,7 @@ public extension Datalink {
         }
     }
     
-    /// Returns datalink with given consentID
+    /// Returns datalink with given `consentID`
     ///
     /// - Parameters:
     ///     - consentID: Unique id value of Datalink.
@@ -77,8 +77,8 @@ private extension Datalink {
     
     func execute(type: DatalinkExecuteType, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         
-        let datalinkRepository = factory.makeDatalinkSnycRepository()
-        let iamRepository = factory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
         
         switch iamRepository.getToken() {
         case .success: break
@@ -96,6 +96,7 @@ private extension Datalink {
                 switch datalinkRepository.create(request: request) {
                 case .success(let createResponse):
                     guard let uniqueID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
+                    
                     switch datalinkRepository.get(request: DatalinkGetRequest(uniqueID: uniqueID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
@@ -116,9 +117,9 @@ private extension Datalink {
                           return .failure(PayByBankError.wrongLink)
                       }
                 let handler = factory.makeDatalinkHandler(uniqueID: datalinkID,
-                                                            webViewURL: datalinkURL,
-                                                            redirectURL: redirectURL,
-                                                            completionHandler: completion)
+                                                          webViewURL: datalinkURL,
+                                                          redirectURL: redirectURL,
+                                                          completionHandler: completion)
                 return .success(handler)
             case .failure(let error):
                 return .failure(error)
@@ -128,7 +129,7 @@ private extension Datalink {
         switch handlerResult {
         case .success(let handler):
             DispatchQueue.main.async {
-                let vc = self.factory.makeWebViewVC(handler: handler)
+                let vc = self.factory.payByBankFactory.makeWebViewVC(handler: handler)
                 let nc = UINavigationController(rootViewController: vc)
                 viewController.present(nc, animated: true)
             }
@@ -140,8 +141,8 @@ private extension Datalink {
     }
     
     func delete(request: DatalinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
-        let iamRepository = factory.makeIamRepository()
-        let datalinkRepository = factory.makeDatalinkSnycRepository()
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
@@ -155,8 +156,8 @@ private extension Datalink {
     }
     
     func getConsentDatalink(request: DatalinkGetConsentDatalinkRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
-        let iamRepository = factory.makeIamRepository()
-        let datalinkRepository = factory.makeDatalinkSnycRepository()
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break

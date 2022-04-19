@@ -118,10 +118,10 @@ extension DatalinkVC {
                                               allowMultipleConsent: allowMultipleConsentSwitch.isOn,
                                               generateFinancialReport: generateFinancialReportSwitch.isOn)
         
-        let notificationOptions = PaylinkNotificationOptions(sendEmailNotification: false,
-                                                             email: "example@email.com",
-                                                             sendSMSNotification: false,
-                                                             phoneNumber: "")
+        let notificationOptions = PayByBankNotificationOptionsRequest(sendEmailNotification: false,
+                                                                      email: "example@email.com",
+                                                                      sendSMSNotification: false,
+                                                                      phoneNumber: "")
         
         let financialReport = FinancialReport(filters: Filters(startDate: "2020-08-24T14:15:22Z", currency: .gbp),
                                               parameters: FinancialReportParameters(affordability: nil,

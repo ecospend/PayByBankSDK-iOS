@@ -11,14 +11,14 @@ import Foundation
 // MARK: - PaylinkGetRequest
 public struct PaylinkGetRequest: Codable {
     
-    /// Paylink ID to query
-    public let paylinkID: String
+    /// Unique id value to query Paylink
+    public let uniqueID: String
     
-    public init(paylinkID: String) {
-        self.paylinkID = paylinkID
+    public init(uniqueID: String) {
+        self.uniqueID = uniqueID
     }
    
     enum CodingKeys: String, CodingKey {
-        case paylinkID = "paylink_id"
+        case uniqueID = "unique_id"
     }
 }
