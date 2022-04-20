@@ -123,7 +123,7 @@ extension DatalinkVC {
                                                                       sendSMSNotification: false,
                                                                       phoneNumber: "")
         
-        let financialReport = FinancialReport(filters: Filters(startDate: "2020-08-24T14:15:22Z", currency: .gbp),
+        let financialReport = FinancialReport(filters: Filters(startDate: "2020-08-24T14:15:22Z", currency: .pound),
                                               parameters: FinancialReportParameters(affordability: nil,
                                                                                     verification: VerificationParameters(name: nil,
                                                                                                                          phoneNumbers: nil,

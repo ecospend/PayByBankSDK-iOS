@@ -20,6 +20,6 @@ extension Encodable {
     }
     
     var formData: Data? {
-        try? URLEncodedFormEncoder().encode(self)
+        dictionary?.formData
     }
 }

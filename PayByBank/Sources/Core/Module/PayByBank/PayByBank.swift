@@ -39,6 +39,11 @@ public extension PayByBank {
         return FrPayment(factory: FrPaymentFactory(payByBankFactory: PayByBankFactory()))
     }
     
+    /// VRPlink API
+    static var vrplink: VRPlink {
+        return VRPlink(factory: VRPlinkFactory(payByBankFactory: PayByBankFactory()))
+    }
+    
     /// Datalink API
     static var datalink: Datalink {
         return Datalink(factory: DatalinkFactory(payByBankFactory: PayByBankFactory()))

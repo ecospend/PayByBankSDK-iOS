@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - PayByBankCurrency
 public enum PayByBankCurrency: String, Codable {
-    case gbp = "GBP"
+    case pound = "GBP"
     case usd = "USD"
-    case eur = "EUR"
+    case euro = "EUR"
 }
