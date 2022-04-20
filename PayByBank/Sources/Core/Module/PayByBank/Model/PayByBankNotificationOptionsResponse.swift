@@ -19,13 +19,13 @@ public struct PayByBankNotificationOptionsResponse: Codable {
     /// - Note: True if `sendSmsNotification` is true and sms was sent successfully, otherwise false
     public let isSmsSent: Bool?
     
-    public init(isEmailSent: Bool?, isSmsSent: Bool?) {
-        self.isEmailSent = isEmailSent
-        self.isSmsSent = isSmsSent
-    }
-    
     enum CodingKeys: String, CodingKey {
         case isEmailSent = "is_email_sent"
         case isSmsSent = "is_sms_sent"
+    }
+    
+    public init(isEmailSent: Bool?, isSmsSent: Bool?) {
+        self.isEmailSent = isEmailSent
+        self.isSmsSent = isSmsSent
     }
 }

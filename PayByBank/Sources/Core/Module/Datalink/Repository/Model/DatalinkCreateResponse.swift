@@ -20,17 +20,17 @@ public struct DatalinkCreateResponse: Codable {
     /// Base64 encoded QRCode image data that represents Datalink URL.
     public let qrCode: String?
     
+    enum CodingKeys: String, CodingKey {
+        case uniqueID = "unique_id"
+        case url
+        case qrCode = "qr_code"
+    }
+    
     public init(uniqueID: String?,
                 url: String?,
                 qrCode: String?) {
         self.uniqueID = uniqueID
         self.url = url
         self.qrCode = qrCode
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case uniqueID = "unique_id"
-        case url
-        case qrCode = "qr_code"
     }
 }

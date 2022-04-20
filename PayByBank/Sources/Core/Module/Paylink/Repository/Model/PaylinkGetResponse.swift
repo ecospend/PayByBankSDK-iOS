@@ -61,6 +61,21 @@ public struct PaylinkGetResponse: Codable {
     /// The LimitOptions model
     public let limitOptions: PaylinkLimitOptionsResponse?
     
+    enum CodingKeys: String, CodingKey {
+        case uniqueID = "unique_id"
+        case redirectURL = "redirect_url"
+        case url, amount, reference, description
+        case bankID = "bank_id"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case creditorAccount = "creditor_account"
+        case debtorAccount = "debtor_account"
+        case paylinkOptions = "paylink_options"
+        case notificationOptions = "notification_options"
+        case paymentOptions = "payment_options"
+        case limitOptions = "limit_options"
+    }
+    
     public init(uniqueID: String?,
                 amount: Decimal?,
                 reference: String?,
@@ -92,21 +107,6 @@ public struct PaylinkGetResponse: Codable {
         self.paymentOptions = paymentOptions
         self.limitOptions = limitOptions
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case uniqueID = "unique_id"
-        case redirectURL = "redirect_url"
-        case url, amount, reference, description
-        case bankID = "bank_id"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case creditorAccount = "creditor_account"
-        case debtorAccount = "debtor_account"
-        case paylinkOptions = "paylink_options"
-        case notificationOptions = "notification_options"
-        case paymentOptions = "payment_options"
-        case limitOptions = "limit_options"
-    }
 }
 
 // MARK: - PaylinkOptionsResponse
@@ -125,6 +125,13 @@ public struct PaylinkOptionsResponse: Codable {
     /// The Tip object model
     public let tip: PaylinkTipResponse?
     
+    enum CodingKeys: String, CodingKey {
+        case autoRedirect = "auto_redirect"
+        case allowPartialPayments = "allow_partial_payments"
+        case disableQrCode = "disable_qr_code"
+        case tip
+    }
+    
     public init(autoRedirect: Bool?,
                 allowPartialPayments: Bool?,
                 disableQrCode: Bool?,
@@ -133,13 +140,6 @@ public struct PaylinkOptionsResponse: Codable {
         self.allowPartialPayments = allowPartialPayments
         self.disableQrCode = disableQrCode
         self.tip = tip
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case autoRedirect = "auto_redirect"
-        case allowPartialPayments = "allow_partial_payments"
-        case disableQrCode = "disable_qr_code"
-        case tip
     }
 }
 
@@ -162,6 +162,13 @@ public struct PaylinkTipResponse: Codable {
     /// The tip options that will be listed on the Tip Request Page.
     public let options: [PaylinkTipOption]?
     
+    enum CodingKeys: String, CodingKey {
+        case requestTip = "request_tip"
+        case title, text
+        case isRequired = "is_required"
+        case options
+    }
+    
     public init(requestTip: Bool?,
                 title: String?,
                 text: String?,
@@ -172,13 +179,6 @@ public struct PaylinkTipResponse: Codable {
         self.text = text
         self.isRequired = isRequired
         self.options = options
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case requestTip = "request_tip"
-        case title, text
-        case isRequired = "is_required"
-        case options
     }
 }
 
@@ -196,18 +196,18 @@ public struct PaylinkPaymentOptionsResponse: Codable {
     /// - Default is false.
     public let forPayout: Bool?
     
+    enum CodingKeys: String, CodingKey {
+        case paymentRails = "payment_rails"
+        case getRefundInfo = "get_refund_info"
+        case forPayout = "for_payout"
+    }
+    
     public init(paymentRails: String?,
                 getRefundInfo: Bool?,
                 forPayout: Bool?) {
         self.paymentRails = paymentRails
         self.getRefundInfo = getRefundInfo
         self.forPayout = forPayout
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case paymentRails = "payment_rails"
-        case getRefundInfo = "get_refund_info"
-        case forPayout = "for_payout"
     }
 }
 
@@ -226,6 +226,11 @@ public struct PaylinkLimitOptionsResponse: Codable {
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: String?
     
+    enum CodingKeys: String, CodingKey {
+        case isLimitExceeded = "limit_exceeded"
+        case count, amount, date
+    }
+    
     public init(isLimitExceeded: Bool?,
                 count: Int?,
                 amount: Decimal?,
@@ -234,10 +239,5 @@ public struct PaylinkLimitOptionsResponse: Codable {
         self.count = count
         self.amount = amount
         self.date = date
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case isLimitExceeded = "limit_exceeded"
-        case count, amount, date
     }
 }

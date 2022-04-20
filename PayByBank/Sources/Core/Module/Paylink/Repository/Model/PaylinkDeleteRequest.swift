@@ -14,11 +14,11 @@ public struct PaylinkDeleteRequest: Codable {
     /// Unique id value to delete Paylink
     public let uniqueID: String
     
-    public init(uniqueID: String) {
-        self.uniqueID = uniqueID
-    }
-    
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
+    }
+    
+    public init(uniqueID: String) {
+        self.uniqueID = uniqueID
     }
 }

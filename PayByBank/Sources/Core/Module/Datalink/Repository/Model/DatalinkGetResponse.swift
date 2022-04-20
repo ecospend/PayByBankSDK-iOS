@@ -34,6 +34,18 @@ public struct DatalinkGetResponse: Codable {
     
     public let consents: [ConsentModel]?
     
+    enum CodingKeys: String, CodingKey {
+        case redirectionURL = "redirect_url"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case permissions
+        case datalinkOptions = "datalink_options"
+        case notificationOptions = "notification_options"
+        case financialReport = "financial_report"
+        case datalink
+        case consents
+    }
+    
     public init(redirectionURL: String?,
                 merchantID: String?,
                 merchantUserID: String?,
@@ -53,18 +65,6 @@ public struct DatalinkGetResponse: Codable {
         self.datalink = datalink
         self.consents = consents
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case redirectionURL = "redirect_url"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case permissions
-        case datalinkOptions = "datalink_options"
-        case notificationOptions = "notification_options"
-        case financialReport = "financial_report"
-        case datalink
-        case consents
-    }
 }
 
 // MARK: - Datalink
@@ -83,6 +83,13 @@ public struct DatalinkModel: Codable {
     /// Expiry date of the link.
     public let expireDate: String?
     
+    enum CodingKeys: String, CodingKey {
+        case uniqueID = "unique_id"
+        case url
+        case qrCode = "qr_code"
+        case expireDate = "expire_code"
+    }
+    
     public init(uniqueID: String?,
                 url: String?,
                 qrCode: String?,
@@ -91,13 +98,6 @@ public struct DatalinkModel: Codable {
         self.url = url
         self.qrCode = qrCode
         self.expireDate = expireDate
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case uniqueID = "unique_id"
-        case url
-        case qrCode = "qr_code"
-        case expireDate = "expire_code"
     }
 }
 
@@ -125,6 +125,16 @@ public struct ConsentModel: Codable {
     /// The date indicating when consent will end.
     public let consentEndDate: String?
     
+    enum CodingKeys: String, CodingKey {
+        case consentID = "consent_id"
+        case status
+        case dateCreated = "date_created"
+        case bankReferenceID = "bank_reference_id"
+        case consentExpiryDate = "consent_expiry_date"
+        case bankID = "bank_id"
+        case consentEndDate = "consent_end_date"
+    }
+    
     public init(consentID: String?,
                 status: ConsentStatus?,
                 dateCreated: String?,
@@ -139,16 +149,6 @@ public struct ConsentModel: Codable {
         self.consentExpiryDate = consentExpiryDate
         self.bankID = bankID
         self.consentEndDate = consentEndDate
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case consentID = "consent_id"
-        case status
-        case dateCreated = "date_created"
-        case bankReferenceID = "bank_reference_id"
-        case consentExpiryDate = "consent_expiry_date"
-        case bankID = "bank_id"
-        case consentEndDate = "consent_end_date"
     }
 }
 

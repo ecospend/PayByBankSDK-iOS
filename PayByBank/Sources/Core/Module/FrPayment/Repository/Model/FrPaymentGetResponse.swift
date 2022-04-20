@@ -67,6 +67,23 @@ public struct FrPaymentGetResponse: Codable {
     /// - Note: Defaults to false.
     public let allowFrpCustomerChanges: Bool?
     
+    enum CodingKeys: String, CodingKey {
+        case uniqueID = "unique_id"
+        case amount, reference, description
+        case redirectURL = "redirect_url"
+        case url
+        case bankID = "bank_id"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case creditorAccount = "creditor_account"
+        case debtorAccount = "debtor_account"
+        case frPaymentOptions = "fr_payment_options"
+        case firstPaymentDate = "first_payment_date"
+        case numberOfPayments = "number_of_payments"
+        case period
+        case allowFrpCustomerChanges = "allowFrpCustomerChanges"
+    }
+    
     public init(uniqueID: String?,
                 amount: Decimal?,
                 reference: String?,
@@ -100,23 +117,6 @@ public struct FrPaymentGetResponse: Codable {
         self.period = period
         self.allowFrpCustomerChanges = allowFrpCustomerChanges
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case uniqueID = "unique_id"
-        case amount, reference, description
-        case redirectURL = "redirect_url"
-        case url
-        case bankID = "bank_id"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case creditorAccount = "creditor_account"
-        case debtorAccount = "debtor_account"
-        case frPaymentOptions = "fr_payment_options"
-        case firstPaymentDate = "first_payment_date"
-        case numberOfPayments = "number_of_payments"
-        case period
-        case allowFrpCustomerChanges = "allowFrpCustomerChanges"
-    }
 }
 
 // MARK: - FrPaymentOptionsResponse
@@ -144,6 +144,16 @@ public struct FrPaymentOptionsResponse: Codable {
     /// Customizes editable option of fields
     public let editableFields: FrPaymentEditableField?
     
+    enum CodingKeys: String, CodingKey {
+        case clientID = "client_id"
+        case tenantID = "tenant_id"
+        case getRefundInfo = "get_refund_info"
+        case firstPaymentAmount = "first_payment_amount"
+        case lastPaymentAmount = "last_payment_amount"
+        case disableQrCode = "disable_qr_code"
+        case editableFields = "editable_fields"
+    }
+    
     public init(clientID: String?,
                 tenantID: String?,
                 getRefundInfo: Bool?,
@@ -158,15 +168,5 @@ public struct FrPaymentOptionsResponse: Codable {
         self.lastPaymentAmount = lastPaymentAmount
         self.disableQrCode = disableQrCode
         self.editableFields = editableFields
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case clientID = "client_id"
-        case tenantID = "tenant_id"
-        case getRefundInfo = "get_refund_info"
-        case firstPaymentAmount = "first_payment_amount"
-        case lastPaymentAmount = "last_payment_amount"
-        case disableQrCode = "disable_qr_code"
-        case editableFields = "editable_fields"
     }
 }

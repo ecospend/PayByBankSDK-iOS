@@ -74,6 +74,28 @@ public struct VRPlinkGetResponse: Codable {
     /// The VRPlink Limit Options model
     public let vrplinkLimitOptions: VRPlinkLimitOptionsResponse?
     
+    enum CodingKeys: String, CodingKey {
+        case uniqueID = "unique_id"
+        case reference = "reference"
+        case description = "description"
+        case redirectURL = "redirect_url"
+        case url = "url"
+        case bankID = "bank_id"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case type = "type"
+        case reason = "reason"
+        case verifyCreditorAccount = "verify_creditor_account"
+        case verifyDebtorAccount = "verify_debtor_account"
+        case creditorAccount = "creditor_account"
+        case debtorAccount = "debtor_account"
+        case vrpOptions = "vrp_options"
+        case limitOptions = "limit_options"
+        case notificationOptions = "notification_options"
+        case vrplinkOptions = "vrplink_options"
+        case vrplinkLimitOptions = "vrplink_limit_options"
+    }
+    
     public init(uniqueID: String?,
                 reference: String?,
                 description: String?,
@@ -112,28 +134,6 @@ public struct VRPlinkGetResponse: Codable {
         self.notificationOptions = notificationOptions
         self.vrplinkOptions = vrplinkOptions
         self.vrplinkLimitOptions = vrplinkLimitOptions
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case uniqueID = "unique_id"
-        case reference = "reference"
-        case description = "description"
-        case redirectURL = "redirect_url"
-        case url = "url"
-        case bankID = "bank_id"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case type = "type"
-        case reason = "reason"
-        case verifyCreditorAccount = "verify_creditor_account"
-        case verifyDebtorAccount = "verify_debtor_account"
-        case creditorAccount = "creditor_account"
-        case debtorAccount = "debtor_account"
-        case vrpOptions = "vrp_options"
-        case limitOptions = "limit_options"
-        case notificationOptions = "notification_options"
-        case vrplinkOptions = "vrplink_options"
-        case vrplinkLimitOptions = "vrplink_limit_options"
     }
 }
 
@@ -189,6 +189,23 @@ public struct VRPLimitOptionsResponse: Codable {
     /// - Enum: "Consent" "Calendar"
     public let yearlyAlignment: VRPAlignment?
     
+    enum CodingKeys: String, CodingKey {
+        case currency = "currency"
+        case singlePaymentAmount = "single_payment_amount"
+        case dailyAmount = "daily_amount"
+        case weeklyAmount = "weekly_amount"
+        case fortnightlyAmount = "fortnightly_amount"
+        case monthlyAmount = "monthly_amount"
+        case halfYearlyAmount = "half_yearly_amount"
+        case yearlyAmount = "yearly_amount"
+        case dailyAlignment = "daily_alignment"
+        case weeklyAlignment = "weekly_alignment"
+        case fortnightlyAlignment = "fortnightly_alignment"
+        case monthlyAlignment = "monthly_alignment"
+        case halfYearlyAlignment = "half_yearly_alignment"
+        case yearlyAlignment = "yearly_alignment"
+    }
+    
     public init(currency: PayByBankCurrency?,
                 singlePaymentAmount: Decimal?,
                 dailyAmount: Decimal?,
@@ -218,23 +235,6 @@ public struct VRPLimitOptionsResponse: Codable {
         self.halfYearlyAlignment = halfYearlyAlignment
         self.yearlyAlignment = yearlyAlignment
     }
-    
-    enum CodingKeys: String, CodingKey {
-        case currency = "currency"
-        case singlePaymentAmount = "single_payment_amount"
-        case dailyAmount = "daily_amount"
-        case weeklyAmount = "weekly_amount"
-        case fortnightlyAmount = "fortnightly_amount"
-        case monthlyAmount = "monthly_amount"
-        case halfYearlyAmount = "half_yearly_amount"
-        case yearlyAmount = "yearly_amount"
-        case dailyAlignment = "daily_alignment"
-        case weeklyAlignment = "weekly_alignment"
-        case fortnightlyAlignment = "fortnightly_alignment"
-        case monthlyAlignment = "monthly_alignment"
-        case halfYearlyAlignment = "half_yearly_alignment"
-        case yearlyAlignment = "yearly_alignment"
-    }
 }
 
 // MARK: - VRPOptionsResponse
@@ -250,18 +250,18 @@ public struct VRPOptionsResponse: Codable {
     /// - Note: If not provided, defaults to 'true'.
     public let getRefundInfo: Bool?
     
+    enum CodingKeys: String, CodingKey {
+        case getRefundInfo = "get_refund_info"
+        case validFrom = "valid_from"
+        case validTo = "valid_to"
+    }
+    
     public init(validFrom: String?,
                 validTo: String?,
                 getRefundInfo: Bool?) {
         self.validFrom = validFrom
         self.validTo = validTo
         self.getRefundInfo = getRefundInfo
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case getRefundInfo = "get_refund_info"
-        case validFrom = "valid_from"
-        case validTo = "valid_to"
     }
 }
 
@@ -271,12 +271,12 @@ public struct VRPlinkLimitOptionsResponse: Codable {
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: String?
     
-    public init(date: String?) {
-        self.date = date
-    }
-    
     enum CodingKeys: String, CodingKey {
         case date
+    }
+    
+    public init(date: String?) {
+        self.date = date
     }
 }
 
@@ -302,6 +302,15 @@ public struct VRPlinkOptionsResponse: Codable {
     /// If you are set true, no redirect after vrp.
     public let dontRedirect: Bool?
     
+    enum CodingKeys: String, CodingKey {
+        case generateQrCode = "generate_qr_code"
+        case disableQrCode = "disable_qr_code"
+        case autoRedirect = "auto_redirect"
+        case clientID = "client_id"
+        case tenantID = "tenant_id"
+        case dontRedirect = "dont_redirect"
+    }
+    
     public init(generateQrCode: Bool?,
                 disableQrCode: Bool?,
                 autoRedirect: Bool?,
@@ -314,14 +323,5 @@ public struct VRPlinkOptionsResponse: Codable {
         self.clientID = clientID
         self.tenantID = tenantID
         self.dontRedirect = dontRedirect
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case generateQrCode = "generate_qr_code"
-        case disableQrCode = "disable_qr_code"
-        case autoRedirect = "auto_redirect"
-        case clientID = "client_id"
-        case tenantID = "tenant_id"
-        case dontRedirect = "dont_redirect"
     }
 }
