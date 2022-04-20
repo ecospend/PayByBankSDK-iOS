@@ -50,7 +50,7 @@ public struct BulkPaymentCreateRequest: Codable {
     public let limitOptions: BulkPaymentLimitOptions?
     
     /// Payments object for individual payments for the bulk payment.
-    public let payments: [BulkPaymentPaylinkEntry]?
+    public let payments: [BulkPaymentPaylinkEntry]
     
     enum CodingKeys: String, CodingKey {
         case bankID = "bank_id"
@@ -80,7 +80,7 @@ public struct BulkPaymentCreateRequest: Codable {
                 options: BulkPaymentPaylinkOptions? = nil,
                 notificationOptions: PayByBankNotificationOptionsRequest? = nil,
                 limitOptions: BulkPaymentLimitOptions? = nil,
-                payments: [BulkPaymentPaylinkEntry]? = nil) {
+                payments: [BulkPaymentPaylinkEntry]) {
         self.bankID = bankID
         self.debtorAccount = debtorAccount
         self.description = description
