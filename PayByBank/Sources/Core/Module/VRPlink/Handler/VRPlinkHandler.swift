@@ -34,7 +34,7 @@ class VRPlinkHandler: PayByBankHandlerProtocol {
         case redirectURL.host:
             if let params = url.queryParameters,
                params["error"] == "user_canceled",
-               params["paylink_id"] == uniqueID {
+               params["vrplink_id"] == uniqueID {
                 handle(status: .canceled)
                 return .cancel
             } else {

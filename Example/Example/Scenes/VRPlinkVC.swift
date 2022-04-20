@@ -94,7 +94,7 @@ extension VRPlinkVC {
         }
         return VRPlinkCreateRequest(
             redirectURL: redirectURL.absoluteString,
-            reason: .none,
+            reason: .other,
             reference: reference,
             description: descriptionTextField.text,
             creditorAccount: PayByBankAccountRequest(
