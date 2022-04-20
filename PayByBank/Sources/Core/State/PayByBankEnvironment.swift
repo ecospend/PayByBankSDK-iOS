@@ -13,6 +13,7 @@ protocol PayByBankEnvironmentProtocol {
     var paylinkEndpointURL: String { get }
     var frPaymentEndpointURL: String { get }
     var vrplinkEndpointURL: String { get }
+    var bulkPaymentEndpointURL: String { get }
     var datalinkEndpointURL: String { get }
 }
 
@@ -45,6 +46,13 @@ extension PayByBankEnvironment: PayByBankEnvironmentProtocol {
     }
     
     var vrplinkEndpointURL: String {
+        switch self {
+        case .production: return "https://pis-api.ecospend.com/api/v2.1"
+        case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"
+        }
+    }
+    
+    var bulkPaymentEndpointURL: String {
         switch self {
         case .production: return "https://pis-api.ecospend.com/api/v2.1"
         case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"

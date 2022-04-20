@@ -12,8 +12,7 @@ extension Dictionary where Key == String, Value == Any {
     
     var formData: Data? {
         var strings = [String]()
-        for(key, value) in self
-        {
+        for(key, value) in self {
             strings.append(key + "=\(String(describing: value))")
         }
         return strings.map { String($0) }.joined(separator: "&").data(using: .utf8)

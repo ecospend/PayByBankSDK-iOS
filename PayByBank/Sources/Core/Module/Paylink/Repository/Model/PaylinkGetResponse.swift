@@ -43,10 +43,10 @@ public struct PaylinkGetResponse: Codable {
     /// If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
     public let merchantUserID: String?
     
-    /// The Creditor Account model
+    /// It is the account that will receive the payment.
     public let creditorAccount: PayByBankAccountResponse?
     
-    /// The Debtor Account model
+    /// It is the account from which the payment will be taken.
     public let debtorAccount: PayByBankAccountResponse?
     
     /// The Paylink Options model
