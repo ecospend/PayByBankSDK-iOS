@@ -27,6 +27,13 @@ public struct PayByBankNotificationOptionsRequest: Codable {
     /// - Warning: This field is mandatory if `sendSMSNotification` is true.
     public let phoneNumber: String?
     
+    enum CodingKeys: String, CodingKey {
+        case sendEmailNotification = "send_email_notification"
+        case email
+        case sendSMSNotification = "send_sms_notification"
+        case phoneNumber = "phone_number"
+    }
+    
     public init(sendEmailNotification: Bool? = nil,
                 email: String? = nil,
                 sendSMSNotification: Bool? = nil,
@@ -35,12 +42,5 @@ public struct PayByBankNotificationOptionsRequest: Codable {
         self.email = email
         self.sendSMSNotification = sendSMSNotification
         self.phoneNumber = phoneNumber
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case sendEmailNotification = "send_email_notification"
-        case email
-        case sendSMSNotification = "send_sms_notification"
-        case phoneNumber = "phone_number"
     }
 }

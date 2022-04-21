@@ -6,8 +6,6 @@
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
-// swiftlint:disable line_length
-
 import Foundation
 
 // MARK: - FrPaymentCreateRequest
@@ -71,23 +69,24 @@ public struct FrPaymentCreateRequest: Codable {
     /// The Notification Options model
     public let notificationOptions: PayByBankNotificationOptionsRequest?
     
-    /// - Parameters:
-    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the paylink journey. This URL must be registered by your Admin on the Ecospend Management Console, prior to being used in the API calls.
-    ///     - amount: Payment amount in decimal format.
-    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
-    ///     - description: Description for the payment. 255 character MAX.
-    ///     - bankID: Unique identification string assigned to the bank by our system. If value is set, Paylink will not display any UI and execute an instant redirect to the debtor's banking system. If value is not set, Paylink will display the PSU a bank selection screen.
-    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
-    ///     - merchantUserID: The Id of the end-user. If you are providing this service directly to the end-users, then you can assign that Id to this parameter. If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
-    ///     - creditorAccount: It is the account that will receive the payment.
-    ///     - debtorAccount: It is the account from which the payment will be taken.
-    ///     - firstPaymentDate: Date and time of the first payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    ///     - numberOfPayments: Number of total payments being set with this standing order.
-    ///     - period: Period of FrPayment
-    ///     - standingOrderType: Standing order type can be Domestic, International or Auto.
-    ///     - frPaymentOptions: The FrPayment Options model
-    ///     - allowFrpCustomerChanges: The user has the right to change the FrPayment related additional parameters
-    ///     - notificationOptions: The Notification Options model
+    enum CodingKeys: String, CodingKey {
+        case redirectURL = "redirect_url"
+        case amount, reference
+        case description = "description"
+        case bankID = "bank_id"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case creditorAccount = "creditor_account"
+        case debtorAccount = "debtor_account"
+        case firstPaymentDate = "first_payment_date"
+        case numberOfPayments = "number_of_payments"
+        case period
+        case standingOrderType = "standing_order_type"
+        case frPaymentOptions = "fr_payment_options"
+        case allowFrpCustomerChanges = "allow_frp_customer_changes"
+        case notificationOptions = "notification_options"
+    }
+    
     public init(redirectURL: String,
                 amount: Decimal,
                 reference: String,
@@ -120,24 +119,6 @@ public struct FrPaymentCreateRequest: Codable {
         self.frPaymentOptions = frPaymentOptions
         self.allowFrpCustomerChanges = allowFrpCustomerChanges
         self.notificationOptions = notificationOptions
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case redirectURL = "redirect_url"
-        case amount, reference
-        case description = "description"
-        case bankID = "bank_id"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case creditorAccount = "creditor_account"
-        case debtorAccount = "debtor_account"
-        case firstPaymentDate = "first_payment_date"
-        case numberOfPayments = "number_of_payments"
-        case period
-        case standingOrderType = "standing_order_type"
-        case frPaymentOptions = "fr_payment_options"
-        case allowFrpCustomerChanges = "allow_frp_customer_changes"
-        case notificationOptions = "notification_options"
     }
 }
 
@@ -182,6 +163,16 @@ public struct FrPaymentOptions: Codable {
     /// Customizes editable options of fields
     public let editableFields: FrPaymentEditableField?
     
+    enum CodingKeys: String, CodingKey {
+        case getRefundInfo = "get_refund_info"
+        case firstPaymentAmount = "first_payment_amount"
+        case lastPaymentAmount = "last_payment_amount"
+        case autoRedirect = "auto_redirect"
+        case generateQrCode = "generate_qr_code"
+        case disableQrCode = "disable_qr_code"
+        case editableFields = "editable_fields"
+    }
+    
     public init(getRefundInfo: Bool?,
                 firstPaymentAmount: Decimal?,
                 lastPaymentAmount: Decimal?,
@@ -196,16 +187,6 @@ public struct FrPaymentOptions: Codable {
         self.generateQrCode = generateQrCode
         self.disableQrCode = disableQrCode
         self.editableFields = editableFields
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case getRefundInfo = "get_refund_info"
-        case firstPaymentAmount = "first_payment_amount"
-        case lastPaymentAmount = "last_payment_amount"
-        case autoRedirect = "auto_redirect"
-        case generateQrCode = "generate_qr_code"
-        case disableQrCode = "disable_qr_code"
-        case editableFields = "editable_fields"
     }
 }
 
@@ -230,6 +211,14 @@ public struct FrPaymentEditableField: Codable {
     /// Editable status of  number of payments field
     public let numberOfPayments: Bool?
     
+    enum CodingKeys: String, CodingKey {
+        case firstPaymentDate = "first_payment_date"
+        case firstPaymentAmount = "first_payment_amount"
+        case lastPaymentAmount = "last_payment_amount"
+        case amount, period
+        case numberOfPayments = "number_of_payments"
+    }
+    
     public init(firstPaymentDate: Bool?,
                 firstPaymentAmount: Bool?,
                 lastPaymentAmount: Bool?,
@@ -242,13 +231,5 @@ public struct FrPaymentEditableField: Codable {
         self.amount = amount
         self.period = period
         self.numberOfPayments = numberOfPayments
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case firstPaymentDate = "first_payment_date"
-        case firstPaymentAmount = "first_payment_amount"
-        case lastPaymentAmount = "last_payment_amount"
-        case amount, period
-        case numberOfPayments = "number_of_payments"
     }
 }

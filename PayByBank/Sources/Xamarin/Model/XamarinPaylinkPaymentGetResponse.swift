@@ -72,10 +72,10 @@ public class XamarinPaylinkPaymentGetResponse: NSObject, Codable {
     /// - Enum: "Auto" "Domestic" "DomesticScheduled" "International" "InternationalScheduled"
     @objc public let paymentType: String?
     
-    /// The Creditor Account model
+    /// It is the account that will receive the payment.
     @objc public let creditorAccount: XamarinPaylinkAccountResponse?
     
-    /// The Debtor Account model
+    /// It is the account from which the payment will be taken.
     @objc public let debtorAccount: XamarinPaylinkAccountResponse?
     
     /// The PaymentOptions model

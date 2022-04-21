@@ -1,17 +1,17 @@
 //
-//  VRPlinkGetRequest.swift
+//  BulkPaymentGetRequest.swift
 //  PayByBank
 //
-//  Created by Yunus TÜR on 15.04.2022.
+//  Created by Yunus TÜR on 20.04.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import Foundation
 
-// MARK: - VRPlinkGetRequest
-public struct VRPlinkGetRequest: Codable {
+// MARK: - BulkPaymentGetRequest
+public struct BulkPaymentGetRequest: Codable {
     
-    /// Unique id value to query VRPlink
+    /// Unique id value to query Bulk Payment Paylink
     public let uniqueID: String
     
     enum CodingKeys: String, CodingKey {

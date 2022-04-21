@@ -14,11 +14,11 @@ public struct FrPaymentGetRequest: Codable {
     /// Unique id value to query FrPayment
     public let uniqueID: String
     
-    public init(uniqueID: String) {
-        self.uniqueID = uniqueID
-    }
-    
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
+    }
+    
+    public init(uniqueID: String) {
+        self.uniqueID = uniqueID
     }
 }

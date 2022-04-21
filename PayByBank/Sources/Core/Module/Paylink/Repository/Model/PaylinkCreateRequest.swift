@@ -6,8 +6,6 @@
 //  Copyright © 2021 Ecospend. All rights reserved.
 //
 
-// swiftlint:disable line_length
-
 import Foundation
 
 // MARK: - PaylinkCreateRequest
@@ -57,20 +55,20 @@ public struct PaylinkCreateRequest: Codable {
     /// The Limit Options model
     public let limitOptions: PaylinkLimitOptions?
     
-    /// - Parameters:
-    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the paylink journey. This URL must be registered by your Admin on the Ecospend Management Console, prior to being used in the API calls.
-    ///     - amount: Payment amount in decimal format.
-    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
-    ///     - description: Description for the payment. 255 character MAX.
-    ///     - bankID: Unique identification string assigned to the bank by our system. If value is set, Paylink will not display any UI and execute an instant redirect to the debtor's banking system. If value is not set, Paylink will display the PSU a bank selection screen.
-    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
-    ///     - merchantUserID: The Id of the end-user. If you are providing this service directly to the end-users, then you can assign that Id to this parameter. If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
-    ///     - creditorAccount: It is the account that will receive the payment.
-    ///     - debtorAccount: It is the account from which the payment will be taken.
-    ///     - paylinkOptions: The Paylink Options model
-    ///     - notificationOptions: The Notification Options model
-    ///     - paymentOptions: The Payment Options model
-    ///     - limitOptions: The Limit Options model
+    enum CodingKeys: String, CodingKey {
+        case redirectURL = "redirect_url"
+        case amount, reference, description
+        case bankID = "bank_id"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case creditorAccount = "creditor_account"
+        case debtorAccount = "debtor_account"
+        case paylinkOptions = "paylink_options"
+        case notificationOptions = "notification_options"
+        case paymentOptions = "payment_options"
+        case limitOptions = "limit_options"
+    }
+    
     public init(redirectURL: String,
                 amount: Decimal,
                 reference: String,
@@ -97,20 +95,6 @@ public struct PaylinkCreateRequest: Codable {
         self.notificationOptions = notificationOptions
         self.paymentOptions = paymentOptions
         self.limitOptions = limitOptions
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case redirectURL = "redirect_url"
-        case amount, reference, description
-        case bankID = "bank_id"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case creditorAccount = "creditor_account"
-        case debtorAccount = "debtor_account"
-        case paylinkOptions = "paylink_options"
-        case notificationOptions = "notification_options"
-        case paymentOptions = "payment_options"
-        case limitOptions = "limit_options"
     }
 }
 
@@ -161,12 +145,14 @@ public struct PaylinkOptions: Codable {
     /// The Tip object model
     public let tip: PaylinkTip?
     
-    /// - Parameters:
-    ///     - autoRedirect: After the payment directly returns to the tenant's url if set to true. Defaults to false.
-    ///     - generateQrCode: Optional parameter for getting a QRCode image in Base64 format with the response. Defaults to false.
-    ///     - allowPartialPayments: Optional parameter for allowing user to pay total amount partially. When this value is set, paylink will be expired total amount is comppublic leted. Defaults to false.
-    ///     - disableQrCode: Optional parameter for displaying a QR Code on the paylink screens, that enables users to transfer their journey from desktop to mobile easily. This feature is only visible on desktop view.
-    ///     - tip: The Tip object model
+    enum CodingKeys: String, CodingKey {
+        case autoRedirect = "auto_redirect"
+        case generateQrCode = "generate_qr_code"
+        case allowPartialPayments = "allow_partial_payments"
+        case disableQrCode = "disable_qr_code"
+        case tip
+    }
+    
     public init(autoRedirect: Bool?,
                 generateQrCode: Bool?,
                 allowPartialPayments: Bool?,
@@ -177,14 +163,6 @@ public struct PaylinkOptions: Codable {
         self.allowPartialPayments = allowPartialPayments
         self.disableQrCode = disableQrCode
         self.tip = tip
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case autoRedirect = "auto_redirect"
-        case generateQrCode = "generate_qr_code"
-        case allowPartialPayments = "allow_partial_payments"
-        case disableQrCode = "disable_qr_code"
-        case tip
     }
 }
 
@@ -207,12 +185,13 @@ public struct PaylinkTip: Codable {
     /// The tip options that will be listed on the Tip Request Page.
     public let options: [PaylinkTipOption]?
     
-    /// - Parameters:
-    ///     - requestTip: Denotes whether tip requested from payer.
-    ///     - title: The Title of the Tip Request Page.
-    ///     - text: The informative text on the Tip Request Page.
-    ///     - isRequired: Tip can be configured as required. In this case the payer will be forced to select or enter tip amount.
-    ///     - options: The tip options that will be listed on the Tip Request Page.
+    enum CodingKeys: String, CodingKey {
+        case requestTip = "request_tip"
+        case title, text
+        case isRequired = "is_required"
+        case options
+    }
+    
     public init(requestTip: Bool?,
                 title: String?,
                 text: String?,
@@ -223,13 +202,6 @@ public struct PaylinkTip: Codable {
         self.text = text
         self.isRequired = isRequired
         self.options = options
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case requestTip = "request_tip"
-        case title, text
-        case isRequired = "is_required"
-        case options
     }
 }
 
@@ -275,21 +247,17 @@ public struct PaylinkPaymentOptions: Codable {
     /// - Default is false.
     public let forPayout: Bool?
     
-    /// - Parameters:
-    ///     - paymentRails: Payment rails information of the paylink.
-    ///     - getRefundInfo: Set true, if you would like to get back the debtor's account information that the payment is made from. Defaults to true.
-    ///     - forPayout: Specifies that the payment is for payout operation. Default is false.
+    enum CodingKeys: String, CodingKey {
+        case paymentRails = "payment_rails"
+        case getRefundInfo = "get_refund_info"
+        case forPayout = "for_payout"
+    }
+    
     public init(paymentRails: String?,
                 getRefundInfo: Bool?,
                 forPayout: Bool?) {
         self.paymentRails = paymentRails
         self.getRefundInfo = getRefundInfo
         self.forPayout = forPayout
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case paymentRails = "payment_rails"
-        case getRefundInfo = "get_refund_info"
-        case forPayout = "for_payout"
     }
 }

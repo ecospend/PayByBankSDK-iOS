@@ -23,6 +23,13 @@ public struct IamTokenResponse: Codable {
     /// Scope of the access granted.
     public let scope: String?
     
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case expiresIn = "expires_in"
+        case tokenType = "token_type"
+        case scope
+    }
+    
     public init(accessToken: String?,
                 expiresIn: Int?,
                 tokenType: String?,
@@ -31,12 +38,5 @@ public struct IamTokenResponse: Codable {
         self.expiresIn = expiresIn
         self.tokenType = tokenType
         self.scope = scope
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case accessToken = "access_token"
-        case expiresIn = "expires_in"
-        case tokenType = "token_type"
-        case scope
     }
 }

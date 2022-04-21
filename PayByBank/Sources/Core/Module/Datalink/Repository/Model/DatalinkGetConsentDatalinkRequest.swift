@@ -12,11 +12,11 @@ public struct DatalinkGetConsentDatalinkRequest: Codable {
     
     public let consentID: String
     
-    public init(consentID: String) {
-        self.consentID = consentID
-    }
-    
     enum CodingKeys: String, CodingKey {
         case consentID = "consent_id"
+    }
+    
+    public init(consentID: String) {
+        self.consentID = consentID
     }
 }

@@ -75,6 +75,29 @@ public struct VRPlinkRecord: Codable {
     /// If you are set true, no redirect after vrp.
     public let dontRedirect: Bool?
     
+    enum CodingKeys: String, CodingKey {
+        case uniqueID = "unique_id"
+        case clientID = "client_id"
+        case tenantID = "tenant_id"
+        case id = "id"
+        case bankReferenceID = "bank_reference_id"
+        case dateCreated = "date_created"
+        case bankID = "bank_id"
+        case status = "status"
+        case description = "description"
+        case reference = "reference"
+        case merchantID = "merchant_id"
+        case merchantUserID = "merchant_user_id"
+        case redirectURL = "redirect_url"
+        case type = "type"
+        case creditorAccount = "creditor_account"
+        case debtorAccount = "debtor_account"
+        case failureMessage = "failure_message"
+        case validFrom = "valid_from"
+        case validTo = "valid_to"
+        case dontRedirect = "dont_redirect"
+    }
+    
     public init(uniqueID: String?,
                 clientID: String?,
                 tenantID: Int?,
@@ -115,29 +138,6 @@ public struct VRPlinkRecord: Codable {
         self.validFrom = validFrom
         self.validTo = validTo
         self.dontRedirect = dontRedirect
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case uniqueID = "unique_id"
-        case clientID = "client_id"
-        case tenantID = "tenant_id"
-        case id = "id"
-        case bankReferenceID = "bank_reference_id"
-        case dateCreated = "date_created"
-        case bankID = "bank_id"
-        case status = "status"
-        case description = "description"
-        case reference = "reference"
-        case merchantID = "merchant_id"
-        case merchantUserID = "merchant_user_id"
-        case redirectURL = "redirect_url"
-        case type = "type"
-        case creditorAccount = "creditor_account"
-        case debtorAccount = "debtor_account"
-        case failureMessage = "failure_message"
-        case validFrom = "valid_from"
-        case validTo = "valid_to"
-        case dontRedirect = "dont_redirect"
     }
 }
 
