@@ -56,7 +56,7 @@ public struct PayByBankAccountRequest: Codable {
 public extension PayByBankAccountRequest {
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy:CodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decode(PayByBankAccountType.self, forKey: .type)
         identification = try container.decode(String.self, forKey: .identification)
         name = try {
@@ -66,7 +66,7 @@ public extension PayByBankAccountRequest {
             return name
         }()
         currency = try container.decode(PayByBankCurrency.self, forKey: .currency)
-        bic = try container.decode(String.self, forKey: .bic)
+        bic = try container.decodeIfPresent(String.self, forKey: .bic)
     }
     
     func encode(to encoder: Encoder) throws {
