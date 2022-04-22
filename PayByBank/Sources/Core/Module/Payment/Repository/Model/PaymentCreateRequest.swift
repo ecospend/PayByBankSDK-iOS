@@ -77,8 +77,8 @@ public struct PaymentCreateRequest: Codable {
                 merchantUserID: String? = nil,
                 creditorAccount: PayByBankAccountRequest,
                 debtorAccount: PayByBankAccountRequest? = nil,
-                paymentOption: PaymentOption?,
-                paymentType: PaymentType?) {
+                paymentOption: PaymentOption? = nil,
+                paymentType: PaymentType? = nil) {
         self.redirectURL = redirectURL
         self.bankID = bankID
         self.amount = amount
