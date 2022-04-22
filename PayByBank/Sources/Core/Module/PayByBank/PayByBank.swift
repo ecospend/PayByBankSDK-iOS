@@ -53,4 +53,9 @@ public extension PayByBank {
     static var datalink: Datalink {
         return Datalink(factory: DatalinkFactory(payByBankFactory: PayByBankFactory()))
     }
+    
+    /// Payment API
+    static var payment: Payment {
+        return Payment(factory: PaymentFactory(payByBankFactory: PayByBankFactory()))
+    }
 }

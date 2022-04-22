@@ -20,7 +20,8 @@ public class XamarinPaylinkPaymentGetResponse: NSObject, Codable {
     /// Client Id of the payment
     @objc public let id: String?
     
-    /// An identification number for the payment that is assigned by the bank. Can have different formats for each bank.
+    /// An identification number for the payment that is assigned by the bank.
+    /// Can have different formats for each bank.
     @objc public let bankReferenceID: String?
     
     /// A unique and one time use only URL from the PSU’s bank. You will need to redirect the PSU to this link for them to authorise a payment.
