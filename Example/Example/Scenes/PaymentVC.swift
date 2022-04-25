@@ -70,6 +70,12 @@ class PaymentVC: ViewController {
             switch result {
             case .success(let response):
                 print(response)
+                
+                switch response.status {
+                case .initiated: self.showToast(message: "Payment initiated")
+                case .canceled: self.showToast(message: "Payment canceled")
+                case .redirected: self.showToast(message: "Payment redirected")
+                }
             case .failure(let error):
                 print(error)
                 self.showToast(message: "Error: \(error.localizedDescription)")

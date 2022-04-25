@@ -21,18 +21,18 @@ public final class Payment {
 // MARK: - API
 public extension Payment {
     
-    /// Opens webview using with `uniqueID` of paylink
+    /// Opens bank application or bank website using with `id` of payment
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of payment.
+    ///     - id: Unique id value of payment.
     ///     - completion: It provides to handle result or error
-    func open(uniqueID: String, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    func open(id: String, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.execute(type: .open(uniqueID), completion: completion)
+            self.execute(type: .open(id), completion: completion)
         }
     }
     
-    /// Opens webview using with request model of paylink
+    /// Opens bank application or bank website using with request model of payment
     ///
     /// - Parameters:
     ///     - request: Request to create payment
