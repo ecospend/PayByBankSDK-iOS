@@ -126,20 +126,26 @@ private extension Payment {
         case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }
         
-        let paymentResult: Result<URL, Error> = {
+        let paymentResult: Result<(id: String, url: URL), Error> = {
             switch type {
             case .open(let id):
                 switch paymentRepository.getPayment(request: PaymentGetRequest(id: id)) {
                 case .success(let response):
-                    guard let url = URL(string: response.url ?? "") else { return .failure(PayByBankError.wrongLink) }
-                    return .success(url)
+                    guard let id = response.id,
+                          let url = URL(string: response.url ?? "") else {
+                        return .failure(PayByBankError.wrongLink)
+                    }
+                    return .success((id, url))
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
                 switch paymentRepository.createPayment(request: request) {
                 case .success(let response):
-                    guard let url = URL(string: response.paymentURL ?? "") else { return .failure(PayByBankError.wrongLink) }
-                    return .success(url)
+                    guard let id = response.id,
+                          let url = URL(string: response.paymentURL ?? "") else {
+                        return .failure(PayByBankError.wrongLink)
+                    }
+                    return .success((id, url))
                 case .failure(let error):
                     return .failure(error)
                 }
@@ -147,9 +153,10 @@ private extension Payment {
         }()
         
         switch paymentResult {
-        case .success(let url):
+        case .success((let id, let url)):
             DispatchQueue.main.async {
                 UIApplication.shared.open(url)
+                completion(.success(PayByBankResult(uniqueID: id, status: .redirected)))
             }
         case .failure(let error):
             DispatchQueue.main.async {
