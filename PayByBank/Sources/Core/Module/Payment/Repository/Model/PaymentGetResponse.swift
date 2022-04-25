@@ -34,6 +34,9 @@ public struct PaymentGetResponse: Codable {
     /// The URL submitted with the Request.
     public let redirectURL: String?
     
+    /// The URL to open bank application or website
+    public let url: String?
+    
     /// The `bankID` value submitted with the Request.
     public let bankID: String?
     
@@ -86,6 +89,7 @@ public struct PaymentGetResponse: Codable {
         case isRefund = "is_refund"
         case originalPaymentID = "original_payment_id"
         case redirectURL = "redirect_url"
+        case url
         case bankID = "bank_id"
         case amount = "amount"
         case currency = "currency"
@@ -109,6 +113,7 @@ public struct PaymentGetResponse: Codable {
                 isRefund: Bool?,
                 originalPaymentID: String?,
                 redirectURL: String?,
+                url: String?,
                 bankID: String?,
                 amount: Decimal?,
                 currency: PayByBankCurrency?,
@@ -130,6 +135,7 @@ public struct PaymentGetResponse: Codable {
         self.isRefund = isRefund
         self.originalPaymentID = originalPaymentID
         self.redirectURL = redirectURL
+        self.url = url
         self.bankID = bankID
         self.amount = amount
         self.currency = currency

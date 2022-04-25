@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public final class Payment {
     
@@ -19,6 +20,28 @@ public final class Payment {
 
 // MARK: - API
 public extension Payment {
+    
+    /// Opens webview using with `uniqueID` of paylink
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value of payment.
+    ///     - completion: It provides to handle result or error
+    func open(uniqueID: String, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.execute(type: .open(uniqueID), completion: completion)
+        }
+    }
+    
+    /// Opens webview using with request model of paylink
+    ///
+    /// - Parameters:
+    ///     - request: Request to create payment
+    ///     - completion: It provides to handle result or error
+    func initiate(request: PaymentCreateRequest, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.execute(type: .initiate(request), completion: completion)
+        }
+    }
     
     /// Creates payment.
     ///
@@ -87,6 +110,53 @@ public extension Payment {
 
 // MARK: - Logic
 private extension Payment {
+    
+    enum PaymentExecuteType {
+        case open(String)
+        case initiate(PaymentCreateRequest)
+    }
+    
+    func execute(type: PaymentExecuteType, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let paymentRepository = factory.makePaymentRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        }
+        
+        let paymentResult: Result<URL, Error> = {
+            switch type {
+            case .open(let id):
+                switch paymentRepository.getPayment(request: PaymentGetRequest(id: id)) {
+                case .success(let response):
+                    guard let url = URL(string: response.url ?? "") else { return .failure(PayByBankError.wrongLink) }
+                    return .success(url)
+                case .failure(let error): return .failure(error)
+                }
+            case .initiate(let request):
+                switch paymentRepository.createPayment(request: request) {
+                case .success(let response):
+                    guard let url = URL(string: response.paymentURL ?? "") else { return .failure(PayByBankError.wrongLink) }
+                    return .success(url)
+                case .failure(let error):
+                    return .failure(error)
+                }
+            }
+        }()
+        
+        switch paymentResult {
+        case .success(let url):
+            DispatchQueue.main.async {
+                UIApplication.shared.open(url)
+            }
+        case .failure(let error):
+            DispatchQueue.main.async {
+                completion(.failure(PayByBankError(error: error)))
+            }
+        }
+    }
     
     func createPayment(request: PaymentCreateRequest) -> Result<PaymentCreateResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()

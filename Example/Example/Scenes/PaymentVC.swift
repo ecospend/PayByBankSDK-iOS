@@ -50,8 +50,8 @@ class PaymentVC: ViewController {
         descriptionTextField.text = "Sample Description"
         amountTextField.text = "9.99"
         creditorAccountTypeTextField.text = "SortCode"
-        creditorAccountIdentificationTextField.text = "10203012345678"
-        creditorAccountNameTextField.text = "John Doe"
+        creditorAccountIdentificationTextField.text = "20907443486818"
+        creditorAccountNameTextField.text = "Metin Erkman"
         creditorAccountCurrencyTextField.text = "GBP"
     }
     
@@ -64,19 +64,17 @@ class PaymentVC: ViewController {
     @IBAction func payButtonTapped(_ sender: Any) {
         guard let request = request else { return }
         showActivityIndicator()
-        PayByBank.payment.createPayment(request: request) { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let response):
-                    print(response)
-                case .failure(let error):
-                    print(error)
-                    self.showToast(message: "Error: \(error.localizedDescription)")
-                }
-                self.hideActivityIndicator()
+        PayByBank.payment.initiate(request: request) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+                self.showToast(message: "Error: \(error.localizedDescription)")
             }
+            self.hideActivityIndicator()
         }
     }
 }
