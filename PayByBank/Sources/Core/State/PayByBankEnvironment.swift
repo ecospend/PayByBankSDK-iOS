@@ -62,7 +62,7 @@ extension PayByBankEnvironment: PayByBankEnvironmentProtocol {
     
     var datalinkEndpointURL: String {
         switch self {
-        case .production: return "https://aisapi.ecospend.com/api/v2.0"
+        case .production: return "https://ais-api.ecospend.com/api/v2.0"
         case .sandbox: return "https://aisapi.sb.ecospend.com/api/v2.0"
         }
     }
