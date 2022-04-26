@@ -45,14 +45,36 @@ public extension Paylink {
         }
     }
     
-    /// Soft deletes Paylink with given id
+    /// Creates Paylink
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of paylink.
+    ///     - request: Request to create Paylink
     ///     - completion: It provides to handle result or error
-    func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createPaylink(request: PaylinkCreateRequest, completion: @escaping (Result<PaylinkCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.delete(request: PaylinkDeleteRequest(uniqueID: uniqueID), completion: completion)
+            completion(self.createPaylink(request: request))
+        }
+    }
+    
+    /// Gets Paylink detail
+    ///
+    /// - Parameters:
+    ///     - request: Request to get Paylink detail
+    ///     - completion: It provides to handle result or error
+    func getPaylink(request: PaylinkGetRequest, completion: @escaping (Result<PaylinkGetResponse, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.getPaylink(request: request))
+        }
+    }
+    
+    /// Soft deletes the Paylink with given id.
+    ///
+    /// - Parameters:
+    ///     - request: Request to deactivate Paylink
+    ///     - completion: It provides to handle result or error
+    func deactivatePaylink(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.deactivatePaylink(request: request))
         }
     }
 }
@@ -129,18 +151,48 @@ private extension Paylink {
         }
     }
     
-    func delete(request: PaylinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createPaylink(request: PaylinkCreateRequest) -> Result<PaylinkCreateResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
         let paylinkRepository = factory.makePaylinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch paylinkRepository.createPaylink(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func getPaylink(request: PaylinkGetRequest) -> Result<PaylinkGetResponse, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let paylinkRepository = factory.makePaylinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch paylinkRepository.getPaylink(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func deactivatePaylink(request: PaylinkDeleteRequest) -> Result<Bool, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let paylinkRepository = factory.makePaylinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
         
         switch paylinkRepository.deletePaylink(request: request) {
-        case .success(let isDeleted): return completion(.success(isDeleted))
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .success(let isDeleted): return .success(isDeleted)
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
     }
 }

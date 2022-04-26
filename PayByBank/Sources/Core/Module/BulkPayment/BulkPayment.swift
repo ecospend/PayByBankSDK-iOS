@@ -45,14 +45,36 @@ public extension BulkPayment {
         }
     }
     
+    /// Creates BulkPayment
+    ///
+    /// - Parameters:
+    ///     - request: Request to create BulkPayment
+    ///     - completion: It provides to handle result or error
+    func createBulkPayment(request: BulkPaymentCreateRequest, completion: @escaping (Result<BulkPaymentCreateResponse, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.createBulkPayment(request: request))
+        }
+    }
+    
+    /// Gets BulkPayment detail
+    ///
+    /// - Parameters:
+    ///     - request: Request to get BulkPayment detail
+    ///     - completion: It provides to handle result or error
+    func getBulkPayment(request: BulkPaymentGetRequest, completion: @escaping (Result<BulkPaymentGetResponse, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.getBulkPayment(request: request))
+        }
+    }
+    
     /// Soft deletes the BulkPayment Paylink with given id.
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of BulkPayment.
+    ///     - request: Request to deactivate BulkPayment
     ///     - completion: It provides to handle result or error
-    func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func deactivateBulkPayment(request: BulkPaymentDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.delete(request: BulkPaymentDeleteRequest(uniqueID: uniqueID), completion: completion)
+            completion(self.deactivateBulkPayment(request: request))
         }
     }
 }
@@ -129,18 +151,48 @@ private extension BulkPayment {
         }
     }
     
-    func delete(request: BulkPaymentDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createBulkPayment(request: BulkPaymentCreateRequest) -> Result<BulkPaymentCreateResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
         let bulkPaymentRepository = factory.makeBulkPaymentRepository()
         
         switch iamRepository.getToken() {
         case .success: break
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch bulkPaymentRepository.createBulkPayment(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func getBulkPayment(request: BulkPaymentGetRequest) -> Result<BulkPaymentGetResponse, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let bulkPaymentRepository = factory.makeBulkPaymentRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch bulkPaymentRepository.getBulkPayment(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func deactivateBulkPayment(request: BulkPaymentDeleteRequest) -> Result<Bool, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let bulkPaymentRepository = factory.makeBulkPaymentRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
         
         switch bulkPaymentRepository.deleteBulkPayment(request: request) {
-        case .success(let isDeleted): return completion(.success(isDeleted))
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .success(let isDeleted): return .success(isDeleted)
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
     }
 }

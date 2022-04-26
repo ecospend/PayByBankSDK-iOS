@@ -44,25 +44,47 @@ public extension Datalink {
         }
     }
     
-    /// Soft deletes Datalink with given id
+    /// Creates Datalink
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of Datalink.
+    ///     - request: Request to create Datalink
     ///     - completion: It provides to handle result or error
-    func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createDatalink(request: DatalinkCreateRequest, completion: @escaping (Result<DatalinkCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.delete(request: DatalinkDeleteRequest(uniqueID: uniqueID), completion: completion)
+            completion(self.createDatalink(request: request))
+        }
+    }
+    
+    /// Gets Datalink detail
+    ///
+    /// - Parameters:
+    ///     - request: Request to get Datalink detail
+    ///     - completion: It provides to handle result or error
+    func getDatalink(request: DatalinkGetRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.getDatalink(request: request))
+        }
+    }
+    
+    /// Deletes the Datalink with given id.
+    ///
+    /// - Parameters:
+    ///     - request: Request to deactivate Datalink
+    ///     - completion: It provides to handle result or error
+    func deleteDatalink(request: DatalinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.deleteDatalink(request: request))
         }
     }
     
     /// Returns datalink with given `consentID`
     ///
     /// - Parameters:
-    ///     - consentID: Unique id value of Datalink.
+    ///     - request: Request to get Datalink of a consent
     ///     - completion: It provides to handle result or error
-    func getConsentDatalink(consentID: String, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
+    func getDatalinkOfConsent(request: DatalinkGetConsentDatalinkRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.getConsentDatalink(request: DatalinkGetConsentDatalinkRequest(consentID: consentID), completion: completion)
+            completion(self.getDatalinkOfConsent(request: request))
         }
     }
 }
@@ -88,16 +110,16 @@ private extension Datalink {
         let datalinkGetResult: Result<DatalinkGetResponse, Error> = {
             switch type {
             case .open(let uniqueID):
-                switch datalinkRepository.get(request: DatalinkGetRequest(uniqueID: uniqueID)) {
+                switch datalinkRepository.getDatalink(request: DatalinkGetRequest(uniqueID: uniqueID)) {
                 case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
-                switch datalinkRepository.create(request: request) {
+                switch datalinkRepository.createDatalink(request: request) {
                 case .success(let createResponse):
                     guard let uniqueID = createResponse.uniqueID else { return .failure(PayByBankError.wrongLink) }
                     
-                    switch datalinkRepository.get(request: DatalinkGetRequest(uniqueID: uniqueID)) {
+                    switch datalinkRepository.getDatalink(request: DatalinkGetRequest(uniqueID: uniqueID)) {
                     case .success(let response): return .success(response)
                     case .failure(let error): return .failure(error)
                     }
@@ -140,33 +162,63 @@ private extension Datalink {
         }
     }
     
-    func delete(request: DatalinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createDatalink(request: DatalinkCreateRequest) -> Result<DatalinkCreateResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
         let datalinkRepository = factory.makeDatalinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
         
-        switch datalinkRepository.delete(request: request) {
-        case .success(let isDeleted): return completion(.success(isDeleted))
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        switch datalinkRepository.createDatalink(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
     }
     
-    func getConsentDatalink(request: DatalinkGetConsentDatalinkRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
+    func getDatalink(request: DatalinkGetRequest) -> Result<DatalinkGetResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
         let datalinkRepository = factory.makeDatalinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
         
-        switch datalinkRepository.getConsentDatalink(request: request) {
-        case .success(let response): return completion(.success(response))
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        switch datalinkRepository.getDatalink(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func deleteDatalink(request: DatalinkDeleteRequest) -> Result<Bool, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch datalinkRepository.deleteDatalink(request: request) {
+        case .success(let isDeleted): return .success(isDeleted)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func getDatalinkOfConsent(request: DatalinkGetConsentDatalinkRequest) -> Result<DatalinkGetResponse, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let datalinkRepository = factory.makeDatalinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch datalinkRepository.getDatalinkOfConsent(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
     }
 }

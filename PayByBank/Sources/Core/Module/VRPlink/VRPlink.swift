@@ -45,25 +45,47 @@ public extension VRPlink {
         }
     }
     
-    /// Soft deletes VRPlink with given id
+    /// Creates VRPlink
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of VRPlink.
+    ///     - request: Request to create VRPlink
     ///     - completion: It provides to handle result or error
-    func delete(uniqueID: String, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createVRPlink(request: VRPlinkCreateRequest, completion: @escaping (Result<VRPlinkCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.delete(request: VRPlinkDeleteRequest(uniqueID: uniqueID), completion: completion)
+            completion(self.createVRPlink(request: request))
+        }
+    }
+    
+    /// Gets VRPlink detail
+    ///
+    /// - Parameters:
+    ///     - request: Request to get VRPlink detail
+    ///     - completion: It provides to handle result or error
+    func getVRPlink(request: VRPlinkGetRequest, completion: @escaping (Result<VRPlinkGetResponse, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.getVRPlink(request: request))
+        }
+    }
+    
+    /// Soft deletes the VRPlink with given id.
+    ///
+    /// - Parameters:
+    ///     - request: Request to deactivate VRPlink
+    ///     - completion: It provides to handle result or error
+    func deactivateVRPlink(request: VRPlinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            completion(self.deactivateVRPlink(request: request))
         }
     }
     
     /// Returns records of VRPlink
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of VRPlink.
+    ///     - request: Request to get VRPlink records
     ///     - completion: It provides to handle result or error
-    func getRecords(uniqueID: String, completion: @escaping (Result<VRPlinkGetRecordsResponse, PayByBankError>) -> Void) {
+    func getVRPlinkRecords(request: VRPlinkGetRecordsRequest, completion: @escaping (Result<VRPlinkGetRecordsResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
-            self.getRecords(request: VRPlinkGetRecordsRequest(uniqueID: uniqueID), completion: completion)
+            completion(self.getVRPlinkRecords(request: request))
         }
     }
 }
@@ -140,33 +162,63 @@ private extension VRPlink {
         }
     }
     
-    func delete(request: VRPlinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    func createVRPlink(request: VRPlinkCreateRequest) -> Result<VRPlinkCreateResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
         let vrplinkRepository = factory.makeVRPlinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
         
-        switch vrplinkRepository.deleteVRPlink(request: request) {
-        case .success(let isDeleted): return completion(.success(isDeleted))
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        switch vrplinkRepository.createVRPlink(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
     }
     
-    func getRecords(request: VRPlinkGetRecordsRequest, completion: @escaping (Result<VRPlinkGetRecordsResponse, PayByBankError>) -> Void) {
+    func getVRPlink(request: VRPlinkGetRequest) -> Result<VRPlinkGetResponse, PayByBankError> {
         let iamRepository = factory.payByBankFactory.makeIamRepository()
         let vrplinkRepository = factory.makeVRPlinkRepository()
         
         switch iamRepository.getToken() {
         case .success: break
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch vrplinkRepository.getVRPlink(request: request) {
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func deactivateVRPlink(request: VRPlinkDeleteRequest) -> Result<Bool, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let vrplinkRepository = factory.makeVRPlinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+        
+        switch vrplinkRepository.deleteVRPlink(request: request) {
+        case .success(let isDeleted): return .success(isDeleted)
+        case .failure(let error): return .failure(PayByBankError(error: error))
+        }
+    }
+    
+    func getVRPlinkRecords(request: VRPlinkGetRecordsRequest) -> Result<VRPlinkGetRecordsResponse, PayByBankError> {
+        let iamRepository = factory.payByBankFactory.makeIamRepository()
+        let vrplinkRepository = factory.makeVRPlinkRepository()
+        
+        switch iamRepository.getToken() {
+        case .success: break
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
         
         switch vrplinkRepository.getVRPlinkRecords(request: request) {
-        case .success(let response): return completion(.success(response))
-        case .failure(let error): return completion(.failure(PayByBankError(error: error)))
+        case .success(let response): return .success(response)
+        case .failure(let error): return .failure(PayByBankError(error: error))
         }
     }
 }
