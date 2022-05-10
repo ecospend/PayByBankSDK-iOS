@@ -5,6 +5,8 @@ import PackageDescription
 
 let package = Package(
     name: "PayByBank",
+    defaultLocalization: "en",
+    platforms: [.iOS(.v10)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -20,7 +22,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "PayByBank",
-            dependencies: [],
-            path: "PayByBank/Sources/Core")
+            dependencies: [])
     ]
 )

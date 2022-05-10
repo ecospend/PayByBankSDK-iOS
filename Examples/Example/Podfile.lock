@@ -1,0 +1,18 @@
+PODS:
+  - PayByBank (1.0):
+    - PayByBank/PayByBank (= 1.0)
+  - PayByBank/PayByBank (1.0)
+
+DEPENDENCIES:
+  - PayByBank (from `../../`)
+
+EXTERNAL SOURCES:
+  PayByBank:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  PayByBank: e9f609d20c61931cada8fb270ece9fee61ee5915
+
+PODFILE CHECKSUM: 3fb7394441311b6243bb15c813cb83a51795de94
+
+COCOAPODS: 1.11.2
