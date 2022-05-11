@@ -18,7 +18,7 @@ extension PayByBankColors {
     
     var color: UIColor? {
         if #available(iOS 11.0, *) {
-            return UIColor(named: self.rawValue, in: Bundle(for: Paylink.self), compatibleWith: nil)
+            return UIColor(named: self.rawValue, in: .module, compatibleWith: nil)
         } else {
             switch self {
             case .navigationBarBackground,

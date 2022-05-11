@@ -1,0 +1,25 @@
+//
+//  Localizable.strings
+//  Example-SwiftUI
+//
+//  Created by Yunus TÜR on 11.05.2022.
+//  Copyright © 2022 Ecospend. All rights reserved.
+//
+
+// MARK: - Common
+"CommonSubmit" = "Submit";
+// MARK: - Home
+"HomeTitle" = "PayByBank";
+"HomeConfigureButton" = "Configure";
+// MARK: - Configuration
+"ConfigurationTitle" = "Configuration";
+"ConfigurationEnvironment" = "Environment";
+"ConfigurationEnvironmentSandbox" = "Sandbox";
+"ConfigurationEnvironmentProduction" = "Production";
+"ConfigurationEnvironmentClientID" = "Client ID";
+"ConfigurationEnvironmentClientSecret" = "Client Secret";
+// MARK: - Paylink
+"PaylinkTitle" = "Paylink";
+// MARK: - Paylink Get
+"PaylinkGetTitle" = "Get Paylink ";
+"PaylinkGetRequestUniqueID" = "Unique ID";

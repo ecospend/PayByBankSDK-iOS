@@ -16,6 +16,6 @@ enum PayByBankImages: String {
 extension PayByBankImages {
     
     var image: UIImage? {
-        return UIImage(named: self.rawValue, in: Bundle(for: PayByBank.self), compatibleWith: nil)
+        return UIImage(named: self.rawValue, in: .module, compatibleWith: nil)
     }
 }

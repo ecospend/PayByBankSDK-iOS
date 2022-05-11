@@ -8,13 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		D690092F282A75A100979630 /* Example_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690092E282A75A100979630 /* Example_SwiftUIApp.swift */; };
-		D6900931282A75A100979630 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900930282A75A100979630 /* ContentView.swift */; };
 		D6900933282A75A300979630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900932282A75A300979630 /* Assets.xcassets */; };
 		D6900936282A75A300979630 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900935282A75A300979630 /* Preview Assets.xcassets */; };
 		D6900940282A75A300979630 /* Example_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690093F282A75A300979630 /* Example_SwiftUITests.swift */; };
 		D690094A282A75A300979630 /* Example_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900949282A75A300979630 /* Example_SwiftUIUITests.swift */; };
 		D690094C282A75A300979630 /* Example_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690094B282A75A300979630 /* Example_SwiftUIUITestsLaunchTests.swift */; };
 		D690096D282A9C9300979630 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D690096C282A9C9300979630 /* PayByBank */; };
+		D6900976282AA5DC00979630 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900975282AA5DC00979630 /* HomeView.swift */; };
+		D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690097B282BC54700979630 /* PaylinkAPIs.swift */; };
+		D6900981282BC85400979630 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900980282BC85400979630 /* Configuration.swift */; };
+		D6900987282BD7A700979630 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6900989282BD7A700979630 /* Localizable.strings */; };
+		D690098B282BD99400979630 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690098A282BD99400979630 /* L10n.swift */; };
+		D690098F282BDB2E00979630 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690098E282BDB2E00979630 /* Array+.swift */; };
+		D6900992282BF19500979630 /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900991282BF19500979630 /* AppStorageKeys.swift */; };
+		D6900994282BF52400979630 /* PaylinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900993282BF52400979630 /* PaylinkGet.swift */; };
+		D6900998282C029800979630 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D6900997282C029800979630 /* PayByBank */; };
+		D690099F282C071F00979630 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690099E282C071F00979630 /* UIApplication+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +46,6 @@
 /* Begin PBXFileReference section */
 		D690092B282A75A100979630 /* Example-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D690092E282A75A100979630 /* Example_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_SwiftUIApp.swift; sourceTree = "<group>"; };
-		D6900930282A75A100979630 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D6900932282A75A300979630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6900935282A75A300979630 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D690093B282A75A300979630 /* Example-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Example-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +54,15 @@
 		D6900949282A75A300979630 /* Example_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		D690094B282A75A300979630 /* Example_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D6900963282A979700979630 /* PaylinkMobileSDK-iOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "PaylinkMobileSDK-iOS"; path = ../..; sourceTree = "<group>"; };
+		D6900975282AA5DC00979630 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D690097B282BC54700979630 /* PaylinkAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkAPIs.swift; sourceTree = "<group>"; };
+		D6900980282BC85400979630 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D6900988282BD7A700979630 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D690098A282BD99400979630 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		D690098E282BDB2E00979630 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		D6900991282BF19500979630 /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		D6900993282BF52400979630 /* PaylinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGet.swift; sourceTree = "<group>"; };
+		D690099E282C071F00979630 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6900998282C029800979630 /* PayByBank in Frameworks */,
 				D690096D282A9C9300979630 /* PayByBank in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,10 +117,10 @@
 		D690092D282A75A100979630 /* Example-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				D690092E282A75A100979630 /* Example_SwiftUIApp.swift */,
-				D6900930282A75A100979630 /* ContentView.swift */,
-				D6900932282A75A300979630 /* Assets.xcassets */,
-				D6900934282A75A300979630 /* Preview Content */,
+				D690097D282BC70E00979630 /* Application */,
+				D690097E282BC71900979630 /* Resource */,
+				D6900977282BC41400979630 /* Scene */,
+				D6900983282BD66100979630 /* Shared */,
 			);
 			path = "Example-SwiftUI";
 			sourceTree = "<group>";
@@ -147,6 +165,94 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D6900977282BC41400979630 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D690097F282BC82900979630 /* Configuration */,
+				D6900978282BC42700979630 /* Home */,
+				D690097A282BC4C300979630 /* Paylink */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D6900978282BC42700979630 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D6900975282AA5DC00979630 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D690097A282BC4C300979630 /* Paylink */ = {
+			isa = PBXGroup;
+			children = (
+				D690097B282BC54700979630 /* PaylinkAPIs.swift */,
+				D6900993282BF52400979630 /* PaylinkGet.swift */,
+			);
+			path = Paylink;
+			sourceTree = "<group>";
+		};
+		D690097D282BC70E00979630 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D690092E282A75A100979630 /* Example_SwiftUIApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D690097E282BC71900979630 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D6900934282A75A300979630 /* Preview Content */,
+				D6900932282A75A300979630 /* Assets.xcassets */,
+				D6900989282BD7A700979630 /* Localizable.strings */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D690097F282BC82900979630 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D6900980282BC85400979630 /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		D6900983282BD66100979630 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D6900990282BEFEA00979630 /* Constant */,
+				D690098D282BDB1B00979630 /* Extension */,
+				D6900984282BD66900979630 /* Utility */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D6900984282BD66900979630 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D690098A282BD99400979630 /* L10n.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D690098D282BDB1B00979630 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D690098E282BDB2E00979630 /* Array+.swift */,
+				D690099E282C071F00979630 /* UIApplication+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D6900990282BEFEA00979630 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				D6900991282BF19500979630 /* AppStorageKeys.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,6 +271,7 @@
 			name = "Example-SwiftUI";
 			packageProductDependencies = (
 				D690096C282A9C9300979630 /* PayByBank */,
+				D6900997282C029800979630 /* PayByBank */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = D690092B282A75A100979630 /* Example-SwiftUI.app */;
@@ -240,6 +347,7 @@
 			);
 			mainGroup = D6900922282A75A100979630;
 			packageReferences = (
+				D6900996282C029800979630 /* XCRemoteSwiftPackageReference "PaylinkMobileSDK-iOS" */,
 			);
 			productRefGroup = D690092C282A75A100979630 /* Products */;
 			projectDirPath = "";
@@ -258,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6900936282A75A300979630 /* Preview Assets.xcassets in Resources */,
+				D6900987282BD7A700979630 /* Localizable.strings in Resources */,
 				D6900933282A75A300979630 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,8 +392,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6900931282A75A100979630 /* ContentView.swift in Sources */,
+				D6900976282AA5DC00979630 /* HomeView.swift in Sources */,
+				D690098F282BDB2E00979630 /* Array+.swift in Sources */,
+				D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */,
+				D6900992282BF19500979630 /* AppStorageKeys.swift in Sources */,
+				D6900981282BC85400979630 /* Configuration.swift in Sources */,
+				D690099F282C071F00979630 /* UIApplication+.swift in Sources */,
 				D690092F282A75A100979630 /* Example_SwiftUIApp.swift in Sources */,
+				D6900994282BF52400979630 /* PaylinkGet.swift in Sources */,
+				D690098B282BD99400979630 /* L10n.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +435,17 @@
 			targetProxy = D6900946282A75A300979630 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D6900989282BD7A700979630 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6900988282BD7A700979630 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D690094D282A75A300979630 /* Debug */ = {
@@ -442,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Resource/Preview Content\"";
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -471,7 +598,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Resource/Preview Content\"";
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -610,9 +737,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		D6900996282C029800979630 /* XCRemoteSwiftPackageReference "PaylinkMobileSDK-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "/Users/ecospend/Workspace/iOS/PaylinkMobileSDK-iOS/";
+			requirement = {
+				branch = "feature/SP-9400";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		D690096C282A9C9300979630 /* PayByBank */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = PayByBank;
+		};
+		D6900997282C029800979630 /* PayByBank */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6900996282C029800979630 /* XCRemoteSwiftPackageReference "PaylinkMobileSDK-iOS" */;
 			productName = PayByBank;
 		};
 /* End XCSwiftPackageProductDependency section */
