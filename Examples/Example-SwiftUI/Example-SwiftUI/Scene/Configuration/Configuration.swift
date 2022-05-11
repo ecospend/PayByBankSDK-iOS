@@ -23,8 +23,18 @@ struct Configuration: View {
                 Text(L10n.configurationEnvironmentProduction.localizedKey)
                     .tag(PayByBankEnvironment.production)
             }
-            TextField(L10n.configurationEnvironmentClientID.localizedKey, text: $clientID)
-            TextField(L10n.configurationEnvironmentClientSecret.localizedKey, text: $clientSecret)
+            HStack {
+                Text(L10n.configurationEnvironmentClientID.localizedKey)
+                TextField("", text: $clientID)
+                    .multilineTextAlignment(.trailing)
+                    .foregroundColor(.gray)
+            }
+            HStack {
+                Text(L10n.configurationEnvironmentClientSecret.localizedKey)
+                TextField("", text: $clientSecret)
+                    .multilineTextAlignment(.trailing)
+                    .foregroundColor(.gray)
+            }
         }
         .navigationTitle(L10n.configurationTitle.localizedKey)
         .onDisappear {

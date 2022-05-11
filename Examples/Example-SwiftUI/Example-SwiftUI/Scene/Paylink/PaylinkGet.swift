@@ -15,7 +15,13 @@ struct PaylinkGet: View {
     var body: some View {
         VStack {
             Form {
-                TextField(L10n.paylinkGetRequestUniqueID.localizedKey, text: $uniqueID)
+                HStack {
+                    Text(L10n.paylinkGetRequestUniqueID.localizedKey)
+                    TextField("", text: $uniqueID)
+                        .multilineTextAlignment(.trailing)
+                        .foregroundColor(.gray)
+                }
+                
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {
