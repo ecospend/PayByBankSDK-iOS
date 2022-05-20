@@ -24,7 +24,6 @@ struct LoadingView<Content: View>: View {
     
     @StateObject var loading = Loading()
     @ViewBuilder let content: Content
-    @State private var value = 0
     
     var body: some View {
         ZStack {

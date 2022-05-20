@@ -13,6 +13,7 @@ struct PaylinkOpen: View {
     
     @AppStorage(AppStorageKeys.Paylink.Open.Request.uniqueID) var uniqueID: String = ""
     @EnvironmentObject var loading: Loading
+    @EnvironmentObject var toast: Toast
     
     var body: some View {
         VStack {
@@ -23,16 +24,10 @@ struct PaylinkOpen: View {
                         .multilineTextAlignment(.trailing)
                         .foregroundColor(.gray)
                 }
-                
             }
             Spacer()
             Button {
-                guard let viewController = UIApplication.shared.topViewController else { return }
-                loading(true)
-                PayByBank.paylink.open(uniqueID: uniqueID, viewController: viewController) { result in
-                    dump(result)
-                    loading(false)
-                }
+                submit()
             } label: {
                 Text(L10n.commonSubmit.localizedKey)
                     .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
@@ -44,6 +39,25 @@ struct PaylinkOpen: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paylinkOpenTitle.localizedKey)
+    }
+    
+    func submit() {
+        guard let viewController = UIApplication.shared.topViewController else { return }
+        loading(true)
+        PayByBank.paylink.open(uniqueID: uniqueID, viewController: viewController) { result in
+            loading(false)
+            
+            switch result {
+            case .success(let result):
+                switch result.status {
+                case .canceled: toast(PayByBankStatus.canceled.rawValue)
+                case .initiated: toast(PayByBankStatus.initiated.rawValue)
+                case .redirected: toast(PayByBankStatus.redirected.rawValue)
+                }
+            case .failure(let error):
+                toast(error.localizedDescription)
+            }
+        }
     }
 }
 

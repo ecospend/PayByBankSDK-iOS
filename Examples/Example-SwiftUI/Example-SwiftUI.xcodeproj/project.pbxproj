@@ -26,6 +26,7 @@
 		D690099F282C071F00979630 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690099E282C071F00979630 /* UIApplication+.swift */; };
 		D69009A1283246FD00979630 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009A0283246FD00979630 /* Color+.swift */; };
 		D69009AF28328D6A00979630 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009AE28328D6A00979630 /* Loading.swift */; };
+		D69009B12837998D00979630 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009B02837998D00979630 /* Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D690099E282C071F00979630 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		D69009A0283246FD00979630 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		D69009AE28328D6A00979630 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		D69009B02837998D00979630 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				D690098E282BDB2E00979630 /* Array+.swift */,
-				D690099E282C071F00979630 /* UIApplication+.swift */,
 				D69009A0283246FD00979630 /* Color+.swift */,
+				D690099E282C071F00979630 /* UIApplication+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				D69009AE28328D6A00979630 /* Loading.swift */,
+				D69009B02837998D00979630 /* Toast.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6900976282AA5DC00979630 /* HomeView.swift in Sources */,
+				D69009B12837998D00979630 /* Toast.swift in Sources */,
 				D69009A1283246FD00979630 /* Color+.swift in Sources */,
 				D69009AF28328D6A00979630 /* Loading.swift in Sources */,
 				D690098F282BDB2E00979630 /* Array+.swift in Sources */,

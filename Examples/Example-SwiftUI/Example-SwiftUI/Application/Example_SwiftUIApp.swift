@@ -24,8 +24,10 @@ struct Example_SwiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoadingView {
-                HomeView()
+            ToastView {
+                LoadingView {
+                    HomeView()
+                }
             }
         }
     }
