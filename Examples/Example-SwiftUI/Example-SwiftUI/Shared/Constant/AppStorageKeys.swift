@@ -17,9 +17,9 @@ struct AppStorageKeys {
     }
     
     struct Paylink {
-        struct Get {
+        struct Open {
             struct Request {
-                static let uniqueID: String = "paylink.get.request.uniqueID"
+                static let uniqueID: String = "paylink.open.request.uniqueID"
             }
         }
     }

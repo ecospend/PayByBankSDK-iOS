@@ -20,6 +20,6 @@
 "ConfigurationEnvironmentClientSecret" = "Client Secret";
 // MARK: - Paylink
 "PaylinkTitle" = "Paylink";
-// MARK: - Paylink Get
-"PaylinkGetTitle" = "Get Paylink ";
-"PaylinkGetRequestUniqueID" = "Unique ID";
+// MARK: - Paylink Open
+"PaylinkOpenTitle" = "Open Paylink ";
+"PaylinkOpenRequestUniqueID" = "Unique ID";

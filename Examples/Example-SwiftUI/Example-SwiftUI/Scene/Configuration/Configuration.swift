@@ -17,11 +17,14 @@ struct Configuration: View {
     
     var body: some View {
         Form {
-            Picker(L10n.ConfigurationEnvironment.localizedKey, selection: $environment) {
-                Text(L10n.configurationEnvironmentSandbox.localizedKey)
-                    .tag(PayByBankEnvironment.sandbox)
-                Text(L10n.configurationEnvironmentProduction.localizedKey)
-                    .tag(PayByBankEnvironment.production)
+            HStack {
+                Text(L10n.ConfigurationEnvironment.localizedKey)
+                Spacer()
+                Menu(environment.rawValue) {
+                    Button(L10n.configurationEnvironmentSandbox.localizedKey) { environment = .sandbox }
+                    Button(L10n.configurationEnvironmentProduction.localizedKey) { environment = .production }
+                }
+                .foregroundColor(.gray)
             }
             HStack {
                 Text(L10n.configurationEnvironmentClientID.localizedKey)

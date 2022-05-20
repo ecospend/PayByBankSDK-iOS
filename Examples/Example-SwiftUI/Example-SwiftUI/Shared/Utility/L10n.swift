@@ -23,9 +23,9 @@ enum L10n {
     case configurationEnvironmentClientSecret
     // MARK: - Paylink
     case paylinkTitle
-    // MARK: - Paylink Get
-    case paylinkGetTitle
-    case paylinkGetRequestUniqueID
+    // MARK: - Paylink Open
+    case paylinkOpenTitle
+    case paylinkOpenRequestUniqueID
 }
 
 // MARK: - Logic

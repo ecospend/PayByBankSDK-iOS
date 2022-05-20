@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     var body: some View {
         NavigationView {
             List {
@@ -17,7 +18,11 @@ struct HomeView: View {
             .navigationBarTitle(L10n.homeTitle.localizedKey)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(L10n.homeConfigureButton.localizedKey, destination: Configuration())
+                    NavigationLink {
+                        Configuration()
+                    } label: {
+                        Image(systemName: "gear")
+                    }
                 }
             }
         }

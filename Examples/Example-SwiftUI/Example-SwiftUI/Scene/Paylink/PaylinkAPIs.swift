@@ -11,7 +11,7 @@ import SwiftUI
 struct PaylinkAPIs: View {
     var body: some View {
         List {
-            NavigationLink(L10n.paylinkGetTitle.localizedKey, destination: PaylinkGet())
+            NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
         }
         .navigationBarTitle(L10n.paylinkTitle.localizedKey)
     }
