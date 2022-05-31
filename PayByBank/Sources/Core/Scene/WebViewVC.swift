@@ -62,6 +62,7 @@ class WebViewVC: UIViewController {
         view.navigationDelegate = self
         view.allowsBackForwardNavigationGestures = true
         view.configuration.suppressesIncrementalRendering = true
+        view.allowsLinkPreview = false
         view.load(URLRequest(url: viewModel.handler.webViewURL))
         return view
     }()
@@ -93,6 +94,12 @@ class WebViewVC: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        disableDragAndDropInteraction()
+    }
+    
     @IBAction func closeButtonTapped(_ sender: Any) {
         viewModel.handler.closeTapped()
     }
@@ -103,7 +110,7 @@ class WebViewVC: UIViewController {
 }
 
 // MARK: - Setup
-extension WebViewVC {
+private extension WebViewVC {
     
     func setupView() {
         
@@ -137,8 +144,21 @@ extension WebViewVC {
     }
 }
 
+// MARK: - Logic
+private extension WebViewVC {
+    
+    func disableDragAndDropInteraction() {
+        if #available(iOS 11.0, *) {
+            let webScrollView = webView.subviews.compactMap { $0 as? UIScrollView }.first
+            let contentView = webScrollView?.subviews.first(where: { $0.interactions.count > 1 })
+            guard let dragInteraction = (contentView?.interactions.compactMap { $0 as? UIDragInteraction }.first) else { return }
+            contentView?.removeInteraction(dragInteraction)
+        }
+    }
+}
+
 // MARK: - Loading
-extension WebViewVC {
+private extension WebViewVC {
     
     func showActivityIndicator() {
         loadingCount += 1
