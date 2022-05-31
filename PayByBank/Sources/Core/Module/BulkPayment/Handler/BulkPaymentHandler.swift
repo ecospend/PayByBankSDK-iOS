@@ -32,14 +32,8 @@ class BulkPaymentHandler: PayByBankHandlerProtocol {
         
         switch url.host {
         case redirectURL.host:
-            if let params = url.queryParameters,
-               params["error"] == "user_canceled",
-               params["paylink_id"] == uniqueID {
-                handle(status: .canceled)
-                return .cancel
-            } else {
-                return .cancel
-            }
+            handle(status: .canceled)
+            return .cancel
         case webViewURL.host:
             handle(status: .initiated)
             return .allow
