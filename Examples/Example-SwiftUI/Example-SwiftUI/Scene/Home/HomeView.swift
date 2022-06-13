@@ -19,7 +19,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        Configuration()
+                        Settings()
                     } label: {
                         Image(systemName: "gear")
                     }

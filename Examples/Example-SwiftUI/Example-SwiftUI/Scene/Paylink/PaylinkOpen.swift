@@ -11,31 +11,23 @@ import PayByBank
 
 struct PaylinkOpen: View {
     
-    @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
+    
+    @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     
     var body: some View {
         VStack {
             Form {
-                HStack {
-                    Text(L10n.paylinkOpenRequestUniqueID.localizedKey)
-                    TextField("", text: $uniqueID)
-                        .multilineTextAlignment(.trailing)
-                        .foregroundColor(.gray)
-                }
+                TextField("", text: $uniqueID)
+                    .titled(L10n.paylinkOpenRequestUniqueID.localized)
             }
             Spacer()
-            Button {
+            Button(L10n.commonSubmit.localizedKey) {
                 submit()
-            } label: {
-                Text(L10n.commonSubmit.localizedKey)
-                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    
             }
+            .buttonStyle(.primary)
             .padding()
-            .buttonStyle(.borderedProminent)
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paylinkOpenTitle.localizedKey)

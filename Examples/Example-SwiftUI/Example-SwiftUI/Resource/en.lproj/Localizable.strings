@@ -10,14 +10,14 @@
 "CommonSubmit" = "Submit";
 // MARK: - Home
 "HomeTitle" = "PayByBank";
-"HomeConfigureButton" = "Configure";
-// MARK: - Configuration
-"ConfigurationTitle" = "Configuration";
-"ConfigurationEnvironment" = "Environment";
-"ConfigurationEnvironmentSandbox" = "Sandbox";
-"ConfigurationEnvironmentProduction" = "Production";
-"ConfigurationEnvironmentClientID" = "Client ID";
-"ConfigurationEnvironmentClientSecret" = "Client Secret";
+"HomeSettingsButton" = "Settings";
+// MARK: - Settings
+"SettingsTitle" = "Settings";
+"SettingsEnvironment" = "Environment";
+"SettingsEnvironmentSandbox" = "Sandbox";
+"SettingsEnvironmentProduction" = "Production";
+"SettingsEnvironmentClientID" = "Client ID";
+"SettingsEnvironmentClientSecret" = "Client Secret";
 // MARK: - Paylink
 "PaylinkTitle" = "Paylink";
 // MARK: - Paylink Open

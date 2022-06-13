@@ -13,14 +13,14 @@ enum L10n {
     // MARK: - Common
     case commonSubmit
     case homeTitle
-    case homeConfigureButton
-    // MARK: - Configuration
-    case configurationTitle
-    case ConfigurationEnvironment
-    case configurationEnvironmentSandbox
-    case configurationEnvironmentProduction
-    case configurationEnvironmentClientID
-    case configurationEnvironmentClientSecret
+    case homeSettingsButton
+    // MARK: - Settings
+    case settingsTitle
+    case settingsEnvironment
+    case settingsEnvironmentSandbox
+    case settingsEnvironmentProduction
+    case settingsEnvironmentClientID
+    case settingsEnvironmentClientSecret
     // MARK: - Paylink
     case paylinkTitle
     // MARK: - Paylink Open

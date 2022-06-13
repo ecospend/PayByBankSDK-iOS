@@ -1,5 +1,5 @@
 //
-//  Configuration.swift
+//  Settings.swift
 //  Example-SwiftUI
 //
 //  Created by Yunus TÜR on 11.05.2022.
@@ -9,7 +9,7 @@
 import SwiftUI
 import PayByBank
 
-struct Configuration: View {
+struct Settings: View {
     
     @AppStorage(Self.storage(key: .environment)) var environment: PayByBankEnvironment = .sandbox
     @AppStorage(Self.storage(key: .clientID)) var clientID: String = ""
@@ -18,28 +18,28 @@ struct Configuration: View {
     var body: some View {
         Form {
             HStack {
-                Text(L10n.ConfigurationEnvironment.localizedKey)
+                Text(L10n.settingsEnvironment.localizedKey)
                 Spacer()
                 Menu(environment.rawValue) {
-                    Button(L10n.configurationEnvironmentSandbox.localizedKey) { environment = .sandbox }
-                    Button(L10n.configurationEnvironmentProduction.localizedKey) { environment = .production }
+                    Button(L10n.settingsEnvironmentSandbox.localizedKey) { environment = .sandbox }
+                    Button(L10n.settingsEnvironmentProduction.localizedKey) { environment = .production }
                 }
                 .foregroundColor(.gray)
             }
             HStack {
-                Text(L10n.configurationEnvironmentClientID.localizedKey)
+                Text(L10n.settingsEnvironmentClientID.localizedKey)
                 TextField("", text: $clientID)
                     .multilineTextAlignment(.trailing)
                     .foregroundColor(.gray)
             }
             HStack {
-                Text(L10n.configurationEnvironmentClientSecret.localizedKey)
+                Text(L10n.settingsEnvironmentClientSecret.localizedKey)
                 TextField("", text: $clientSecret)
                     .multilineTextAlignment(.trailing)
                     .foregroundColor(.gray)
             }
         }
-        .navigationTitle(L10n.configurationTitle.localizedKey)
+        .navigationTitle(L10n.settingsTitle.localizedKey)
         .onDisappear {
             PayByBank.configure(environment: environment,
                                 clientID: clientID,
@@ -48,8 +48,8 @@ struct Configuration: View {
     }
 }
 
-struct Configuration_Previews: PreviewProvider {
+struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Configuration()
+        Settings()
     }
 }

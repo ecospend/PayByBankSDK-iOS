@@ -12,9 +12,9 @@ import PayByBank
 @main
 struct Example_SwiftUIApp: App {
     
-    @AppStorage(Configuration.storage(key: .environment)) var environment: PayByBankEnvironment = .sandbox
-    @AppStorage(Configuration.storage(key: .clientID)) var clientID: String = ""
-    @AppStorage(Configuration.storage(key: .clientSecret)) var clientSecret: String = ""
+    @AppStorage(Settings.storage(key: .environment)) var environment: PayByBankEnvironment = .sandbox
+    @AppStorage(Settings.storage(key: .clientID)) var clientID: String = ""
+    @AppStorage(Settings.storage(key: .clientSecret)) var clientSecret: String = ""
     
     init() {
         PayByBank.configure(environment: environment,
