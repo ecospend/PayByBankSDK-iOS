@@ -11,9 +11,9 @@ import PayByBank
 
 struct Configuration: View {
     
-    @AppStorage(AppStorageKeys.Configuration.environment) var environment: PayByBankEnvironment = .sandbox
-    @AppStorage(AppStorageKeys.Configuration.clientID) var clientID: String = ""
-    @AppStorage(AppStorageKeys.Configuration.clientSecret) var clientSecret: String = ""
+    @AppStorage(Self.storage(key: .environment)) var environment: PayByBankEnvironment = .sandbox
+    @AppStorage(Self.storage(key: .clientID)) var clientID: String = ""
+    @AppStorage(Self.storage(key: .clientSecret)) var clientSecret: String = ""
     
     var body: some View {
         Form {

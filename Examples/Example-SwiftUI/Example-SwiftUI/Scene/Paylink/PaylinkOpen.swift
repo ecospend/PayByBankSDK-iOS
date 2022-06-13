@@ -11,7 +11,7 @@ import PayByBank
 
 struct PaylinkOpen: View {
     
-    @AppStorage(AppStorageKeys.Paylink.Open.Request.uniqueID) var uniqueID: String = ""
+    @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
     
