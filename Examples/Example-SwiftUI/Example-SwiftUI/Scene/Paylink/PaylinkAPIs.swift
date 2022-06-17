@@ -12,6 +12,7 @@ struct PaylinkAPIs: View {
     var body: some View {
         List {
             NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
+            NavigationLink(L10n.paylinkCreateTitle.localizedKey, destination: PaylinkCreate())
         }
         .navigationBarTitle(L10n.paylinkTitle.localizedKey)
     }

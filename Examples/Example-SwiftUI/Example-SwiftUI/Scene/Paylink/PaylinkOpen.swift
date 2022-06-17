@@ -20,13 +20,14 @@ struct PaylinkOpen: View {
         VStack {
             Form {
                 TextField("", text: $uniqueID)
-                    .titled(L10n.paylinkOpenRequestUniqueID.localized)
+                    .titled(L10n.inputUniqueID.localized.required)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {
                 submit()
             }
             .buttonStyle(.primary)
+            .disabled(uniqueID.isEmpty)
             .padding()
         }
         .background(Color.formBackground)

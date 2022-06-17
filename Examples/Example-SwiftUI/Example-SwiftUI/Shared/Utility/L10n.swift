@@ -12,6 +12,8 @@ import SwiftUI
 enum L10n {
     // MARK: - Common
     case commonSubmit
+    case commonCopyAll
+    // MARK: - Home
     case homeTitle
     case homeSettingsButton
     // MARK: - Settings
@@ -23,9 +25,63 @@ enum L10n {
     case settingsEnvironmentClientSecret
     // MARK: - Paylink
     case paylinkTitle
-    // MARK: - Paylink Open
     case paylinkOpenTitle
-    case paylinkOpenRequestUniqueID
+    case paylinkCreateTitle
+    // MARK: - Section
+    case sectionCreditorAccount
+    case sectionDebtorAccount
+    case sectionPaylinkOptions
+    case sectionNotificationOptions
+    case sectionPaymentOptions
+    case sectionPaymentOptionsPaymentReason
+    case sectionLimitOptions
+    // MARK: - Input
+    case inputAmount
+    case inputBankID
+    case inputClientID
+    case inputClientSecret
+    case inputCreditorAccountCurrency
+    case inputCreditorAccountIdentification
+    case inputCreditorAccountName
+    case inputCreditorAccountType
+    case inputDebtorAccountCurrency
+    case inputDebtorAccountIdentification
+    case inputDebtorAccountName
+    case inputDebtorAccountType
+    case inputDescription
+    case inputEnvironment
+    case inputLimitOptionsAmount
+    case inputLimitOptionsCount
+    case inputLimitOptionsDate
+    case inputMerchantID
+    case inputMerchantUserID
+    case inputNotificationOptionsEmail
+    case inputNotificationOptionsPhoneNumber
+    case inputNotificationOptionsSendEmailNotification
+    case inputNotificationOptionsSendSmsNotification
+    case inputPaylinkOptionsAdditionalParams
+    case inputPaylinkOptionsAllowPartialPayments
+    case inputPaylinkOptionsAutoRedirect
+    case inputPaylinkOptionsDisableQRCode
+    case inputPaylinkOptionsGenerateQRCode
+    case inputPaylinkOptionsTip
+    case inputPaymentOptionsForPayout
+    case inputPaymentOptionsGetRefundInfo
+    case inputPaymentOptionsPaymentRails
+    case inputPaymentOptionsPaymentReasonContextCode
+    case inputPaymentOptionsPaymentReasonDeliveryAdressAddressLine
+    case inputPaymentOptionsPaymentReasonDeliveryAdressBuildingNumber
+    case inputPaymentOptionsPaymentReasonDeliveryAdressCountry
+    case inputPaymentOptionsPaymentReasonDeliveryAdressPostCode
+    case inputPaymentOptionsPaymentReasonDeliveryAdressStreetName
+    case inputPaymentOptionsPaymentReasonDeliveryAdressTownName
+    case inputPaymentOptionsPaymentReasonMerchantCategoryCode
+    case inputPaymentOptionsPaymentReasonMerchantCustomerIdentification
+    case inputPaymentOptionsScheduledFor
+    case inputRedirectURL
+    case inputReference
+    case inputUniqueID
+
 }
 
 // MARK: - Logic
@@ -47,7 +103,7 @@ extension L10n {
         }
     }
     
-    var localized: String? {
+    var localized: String {
         let value = NSLocalizedString(self.key, comment: "")
         guard let arguments = self.arguments else { return value }
         return String(format: value, arguments: arguments.map { String(describing: $0) })

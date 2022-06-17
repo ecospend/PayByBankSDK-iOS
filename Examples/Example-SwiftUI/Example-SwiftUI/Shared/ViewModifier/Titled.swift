@@ -9,13 +9,12 @@
 import SwiftUI
 
 struct Titled: ViewModifier {
-    let title: String?
+    let title: String
     
     func body(content: Content) -> some View {
         HStack {
-            if let title = title {
-                Text(title)
-            }
+            Text(title)
+            Spacer()
             content
                 .multilineTextAlignment(.trailing)
                 .foregroundColor(.gray)
@@ -23,8 +22,9 @@ struct Titled: ViewModifier {
     }
 }
 
-extension TextField {
-    func titled(_ title: String?) -> some View {
+extension View {
+    
+    func titled(_ title: String) -> some View {
         modifier(Titled(title: title))
     }
 }

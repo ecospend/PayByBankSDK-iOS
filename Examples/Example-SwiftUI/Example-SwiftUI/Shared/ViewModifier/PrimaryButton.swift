@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PrimaryButton: ButtonStyle {
     
+    @Environment(\.isEnabled) private var isEnabled: Bool
+    
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             Spacer()
@@ -19,7 +21,7 @@ struct PrimaryButton: ButtonStyle {
         }
         .foregroundColor(.white)
         .background(Color.blue.cornerRadius(8))
-        .opacity(configuration.isPressed ? 0.6 : 1)
+        .opacity((configuration.isPressed || !isEnabled) ? 0.6 : 1)
     }
 }
 

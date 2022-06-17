@@ -8,6 +8,7 @@
 
 // MARK: - Common
 "CommonSubmit" = "Submit";
+"CommonCopyAll" = "Copy All";
 // MARK: - Home
 "HomeTitle" = "PayByBank";
 "HomeSettingsButton" = "Settings";
@@ -20,6 +21,59 @@
 "SettingsEnvironmentClientSecret" = "Client Secret";
 // MARK: - Paylink
 "PaylinkTitle" = "Paylink";
-// MARK: - Paylink Open
-"PaylinkOpenTitle" = "Open Paylink ";
-"PaylinkOpenRequestUniqueID" = "Unique ID*";
+"PaylinkOpenTitle" = "Open Paylink";
+"PaylinkCreateTitle" = "Create Paylink";
+// MARK: - Section
+"SectionCreditorAccount" = "Creditor Account";
+"SectionDebtorAccount" = "Debtor Account";
+"SectionPaylinkOptions" = "Paylink Options";
+"SectionNotificationOptions" = "Notification Options";
+"SectionPaymentOptions" = "Payment Options";
+"SectionPaymentOptionsPaymentReason" = "Payment Reason";
+"SectionLimitOptions" = "Limit Options";
+// MARK: - Input
+"InputAmount" = "Amount";
+"InputBankID" = "Bank ID";
+"InputClientID" = "Client ID";
+"InputClientSecret" = "Client Secret";
+"InputCreditorAccountCurrency" = "Currency";
+"InputCreditorAccountIdentification" = "Identification";
+"InputCreditorAccountName" = "Name";
+"InputCreditorAccountType" = "Type";
+"InputDebtorAccountCurrency" = "Currency";
+"InputDebtorAccountIdentification" = "Identification";
+"InputDebtorAccountName" = "Name";
+"InputDebtorAccountType" = "Type";
+"InputDescription" = "Description";
+"InputEnvironment" = "Environment";
+"InputLimitOptionsAmount" = "Amount";
+"InputLimitOptionsCount" = "Count";
+"InputLimitOptionsDate" = "Date";
+"InputMerchantID" = "Merchant ID";
+"InputMerchantUserID" = "Merchant User ID";
+"InputNotificationOptionsEmail" = "Email";
+"InputNotificationOptionsPhoneNumber" = "Phone Number";
+"InputNotificationOptionsSendEmailNotification" = "Send Email Notification";
+"InputNotificationOptionsSendSmsNotification" = "Send Sms Notification";
+"InputPaylinkOptionsAdditionalParams" = "Additional Params";
+"InputPaylinkOptionsAllowPartialPayments" = "Allow Partial Payments";
+"InputPaylinkOptionsAutoRedirect" = "Auto Redirect";
+"InputPaylinkOptionsDisableQRCode" = "Disable QR Code";
+"InputPaylinkOptionsGenerateQRCode" = "Generate QR Code";
+"InputPaylinkOptionsTip" = "Tip";
+"InputPaymentOptionsForPayout" = "For Payout";
+"InputPaymentOptionsGetRefundInfo" = "Get Refund Info";
+"InputPaymentOptionsPaymentRails" = "Payment Rails";
+"InputPaymentOptionsPaymentReasonContextCode" = "Context Code";
+"InputPaymentOptionsPaymentReasonDeliveryAdressAddressLine" = "AddressLine";
+"InputPaymentOptionsPaymentReasonDeliveryAdressBuildingNumber" = "Building Numbe";
+"InputPaymentOptionsPaymentReasonDeliveryAdressCountry" = "Country";
+"InputPaymentOptionsPaymentReasonDeliveryAdressPostCode" = "Post Code";
+"InputPaymentOptionsPaymentReasonDeliveryAdressStreetName" = "Street Name";
+"InputPaymentOptionsPaymentReasonDeliveryAdressTownName" = "Town Name";
+"InputPaymentOptionsPaymentReasonMerchantCategoryCode" = "Merchant Category Code";
+"InputPaymentOptionsPaymentReasonMerchantCustomerIdentification" = "Merchant Customer Identification";
+"InputPaymentOptionsScheduledFor" = "Scheduled For";
+"InputRedirectURL" = "Redirect URL";
+"InputReference" = "Reference";
+"InputUniqueID" = "Unique ID";

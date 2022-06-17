@@ -9,8 +9,49 @@
 import Foundation
 
 enum AppStorageKeys: String {
-    case environment
+    case amount
+    case bankID
     case clientID
     case clientSecret
+    case creditorAccountCurrency
+    case creditorAccountIdentification
+    case creditorAccountName
+    case creditorAccountType
+    case debtorAccountCurrency
+    case debtorAccountIdentification
+    case debtorAccountName
+    case debtorAccountType
+    case description
+    case environment
+    case limitOptionsAmount
+    case limitOptionsCount
+    case limitOptionsDate
+    case merchantID
+    case merchantUserID
+    case notificationOptionsEmail
+    case notificationOptionsPhoneNumber
+    case notificationOptionsSendEmailNotification
+    case notificationOptionsSendSmsNotification
+    case paylinkOptionsAdditionalParams
+    case paylinkOptionsAllowPartialPayments
+    case paylinkOptionsAutoRedirect
+    case paylinkOptionsDisableQRCode
+    case paylinkOptionsGenerateQRCode
+    case paylinkOptionsTip
+    case paymentOptionsForPayout
+    case paymentOptionsGetRefundInfo
+    case paymentOptionsPaymentRails
+    case paymentOptionsPaymentReasonContextCode
+    case paymentOptionsPaymentReasonDeliveryAdressAddressLine
+    case paymentOptionsPaymentReasonDeliveryAdressBuildingNumber
+    case paymentOptionsPaymentReasonDeliveryAdressCountry
+    case paymentOptionsPaymentReasonDeliveryAdressPostCode
+    case paymentOptionsPaymentReasonDeliveryAdressStreetName
+    case paymentOptionsPaymentReasonDeliveryAdressTownName
+    case paymentOptionsPaymentReasonMerchantCategoryCode
+    case paymentOptionsPaymentReasonMerchantCustomerIdentification
+    case paymentOptionsScheduledFor
+    case redirectURL
+    case reference
     case uniqueID
 }
