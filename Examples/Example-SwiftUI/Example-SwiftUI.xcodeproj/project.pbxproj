@@ -43,6 +43,9 @@
 		D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */; };
 		D695AF24285B3C1900CB7103 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF23285B3C1900CB7103 /* Encodable+.swift */; };
 		D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF28285CA71200CB7103 /* ResponseView.swift */; };
+		D695AF2B285CB63300CB7103 /* PaylinkDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */; };
+		D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2C285CB76200CB7103 /* PaylinkGet.swift */; };
+		D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkLimitOptionsSection.swift; sourceTree = "<group>"; };
 		D695AF23285B3C1900CB7103 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		D695AF28285CA71200CB7103 /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
+		D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkDeactivate.swift; sourceTree = "<group>"; };
+		D695AF2C285CB76200CB7103 /* PaylinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGet.swift; sourceTree = "<group>"; };
+		D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkInitiate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +232,11 @@
 			isa = PBXGroup;
 			children = (
 				D690097B282BC54700979630 /* PaylinkAPIs.swift */,
-				D6900993282BF52400979630 /* PaylinkOpen.swift */,
 				D69009B22837C06200979630 /* PaylinkCreate.swift */,
+				D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */,
+				D695AF2C285CB76200CB7103 /* PaylinkGet.swift */,
+				D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */,
+				D6900993282BF52400979630 /* PaylinkOpen.swift */,
 			);
 			path = Paylink;
 			sourceTree = "<group>";
@@ -482,17 +491,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D695AF1C2859FF9E00CB7103 /* PaylinkOptionsSection.swift in Sources */,
+				D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */,
 				D695AF20285B113500CB7103 /* PaylinkPaymentOptionsSection.swift in Sources */,
 				D69009B32837C06300979630 /* PaylinkCreate.swift in Sources */,
 				D695AF1A2859F8CD00CB7103 /* Decimal+.swift in Sources */,
 				D6900976282AA5DC00979630 /* HomeView.swift in Sources */,
 				D69009B12837998D00979630 /* Toast.swift in Sources */,
 				D695AF162859F64B00CB7103 /* DebtorAccountSection.swift in Sources */,
+				D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */,
 				D695AF0928575C9900CB7103 /* AppStorageKeys.swift in Sources */,
 				D69009A1283246FD00979630 /* Color+.swift in Sources */,
 				D695AF142859C3D400CB7103 /* CreditorAccountSection.swift in Sources */,
 				D695AF072857592900CB7103 /* View+.swift in Sources */,
 				D695AF182859F7DD00CB7103 /* PaylinkCreateMainSection.swift in Sources */,
+				D695AF2B285CB63300CB7103 /* PaylinkDeactivate.swift in Sources */,
 				D69009AF28328D6A00979630 /* Loading.swift in Sources */,
 				D690098F282BDB2E00979630 /* Array+.swift in Sources */,
 				D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */,

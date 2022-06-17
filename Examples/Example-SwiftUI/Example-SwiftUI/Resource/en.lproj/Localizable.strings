@@ -22,7 +22,10 @@
 // MARK: - Paylink
 "PaylinkTitle" = "Paylink";
 "PaylinkOpenTitle" = "Open Paylink";
+"PaylinkInitiateTitle" = "Initiate Paylink";
 "PaylinkCreateTitle" = "Create Paylink";
+"PaylinkGetTitle" = "Get Paylink";
+"PaylinkDeactivateTitle" = "Deactivate Paylink";
 // MARK: - Section
 "SectionCreditorAccount" = "Creditor Account";
 "SectionDebtorAccount" = "Debtor Account";

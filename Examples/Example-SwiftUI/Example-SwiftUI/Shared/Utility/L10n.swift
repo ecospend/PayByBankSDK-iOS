@@ -26,7 +26,10 @@ enum L10n {
     // MARK: - Paylink
     case paylinkTitle
     case paylinkOpenTitle
+    case paylinkInitiateTitle
     case paylinkCreateTitle
+    case paylinkGetTitle
+    case paylinkDeactivateTitle
     // MARK: - Section
     case sectionCreditorAccount
     case sectionDebtorAccount

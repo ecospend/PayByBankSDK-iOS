@@ -1,20 +1,22 @@
 //
-//  PaylinkOpen.swift
+//  PaylinkDeactivate.swift
 //  Example-SwiftUI
 //
-//  Created by Yunus TÜR on 11.05.2022.
+//  Created by Yunus TÜR on 17.06.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import SwiftUI
 import PayByBank
 
-struct PaylinkOpen: View {
+struct PaylinkDeactivate: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
     
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
+    
+    @State private var response: String? = nil
     
     var body: some View {
         VStack {
@@ -31,31 +33,29 @@ struct PaylinkOpen: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.paylinkOpenTitle.localizedKey)
+        .navigationTitle(L10n.paylinkDeactivateTitle.localizedKey)
+        .sheet(item: $response) { response in
+            ResponseView(response: response)
+        }
     }
     
     func submit() {
-        guard let viewController = UIApplication.shared.topViewController else { return }
         loading(true)
-        PayByBank.paylink.open(uniqueID: uniqueID, viewController: viewController) { result in
+        PayByBank.paylink.deactivatePaylink(request: PaylinkDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)
             
             switch result {
-            case .success(let result):
-                switch result.status {
-                case .canceled: toast(PayByBankStatus.canceled.rawValue)
-                case .initiated: toast(PayByBankStatus.initiated.rawValue)
-                case .redirected: toast(PayByBankStatus.redirected.rawValue)
-                }
+            case .success(let model):
+                response = model.jsonString
             case .failure(let error):
-                toast(error.localizedDescription)
+                response = error.localizedDescription
             }
         }
     }
 }
 
-struct PaylinkOpen_Previews: PreviewProvider {
+struct PaylinkDeactivate_Previews: PreviewProvider {
     static var previews: some View {
-        PaylinkOpen()
+        PaylinkDeactivate()
     }
 }
