@@ -62,6 +62,7 @@ class WebViewVC: UIViewController {
         view.navigationDelegate = self
         view.allowsBackForwardNavigationGestures = true
         view.configuration.suppressesIncrementalRendering = true
+        view.allowsLinkPreview = false
         view.load(URLRequest(url: viewModel.handler.webViewURL))
         return view
     }()
@@ -93,6 +94,12 @@ class WebViewVC: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        disableDragAndDropInteraction(for: webView)
+    }
+    
     @IBAction func closeButtonTapped(_ sender: Any) {
         viewModel.handler.closeTapped()
     }
@@ -103,7 +110,7 @@ class WebViewVC: UIViewController {
 }
 
 // MARK: - Setup
-extension WebViewVC {
+private extension WebViewVC {
     
     func setupView() {
         
@@ -137,8 +144,27 @@ extension WebViewVC {
     }
 }
 
+// MARK: - Logic
+private extension WebViewVC {
+    
+    func disableDragAndDropInteraction(for webView: WKWebView) {
+        if #available(iOS 11.0, *) {
+            let webScrollView = webView.subviews.compactMap { $0 as? UIScrollView }.first
+            let contentView = webScrollView?.subviews.first(where: { $0.interactions.count > 1 })
+            guard let dragInteraction = (contentView?.interactions.compactMap { $0 as? UIDragInteraction }.first) else { return }
+            contentView?.removeInteraction(dragInteraction)
+        }
+    }
+    
+    func disableSelectText(for webView: WKWebView) {
+        let cssString = "* { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; } textarea, input { user-select: text; -webkit-user-select: text }"
+        let jsString = "var style = document.createElement('style'); style.innerHTML = '\(cssString)'; document.head.appendChild(style);"
+        webView.evaluateJavaScript(jsString, completionHandler: nil)
+    }
+}
+
 // MARK: - Loading
-extension WebViewVC {
+private extension WebViewVC {
     
     func showActivityIndicator() {
         loadingCount += 1
@@ -178,6 +204,7 @@ extension WebViewVC: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        disableSelectText(for: webView)
         hideActivityIndicator()
     }
     
