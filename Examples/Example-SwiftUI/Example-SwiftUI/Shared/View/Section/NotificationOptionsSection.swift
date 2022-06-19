@@ -30,6 +30,7 @@ struct NotificationOptionsSection: View {
                             L10n.inputNotificationOptionsEmail.localized)
                 Toggle(L10n.inputNotificationOptionsSendSmsNotification.localized, isOn: $sendSmsNotification)
                 TextField("", text: $phoneNumber)
+                    .keyboardType(.phonePad)
                     .titled(sendSmsNotification ?
                             L10n.inputNotificationOptionsPhoneNumber.localized.required :
                             L10n.inputNotificationOptionsPhoneNumber.localized)
