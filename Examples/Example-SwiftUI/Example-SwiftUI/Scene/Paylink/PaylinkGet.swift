@@ -17,6 +17,7 @@ struct PaylinkGet: View {
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     
     @State private var response: String? = nil
+    @State private var url: URL? = nil
     
     var body: some View {
         VStack {
@@ -34,6 +35,17 @@ struct PaylinkGet: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paylinkGetTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.Paylink.get)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
         .sheet(item: $response) { response in
             ResponseView(response: response)
         }

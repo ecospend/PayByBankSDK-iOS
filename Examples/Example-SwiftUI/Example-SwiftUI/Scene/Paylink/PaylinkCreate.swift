@@ -35,6 +35,7 @@ struct PaylinkCreate: View {
     @State private var limitOptions: PaylinkLimitOptions? = nil
     
     @State private var response: String? = nil
+    @State private var url: URL? = nil
     
     var body: some View {
         VStack {
@@ -63,6 +64,17 @@ struct PaylinkCreate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paylinkCreateTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.Paylink.create)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
         .sheet(item: $response) { response in
             ResponseView(response: response)
         }

@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct PaylinkAPIs: View {
+    
+    @State private var url: URL? = nil
+    
     var body: some View {
         List {
             NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
@@ -18,6 +21,17 @@ struct PaylinkAPIs: View {
             NavigationLink(L10n.paylinkDeactivateTitle.localizedKey, destination: PaylinkDeactivate())
         }
         .navigationBarTitle(L10n.paylinkTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.Paylink.base)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
     }
 }
 

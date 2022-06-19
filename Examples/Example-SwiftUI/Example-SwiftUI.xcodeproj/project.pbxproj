@@ -46,6 +46,9 @@
 		D695AF2B285CB63300CB7103 /* PaylinkDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */; };
 		D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2C285CB76200CB7103 /* PaylinkGet.swift */; };
 		D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */; };
+		D695AF32285CBBD900CB7103 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF31285CBBD900CB7103 /* SafariView.swift */; };
+		D695AF35285CBE5200CB7103 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF34285CBE5200CB7103 /* URL+.swift */; };
+		D6AEF3D5285FC0F4008FD82E /* APIDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3D4285FC0F4008FD82E /* APIDocuments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,9 @@
 		D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkDeactivate.swift; sourceTree = "<group>"; };
 		D695AF2C285CB76200CB7103 /* PaylinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGet.swift; sourceTree = "<group>"; };
 		D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkInitiate.swift; sourceTree = "<group>"; };
+		D695AF31285CBBD900CB7103 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		D695AF34285CBE5200CB7103 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		D6AEF3D4285FC0F4008FD82E /* APIDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDocuments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +220,6 @@
 			children = (
 				D6900978282BC42700979630 /* Home */,
 				D690097A282BC4C300979630 /* Paylink */,
-				D695AF27285CA69400CB7103 /* Response */,
 				D690097F282BC82900979630 /* Settings */,
 			);
 			path = Scene;
@@ -270,7 +275,6 @@
 		D6900983282BD66100979630 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D6900990282BEFEA00979630 /* Constant */,
 				D690098D282BDB1B00979630 /* Extension */,
 				D6900984282BD66900979630 /* Utility */,
 				D69009AD28328D4E00979630 /* View */,
@@ -282,6 +286,8 @@
 		D6900984282BD66900979630 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D6AEF3D4285FC0F4008FD82E /* APIDocuments.swift */,
+				D695AF0828575C9900CB7103 /* AppStorageKeys.swift */,
 				D690098A282BD99400979630 /* L10n.swift */,
 			);
 			path = Utility;
@@ -298,16 +304,9 @@
 				D695AF0E2857D60A00CB7103 /* String+.swift */,
 				D690099E282C071F00979630 /* UIApplication+.swift */,
 				D695AF062857592900CB7103 /* View+.swift */,
+				D695AF34285CBE5200CB7103 /* URL+.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		D6900990282BEFEA00979630 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				D695AF0828575C9900CB7103 /* AppStorageKeys.swift */,
-			);
-			path = Constant;
 			sourceTree = "<group>";
 		};
 		D69009A22832634E00979630 /* ViewModifier */ = {
@@ -324,6 +323,8 @@
 			children = (
 				D695AF122859C36800CB7103 /* Section */,
 				D69009AE28328D6A00979630 /* Loading.swift */,
+				D695AF28285CA71200CB7103 /* ResponseView.swift */,
+				D695AF31285CBBD900CB7103 /* SafariView.swift */,
 				D69009B02837998D00979630 /* Toast.swift */,
 			);
 			path = View;
@@ -341,14 +342,6 @@
 				D695AF1F285B113500CB7103 /* PaylinkPaymentOptionsSection.swift */,
 			);
 			path = Section;
-			sourceTree = "<group>";
-		};
-		D695AF27285CA69400CB7103 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				D695AF28285CA71200CB7103 /* ResponseView.swift */,
-			);
-			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +502,8 @@
 				D690098F282BDB2E00979630 /* Array+.swift in Sources */,
 				D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */,
 				D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */,
+				D695AF35285CBE5200CB7103 /* URL+.swift in Sources */,
+				D6AEF3D5285FC0F4008FD82E /* APIDocuments.swift in Sources */,
 				D695AF112857E46B00CB7103 /* Date+.swift in Sources */,
 				D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */,
 				D695AF0B285767D800CB7103 /* Titled.swift in Sources */,
@@ -518,6 +513,7 @@
 				D6900994282BF52400979630 /* PaylinkOpen.swift in Sources */,
 				D695AF0F2857D60A00CB7103 /* String+.swift in Sources */,
 				D695AF0D2857697B00CB7103 /* PrimaryButton.swift in Sources */,
+				D695AF32285CBBD900CB7103 /* SafariView.swift in Sources */,
 				D695AF24285B3C1900CB7103 /* Encodable+.swift in Sources */,
 				D695AF1E285A0FB100CB7103 /* NotificationOptionsSection.swift in Sources */,
 				D690098B282BD99400979630 /* L10n.swift in Sources */,
