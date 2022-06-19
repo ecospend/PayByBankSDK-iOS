@@ -14,8 +14,9 @@ struct ResponseView: View {
     
     init(response: String) {
         self.response = response
-        
+
         UITextView.appearance().textContainerInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        UITextView.appearance().backgroundColor = UIColor(Color.formBackground)
     }
     
     var body: some View {
@@ -30,7 +31,6 @@ struct ResponseView: View {
             }
             VStack {
                 TextEditor(text: .constant(response))
-                    .colorMultiply(Color.formBackground)
                     .padding(.top)
                     .padding(.top)
                 Spacer()
@@ -46,44 +46,22 @@ struct ResponseView: View {
 }
 
 struct ResponseView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResponseView(response: """
+    static var response: String {
+        let repeating = """
             {
                 "unique_id" : "AW3bxH3rGQ",
                 "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
                 "qr_code" : ""
             }
-        {
-                "unique_id" : "AW3bxH3rGQ",
-                "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
-                "qr_code" : ""
-            }
-        {
-                "unique_id" : "AW3bxH3rGQ",
-                "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
-                "qr_code" : ""
-            }
-        {
-                "unique_id" : "AW3bxH3rGQ",
-                "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
-                "qr_code" : ""
-            }
-        {
-                "unique_id" : "AW3bxH3rGQ",
-                "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
-                "qr_code" : ""
-            }
-        {
-                "unique_id" : "AW3bxH3rGQ",
-                "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
-                "qr_code" : ""
-            }
-        {
-                "unique_id" : "AW3bxH3rGQ",
-                "url" : "https://paylinkv2.sb.ecospend.com/?uid=AW3bxH3rGQ&ch=3",
-                "qr_code" : ""
-            }
         """
-        )
+        return String(repeating: repeating, count: 10)
+    }
+    
+    static var previews: some View {
+        Group {
+            ResponseView(response: response)
+            ResponseView(response: response)
+                .preferredColorScheme(.dark)
+        }
     }
 }
