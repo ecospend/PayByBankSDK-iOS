@@ -25,10 +25,14 @@ struct NotificationOptionsSection: View {
             Group {
                 Toggle(L10n.inputNotificationOptionsSendEmailNotification.localized, isOn: $sendEmailNotification)
                 TextField("", text: $email)
-                    .titled(L10n.inputNotificationOptionsEmail.localized)
+                    .titled(sendEmailNotification ?
+                            L10n.inputNotificationOptionsEmail.localized.required :
+                            L10n.inputNotificationOptionsEmail.localized)
                 Toggle(L10n.inputNotificationOptionsSendSmsNotification.localized, isOn: $sendSmsNotification)
                 TextField("", text: $phoneNumber)
-                    .titled(L10n.inputNotificationOptionsPhoneNumber.localized)
+                    .titled(sendSmsNotification ?
+                            L10n.inputNotificationOptionsPhoneNumber.localized.required :
+                            L10n.inputNotificationOptionsPhoneNumber.localized)
             }
             .disabled(!isEnabled)
             .opacity(!isEnabled ? 0.5 : 1)
