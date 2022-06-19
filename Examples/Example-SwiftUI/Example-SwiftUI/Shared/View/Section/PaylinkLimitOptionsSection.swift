@@ -54,7 +54,7 @@ struct PaylinkLimitOptionsSection: View {
             guard isEnabled else { return nil }
             return PaylinkLimitOptions(count: count > 0 ? count : nil,
                                        amount: amount > 0 ? amount : nil,
-                                       date: date != .default ? nil : date.rawValue)
+                                       date: date != .default ? date.rawValue : nil)
         }()
     }
 }
