@@ -21,22 +21,24 @@ struct NotificationOptionsSection: View {
     @Binding private(set) var value: PayByBankNotificationOptionsRequest?
     
     var body: some View {
-        Section(header: header) {
-            Group {
-                Toggle(L10n.inputNotificationOptionsSendEmailNotification.localized, isOn: $sendEmailNotification)
-                TextField("", text: $email)
-                    .titled(sendEmailNotification ?
-                            L10n.inputNotificationOptionsEmail.localized.required :
-                            L10n.inputNotificationOptionsEmail.localized)
-                Toggle(L10n.inputNotificationOptionsSendSmsNotification.localized, isOn: $sendSmsNotification)
-                TextField("", text: $phoneNumber)
-                    .keyboardType(.phonePad)
-                    .titled(sendSmsNotification ?
-                            L10n.inputNotificationOptionsPhoneNumber.localized.required :
-                            L10n.inputNotificationOptionsPhoneNumber.localized)
+        List {
+            Section(header: header) {
+                Group {
+                    Toggle(L10n.inputNotificationOptionsSendEmailNotification.localized, isOn: $sendEmailNotification)
+                    TextField("", text: $email)
+                        .titled(sendEmailNotification ?
+                                L10n.inputNotificationOptionsEmail.localized.required :
+                                    L10n.inputNotificationOptionsEmail.localized)
+                    Toggle(L10n.inputNotificationOptionsSendSmsNotification.localized, isOn: $sendSmsNotification)
+                    TextField("", text: $phoneNumber)
+                        .keyboardType(.phonePad)
+                        .titled(sendSmsNotification ?
+                                L10n.inputNotificationOptionsPhoneNumber.localized.required :
+                                    L10n.inputNotificationOptionsPhoneNumber.localized)
+                }
+                .disabled(!isEnabled)
+                .opacity(!isEnabled ? 0.5 : 1)
             }
-            .disabled(!isEnabled)
-            .opacity(!isEnabled ? 0.5 : 1)
         }
         .onChange(of: isEnabled) { _ in validate() }
         .onChange(of: sendEmailNotification) { _ in validate() }

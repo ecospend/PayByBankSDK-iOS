@@ -23,22 +23,24 @@ struct PaylinkCreateMainSection: View {
     @Binding private(set) var value: PaylinkCreateMainSectionModel?
     
     var body: some View {
-        Section {
-            TextField("", value: $amount, format: .number)
-                .keyboardType(.decimalPad)
-                .titled(L10n.inputAmount.localized.required)
-            TextField("", text: $reference)
-                .titled(L10n.inputReference.localized.required)
-            TextField("", text: $description)
-                .titled(L10n.inputDescription.localized)
-            TextField("", text: $redirectURL)
-                .titled(L10n.inputRedirectURL.localized.required)
-            TextField("", text: $bankID)
-                .titled(L10n.inputBankID.localized)
-            TextField("", text: $merchantID)
-                .titled(L10n.inputMerchantID.localized)
-            TextField("", text: $merchantUserID)
-                .titled(L10n.inputMerchantUserID.localized)
+        List {
+            Section {
+                TextField("", value: $amount, format: .number)
+                    .keyboardType(.decimalPad)
+                    .titled(L10n.inputAmount.localized.required)
+                TextField("", text: $reference)
+                    .titled(L10n.inputReference.localized.required)
+                TextField("", text: $description)
+                    .titled(L10n.inputDescription.localized)
+                TextField("", text: $redirectURL)
+                    .titled(L10n.inputRedirectURL.localized.required)
+                TextField("", text: $bankID)
+                    .titled(L10n.inputBankID.localized)
+                TextField("", text: $merchantID)
+                    .titled(L10n.inputMerchantID.localized)
+                TextField("", text: $merchantUserID)
+                    .titled(L10n.inputMerchantUserID.localized)
+            }
         }
         .onChange(of: amount) { _ in validate() }
         .onChange(of: reference) { _ in validate() }

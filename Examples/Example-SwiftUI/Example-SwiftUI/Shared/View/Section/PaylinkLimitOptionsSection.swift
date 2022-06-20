@@ -20,20 +20,22 @@ struct PaylinkLimitOptionsSection: View {
     @Binding private(set) var value: PaylinkLimitOptions?
     
     var body: some View {
-        Section(header: header) {
-            Group {
-                TextField("", value: $count, format: .number)
-                    .keyboardType(.numberPad)
-                    .titled(L10n.inputLimitOptionsCount.localized)
-                TextField("", value: $amount, format: .number)
-                    .keyboardType(.decimalPad)
-                    .titled(L10n.inputLimitOptionsAmount.localized)
-                DatePicker(selection: $date, displayedComponents: .date) {
-                    Text(L10n.inputLimitOptionsDate.localized)
+        List {
+            Section(header: header) {
+                Group {
+                    TextField("", value: $count, format: .number)
+                        .keyboardType(.numberPad)
+                        .titled(L10n.inputLimitOptionsCount.localized)
+                    TextField("", value: $amount, format: .number)
+                        .keyboardType(.decimalPad)
+                        .titled(L10n.inputLimitOptionsAmount.localized)
+                    DatePicker(selection: $date, displayedComponents: .date) {
+                        Text(L10n.inputLimitOptionsDate.localized)
+                    }
                 }
+                .disabled(!isEnabled)
+                .opacity(!isEnabled ? 0.5 : 1)
             }
-            .disabled(!isEnabled)
-            .opacity(!isEnabled ? 0.5 : 1)
         }
         .onChange(of: isEnabled) { _ in validate() }
         .onChange(of: count) { _ in validate() }

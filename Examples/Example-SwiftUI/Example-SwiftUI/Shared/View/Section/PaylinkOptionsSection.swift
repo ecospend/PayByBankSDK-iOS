@@ -21,15 +21,17 @@ struct PaylinkOptionsSection: View {
     @Binding private(set) var value: PaylinkOptions?
     
     var body: some View {
-        Section(header: header) {
-            Group {
-                Toggle(L10n.inputPaylinkOptionsAutoRedirect.localized, isOn: $autoRedirect)
-                Toggle(L10n.inputPaylinkOptionsGenerateQRCode.localized, isOn: $generateQRCode)
-                Toggle(L10n.inputPaylinkOptionsAllowPartialPayments.localized, isOn: $allowPartialPayments)
-                Toggle(L10n.inputPaylinkOptionsDisableQRCode.localized, isOn: $disableQRCode)
+        List {
+            Section(header: header) {
+                Group {
+                    Toggle(L10n.inputPaylinkOptionsAutoRedirect.localized, isOn: $autoRedirect)
+                    Toggle(L10n.inputPaylinkOptionsGenerateQRCode.localized, isOn: $generateQRCode)
+                    Toggle(L10n.inputPaylinkOptionsAllowPartialPayments.localized, isOn: $allowPartialPayments)
+                    Toggle(L10n.inputPaylinkOptionsDisableQRCode.localized, isOn: $disableQRCode)
+                }
+                .disabled(!isEnabled)
+                .opacity(!isEnabled ? 0.5 : 1)
             }
-            .disabled(!isEnabled)
-            .opacity(!isEnabled ? 0.5 : 1)
         }
         .onChange(of: isEnabled) { _ in validate() }
         .onChange(of: autoRedirect) { _ in validate() }

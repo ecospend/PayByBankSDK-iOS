@@ -20,15 +20,17 @@ struct PaylinkPaymentOptionsSection: View {
     @Binding private(set) var value: PaylinkPaymentOptions?
     
     var body: some View {
-        Section(header: header) {
-            Group {
-                TextField("", text: $paymentRails)
-                    .titled(L10n.inputPaymentOptionsPaymentRails.localized)
-                Toggle(L10n.inputPaymentOptionsGetRefundInfo.localized, isOn: $getRefundInfo)
-                Toggle(L10n.inputPaymentOptionsForPayout.localized, isOn: $forPayout)
+        List {
+            Section(header: header) {
+                Group {
+                    TextField("", text: $paymentRails)
+                        .titled(L10n.inputPaymentOptionsPaymentRails.localized)
+                    Toggle(L10n.inputPaymentOptionsGetRefundInfo.localized, isOn: $getRefundInfo)
+                    Toggle(L10n.inputPaymentOptionsForPayout.localized, isOn: $forPayout)
+                }
+                .disabled(!isEnabled)
+                .opacity(!isEnabled ? 0.5 : 1)
             }
-            .disabled(!isEnabled)
-            .opacity(!isEnabled ? 0.5 : 1)
         }
         .onChange(of: isEnabled) { _ in validate() }
         .onChange(of: paymentRails) { _ in validate() }

@@ -22,27 +22,29 @@ struct CreditorAccountSection: View {
     @Binding private(set) var value: PayByBankAccountRequest?
     
     var body: some View {
-        Section(header: header) {
-            Group {
-                Menu(type.rawValue) {
-                    Button(PayByBankAccountType.sortCode.rawValue) { type = .sortCode }
-                    Button(PayByBankAccountType.iban.rawValue) { type = .iban }
-                    Button(PayByBankAccountType.bban.rawValue) { type = .bban }
-                }
-                .titled(L10n.inputCreditorAccountIdentification.localized.required)
-                TextField("", text: $identification)
+        List {
+            Section(header: header) {
+                Group {
+                    Menu(type.rawValue) {
+                        Button(PayByBankAccountType.sortCode.rawValue) { type = .sortCode }
+                        Button(PayByBankAccountType.iban.rawValue) { type = .iban }
+                        Button(PayByBankAccountType.bban.rawValue) { type = .bban }
+                    }
                     .titled(L10n.inputCreditorAccountIdentification.localized.required)
-                TextField("", text: $name)
-                    .titled(L10n.inputCreditorAccountName.localized.required)
-                Menu(currency.rawValue) {
-                    Button(PayByBankCurrency.pound.rawValue) { currency = .pound }
-                    Button(PayByBankCurrency.euro.rawValue) { currency = .euro }
-                    Button(PayByBankCurrency.usd.rawValue) { currency = .usd }
+                    TextField("", text: $identification)
+                        .titled(L10n.inputCreditorAccountIdentification.localized.required)
+                    TextField("", text: $name)
+                        .titled(L10n.inputCreditorAccountName.localized.required)
+                    Menu(currency.rawValue) {
+                        Button(PayByBankCurrency.pound.rawValue) { currency = .pound }
+                        Button(PayByBankCurrency.euro.rawValue) { currency = .euro }
+                        Button(PayByBankCurrency.usd.rawValue) { currency = .usd }
+                    }
+                    .titled(L10n.inputCreditorAccountCurrency.localized.required)
                 }
-                .titled(L10n.inputCreditorAccountCurrency.localized.required)
+                .disabled(!isEnabled)
+                .opacity(!isEnabled ? 0.5 : 1)
             }
-            .disabled(!isEnabled)
-            .opacity(!isEnabled ? 0.5 : 1)
         }
         .onChange(of: isEnabled) { _ in validate() }
         .onChange(of: type) { _ in validate() }
