@@ -30,11 +30,19 @@ enum L10n {
     case paylinkCreateTitle
     case paylinkGetTitle
     case paylinkDeactivateTitle
+    // MARK: - FrPayment
+    case frPaymentTitle
+    case frPaymentOpenTitle
+    case frPaymentInitiateTitle
+    case frPaymentCreateTitle
+    case frPaymentGetTitle
+    case frPaymentDeactivateTitle
     // MARK: - Section
     case sectionCreditorAccount
     case sectionDebtorAccount
     case sectionPaylinkOptions
     case sectionNotificationOptions
+    case sectionFrPaymentOptions
     case sectionPaymentOptions
     case sectionPaymentOptionsPaymentReason
     case sectionLimitOptions
@@ -53,16 +61,24 @@ enum L10n {
     case inputDebtorAccountType
     case inputDescription
     case inputEnvironment
+    case inputFirstPaymentDate
     case inputLimitOptionsAmount
     case inputLimitOptionsCount
     case inputLimitOptionsDate
+    case inputLimitOptionsLimitExceeded
     case inputMerchantID
     case inputMerchantUserID
     case inputNotificationOptionsEmail
     case inputNotificationOptionsPhoneNumber
     case inputNotificationOptionsSendEmailNotification
     case inputNotificationOptionsSendSmsNotification
-    case inputPaylinkOptionsAdditionalParams
+    case inputNumberOfPayments
+    case inputFrPaymentOptionsGetRefundInfo
+    case inputFrPaymentOptionsFirstPaymentAmount
+    case inputFrPaymentOptionsLastPaymentAmount
+    case inputFrPaymentOptionsAutoRedirect
+    case inputFrPaymentOptionsDisableQRCode
+    case inputFrPaymentOptionsGenerateQRCode
     case inputPaylinkOptionsAllowPartialPayments
     case inputPaylinkOptionsAutoRedirect
     case inputPaylinkOptionsDisableQRCode
@@ -71,18 +87,10 @@ enum L10n {
     case inputPaymentOptionsForPayout
     case inputPaymentOptionsGetRefundInfo
     case inputPaymentOptionsPaymentRails
-    case inputPaymentOptionsPaymentReasonContextCode
-    case inputPaymentOptionsPaymentReasonDeliveryAdressAddressLine
-    case inputPaymentOptionsPaymentReasonDeliveryAdressBuildingNumber
-    case inputPaymentOptionsPaymentReasonDeliveryAdressCountry
-    case inputPaymentOptionsPaymentReasonDeliveryAdressPostCode
-    case inputPaymentOptionsPaymentReasonDeliveryAdressStreetName
-    case inputPaymentOptionsPaymentReasonDeliveryAdressTownName
-    case inputPaymentOptionsPaymentReasonMerchantCategoryCode
-    case inputPaymentOptionsPaymentReasonMerchantCustomerIdentification
-    case inputPaymentOptionsScheduledFor
+    case inputPeriod
     case inputRedirectURL
     case inputReference
+    case inputStandingOrderType
     case inputUniqueID
 
 }

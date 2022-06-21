@@ -9,6 +9,7 @@
 import Foundation
 
 enum AppStorageKeys: String {
+    case allowFrpCustomerChanges
     case amount
     case bankID
     case clientID
@@ -23,6 +24,8 @@ enum AppStorageKeys: String {
     case debtorAccountType
     case description
     case environment
+    case firstPaymentDate
+    case limitOptionsLimitExceeded
     case limitOptionsAmount
     case limitOptionsCount
     case limitOptionsDate
@@ -32,7 +35,13 @@ enum AppStorageKeys: String {
     case notificationOptionsPhoneNumber
     case notificationOptionsSendEmailNotification
     case notificationOptionsSendSmsNotification
-    case paylinkOptionsAdditionalParams
+    case numberOfPayments
+    case frPaymentOptionsGetRefundInfo
+    case frPaymentOptionsFirstPaymentAmount
+    case frPaymentOptionsLastPaymentAmount
+    case frPaymentOptionsAutoRedirect
+    case frPaymentOptionsDisableQRCode
+    case frPaymentOptionsGenerateQRCode
     case paylinkOptionsAllowPartialPayments
     case paylinkOptionsAutoRedirect
     case paylinkOptionsDisableQRCode
@@ -41,17 +50,9 @@ enum AppStorageKeys: String {
     case paymentOptionsForPayout
     case paymentOptionsGetRefundInfo
     case paymentOptionsPaymentRails
-    case paymentOptionsPaymentReasonContextCode
-    case paymentOptionsPaymentReasonDeliveryAdressAddressLine
-    case paymentOptionsPaymentReasonDeliveryAdressBuildingNumber
-    case paymentOptionsPaymentReasonDeliveryAdressCountry
-    case paymentOptionsPaymentReasonDeliveryAdressPostCode
-    case paymentOptionsPaymentReasonDeliveryAdressStreetName
-    case paymentOptionsPaymentReasonDeliveryAdressTownName
-    case paymentOptionsPaymentReasonMerchantCategoryCode
-    case paymentOptionsPaymentReasonMerchantCustomerIdentification
-    case paymentOptionsScheduledFor
+    case period
     case redirectURL
     case reference
+    case standingOrderType
     case uniqueID
 }

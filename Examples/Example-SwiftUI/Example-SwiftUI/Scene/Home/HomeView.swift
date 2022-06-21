@@ -14,6 +14,7 @@ struct HomeView: View {
         NavigationView {
             List {
                 NavigationLink(L10n.paylinkTitle.localizedKey, destination: PaylinkAPIs())
+                NavigationLink(L10n.frPaymentTitle.localizedKey, destination: FrPaymentAPIs())
             }
             .navigationBarTitle(L10n.homeTitle.localizedKey)
             .toolbar {
