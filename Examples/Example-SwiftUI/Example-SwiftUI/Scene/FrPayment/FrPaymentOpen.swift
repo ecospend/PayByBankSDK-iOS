@@ -38,17 +38,7 @@ struct FrPaymentOpen: View {
         loading(true)
         PayByBank.frPayment.open(uniqueID: uniqueID, viewController: viewController) { result in
             loading(false)
-            
-            switch result {
-            case .success(let result):
-                switch result.status {
-                case .canceled: toast(PayByBankStatus.canceled.rawValue)
-                case .initiated: toast(PayByBankStatus.initiated.rawValue)
-                case .redirected: toast(PayByBankStatus.redirected.rawValue)
-                }
-            case .failure(let error):
-                toast(error.localizedDescription)
-            }
+            toast(result.string)
         }
     }
 }

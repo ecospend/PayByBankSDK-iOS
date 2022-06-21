@@ -94,13 +94,7 @@ struct FrPaymentCreate: View {
         
         PayByBank.frPayment.createFrPayment(request: request) { result in
             loading(false)
-            
-            switch result {
-            case .success(let model):
-                response = model.jsonString
-            case .failure(let error):
-                response = error.localizedDescription
-            }
+            response = result.string
         }
     }
 }

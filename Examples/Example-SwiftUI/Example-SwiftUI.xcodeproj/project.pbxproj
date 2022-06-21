@@ -57,6 +57,7 @@
 		D6AEF3E42860B4CA008FD82E /* FrPaymentCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E32860B4CA008FD82E /* FrPaymentCreate.swift */; };
 		D6AEF3E62861AD98008FD82E /* FrPaymentGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */; };
 		D6AEF3E82861AE11008FD82E /* FrPaymentDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */; };
+		D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E92861B1FA008FD82E /* Result+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		D6AEF3E32860B4CA008FD82E /* FrPaymentCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentCreate.swift; sourceTree = "<group>"; };
 		D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentGet.swift; sourceTree = "<group>"; };
 		D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentDeactivate.swift; sourceTree = "<group>"; };
+		D6AEF3E92861B1FA008FD82E /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 				D690099E282C071F00979630 /* UIApplication+.swift */,
 				D695AF062857592900CB7103 /* View+.swift */,
 				D695AF34285CBE5200CB7103 /* URL+.swift */,
+				D6AEF3E92861B1FA008FD82E /* Result+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */,
 				D695AF35285CBE5200CB7103 /* URL+.swift in Sources */,
 				D6AEF3D5285FC0F4008FD82E /* APIDocuments.swift in Sources */,
+				D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */,
 				D695AF112857E46B00CB7103 /* Date+.swift in Sources */,
 				D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */,
 				D6AEF3E02860A8D2008FD82E /* FrPaymentOptionsSection.swift in Sources */,

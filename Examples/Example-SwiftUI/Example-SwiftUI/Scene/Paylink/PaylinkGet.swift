@@ -55,13 +55,7 @@ struct PaylinkGet: View {
         loading(true)
         PayByBank.paylink.getPaylink(request: PaylinkGetRequest(uniqueID: uniqueID)) { result in
             loading(false)
-            
-            switch result {
-            case .success(let model):
-                response = model.jsonString
-            case .failure(let error):
-                response = error.localizedDescription
-            }
+            response = result.string
         }
     }
 }
