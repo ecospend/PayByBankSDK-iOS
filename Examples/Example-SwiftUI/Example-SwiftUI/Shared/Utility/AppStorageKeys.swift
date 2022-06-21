@@ -23,10 +23,26 @@ enum AppStorageKeys: String {
     case limitOptionsCount
     case limitOptionsDate
     case limitOptionsLimitExceeded
+    case limitOptionsCurrency
+    case limitOptionsSinglePaymentAmount
+    case limitOptionsDailyAmount
+    case limitOptionsWeeklyAmount
+    case limitOptionsFortnightlyAmount
+    case limitOptionsMonthlyAmount
+    case limitOptionsHalfYearlyAmount
+    case limitOptionsYearlyAmount
+    case limitOptionsDailyAlignment
+    case limitOptionsWeeklyAlignment
+    case limitOptionsFortnightlyAlignment
+    case limitOptionsMonthlyAlignment
+    case limitOptionsHalfYearlyAlignment
+    case limitOptionsYearlyAlignment
     // MARK: - Input Payment Options
     case paymentOptionsForPayout
     case paymentOptionsGetRefundInfo
     case paymentOptionsPaymentRails
+    case paymentOptionsValidFrom
+    case paymentOptionsValidTo
     // MARK: - Input Options
     case optionsFirstPaymentAmount
     case optionsLastPaymentAmount
@@ -36,13 +52,16 @@ enum AppStorageKeys: String {
     case optionsDisableQRCode
     case optionsDontRedirect
     case optionsTip
-    // MARK: - Input
-    case amount
-    case bankID
+    // MARK: - Input Account
     case accountCurrency
     case accountIdentification
     case accountName
     case accountType
+    // MARK: - Input
+    case amount
+    case bankID
+    case type
+    case reason
     case description
     case firstPaymentDate
     case merchantID
@@ -53,5 +72,7 @@ enum AppStorageKeys: String {
     case reference
     case standingOrderType
     case allowFrpCustomerChanges
+    case verifyCreditorAccount
+    case verifyDebtorAccount
     case uniqueID
 }

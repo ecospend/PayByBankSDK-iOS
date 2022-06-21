@@ -1,15 +1,15 @@
 //
-//  FrPaymentOpen.swift
+//  VRPlinkOpen.swift
 //  Example-SwiftUI
 //
-//  Created by Yunus TÜR on 20.06.2022.
+//  Created by Yunus TÜR on 21.06.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import SwiftUI
 import PayByBank
 
-struct FrPaymentOpen: View {
+struct VRPlinkOpen: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
@@ -31,21 +31,21 @@ struct FrPaymentOpen: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.frPaymentOpenTitle.localizedKey)
+        .navigationTitle(L10n.vrplinkOpenTitle.localizedKey)
     }
     
     func submit() {
         guard let viewController = UIApplication.shared.topViewController else { return }
         loading(true)
-        PayByBank.frPayment.open(uniqueID: uniqueID, viewController: viewController) { result in
+        PayByBank.vrplink.open(uniqueID: uniqueID, viewController: viewController) { result in
             loading(false)
             toast(result.string)
         }
     }
 }
 
-struct FrPaymentOpen_Previews: PreviewProvider {
+struct VRPlinkOpen_Previews: PreviewProvider {
     static var previews: some View {
-        FrPaymentOpen()
+        VRPlinkOpen()
     }
 }

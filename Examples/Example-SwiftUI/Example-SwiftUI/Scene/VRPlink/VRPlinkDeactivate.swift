@@ -1,5 +1,5 @@
 //
-//  FrPaymentDeactivate.swift
+//  VRPlinkDeactivate.swift
 //  Example-SwiftUI
 //
 //  Created by Yunus TÜR on 21.06.2022.
@@ -9,7 +9,7 @@
 import SwiftUI
 import PayByBank
 
-struct FrPaymentDeactivate: View {
+struct VRPlinkDeactivate: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
@@ -34,10 +34,10 @@ struct FrPaymentDeactivate: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.frPaymentDeactivateTitle.localizedKey)
+        .navigationTitle(L10n.vrplinkDeactivateTitle.localizedKey)
         .toolbar {
             Button {
-                url = URL(string: APIDocuments.FrPayment.deactivate)
+                url = URL(string: APIDocuments.VRPlink.deactivate)
             } label: {
                 Image(systemName: "safari")
             }
@@ -53,15 +53,15 @@ struct FrPaymentDeactivate: View {
     
     func submit() {
         loading(true)
-        PayByBank.frPayment.deactivateFrPayment(request: FrPaymentDeleteRequest(uniqueID: uniqueID)) { result in
+        PayByBank.vrplink.deactivateVRPlink(request: VRPlinkDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)
             response = result.string
         }
     }
 }
 
-struct FrPaymentDeactivate_Previews: PreviewProvider {
+struct VRPlinkDeactivate_Previews: PreviewProvider {
     static var previews: some View {
-        FrPaymentDeactivate()
+        VRPlinkDeactivate()
     }
 }

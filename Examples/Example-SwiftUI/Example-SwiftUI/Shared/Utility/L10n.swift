@@ -37,6 +37,14 @@ enum L10n {
     case frPaymentCreateTitle
     case frPaymentGetTitle
     case frPaymentDeactivateTitle
+    // MARK: - VRPlink
+    case vrplinkTitle
+    case vrplinkOpenTitle
+    case vrplinkInitiateTitle
+    case vrplinkCreateTitle
+    case vrplinkGetTitle
+    case vrplinkDeactivateTitle
+    case vrplinkListRecordsTitle
     // MARK: - Section
     case sectionCreditorAccount
     case sectionDebtorAccount
@@ -63,10 +71,26 @@ enum L10n {
     case inputLimitOptionsCount
     case inputLimitOptionsDate
     case inputLimitOptionsLimitExceeded
+    case inputLimitOptionsCurrency
+    case inputLimitOptionsSinglePaymentAmount
+    case inputLimitOptionsDailyAmount
+    case inputLimitOptionsWeeklyAmount
+    case inputLimitOptionsFortnightlyAmount
+    case inputLimitOptionsMonthlyAmount
+    case inputLimitOptionsHalfYearlyAmount
+    case inputLimitOptionsYearlyAmount
+    case inputLimitOptionsDailyAlignment
+    case inputLimitOptionsWeeklyAlignment
+    case inputLimitOptionsFortnightlyAlignment
+    case inputLimitOptionsMonthlyAlignment
+    case inputLimitOptionsHalfYearlyAlignment
+    case inputLimitOptionsYearlyAlignment
     // MARK: - Input Payment Options
     case inputPaymentOptionsForPayout
     case inputPaymentOptionsGetRefundInfo
     case inputPaymentOptionsPaymentRails
+    case inputPaymentOptionsValidFrom
+    case inputPaymentOptionsValidTo
     // MARK: - Input Options
     case inputOptionsFirstPaymentAmount
     case inputOptionsLastPaymentAmount
@@ -76,13 +100,16 @@ enum L10n {
     case inputOptionsDisableQRCode
     case inputOptionsDontRedirect
     case inputOptionsTip
-    // MARK: - Input
-    case inputAmount
-    case inputBankID
+    // MARK: - Input Account
     case inputAccountCurrency
     case inputAccountIdentification
     case inputAccountName
     case inputAccountType
+    // MARK: - Input
+    case inputAmount
+    case inputBankID
+    case inputType
+    case inputReason
     case inputDescription
     case inputFirstPaymentDate
     case inputMerchantID
@@ -93,6 +120,8 @@ enum L10n {
     case inputReference
     case inputStandingOrderType
     case inputAllowFrpCustomerChanges
+    case inputVerifyCreditorAccount
+    case inputVerifyDebtorAccount
     case inputUniqueID
 }
 

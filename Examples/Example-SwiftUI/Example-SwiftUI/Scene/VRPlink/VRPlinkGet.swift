@@ -1,20 +1,23 @@
 //
-//  FrPaymentOpen.swift
+//  VRPlinkGet.swift
 //  Example-SwiftUI
 //
-//  Created by Yunus TÜR on 20.06.2022.
+//  Created by Yunus TÜR on 21.06.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import SwiftUI
 import PayByBank
 
-struct FrPaymentOpen: View {
+struct VRPlinkGet: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
     
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
+    
+    @State private var response: String? = nil
+    @State private var url: URL? = nil
     
     var body: some View {
         VStack {
@@ -31,21 +34,34 @@ struct FrPaymentOpen: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.frPaymentOpenTitle.localizedKey)
+        .navigationTitle(L10n.vrplinkGetTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.VRPlink.get)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
+        .sheet(item: $response) { response in
+            ResponseView(response: response)
+        }
     }
     
     func submit() {
-        guard let viewController = UIApplication.shared.topViewController else { return }
         loading(true)
-        PayByBank.frPayment.open(uniqueID: uniqueID, viewController: viewController) { result in
+        PayByBank.vrplink.getVRPlink(request: VRPlinkGetRequest(uniqueID: uniqueID)) { result in
             loading(false)
-            toast(result.string)
+            response = result.string
         }
     }
 }
 
-struct FrPaymentOpen_Previews: PreviewProvider {
+struct VRPlinkGet_Previews: PreviewProvider {
     static var previews: some View {
-        FrPaymentOpen()
+        VRPlinkGet()
     }
 }

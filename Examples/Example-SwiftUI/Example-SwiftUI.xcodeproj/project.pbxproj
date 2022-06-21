@@ -58,6 +58,18 @@
 		D6AEF3E62861AD98008FD82E /* FrPaymentGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */; };
 		D6AEF3E82861AE11008FD82E /* FrPaymentDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */; };
 		D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E92861B1FA008FD82E /* Result+.swift */; };
+		D6AEF3EF2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3EE2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift */; };
+		D6AEF3F12861D045008FD82E /* VRPlinkOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F02861D045008FD82E /* VRPlinkOptionsSection.swift */; };
+		D6AEF3F32861DB10008FD82E /* VRPOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F22861DB10008FD82E /* VRPOptionsSection.swift */; };
+		D6AEF3F52861E0E0008FD82E /* VRPlinkCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F42861E0E0008FD82E /* VRPlinkCreateMainSection.swift */; };
+		D6AEF3F72861ECB8008FD82E /* VRPLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F62861ECB8008FD82E /* VRPLimitOptionsSection.swift */; };
+		D6AEF3FA2861F608008FD82E /* VRPlinkAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F92861F608008FD82E /* VRPlinkAPIs.swift */; };
+		D6AEF3FC2861F61A008FD82E /* VRPlinkCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3FB2861F61A008FD82E /* VRPlinkCreate.swift */; };
+		D6AEF3FE28624463008FD82E /* VRPlinkOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */; };
+		D6AEF400286245DD008FD82E /* VRPlinkDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3FF286245DD008FD82E /* VRPlinkDeactivate.swift */; };
+		D6AEF4022862463B008FD82E /* VRPlinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4012862463B008FD82E /* VRPlinkGet.swift */; };
+		D6AEF40428624694008FD82E /* VRPlinkInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */; };
+		D6AEF4062862472F008FD82E /* VRPlinkListRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +143,18 @@
 		D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentGet.swift; sourceTree = "<group>"; };
 		D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentDeactivate.swift; sourceTree = "<group>"; };
 		D6AEF3E92861B1FA008FD82E /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
+		D6AEF3EE2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkLimitOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F02861D045008FD82E /* VRPlinkOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F22861DB10008FD82E /* VRPOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F42861E0E0008FD82E /* VRPlinkCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkCreateMainSection.swift; sourceTree = "<group>"; };
+		D6AEF3F62861ECB8008FD82E /* VRPLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPLimitOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F92861F608008FD82E /* VRPlinkAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkAPIs.swift; sourceTree = "<group>"; };
+		D6AEF3FB2861F61A008FD82E /* VRPlinkCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkCreate.swift; sourceTree = "<group>"; };
+		D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkOpen.swift; sourceTree = "<group>"; };
+		D6AEF3FF286245DD008FD82E /* VRPlinkDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkDeactivate.swift; sourceTree = "<group>"; };
+		D6AEF4012862463B008FD82E /* VRPlinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkGet.swift; sourceTree = "<group>"; };
+		D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkInitiate.swift; sourceTree = "<group>"; };
+		D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkListRecords.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +264,7 @@
 				D6900978282BC42700979630 /* Home */,
 				D690097A282BC4C300979630 /* Paylink */,
 				D690097F282BC82900979630 /* Settings */,
+				D6AEF3F82861F5AD008FD82E /* VRPlink */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -353,15 +378,12 @@
 		D695AF122859C36800CB7103 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				D6AEF3EC2861BE7C008FD82E /* FrPayment */,
+				D6AEF3EB2861BE72008FD82E /* Paylink */,
+				D6AEF3ED2861BE94008FD82E /* VRPlink */,
 				D695AF132859C3D400CB7103 /* CreditorAccountSection.swift */,
 				D695AF152859F64B00CB7103 /* DebtorAccountSection.swift */,
 				D695AF1D285A0FB100CB7103 /* NotificationOptionsSection.swift */,
-				D695AF172859F7DD00CB7103 /* PaylinkCreateMainSection.swift */,
-				D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */,
-				D695AF1B2859FF9E00CB7103 /* PaylinkOptionsSection.swift */,
-				D695AF1F285B113500CB7103 /* PaylinkPaymentOptionsSection.swift */,
-				D6AEF3DD28609EE4008FD82E /* FrPaymentCreateMainSection.swift */,
-				D6AEF3DF2860A8D2008FD82E /* FrPaymentOptionsSection.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -377,6 +399,52 @@
 				D6AEF3D928609C9D008FD82E /* FrPaymentOpen.swift */,
 			);
 			path = FrPayment;
+			sourceTree = "<group>";
+		};
+		D6AEF3EB2861BE72008FD82E /* Paylink */ = {
+			isa = PBXGroup;
+			children = (
+				D695AF172859F7DD00CB7103 /* PaylinkCreateMainSection.swift */,
+				D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */,
+				D695AF1B2859FF9E00CB7103 /* PaylinkOptionsSection.swift */,
+				D695AF1F285B113500CB7103 /* PaylinkPaymentOptionsSection.swift */,
+			);
+			path = Paylink;
+			sourceTree = "<group>";
+		};
+		D6AEF3EC2861BE7C008FD82E /* FrPayment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3DD28609EE4008FD82E /* FrPaymentCreateMainSection.swift */,
+				D6AEF3DF2860A8D2008FD82E /* FrPaymentOptionsSection.swift */,
+			);
+			path = FrPayment;
+			sourceTree = "<group>";
+		};
+		D6AEF3ED2861BE94008FD82E /* VRPlink */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3F62861ECB8008FD82E /* VRPLimitOptionsSection.swift */,
+				D6AEF3F42861E0E0008FD82E /* VRPlinkCreateMainSection.swift */,
+				D6AEF3EE2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift */,
+				D6AEF3F02861D045008FD82E /* VRPlinkOptionsSection.swift */,
+				D6AEF3F22861DB10008FD82E /* VRPOptionsSection.swift */,
+			);
+			path = VRPlink;
+			sourceTree = "<group>";
+		};
+		D6AEF3F82861F5AD008FD82E /* VRPlink */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3F92861F608008FD82E /* VRPlinkAPIs.swift */,
+				D6AEF3FB2861F61A008FD82E /* VRPlinkCreate.swift */,
+				D6AEF3FF286245DD008FD82E /* VRPlinkDeactivate.swift */,
+				D6AEF4012862463B008FD82E /* VRPlinkGet.swift */,
+				D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */,
+				D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */,
+				D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */,
+			);
+			path = VRPlink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,7 +586,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AEF3F52861E0E0008FD82E /* VRPlinkCreateMainSection.swift in Sources */,
 				D695AF1C2859FF9E00CB7103 /* PaylinkOptionsSection.swift in Sources */,
+				D6AEF400286245DD008FD82E /* VRPlinkDeactivate.swift in Sources */,
+				D6AEF3F32861DB10008FD82E /* VRPOptionsSection.swift in Sources */,
 				D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */,
 				D6AEF3DE28609EE4008FD82E /* FrPaymentCreateMainSection.swift in Sources */,
 				D695AF20285B113500CB7103 /* PaylinkPaymentOptionsSection.swift in Sources */,
@@ -526,13 +597,16 @@
 				D695AF1A2859F8CD00CB7103 /* Decimal+.swift in Sources */,
 				D6900976282AA5DC00979630 /* HomeView.swift in Sources */,
 				D69009B12837998D00979630 /* Toast.swift in Sources */,
+				D6AEF40428624694008FD82E /* VRPlinkInitiate.swift in Sources */,
 				D695AF162859F64B00CB7103 /* DebtorAccountSection.swift in Sources */,
 				D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */,
 				D6AEF3E42860B4CA008FD82E /* FrPaymentCreate.swift in Sources */,
+				D6AEF4062862472F008FD82E /* VRPlinkListRecords.swift in Sources */,
 				D695AF0928575C9900CB7103 /* AppStorageKeys.swift in Sources */,
 				D69009A1283246FD00979630 /* Color+.swift in Sources */,
 				D695AF142859C3D400CB7103 /* CreditorAccountSection.swift in Sources */,
 				D695AF072857592900CB7103 /* View+.swift in Sources */,
+				D6AEF3FE28624463008FD82E /* VRPlinkOpen.swift in Sources */,
 				D6AEF3D828609C8B008FD82E /* FrPaymentAPIs.swift in Sources */,
 				D6AEF3DC28609E7E008FD82E /* FrPaymentInitiate.swift in Sources */,
 				D6AEF3E62861AD98008FD82E /* FrPaymentGet.swift in Sources */,
@@ -543,21 +617,27 @@
 				D6AEF3DA28609C9D008FD82E /* FrPaymentOpen.swift in Sources */,
 				D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */,
 				D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */,
+				D6AEF3EF2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift in Sources */,
+				D6AEF3F12861D045008FD82E /* VRPlinkOptionsSection.swift in Sources */,
 				D695AF35285CBE5200CB7103 /* URL+.swift in Sources */,
 				D6AEF3D5285FC0F4008FD82E /* APIDocuments.swift in Sources */,
 				D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */,
 				D695AF112857E46B00CB7103 /* Date+.swift in Sources */,
 				D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */,
 				D6AEF3E02860A8D2008FD82E /* FrPaymentOptionsSection.swift in Sources */,
+				D6AEF3F72861ECB8008FD82E /* VRPLimitOptionsSection.swift in Sources */,
 				D695AF0B285767D800CB7103 /* Titled.swift in Sources */,
 				D6900981282BC85400979630 /* Settings.swift in Sources */,
 				D6AEF3E82861AE11008FD82E /* FrPaymentDeactivate.swift in Sources */,
+				D6AEF4022862463B008FD82E /* VRPlinkGet.swift in Sources */,
 				D690099F282C071F00979630 /* UIApplication+.swift in Sources */,
 				D690092F282A75A100979630 /* Example_SwiftUIApp.swift in Sources */,
 				D6900994282BF52400979630 /* PaylinkOpen.swift in Sources */,
 				D695AF0F2857D60A00CB7103 /* String+.swift in Sources */,
 				D695AF0D2857697B00CB7103 /* PrimaryButton.swift in Sources */,
 				D695AF32285CBBD900CB7103 /* SafariView.swift in Sources */,
+				D6AEF3FA2861F608008FD82E /* VRPlinkAPIs.swift in Sources */,
+				D6AEF3FC2861F61A008FD82E /* VRPlinkCreate.swift in Sources */,
 				D695AF24285B3C1900CB7103 /* Encodable+.swift in Sources */,
 				D695AF1E285A0FB100CB7103 /* NotificationOptionsSection.swift in Sources */,
 				D690098B282BD99400979630 /* L10n.swift in Sources */,

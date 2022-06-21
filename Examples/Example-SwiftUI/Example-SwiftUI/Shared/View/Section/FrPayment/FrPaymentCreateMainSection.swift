@@ -18,7 +18,6 @@ struct FrPaymentCreateMainSection: View {
     @AppStorage(Self.storage(key: .bankID)) private var bankID: String = ""
     @AppStorage(Self.storage(key: .merchantID)) private var merchantID: String = ""
     @AppStorage(Self.storage(key: .merchantUserID)) private var merchantUserID: String = ""
-    
     @AppStorage(Self.storage(key: .firstPaymentDate)) var firstPaymentDate: Date = .now
     @AppStorage(Self.storage(key: .numberOfPayments)) var numberOfPayments: Int = 0
     @AppStorage(Self.storage(key: .period)) var period: FrPaymentPeriod = .weekly

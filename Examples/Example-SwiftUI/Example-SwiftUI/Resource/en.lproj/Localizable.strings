@@ -33,6 +33,14 @@
 "FrPaymentCreateTitle" = "Create FrPayment";
 "FrPaymentGetTitle" = "Get FrPayment";
 "FrPaymentDeactivateTitle" = "Deactivate FrPayment";
+// MARK: - VRPlink
+"VrplinkTitle" = "VRPlink";
+"VrplinkOpenTitle" = "Open VRPlink";
+"VrplinkInitiateTitle" = "Initiate VRPlink";
+"VrplinkCreateTitle" = "Create VRPlink";
+"VrplinkGetTitle" = "Get VRPlink";
+"VrplinkDeactivateTitle" = "Deactivate VRPlink";
+"VrplinkListRecordsTitle" = "List VRP Records";
 // MARK: - Section
 "SectionCreditorAccount" = "Creditor Account";
 "SectionDebtorAccount" = "Debtor Account";
@@ -59,10 +67,26 @@
 "InputLimitOptionsCount" = "Count";
 "InputLimitOptionsDate" = "Date";
 "InputLimitOptionsLimitExceeded" = "Limit Exceeded";
+"InputLimitOptionsCurrency" = "Currency";
+"InputLimitOptionsSinglePaymentAmount" = "Single Payment Amount";
+"InputLimitOptionsDailyAmount" = "Daily Amount";
+"InputLimitOptionsWeeklyAmount" = "Weekly Amount";
+"InputLimitOptionsFortnightlyAmount" = "Fortnightly Amount";
+"InputLimitOptionsMonthlyAmount" = "Monthly Amount";
+"InputLimitOptionsHalfYearlyAmount" = "Half Yearly Amount";
+"InputLimitOptionsYearlyAmount" = "Yearly Amount";
+"InputLimitOptionsDailyAlignment" = "Daily Alignment";
+"InputLimitOptionsWeeklyAlignment" = "Weekly Alignment";
+"InputLimitOptionsFortnightlyAlignment" = "Fortnightly Alignment";
+"InputLimitOptionsMonthlyAlignment" = "Monthly Alignment";
+"InputLimitOptionsHalfYearlyAlignment" = "Half Yearly Alignment";
+"InputLimitOptionsYearlyAlignment" = "Yearly Alignment";
 // MARK: - Input Payment Options
 "InputPaymentOptionsForPayout" = "For Payout";
 "InputPaymentOptionsGetRefundInfo" = "Get Refund Info";
 "InputPaymentOptionsPaymentRails" = "Payment Rails";
+"InputPaymentOptionsValidFrom" = "Valid From";
+"InputPaymentOptionsValidTo" = "Valid To";
 // MARK: - Input Options
 "InputOptionsFirstPaymentAmount" = "First Payment Amount";
 "InputOptionsLastPaymentAmount" = "Last Payment Amount";
@@ -72,13 +96,16 @@
 "InputOptionsDisableQRCode" = "Disable QR Code";
 "InputOptionsDontRedirect" = "Don't Redirect";
 "InputOptionsTip" = "Tip";
-// MARK: - Input
-"InputAmount" = "Amount";
-"InputBankID" = "Bank ID";
+// MARK: - Input Account
 "InputAccountCurrency" = "Currency";
 "InputAccountIdentification" = "Identification";
 "InputAccountName" = "Name";
 "InputAccountType" = "Type";
+// MARK: - Input
+"InputAmount" = "Amount";
+"InputBankID" = "Bank ID";
+"InputType" = "Type";
+"InputReason" = "Reason";
 "InputDescription" = "Description";
 "InputFirstPaymentDate" = "First Payment Date";
 "InputMerchantID" = "Merchant ID";
@@ -89,4 +116,7 @@
 "InputReference" = "Reference";
 "InputStandingOrderType" = "Standing Order Type";
 "InputAllowFrpCustomerChanges" = "Allow FrPayment Customer Changes";
+"InputVerifyCreditorAccount" = "Verify Creditor Account";
+"InputVerifyDebtorAccount" = "Verify Debtor Account";
 "InputUniqueID" = "Unique ID";
+

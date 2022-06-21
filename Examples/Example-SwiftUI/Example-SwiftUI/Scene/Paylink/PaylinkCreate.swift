@@ -10,6 +10,7 @@ import SwiftUI
 import PayByBank
 
 struct PaylinkCreate: View {
+    
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
     
