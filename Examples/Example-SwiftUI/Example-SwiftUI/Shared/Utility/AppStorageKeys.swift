@@ -9,50 +9,49 @@
 import Foundation
 
 enum AppStorageKeys: String {
-    case allowFrpCustomerChanges
-    case amount
-    case bankID
-    case clientID
-    case clientSecret
-    case creditorAccountCurrency
-    case creditorAccountIdentification
-    case creditorAccountName
-    case creditorAccountType
-    case debtorAccountCurrency
-    case debtorAccountIdentification
-    case debtorAccountName
-    case debtorAccountType
-    case description
-    case environment
-    case firstPaymentDate
-    case limitOptionsLimitExceeded
-    case limitOptionsAmount
-    case limitOptionsCount
-    case limitOptionsDate
-    case merchantID
-    case merchantUserID
+    // MARK: - Input Settings
+    case settingsEnvironment
+    case settingsClientID
+    case settingsClientSecret
+    // MARK: - Input Notification Options
     case notificationOptionsEmail
     case notificationOptionsPhoneNumber
     case notificationOptionsSendEmailNotification
     case notificationOptionsSendSmsNotification
-    case numberOfPayments
-    case frPaymentOptionsGetRefundInfo
-    case frPaymentOptionsFirstPaymentAmount
-    case frPaymentOptionsLastPaymentAmount
-    case frPaymentOptionsAutoRedirect
-    case frPaymentOptionsDisableQRCode
-    case frPaymentOptionsGenerateQRCode
-    case paylinkOptionsAllowPartialPayments
-    case paylinkOptionsAutoRedirect
-    case paylinkOptionsDisableQRCode
-    case paylinkOptionsGenerateQRCode
-    case paylinkOptionsTip
+    // MARK: - Input Limit Options
+    case limitOptionsAmount
+    case limitOptionsCount
+    case limitOptionsDate
+    case limitOptionsLimitExceeded
+    // MARK: - Input Payment Options
     case paymentOptionsForPayout
     case paymentOptionsGetRefundInfo
     case paymentOptionsPaymentRails
+    // MARK: - Input Options
+    case optionsFirstPaymentAmount
+    case optionsLastPaymentAmount
+    case optionsAllowPartialPayments
+    case optionsAutoRedirect
+    case optionsGenerateQRCode
+    case optionsDisableQRCode
+    case optionsDontRedirect
+    case optionsTip
+    // MARK: - Input
+    case amount
+    case bankID
+    case accountCurrency
+    case accountIdentification
+    case accountName
+    case accountType
+    case description
+    case firstPaymentDate
+    case merchantID
+    case merchantUserID
+    case numberOfPayments
     case period
     case redirectURL
     case reference
     case standingOrderType
+    case allowFrpCustomerChanges
     case uniqueID
 }

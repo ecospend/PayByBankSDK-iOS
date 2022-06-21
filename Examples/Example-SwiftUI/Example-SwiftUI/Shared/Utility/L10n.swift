@@ -44,55 +44,56 @@ enum L10n {
     case sectionNotificationOptions
     case sectionFrPaymentOptions
     case sectionPaymentOptions
+    case sectionVRPOptions
+    case sectionVRPlinkOptions
+    case sectionVRPlinkLimitOptions
     case sectionPaymentOptionsPaymentReason
     case sectionLimitOptions
-    // MARK: - Input
-    case inputAmount
-    case inputBankID
-    case inputClientID
-    case inputClientSecret
-    case inputCreditorAccountCurrency
-    case inputCreditorAccountIdentification
-    case inputCreditorAccountName
-    case inputCreditorAccountType
-    case inputDebtorAccountCurrency
-    case inputDebtorAccountIdentification
-    case inputDebtorAccountName
-    case inputDebtorAccountType
-    case inputDescription
-    case inputEnvironment
-    case inputFirstPaymentDate
-    case inputLimitOptionsAmount
-    case inputLimitOptionsCount
-    case inputLimitOptionsDate
-    case inputLimitOptionsLimitExceeded
-    case inputMerchantID
-    case inputMerchantUserID
+    // MARK: - Input Settings
+    case inputSettingsEnvironment
+    case inputSettingsClientID
+    case inputSettingsClientSecret
+    // MARK: - Input Notification Options
     case inputNotificationOptionsEmail
     case inputNotificationOptionsPhoneNumber
     case inputNotificationOptionsSendEmailNotification
     case inputNotificationOptionsSendSmsNotification
-    case inputNumberOfPayments
-    case inputFrPaymentOptionsGetRefundInfo
-    case inputFrPaymentOptionsFirstPaymentAmount
-    case inputFrPaymentOptionsLastPaymentAmount
-    case inputFrPaymentOptionsAutoRedirect
-    case inputFrPaymentOptionsDisableQRCode
-    case inputFrPaymentOptionsGenerateQRCode
-    case inputPaylinkOptionsAllowPartialPayments
-    case inputPaylinkOptionsAutoRedirect
-    case inputPaylinkOptionsDisableQRCode
-    case inputPaylinkOptionsGenerateQRCode
-    case inputPaylinkOptionsTip
+    // MARK: - Input Limit Options
+    case inputLimitOptionsAmount
+    case inputLimitOptionsCount
+    case inputLimitOptionsDate
+    case inputLimitOptionsLimitExceeded
+    // MARK: - Input Payment Options
     case inputPaymentOptionsForPayout
     case inputPaymentOptionsGetRefundInfo
     case inputPaymentOptionsPaymentRails
+    // MARK: - Input Options
+    case inputOptionsFirstPaymentAmount
+    case inputOptionsLastPaymentAmount
+    case inputOptionsAllowPartialPayments
+    case inputOptionsAutoRedirect
+    case inputOptionsGenerateQRCode
+    case inputOptionsDisableQRCode
+    case inputOptionsDontRedirect
+    case inputOptionsTip
+    // MARK: - Input
+    case inputAmount
+    case inputBankID
+    case inputAccountCurrency
+    case inputAccountIdentification
+    case inputAccountName
+    case inputAccountType
+    case inputDescription
+    case inputFirstPaymentDate
+    case inputMerchantID
+    case inputMerchantUserID
+    case inputNumberOfPayments
     case inputPeriod
     case inputRedirectURL
     case inputReference
     case inputStandingOrderType
+    case inputAllowFrpCustomerChanges
     case inputUniqueID
-
 }
 
 // MARK: - Logic

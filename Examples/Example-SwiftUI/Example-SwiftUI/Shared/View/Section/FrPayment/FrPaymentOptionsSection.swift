@@ -10,12 +10,12 @@ import SwiftUI
 import PayByBank
 
 struct FrPaymentOptionsSection: View {
-    @AppStorage(Self.storage(key: .frPaymentOptionsGetRefundInfo)) private var getRefundInfo: Bool = false
-    @AppStorage(Self.storage(key: .frPaymentOptionsFirstPaymentAmount)) private var firstPaymentAmount: Decimal = 0.0
-    @AppStorage(Self.storage(key: .frPaymentOptionsLastPaymentAmount)) private var lastPaymentAmount: Decimal = 0.0
-    @AppStorage(Self.storage(key: .frPaymentOptionsAutoRedirect)) private var autoRedirect: Bool = false
-    @AppStorage(Self.storage(key: .frPaymentOptionsGenerateQRCode)) private var generateQRCode: Bool = false
-    @AppStorage(Self.storage(key: .frPaymentOptionsDisableQRCode)) private var disableQRCode: Bool = false
+    @AppStorage(Self.storage(key: .paymentOptionsGetRefundInfo)) private var getRefundInfo: Bool = false
+    @AppStorage(Self.storage(key: .optionsFirstPaymentAmount)) private var firstPaymentAmount: Decimal = 0.0
+    @AppStorage(Self.storage(key: .optionsLastPaymentAmount)) private var lastPaymentAmount: Decimal = 0.0
+    @AppStorage(Self.storage(key: .optionsAutoRedirect)) private var autoRedirect: Bool = false
+    @AppStorage(Self.storage(key: .optionsGenerateQRCode)) private var generateQRCode: Bool = false
+    @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     
     @State private var isEnabled: Bool = false
     @Binding private(set) var isValid: Bool
@@ -25,16 +25,16 @@ struct FrPaymentOptionsSection: View {
         List {
             Section(header: header) {
                 Group {
-                    Toggle(L10n.inputFrPaymentOptionsGetRefundInfo.localized, isOn: $getRefundInfo)
+                    Toggle(L10n.inputPaymentOptionsGetRefundInfo.localized, isOn: $getRefundInfo)
                     TextField("", value: $firstPaymentAmount, format: .number)
                         .keyboardType(.decimalPad)
-                        .titled(L10n.inputFrPaymentOptionsFirstPaymentAmount.localized)
+                        .titled(L10n.inputOptionsFirstPaymentAmount.localized)
                     TextField("", value: $lastPaymentAmount, format: .number)
                         .keyboardType(.decimalPad)
-                        .titled(L10n.inputFrPaymentOptionsLastPaymentAmount.localized)
-                    Toggle(L10n.inputPaylinkOptionsAutoRedirect.localized, isOn: $autoRedirect)
-                    Toggle(L10n.inputPaylinkOptionsGenerateQRCode.localized, isOn: $generateQRCode)
-                    Toggle(L10n.inputPaylinkOptionsDisableQRCode.localized, isOn: $disableQRCode)
+                        .titled(L10n.inputOptionsLastPaymentAmount.localized)
+                    Toggle(L10n.inputOptionsAutoRedirect.localized, isOn: $autoRedirect)
+                    Toggle(L10n.inputOptionsGenerateQRCode.localized, isOn: $generateQRCode)
+                    Toggle(L10n.inputOptionsDisableQRCode.localized, isOn: $disableQRCode)
                 }
                 .disabled(!isEnabled)
                 .opacity(!isEnabled ? 0.5 : 1)

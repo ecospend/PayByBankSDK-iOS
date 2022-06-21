@@ -11,10 +11,10 @@ import PayByBank
 
 struct PaylinkOptionsSection: View {
     
-    @AppStorage(Self.storage(key: .paylinkOptionsAutoRedirect)) private var autoRedirect: Bool = false
-    @AppStorage(Self.storage(key: .paylinkOptionsGenerateQRCode)) private var generateQRCode: Bool = false
-    @AppStorage(Self.storage(key: .paylinkOptionsAllowPartialPayments)) private var allowPartialPayments: Bool = false
-    @AppStorage(Self.storage(key: .paylinkOptionsDisableQRCode)) private var disableQRCode: Bool = false
+    @AppStorage(Self.storage(key: .optionsAutoRedirect)) private var autoRedirect: Bool = false
+    @AppStorage(Self.storage(key: .optionsGenerateQRCode)) private var generateQRCode: Bool = false
+    @AppStorage(Self.storage(key: .optionsAllowPartialPayments)) private var allowPartialPayments: Bool = false
+    @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     
     @State private var isEnabled: Bool = false
     @Binding private(set) var isValid: Bool
@@ -24,10 +24,10 @@ struct PaylinkOptionsSection: View {
         List {
             Section(header: header) {
                 Group {
-                    Toggle(L10n.inputPaylinkOptionsAutoRedirect.localized, isOn: $autoRedirect)
-                    Toggle(L10n.inputPaylinkOptionsGenerateQRCode.localized, isOn: $generateQRCode)
-                    Toggle(L10n.inputPaylinkOptionsAllowPartialPayments.localized, isOn: $allowPartialPayments)
-                    Toggle(L10n.inputPaylinkOptionsDisableQRCode.localized, isOn: $disableQRCode)
+                    Toggle(L10n.inputOptionsAutoRedirect.localized, isOn: $autoRedirect)
+                    Toggle(L10n.inputOptionsGenerateQRCode.localized, isOn: $generateQRCode)
+                    Toggle(L10n.inputOptionsAllowPartialPayments.localized, isOn: $allowPartialPayments)
+                    Toggle(L10n.inputOptionsDisableQRCode.localized, isOn: $disableQRCode)
                 }
                 .disabled(!isEnabled)
                 .opacity(!isEnabled ? 0.5 : 1)

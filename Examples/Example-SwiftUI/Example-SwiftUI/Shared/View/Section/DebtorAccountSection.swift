@@ -10,10 +10,10 @@ import SwiftUI
 import PayByBank
 
 struct DebtorAccountSection: View {
-    @AppStorage(Self.storage(key: .debtorAccountType)) private var type: PayByBankAccountType = .sortCode
-    @AppStorage(Self.storage(key: .debtorAccountIdentification)) private var identification: String = ""
-    @AppStorage(Self.storage(key: .debtorAccountName)) private var name: String = ""
-    @AppStorage(Self.storage(key: .debtorAccountCurrency)) private var currency: PayByBankCurrency = .pound
+    @AppStorage(Self.storage(key: .accountType)) private var type: PayByBankAccountType = .sortCode
+    @AppStorage(Self.storage(key: .accountIdentification)) private var identification: String = ""
+    @AppStorage(Self.storage(key: .accountName)) private var name: String = ""
+    @AppStorage(Self.storage(key: .accountCurrency)) private var currency: PayByBankCurrency = .pound
     
     @State private var isEnabled: Bool = false
     @State private(set) var isRequired: Bool = false
@@ -29,17 +29,17 @@ struct DebtorAccountSection: View {
                         Button(PayByBankAccountType.iban.rawValue) { type = .iban }
                         Button(PayByBankAccountType.bban.rawValue) { type = .bban }
                     }
-                    .titled(L10n.inputDebtorAccountIdentification.localized.required)
+                    .titled(L10n.inputAccountType.localized.required)
                     TextField("", text: $identification)
-                        .titled(L10n.inputDebtorAccountIdentification.localized.required)
+                        .titled(L10n.inputAccountIdentification.localized.required)
                     TextField("", text: $name)
-                        .titled(L10n.inputDebtorAccountName.localized.required)
+                        .titled(L10n.inputAccountName.localized.required)
                     Menu(currency.rawValue) {
                         Button(PayByBankCurrency.pound.rawValue) { currency = .pound }
                         Button(PayByBankCurrency.euro.rawValue) { currency = .euro }
                         Button(PayByBankCurrency.usd.rawValue) { currency = .usd }
                     }
-                    .titled(L10n.inputDebtorAccountCurrency.localized.required)
+                    .titled(L10n.inputAccountCurrency.localized.required)
                 }
                 .disabled(!isEnabled)
                 .opacity(!isEnabled ? 0.5 : 1)

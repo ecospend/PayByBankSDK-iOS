@@ -68,7 +68,7 @@ struct FrPaymentCreateMainSection: View {
                         Button(FrPaymentStandingOrderType.international.rawValue.capitalized) { standingOrderType = .international }
                     }
                     .titled(L10n.inputStandingOrderType.localized)
-                    Toggle(L10n.inputPaylinkOptionsAllowPartialPayments.localized, isOn: $allowFrpCustomerChanges)
+                    Toggle(L10n.inputAllowFrpCustomerChanges.localized, isOn: $allowFrpCustomerChanges)
                 }
             }
         }
