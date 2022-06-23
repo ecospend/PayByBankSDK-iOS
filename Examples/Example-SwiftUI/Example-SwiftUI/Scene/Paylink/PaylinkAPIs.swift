@@ -14,11 +14,15 @@ struct PaylinkAPIs: View {
     
     var body: some View {
         List {
-            NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
-            NavigationLink(L10n.paylinkInitiateTitle.localizedKey, destination: PaylinkInitiate())
-            NavigationLink(L10n.paylinkCreateTitle.localizedKey, destination: PaylinkCreate())
-            NavigationLink(L10n.paylinkGetTitle.localizedKey, destination: PaylinkGet())
-            NavigationLink(L10n.paylinkDeactivateTitle.localizedKey, destination: PaylinkDeactivate())
+            Section {
+                NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
+                NavigationLink(L10n.paylinkInitiateTitle.localizedKey, destination: PaylinkInitiate())
+            }
+            Section {
+                NavigationLink(L10n.paylinkCreateTitle.localizedKey, destination: PaylinkCreate())
+                NavigationLink(L10n.paylinkGetTitle.localizedKey, destination: PaylinkGet())
+                NavigationLink(L10n.paylinkDeactivateTitle.localizedKey, destination: PaylinkDeactivate())
+            }
         }
         .navigationBarTitle(L10n.paylinkTitle.localizedKey)
         .safari(APIDocuments.Paylink.base)

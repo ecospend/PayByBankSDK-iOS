@@ -14,12 +14,16 @@ struct VRPlinkAPIs: View {
     
     var body: some View {
         List {
-            NavigationLink(L10n.vrplinkOpenTitle.localizedKey, destination: VRPlinkOpen())
-            NavigationLink(L10n.vrplinkInitiateTitle.localizedKey, destination: VRPlinkInitiate())
-            NavigationLink(L10n.vrplinkCreateTitle.localizedKey, destination: VRPlinkCreate())
-            NavigationLink(L10n.vrplinkGetTitle.localizedKey, destination: VRPlinkGet())
-            NavigationLink(L10n.vrplinkDeactivateTitle.localizedKey, destination: VRPlinkDeactivate())
-            NavigationLink(L10n.vrplinkListRecordsTitle.localizedKey, destination: VRPlinkListRecords())
+            Section {
+                NavigationLink(L10n.vrplinkOpenTitle.localizedKey, destination: VRPlinkOpen())
+                NavigationLink(L10n.vrplinkInitiateTitle.localizedKey, destination: VRPlinkInitiate())
+            }
+            Section {
+                NavigationLink(L10n.vrplinkCreateTitle.localizedKey, destination: VRPlinkCreate())
+                NavigationLink(L10n.vrplinkGetTitle.localizedKey, destination: VRPlinkGet())
+                NavigationLink(L10n.vrplinkDeactivateTitle.localizedKey, destination: VRPlinkDeactivate())
+                NavigationLink(L10n.vrplinkListRecordsTitle.localizedKey, destination: VRPlinkListRecords())
+            }
         }
         .navigationBarTitle(L10n.vrplinkTitle.localizedKey)
         .safari(APIDocuments.VRPlink.base)

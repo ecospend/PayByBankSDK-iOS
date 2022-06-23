@@ -14,11 +14,15 @@ struct FrPaymentAPIs: View {
     
     var body: some View {
         List {
-            NavigationLink(L10n.frPaymentOpenTitle.localizedKey, destination: FrPaymentOpen())
-            NavigationLink(L10n.frPaymentInitiateTitle.localizedKey, destination: FrPaymentInitiate())
-            NavigationLink(L10n.frPaymentCreateTitle.localizedKey, destination: FrPaymentCreate())
-            NavigationLink(L10n.frPaymentGetTitle.localizedKey, destination: FrPaymentGet())
-            NavigationLink(L10n.frPaymentDeactivateTitle.localizedKey, destination: FrPaymentDeactivate())
+            Section {
+                NavigationLink(L10n.frPaymentOpenTitle.localizedKey, destination: FrPaymentOpen())
+                NavigationLink(L10n.frPaymentInitiateTitle.localizedKey, destination: FrPaymentInitiate())
+            }
+            Section {
+                NavigationLink(L10n.frPaymentCreateTitle.localizedKey, destination: FrPaymentCreate())
+                NavigationLink(L10n.frPaymentGetTitle.localizedKey, destination: FrPaymentGet())
+                NavigationLink(L10n.frPaymentDeactivateTitle.localizedKey, destination: FrPaymentDeactivate())
+            }
         }
         .navigationBarTitle(L10n.frPaymentTitle.localizedKey)
         .safari(APIDocuments.FrPayment.base)

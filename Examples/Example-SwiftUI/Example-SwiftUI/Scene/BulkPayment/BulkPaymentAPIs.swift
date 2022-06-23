@@ -14,11 +14,15 @@ struct BulkPaymentAPIs: View {
     
     var body: some View {
         List {
-            NavigationLink(L10n.bulkPaymentOpenTitle.localizedKey, destination: BulkPaymentOpen())
-            NavigationLink(L10n.bulkPaymentInitiateTitle.localizedKey, destination: BulkPaymentInitiate())
-            NavigationLink(L10n.bulkPaymentCreateTitle.localizedKey, destination: BulkPaymentCreate())
-            NavigationLink(L10n.bulkPaymentGetTitle.localizedKey, destination: BulkPaymentGet())
-            NavigationLink(L10n.bulkPaymentDeactivateTitle.localizedKey, destination: BulkPaymentDeactivate())
+            Section {
+                NavigationLink(L10n.bulkPaymentOpenTitle.localizedKey, destination: BulkPaymentOpen())
+                NavigationLink(L10n.bulkPaymentInitiateTitle.localizedKey, destination: BulkPaymentInitiate())
+            }
+            Section {
+                NavigationLink(L10n.bulkPaymentCreateTitle.localizedKey, destination: BulkPaymentCreate())
+                NavigationLink(L10n.bulkPaymentGetTitle.localizedKey, destination: BulkPaymentGet())
+                NavigationLink(L10n.bulkPaymentDeactivateTitle.localizedKey, destination: BulkPaymentDeactivate())
+            }
         }
         .navigationBarTitle(L10n.bulkPaymentTitle.localizedKey)
         .safari(APIDocuments.BulkPayment.base)
