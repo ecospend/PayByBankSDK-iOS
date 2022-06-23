@@ -10,6 +10,10 @@ import Foundation
 
 struct APIDocuments {
     
+    struct Authentication {
+        static let base = "https://docs.ecospend.com/api/intro/#section/Authentication"
+    }
+    
     struct Paylink {
         static let base = "https://docs.ecospend.com/api/paylink/V2/#tag/Paylink-API"
         static let create = "\(base)/paths/~1api~1v2.0~1paylinks/post"

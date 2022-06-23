@@ -33,6 +33,7 @@ struct Settings: View {
                                 clientID: clientID,
                                 clientSecret: clientSecret)
         }
+        .safari(APIDocuments.Authentication.base)
     }
 }
 
