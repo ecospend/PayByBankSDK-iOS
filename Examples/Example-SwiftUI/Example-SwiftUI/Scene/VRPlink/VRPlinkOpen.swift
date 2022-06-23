@@ -16,6 +16,8 @@ struct VRPlinkOpen: View {
     
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     
+    @State private var url: URL? = nil
+    
     var body: some View {
         VStack {
             Form {
@@ -32,6 +34,17 @@ struct VRPlinkOpen: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.vrplinkOpenTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.VRPlink.get)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
     }
     
     func submit() {

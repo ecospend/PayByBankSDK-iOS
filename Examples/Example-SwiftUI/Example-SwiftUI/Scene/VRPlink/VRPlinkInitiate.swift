@@ -38,6 +38,8 @@ struct VRPlinkInitiate: View {
     @State private var isVRPlinkLimitOptionsValid: Bool = false
     @State private var vrplinkLimitOptions: VRPlinkLimitOptions? = nil
     
+    @State private var url: URL? = nil
+    
     var body: some View {
         VStack {
             Form {
@@ -67,6 +69,17 @@ struct VRPlinkInitiate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.vrplinkInitiateTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.VRPlink.create)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
     }
     
     func submit() {

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct FrPaymentAPIs: View {
+    
     @State private var url: URL? = nil
     
     var body: some View {

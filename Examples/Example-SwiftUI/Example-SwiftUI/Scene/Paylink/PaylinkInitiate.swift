@@ -35,6 +35,8 @@ struct PaylinkInitiate: View {
     @State private var isLimitOptionsValid: Bool = false
     @State private var limitOptions: PaylinkLimitOptions? = nil
     
+    @State private var url: URL? = nil
+    
     var body: some View {
         VStack {
             Form {
@@ -62,7 +64,17 @@ struct PaylinkInitiate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paylinkInitiateTitle.localizedKey)
-        
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.Paylink.create)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
     }
     
     func submit() {

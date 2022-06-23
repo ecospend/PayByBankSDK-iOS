@@ -29,6 +29,8 @@ struct FrPaymentInitiate: View {
     @State private var isNotificationOptionsValid: Bool = false
     @State private var notificationOptions: PayByBankNotificationOptionsRequest? = nil
     
+    @State private var url: URL? = nil
+    
     var body: some View {
         VStack {
             Form {
@@ -52,6 +54,17 @@ struct FrPaymentInitiate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.frPaymentInitiateTitle.localizedKey)
+        .toolbar {
+            Button {
+                url = URL(string: APIDocuments.FrPayment.create)
+            } label: {
+                Image(systemName: "safari")
+            }
+        }
+        .sheet(item: $url) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
     }
     
     func submit() {

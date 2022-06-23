@@ -1,15 +1,15 @@
 //
-//  PaylinkOpen.swift
+//  BulkPaymentOpen.swift
 //  Example-SwiftUI
 //
-//  Created by Yunus TÜR on 11.05.2022.
+//  Created by Yunus TÜR on 23.06.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import SwiftUI
 import PayByBank
 
-struct PaylinkOpen: View {
+struct BulkPaymentOpen: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
@@ -33,9 +33,10 @@ struct PaylinkOpen: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.paylinkOpenTitle.localizedKey).toolbar {
+        .navigationTitle(L10n.bulkPaymentOpenTitle.localizedKey)
+        .toolbar {
             Button {
-                url = URL(string: APIDocuments.Paylink.get)
+                url = URL(string: APIDocuments.BulkPayment.get)
             } label: {
                 Image(systemName: "safari")
             }
@@ -48,16 +49,17 @@ struct PaylinkOpen: View {
     
     func submit() {
         guard let viewController = UIApplication.shared.topViewController else { return }
+        
         loading(true)
-        PayByBank.paylink.open(uniqueID: uniqueID, viewController: viewController) { result in
+        PayByBank.bulkPayment.open(uniqueID: uniqueID, viewController: viewController) { result in
             loading(false)
             toast(result.string)
         }
     }
 }
 
-struct PaylinkOpen_Previews: PreviewProvider {
+struct BulkPaymentOpen_Previews: PreviewProvider {
     static var previews: some View {
-        PaylinkOpen()
+        BulkPaymentOpen()
     }
 }

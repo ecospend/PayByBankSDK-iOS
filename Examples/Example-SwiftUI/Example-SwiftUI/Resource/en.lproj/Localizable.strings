@@ -33,6 +33,13 @@
 "FrPaymentCreateTitle" = "Create FrPayment";
 "FrPaymentGetTitle" = "Get FrPayment";
 "FrPaymentDeactivateTitle" = "Deactivate FrPayment";
+// MARK: - Bulk Payment
+"BulkPaymentTitle" = "Bulk Payment";
+"BulkPaymentOpenTitle" = "Open Bulk Payment";
+"BulkPaymentInitiateTitle" = "Initiate Bulk Payment";
+"BulkPaymentCreateTitle" = "Create Bulk Payment";
+"BulkPaymentGetTitle" = "Get Bulk Payment";
+"BulkPaymentDeactivateTitle" = "Deactivate Bulk Payment";
 // MARK: - VRPlink
 "VrplinkTitle" = "VRPlink";
 "VrplinkOpenTitle" = "Open VRPlink";
@@ -53,6 +60,8 @@
 "SectionPaymentOptions" = "Payment Options";
 "SectionPaymentOptionsPaymentReason" = "Payment Reason";
 "SectionLimitOptions" = "Limit Options";
+"SectionOptions" = "Options";
+"SectionPayments" = "Payments";
 // MARK: - Input Settings
 "InputSettingsEnvironment" = "Environment";
 "InputSettingsClientID" = "Client ID";
@@ -87,6 +96,8 @@
 "InputPaymentOptionsPaymentRails" = "Payment Rails";
 "InputPaymentOptionsValidFrom" = "Valid From";
 "InputPaymentOptionsValidTo" = "Valid To";
+"InputPaymentOptionsScheduledFor" = "Scheduled For";
+"InputPaymentOptionsClientReferenceID" = "Client Reference ID";
 // MARK: - Input Options
 "InputOptionsFirstPaymentAmount" = "First Payment Amount";
 "InputOptionsLastPaymentAmount" = "Last Payment Amount";
@@ -96,6 +107,7 @@
 "InputOptionsDisableQRCode" = "Disable QR Code";
 "InputOptionsDontRedirect" = "Don't Redirect";
 "InputOptionsTip" = "Tip";
+"InputOptionsPurpose" = "Purpose";
 // MARK: - Input Account
 "InputAccountCurrency" = "Currency";
 "InputAccountIdentification" = "Identification";
@@ -119,4 +131,4 @@
 "InputVerifyCreditorAccount" = "Verify Creditor Account";
 "InputVerifyDebtorAccount" = "Verify Debtor Account";
 "InputUniqueID" = "Unique ID";
-
+"InputFileReference" = "File Reference";

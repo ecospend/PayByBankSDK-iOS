@@ -37,6 +37,13 @@ enum L10n {
     case frPaymentCreateTitle
     case frPaymentGetTitle
     case frPaymentDeactivateTitle
+    // MARK: - Bulk Payment
+    case bulkPaymentTitle
+    case bulkPaymentOpenTitle
+    case bulkPaymentInitiateTitle
+    case bulkPaymentCreateTitle
+    case bulkPaymentGetTitle
+    case bulkPaymentDeactivateTitle
     // MARK: - VRPlink
     case vrplinkTitle
     case vrplinkOpenTitle
@@ -57,6 +64,8 @@ enum L10n {
     case sectionVRPlinkLimitOptions
     case sectionPaymentOptionsPaymentReason
     case sectionLimitOptions
+    case sectionOptions
+    case sectionPayments
     // MARK: - Input Settings
     case inputSettingsEnvironment
     case inputSettingsClientID
@@ -91,6 +100,8 @@ enum L10n {
     case inputPaymentOptionsPaymentRails
     case inputPaymentOptionsValidFrom
     case inputPaymentOptionsValidTo
+    case inputPaymentOptionsScheduledFor
+    case inputPaymentOptionsClientReferenceID
     // MARK: - Input Options
     case inputOptionsFirstPaymentAmount
     case inputOptionsLastPaymentAmount
@@ -100,6 +111,7 @@ enum L10n {
     case inputOptionsDisableQRCode
     case inputOptionsDontRedirect
     case inputOptionsTip
+    case inputOptionsPurpose
     // MARK: - Input Account
     case inputAccountCurrency
     case inputAccountIdentification
@@ -123,6 +135,7 @@ enum L10n {
     case inputVerifyCreditorAccount
     case inputVerifyDebtorAccount
     case inputUniqueID
+    case inputFileReference
 }
 
 // MARK: - Logic

@@ -1,21 +1,22 @@
 //
-//  PaylinkOpen.swift
+//  BulkPaymentDeactivate.swift
 //  Example-SwiftUI
 //
-//  Created by Yunus TÜR on 11.05.2022.
+//  Created by Yunus TÜR on 23.06.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import SwiftUI
 import PayByBank
 
-struct PaylinkOpen: View {
+struct BulkPaymentDeactivate: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
     
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     
+    @State private var response: String? = nil
     @State private var url: URL? = nil
     
     var body: some View {
@@ -33,9 +34,10 @@ struct PaylinkOpen: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.paylinkOpenTitle.localizedKey).toolbar {
+        .navigationTitle(L10n.bulkPaymentDeactivateTitle.localizedKey)
+        .toolbar {
             Button {
-                url = URL(string: APIDocuments.Paylink.get)
+                url = URL(string: APIDocuments.BulkPayment.deactivate)
             } label: {
                 Image(systemName: "safari")
             }
@@ -44,20 +46,22 @@ struct PaylinkOpen: View {
             SafariView(url: url)
                 .ignoresSafeArea()
         }
+        .sheet(item: $response) { response in
+            ResponseView(response: response)
+        }
     }
     
     func submit() {
-        guard let viewController = UIApplication.shared.topViewController else { return }
         loading(true)
-        PayByBank.paylink.open(uniqueID: uniqueID, viewController: viewController) { result in
+        PayByBank.bulkPayment.deactivateBulkPayment(request: BulkPaymentDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)
-            toast(result.string)
+            response = result.string
         }
     }
 }
 
-struct PaylinkOpen_Previews: PreviewProvider {
+struct BulkPaymentDeactivate_Previews: PreviewProvider {
     static var previews: some View {
-        PaylinkOpen()
+        BulkPaymentDeactivate()
     }
 }

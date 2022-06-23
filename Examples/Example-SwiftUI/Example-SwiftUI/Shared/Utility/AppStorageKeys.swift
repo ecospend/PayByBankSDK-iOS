@@ -43,6 +43,8 @@ enum AppStorageKeys: String {
     case paymentOptionsPaymentRails
     case paymentOptionsValidFrom
     case paymentOptionsValidTo
+    case paymentOptionsScheduledFor
+    case paymentOptionsClientReferenceID
     // MARK: - Input Options
     case optionsFirstPaymentAmount
     case optionsLastPaymentAmount
@@ -52,6 +54,7 @@ enum AppStorageKeys: String {
     case optionsDisableQRCode
     case optionsDontRedirect
     case optionsTip
+    case optionsPurpose
     // MARK: - Input Account
     case accountCurrency
     case accountIdentification
@@ -75,4 +78,5 @@ enum AppStorageKeys: String {
     case verifyCreditorAccount
     case verifyDebtorAccount
     case uniqueID
+    case fileReference
 }
