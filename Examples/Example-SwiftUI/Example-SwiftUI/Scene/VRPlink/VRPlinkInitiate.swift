@@ -69,17 +69,7 @@ struct VRPlinkInitiate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.vrplinkInitiateTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.VRPlink.create)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .safari(APIDocuments.VRPlink.create)
     }
     
     func submit() {

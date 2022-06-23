@@ -21,17 +21,7 @@ struct FrPaymentAPIs: View {
             NavigationLink(L10n.frPaymentDeactivateTitle.localizedKey, destination: FrPaymentDeactivate())
         }
         .navigationBarTitle(L10n.frPaymentTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.FrPayment.base)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .safari(APIDocuments.FrPayment.base)
     }
 }
 

@@ -33,17 +33,8 @@ struct PaylinkOpen: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.paylinkOpenTitle.localizedKey).toolbar {
-            Button {
-                url = URL(string: APIDocuments.Paylink.get)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .navigationTitle(L10n.paylinkOpenTitle.localizedKey)
+        .safari(APIDocuments.Paylink.create)
     }
     
     func submit() {

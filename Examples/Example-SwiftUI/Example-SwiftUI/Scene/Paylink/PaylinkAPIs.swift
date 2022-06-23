@@ -21,17 +21,7 @@ struct PaylinkAPIs: View {
             NavigationLink(L10n.paylinkDeactivateTitle.localizedKey, destination: PaylinkDeactivate())
         }
         .navigationBarTitle(L10n.paylinkTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.Paylink.base)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .safari(APIDocuments.Paylink.base)
     }
 }
 

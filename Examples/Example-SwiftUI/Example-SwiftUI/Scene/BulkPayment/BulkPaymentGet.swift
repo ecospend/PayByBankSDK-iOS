@@ -35,20 +35,8 @@ struct BulkPaymentGet: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.bulkPaymentGetTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.BulkPayment.get)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
-        .sheet(item: $response) { response in
-            ResponseView(response: response)
-        }
+        .safari(APIDocuments.BulkPayment.get)
+        .response($response)
     }
     
     func submit() {

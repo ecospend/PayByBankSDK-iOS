@@ -21,17 +21,7 @@ struct BulkPaymentAPIs: View {
             NavigationLink(L10n.bulkPaymentDeactivateTitle.localizedKey, destination: BulkPaymentDeactivate())
         }
         .navigationBarTitle(L10n.bulkPaymentTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.BulkPayment.base)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .safari(APIDocuments.BulkPayment.base)
     }
 }
 

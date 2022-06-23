@@ -35,20 +35,8 @@ struct BulkPaymentDeactivate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.bulkPaymentDeactivateTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.BulkPayment.deactivate)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
-        .sheet(item: $response) { response in
-            ResponseView(response: response)
-        }
+        .safari(APIDocuments.BulkPayment.deactivate)
+        .response($response)
     }
     
     func submit() {

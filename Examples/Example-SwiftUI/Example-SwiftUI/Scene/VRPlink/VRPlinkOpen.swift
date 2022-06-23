@@ -34,17 +34,7 @@ struct VRPlinkOpen: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.vrplinkOpenTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.VRPlink.get)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .safari(APIDocuments.VRPlink.get)
     }
     
     func submit() {

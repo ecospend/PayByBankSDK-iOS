@@ -55,20 +55,8 @@ struct FrPaymentCreate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.frPaymentCreateTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.FrPayment.create)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
-        .sheet(item: $response) { response in
-            ResponseView(response: response)
-        }
+        .safari(APIDocuments.FrPayment.create)
+        .response($response)
     }
     
     func submit() {

@@ -81,6 +81,8 @@
 		D6AEF41C28647E12008FD82E /* BulkPaymentGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41B28647E12008FD82E /* BulkPaymentGet.swift */; };
 		D6AEF41E28648768008FD82E /* BulkPaymentInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41D28648768008FD82E /* BulkPaymentInitiate.swift */; };
 		D6AEF420286487F5008FD82E /* BulkPaymentOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41F286487F5008FD82E /* BulkPaymentOpen.swift */; };
+		D6AEF42228648B59008FD82E /* SafariModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42128648B59008FD82E /* SafariModifier.swift */; };
+		D6AEF42428648D18008FD82E /* ResponseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42328648D18008FD82E /* ResponseModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,8 @@
 		D6AEF41B28647E12008FD82E /* BulkPaymentGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentGet.swift; sourceTree = "<group>"; };
 		D6AEF41D28648768008FD82E /* BulkPaymentInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentInitiate.swift; sourceTree = "<group>"; };
 		D6AEF41F286487F5008FD82E /* BulkPaymentOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentOpen.swift; sourceTree = "<group>"; };
+		D6AEF42128648B59008FD82E /* SafariModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariModifier.swift; sourceTree = "<group>"; };
+		D6AEF42328648D18008FD82E /* ResponseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,8 +384,10 @@
 		D69009A22832634E00979630 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
-				D695AF0A285767D800CB7103 /* Titled.swift */,
 				D695AF0C2857697B00CB7103 /* PrimaryButton.swift */,
+				D6AEF42328648D18008FD82E /* ResponseModifier.swift */,
+				D6AEF42128648B59008FD82E /* SafariModifier.swift */,
+				D695AF0A285767D800CB7103 /* Titled.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				D6AEF3F32861DB10008FD82E /* VRPOptionsSection.swift in Sources */,
 				D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */,
 				D6AEF3DE28609EE4008FD82E /* FrPaymentCreateMainSection.swift in Sources */,
+				D6AEF42228648B59008FD82E /* SafariModifier.swift in Sources */,
 				D695AF20285B113500CB7103 /* PaylinkPaymentOptionsSection.swift in Sources */,
 				D69009B32837C06300979630 /* PaylinkCreate.swift in Sources */,
 				D695AF1A2859F8CD00CB7103 /* Decimal+.swift in Sources */,
@@ -685,6 +692,7 @@
 				D695AF0B285767D800CB7103 /* Titled.swift in Sources */,
 				D6AEF420286487F5008FD82E /* BulkPaymentOpen.swift in Sources */,
 				D6900981282BC85400979630 /* Settings.swift in Sources */,
+				D6AEF42428648D18008FD82E /* ResponseModifier.swift in Sources */,
 				D6AEF3E82861AE11008FD82E /* FrPaymentDeactivate.swift in Sources */,
 				D6AEF4022862463B008FD82E /* VRPlinkGet.swift in Sources */,
 				D6AEF411286475B4008FD82E /* BulkPaymentCreateMainSection.swift in Sources */,

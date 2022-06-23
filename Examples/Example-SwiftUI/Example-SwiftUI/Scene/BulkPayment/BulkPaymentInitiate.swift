@@ -65,17 +65,7 @@ struct BulkPaymentInitiate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.bulkPaymentInitiateTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.BulkPayment.create)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .safari(APIDocuments.BulkPayment.create)
     }
     
     func submit() {

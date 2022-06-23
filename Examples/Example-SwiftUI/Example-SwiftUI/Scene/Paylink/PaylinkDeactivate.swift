@@ -35,20 +35,8 @@ struct PaylinkDeactivate: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paylinkDeactivateTitle.localizedKey)
-        .toolbar {
-            Button {
-                url = URL(string: APIDocuments.Paylink.deactivate)
-            } label: {
-                Image(systemName: "safari")
-            }
-        }
-        .sheet(item: $url) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
-        .sheet(item: $response) { response in
-            ResponseView(response: response)
-        }
+        .safari(APIDocuments.Paylink.deactivate)
+        .response($response)
     }
     
     func submit() {
