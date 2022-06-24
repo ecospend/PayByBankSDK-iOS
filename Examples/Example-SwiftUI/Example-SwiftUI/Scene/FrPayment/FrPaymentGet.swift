@@ -30,7 +30,7 @@ struct FrPaymentGet: View {
                 submit()
             }
             .buttonStyle(.primary)
-            .disabled(uniqueID.isEmpty)
+            .disabled(uniqueID.isBlank)
             .padding()
         }
         .background(Color.formBackground)
