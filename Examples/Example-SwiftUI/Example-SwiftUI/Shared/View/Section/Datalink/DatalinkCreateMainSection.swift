@@ -15,8 +15,8 @@ struct DatalinkCreateMainSection: View {
     @AppStorage(Self.storage(key: .bankID)) private var bankID: String = ""
     @AppStorage(Self.storage(key: .merchantID)) private var merchantID: String = ""
     @AppStorage(Self.storage(key: .merchantUserID)) private var merchantUserID: String = ""
-    @AppStorage(Self.storage(key: .consentEndDate)) private var consentEndDate: Date = .now
-    @AppStorage(Self.storage(key: .expiryDate)) private var expiryDate: Date = .now
+    @AppStorage(Self.storage(key: .consentEndDate)) private var consentEndDate: Date = .default
+    @AppStorage(Self.storage(key: .expiryDate)) private var expiryDate: Date = .default
     @AppStorage(Self.storage(key: .permissions)) private var permissions: ConsentPermission = .account
     
     @Binding private(set) var isValid: Bool
@@ -65,7 +65,7 @@ struct DatalinkCreateMainSection: View {
     
     func validate() {
         isValid = {
-            guard redirectURL.isURL, consentEndDate > .now else { return false }
+            guard redirectURL.isURL, consentEndDate > .default else { return false }
             return true
         }()
         
@@ -74,7 +74,7 @@ struct DatalinkCreateMainSection: View {
                                                merchantID: !merchantID.isBlank ? merchantID : nil,
                                                merchantUserID: !merchantUserID.isBlank ? merchantUserID : nil,
                                                consentEndDate: consentEndDate.rawValue,
-                                               expiryDate: expiryDate > .now ? expiryDate.rawValue : nil,
+                                               expiryDate: expiryDate > .default ? expiryDate.rawValue : nil,
                                                permissions: [permissions])
     }
 }

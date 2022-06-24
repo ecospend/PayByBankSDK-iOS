@@ -18,7 +18,7 @@ struct FrPaymentCreateMainSection: View {
     @AppStorage(Self.storage(key: .bankID)) private var bankID: String = ""
     @AppStorage(Self.storage(key: .merchantID)) private var merchantID: String = ""
     @AppStorage(Self.storage(key: .merchantUserID)) private var merchantUserID: String = ""
-    @AppStorage(Self.storage(key: .firstPaymentDate)) var firstPaymentDate: Date = .now
+    @AppStorage(Self.storage(key: .firstPaymentDate)) var firstPaymentDate: Date = .default
     @AppStorage(Self.storage(key: .numberOfPayments)) var numberOfPayments: Int = 0
     @AppStorage(Self.storage(key: .period)) var period: FrPaymentPeriod = .weekly
     @AppStorage(Self.storage(key: .standingOrderType)) var standingOrderType: FrPaymentStandingOrderType = .auto
@@ -88,8 +88,13 @@ struct FrPaymentCreateMainSection: View {
     
     func validate() {
         isValid = {
-            guard amount > 0, !reference.isBlank, redirectURL.isURL, numberOfPayments > 0,
-            firstPaymentDate >= .now else { return false }
+            guard amount > 0,
+                  !reference.isBlank,
+                  redirectURL.isURL,
+                  numberOfPayments > 0,
+                  firstPaymentDate > .default else {
+                return false
+            }
             return true
         }()
         
