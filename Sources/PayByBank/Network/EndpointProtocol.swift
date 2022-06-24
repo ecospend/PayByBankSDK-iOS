@@ -78,7 +78,10 @@ extension EndpointProtocol {
         }
         // Convert parameters to query items.
         return parameters.map { (key: String, value: Any?) -> URLQueryItem in
-            let valueString = String(describing: value)
+            let valueString: String? = {
+                let string = "\(value ?? "")"
+                return !string.isEmpty ? string : nil
+            }()
             return URLQueryItem(name: key, value: valueString)
         }
     }
