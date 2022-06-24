@@ -52,6 +52,14 @@ enum L10n {
     case vrplinkGetTitle
     case vrplinkDeactivateTitle
     case vrplinkListRecordsTitle
+    // MARK: - Datalink
+    case datalinkTitle
+    case datalinkOpenTitle
+    case datalinkInitiateTitle
+    case datalinkCreateTitle
+    case datalinkGetTitle
+    case datalinkDeleteTitle
+    case datalinkGetOfConsentTitle
     // MARK: - Section
     case sectionCreditorAccount
     case sectionDebtorAccount
@@ -66,6 +74,15 @@ enum L10n {
     case sectionLimitOptions
     case sectionOptions
     case sectionPayments
+    case sectionDatalinkOptions
+    case sectionFinancialReport
+    case sectionFilters
+    case sectionParameters
+    case sectionAffordability
+    case sectionVerification
+    case sectionFinancial
+    case sectionCategoryAggregation
+    case sectionOutputSettings
     // MARK: - Input Settings
     case inputSettingsEnvironment
     case inputSettingsClientID
@@ -112,6 +129,8 @@ enum L10n {
     case inputOptionsDontRedirect
     case inputOptionsTip
     case inputOptionsPurpose
+    case inputOptionsAllowMultipleConsent
+    case inputOptionsGenerateFinancialReport
     // MARK: - Input Account
     case inputAccountCurrency
     case inputAccountIdentification
@@ -136,6 +155,19 @@ enum L10n {
     case inputVerifyDebtorAccount
     case inputUniqueID
     case inputFileReference
+    case inputConsentEndDate
+    case inputExpiryDate
+    case inputPermissions
+    case inputName
+    case inputStartDate
+    case inputCurrency
+    case inputPhoneNumbers
+    case inputAddress
+    case inputEmail
+    case inputFinancial
+    case inputDistributionPeriod
+    case inputDisplayPii
+    case inputConsentID
 }
 
 // MARK: - Logic

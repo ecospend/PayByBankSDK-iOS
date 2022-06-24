@@ -55,6 +55,8 @@ enum AppStorageKeys: String {
     case optionsDontRedirect
     case optionsTip
     case optionsPurpose
+    case optionsAllowMultipleConsent
+    case optionsGenerateFinancialReport
     // MARK: - Input Account
     case accountCurrency
     case accountIdentification
@@ -79,4 +81,17 @@ enum AppStorageKeys: String {
     case verifyDebtorAccount
     case uniqueID
     case fileReference
+    case consentEndDate
+    case expiryDate
+    case permissions
+    case name
+    case startDate
+    case currency
+    case phoneNumbers
+    case address
+    case email
+    case financial
+    case distributionPeriod
+    case displayPii
+    case consentID
 }

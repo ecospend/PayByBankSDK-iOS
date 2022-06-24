@@ -42,4 +42,12 @@ struct APIDocuments {
         static let deactivate = "\(base)/paths/~1api~1v2.0~1vrplinks~1%7BvrplinkId%7D/delete"
         static let listRecords = "\(base)/paths/~1api~1v2.0~1vrplinks~1%7BvrplinkId%7D~1vrps/get"
     }
+    
+    struct Datalink {
+        static let base = "https://docs.ecospend.com/api/ais/V2/#tag/Datalink-API"
+        static let create = "\(base)/paths/~1api~1v2.0~1datalink/post"
+        static let get = "\(base)/paths/~1api~1v2.0~1datalink~1%7Bunique_id%7D/get"
+        static let delete = "\(base)/paths/~1api~1v2.0~1datalink~1%7Bunique_id%7D/delete"
+        static let getOfConsent = "\(base)/paths/~1api~1v2.0~1datalink~1consent~1%7Bconsent_id%7D/get"
+    }
 }

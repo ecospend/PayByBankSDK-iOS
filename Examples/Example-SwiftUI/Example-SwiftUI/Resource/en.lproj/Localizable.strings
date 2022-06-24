@@ -48,6 +48,14 @@
 "VrplinkGetTitle" = "Get VRPlink";
 "VrplinkDeactivateTitle" = "Deactivate VRPlink";
 "VrplinkListRecordsTitle" = "List VRP Records";
+// MARK: - Datalink
+"DatalinkTitle" = "Datalink";
+"DatalinkOpenTitle" = "Open Datalink";
+"DatalinkInitiateTitle" = "Initiate Datalink";
+"DatalinkCreateTitle" = "Create Datalink";
+"DatalinkGetTitle" = "Get Datalink";
+"DatalinkDeleteTitle" = "Delete Datalink";
+"DatalinkGetOfConsentTitle" = "Get Datalink of Consent";
 // MARK: - Section
 "SectionCreditorAccount" = "Creditor Account";
 "SectionDebtorAccount" = "Debtor Account";
@@ -62,6 +70,15 @@
 "SectionLimitOptions" = "Limit Options";
 "SectionOptions" = "Options";
 "SectionPayments" = "Payments";
+"SectionDatalinkOptions" = "Datalink Options";
+"SectionFinancialReport" = "Financial Report";
+"SectionFilters" = "Filters";
+"SectionParameters" = "Parameters";
+"SectionAffordability" = "Affordability";
+"SectionVerification" = "Verification";
+"SectionFinancial" = "Financial";
+"SectionCategoryAggregation" = "Category Aggregation";
+"SectionOutputSettings" = "OutputSettings";
 // MARK: - Input Settings
 "InputSettingsEnvironment" = "Environment";
 "InputSettingsClientID" = "Client ID";
@@ -108,6 +125,8 @@
 "InputOptionsDontRedirect" = "Don't Redirect";
 "InputOptionsTip" = "Tip";
 "InputOptionsPurpose" = "Purpose";
+"InputOptionsAllowMultipleConsent" = "Allow Multiple Consent";
+"InputOptionsGenerateFinancialReport" = "Generate Financial Report";
 // MARK: - Input Account
 "InputAccountCurrency" = "Currency";
 "InputAccountIdentification" = "Identification";
@@ -132,3 +151,16 @@
 "InputVerifyDebtorAccount" = "Verify Debtor Account";
 "InputUniqueID" = "Unique ID";
 "InputFileReference" = "File Reference";
+"InputConsentEndDate" = "Consent End Date";
+"InputExpiryDate" = "Expiry Date";
+"InputPermissions" = "Permissions";
+"InputCurrency" = "Currency";
+"InputStartDate" = "Start Date";
+"InputName" = "Name";
+"InputPhoneNumbers" = "Phone Numbers";
+"InputAddress" = "Address";
+"InputEmail" = "Email";
+"InputFinancial" = "Financial";
+"InputDistributionPeriod" = "Distribution Period";
+"InputDisplayPii" = "Display Pii";
+"InputConsentID" = "Consent ID";
