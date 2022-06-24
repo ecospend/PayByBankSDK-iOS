@@ -237,6 +237,7 @@
 		D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreateRefund.swift; sourceTree = "<group>"; };
 		D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundAccountSection.swift; sourceTree = "<group>"; };
 		D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreateRefundMainSection.swift; sourceTree = "<group>"; };
+		D6AEF4642865EFCE008FD82E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +390,7 @@
 				D6900934282A75A300979630 /* Preview Content */,
 				D6900932282A75A300979630 /* Assets.xcassets */,
 				D6900989282BD7A700979630 /* Localizable.strings */,
+				D6AEF4642865EFCE008FD82E /* Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -465,11 +467,11 @@
 		D695AF122859C36800CB7103 /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				D6AEF44B2865A88C008FD82E /* Payment */,
 				D6AEF40728645000008FD82E /* BulkPayment */,
 				D6AEF425286498FB008FD82E /* Datalink */,
 				D6AEF3EC2861BE7C008FD82E /* FrPayment */,
 				D6AEF3EB2861BE72008FD82E /* Paylink */,
+				D6AEF44B2865A88C008FD82E /* Payment */,
 				D6AEF3ED2861BE94008FD82E /* VRPlink */,
 				D695AF132859C3D400CB7103 /* CreditorAccountSection.swift */,
 				D695AF152859F64B00CB7103 /* DebtorAccountSection.swift */,
@@ -1025,9 +1027,10 @@
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Example-SwiftUI/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = PayByBank;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1054,9 +1057,10 @@
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Example-SwiftUI/Resource/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = PayByBank;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

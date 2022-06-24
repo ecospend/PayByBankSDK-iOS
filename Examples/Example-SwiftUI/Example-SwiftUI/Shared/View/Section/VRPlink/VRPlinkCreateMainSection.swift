@@ -29,7 +29,7 @@ struct VRPlinkCreateMainSection: View {
         List {
             Section {
                 TextField("", text: $redirectURL)
-                    .titled(L10n.inputRedirectURL.localized)
+                    .titled(L10n.inputRedirectURL.localized.required)
                 TextField("", text: $bankID)
                     .titled(L10n.inputBankID.localized)
                 Menu(reason.rawValue) {
@@ -97,7 +97,7 @@ struct VRPlinkCreateMainSection_Previews: PreviewProvider {
 }
 
 struct VRPlinkCreateMainSectionModel {
-    let redirectURL: String?
+    let redirectURL: String
     let bankID: String?
     let reason: VRPReason
     let type: VRPType?
