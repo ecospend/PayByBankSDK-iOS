@@ -24,17 +24,17 @@ struct DatalinkParametersSection: View {
     @State private var category: CategoryAggregationParameters? = nil
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: FinancialReportParameters?
     
     var body: some View {
         List {
             Section(header: header) {
                 Group {
-                    DatalinkAffordabilitySection(isValid: $isAffordabilityValid, value: $affordability)
-                    DatalinkVerificationSection(isValid: $isVerificationValid, value: $verification)
-                    DatalinkFinancialSection(isValid: $isFinancialValid, value: $financial)
-                    DatalinkCategoryAggregationSection(isValid: $isCategoryValid, value: $category)
+                    DatalinkAffordabilitySection(valid: $isAffordabilityValid, value: $affordability)
+                    DatalinkVerificationSection(valid: $isVerificationValid, value: $verification)
+                    DatalinkFinancialSection(valid: $isFinancialValid, value: $financial)
+                    DatalinkCategoryAggregationSection(valid: $isCategoryValid, value: $category)
                 }
                 .disabled(!isEnabled)
                 .opacity(!isEnabled ? 0.5 : 1)
@@ -54,7 +54,7 @@ struct DatalinkParametersSection: View {
     }
     
     func validate() {
-        isValid = isAffordabilityValid && isVerificationValid && isVerificationValid && isCategoryValid
+        valid = isAffordabilityValid && isVerificationValid && isVerificationValid && isCategoryValid
         
         value = {
             guard isEnabled else { return nil }
@@ -72,6 +72,6 @@ struct DatalinkParametersSection: View {
 
 struct DatalinkParametersSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkParametersSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkParametersSection(valid: .constant(true), value: .constant(nil))
     }
 }

@@ -28,7 +28,7 @@ struct VRPLimitOptionsSection: View {
     @AppStorage(Self.storage(key: .limitOptionsYearlyAlignment)) var yearlyAlignment: VRPAlignment = .consent
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: VRPLimitOptions?
     
     var body: some View {
@@ -126,7 +126,7 @@ struct VRPLimitOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -150,6 +150,6 @@ struct VRPLimitOptionsSection: View {
 
 struct VRPLimitOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        VRPLimitOptionsSection(isValid: .constant(true), value: .constant(nil))
+        VRPLimitOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

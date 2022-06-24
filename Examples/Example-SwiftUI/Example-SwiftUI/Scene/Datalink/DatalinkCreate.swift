@@ -32,10 +32,10 @@ struct DatalinkCreate: View {
     var body: some View {
         VStack {
             Form {
-                DatalinkCreateMainSection(isValid: $isMainModelValid, value: $mainModel)
-                DatalinkOptionsSection(isValid: $isDatalinkOptionsValid, value: $datalinkOptions)
-                NotificationOptionsSection(isValid: $isNotificationOptionsValid, value: $notificationOptions)
-                DatalinkFinancialReportSection(isValid: $isFinancialReportValid, value: $financialReport)
+                DatalinkCreateMainSection(valid: $isMainModelValid, value: $mainModel)
+                DatalinkOptionsSection(valid: $isDatalinkOptionsValid, value: $datalinkOptions)
+                NotificationOptionsSection(valid: $isNotificationOptionsValid, value: $notificationOptions)
+                DatalinkFinancialReportSection(valid: $isFinancialReportValid, value: $financialReport)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

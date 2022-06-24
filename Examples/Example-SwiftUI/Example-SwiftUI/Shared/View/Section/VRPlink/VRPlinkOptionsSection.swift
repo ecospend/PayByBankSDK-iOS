@@ -17,7 +17,7 @@ struct VRPlinkOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsDontRedirect)) private var dontRedirect: Bool = false
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: VRPlinkOptions?
     
     var body: some View {
@@ -47,7 +47,7 @@ struct VRPlinkOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -61,6 +61,6 @@ struct VRPlinkOptionsSection: View {
 
 struct VRPlinkOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        VRPlinkOptionsSection(isValid: .constant(true), value: .constant(nil))
+        VRPlinkOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

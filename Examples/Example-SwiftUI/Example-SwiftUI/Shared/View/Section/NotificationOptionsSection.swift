@@ -17,7 +17,7 @@ struct NotificationOptionsSection: View {
     @AppStorage(Self.storage(key: .notificationOptionsPhoneNumber)) private var phoneNumber: String = ""
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PayByBankNotificationOptionsRequest?
     
     var body: some View {
@@ -54,7 +54,7 @@ struct NotificationOptionsSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard isEnabled else { return true }
             if sendEmailNotification, !email.isEmail { return false }
             if sendSmsNotification, !phoneNumber.isPhone { return false }
@@ -73,6 +73,6 @@ struct NotificationOptionsSection: View {
 
 struct NotificationOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationOptionsSection(isValid: .constant(true), value: .constant(nil))
+        NotificationOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

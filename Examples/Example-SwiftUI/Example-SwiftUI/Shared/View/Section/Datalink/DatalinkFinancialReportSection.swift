@@ -21,16 +21,16 @@ struct DatalinkFinancialReportSection: View {
     @State private var outputSettings: OutputSettings? = nil
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: FinancialReport?
     
     var body: some View {
         List {
             Section(header: header) {
                 Group {
-                    DatalinkFiltersSection(isValid: $isFiltersValid, value: $filters)
-                    DatalinkParametersSection(isValid: $isParametersValid, value: $parameters)
-                    DatalinkOutputSettingsSection(isValid: $isOutputSettingsValid, value: $outputSettings)
+                    DatalinkFiltersSection(valid: $isFiltersValid, value: $filters)
+                    DatalinkParametersSection(valid: $isParametersValid, value: $parameters)
+                    DatalinkOutputSettingsSection(valid: $isOutputSettingsValid, value: $outputSettings)
                 }
                 .disabled(!isEnabled)
                 .opacity(!isEnabled ? 0.5 : 1)
@@ -49,7 +49,7 @@ struct DatalinkFinancialReportSection: View {
     }
     
     func validate() {
-        isValid = isFiltersValid && isParametersValid && isOutputSettingsValid
+        valid = isFiltersValid && isParametersValid && isOutputSettingsValid
         
         value = {
             guard isEnabled else { return nil }
@@ -62,6 +62,6 @@ struct DatalinkFinancialReportSection: View {
 
 struct DatalinkFinancialReportSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkFinancialReportSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkFinancialReportSection(valid: .constant(true), value: .constant(nil))
     }
 }

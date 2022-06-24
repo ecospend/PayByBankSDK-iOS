@@ -19,7 +19,7 @@ struct DatalinkCreateMainSection: View {
     @AppStorage(Self.storage(key: .expiryDate)) private var expiryDate: Date = .default
     @AppStorage(Self.storage(key: .permissions)) private var permissions: ConsentPermission = .account
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: DatalinkCreateMainSectionModel?
     
     var body: some View {
@@ -64,7 +64,7 @@ struct DatalinkCreateMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard redirectURL.isURL, consentEndDate > .default else { return false }
             return true
         }()
@@ -81,7 +81,7 @@ struct DatalinkCreateMainSection: View {
 
 struct DatalinkCreateMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkCreateMainSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkCreateMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 

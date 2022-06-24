@@ -40,13 +40,13 @@ struct PaylinkInitiate: View {
     var body: some View {
         VStack {
             Form {
-                PaylinkCreateMainSection(isValid: $isMainModelValid, value: $mainModel)
-                CreditorAccountSection(isRequired: true, isValid: $isCreditorAccountValid, value: $creditorAccount)
-                DebtorAccountSection(isValid: $isDebtorAccountValid, value: $debtorAccount)
-                PaylinkOptionsSection(isValid: $isPaylinkOptionsValid, value: $paylinkOptions)
-                NotificationOptionsSection(isValid: $isNotificationOptionsValid, value: $notificationOptions)
-                PaylinkPaymentOptionsSection(isValid: $isPaymentOptionsValid, value: $paymentOptions)
-                PaylinkLimitOptionsSection(isValid: $isLimitOptionsValid, value: $limitOptions)
+                PaylinkCreateMainSection(valid: $isMainModelValid, value: $mainModel)
+                CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
+                DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
+                PaylinkOptionsSection(valid: $isPaylinkOptionsValid, value: $paylinkOptions)
+                NotificationOptionsSection(valid: $isNotificationOptionsValid, value: $notificationOptions)
+                PaylinkPaymentOptionsSection(valid: $isPaymentOptionsValid, value: $paymentOptions)
+                PaylinkLimitOptionsSection(valid: $isLimitOptionsValid, value: $limitOptions)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

@@ -18,7 +18,7 @@ struct PaymentListQuerySection: View {
     @AppStorage(Self.storage(key: .paymentType)) private var paymentType: PaymentType = .auto
     @AppStorage(Self.storage(key: .page)) private var page: Int = 0
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaymentListRequest?
     
     var body: some View {
@@ -57,7 +57,7 @@ struct PaymentListQuerySection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = PaymentListRequest(merchantID: !merchantID.isBlank ? merchantID : nil,
                                    merchantUserID: !merchantUserID.isBlank ? merchantUserID : nil,
@@ -70,6 +70,6 @@ struct PaymentListQuerySection: View {
 
 struct PaymentListQuerySection_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentListQuerySection(isValid: .constant(true), value: .constant(nil))
+        PaymentListQuerySection(valid: .constant(true), value: .constant(nil))
     }
 }

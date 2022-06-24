@@ -17,7 +17,7 @@ struct PaylinkOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaylinkOptions?
     
     var body: some View {
@@ -47,7 +47,7 @@ struct PaylinkOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -62,6 +62,6 @@ struct PaylinkOptionsSection: View {
 
 struct PaylinkOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        PaylinkOptionsSection(isValid: .constant(true), value: .constant(nil))
+        PaylinkOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

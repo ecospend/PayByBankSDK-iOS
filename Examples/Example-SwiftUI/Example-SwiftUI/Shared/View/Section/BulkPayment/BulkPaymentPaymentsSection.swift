@@ -19,14 +19,14 @@ struct BulkPaymentPaymentsSection: View {
     @State private var isCreditorAccountValid: Bool = false
     @State private var creditorAccount: PayByBankAccountRequest? = nil
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: [BulkPaymentPaylinkEntry]?
     
     var body: some View {
         List {
             Section(header: header) {
                 Group {
-                    CreditorAccountSection(isRequired: true, isValid: $isCreditorAccountValid, value: $creditorAccount)
+                    CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
                     TextField("", value: $amount, format: .number)
                         .keyboardType(.decimalPad)
                         .titled(L10n.inputAmount.localized.required)
@@ -54,7 +54,7 @@ struct BulkPaymentPaymentsSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard isCreditorAccountValid ,amount > 0, !reference.isBlank else { return false }
             return true
         }()
@@ -74,6 +74,6 @@ struct BulkPaymentPaymentsSection: View {
 
 struct BulkPaymentPaymentsSection_Previews: PreviewProvider {
     static var previews: some View {
-        BulkPaymentPaymentsSection(isValid: .constant(true), value: .constant(nil))
+        BulkPaymentPaymentsSection(valid: .constant(true), value: .constant(nil))
     }
 }

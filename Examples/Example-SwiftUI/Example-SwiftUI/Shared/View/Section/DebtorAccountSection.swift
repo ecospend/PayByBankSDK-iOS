@@ -17,7 +17,7 @@ struct DebtorAccountSection: View {
     
     @State private var isEnabled: Bool = false
     @State private(set) var isRequired: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PayByBankAccountRequest?
     
     var body: some View {
@@ -63,7 +63,7 @@ struct DebtorAccountSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard isEnabled else { return true }
             guard !identification.isBlank, !name.isBlank else { return false  }
             return true
@@ -81,6 +81,6 @@ struct DebtorAccountSection: View {
 
 struct DebtorAccountSection_Previews: PreviewProvider {
     static var previews: some View {
-        DebtorAccountSection(isValid: .constant(true), value: .constant(nil))
+        DebtorAccountSection(valid: .constant(true), value: .constant(nil))
     }
 }

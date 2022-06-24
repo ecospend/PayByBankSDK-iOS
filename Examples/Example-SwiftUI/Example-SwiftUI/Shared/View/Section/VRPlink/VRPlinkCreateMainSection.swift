@@ -22,7 +22,7 @@ struct VRPlinkCreateMainSection: View {
     @AppStorage(Self.storage(key: .reference)) private var reference: String = ""
     @AppStorage(Self.storage(key: .description)) private var description: String = ""
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: VRPlinkCreateMainSectionModel?
     
     var body: some View {
@@ -72,7 +72,7 @@ struct VRPlinkCreateMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard reason != .none, !reference.isBlank, !description.isBlank, redirectURL.isURL else { return false }
             return true
         }()
@@ -92,7 +92,7 @@ struct VRPlinkCreateMainSection: View {
 
 struct VRPlinkCreateMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        VRPlinkCreateMainSection(isValid: .constant(true), value: .constant(nil))
+        VRPlinkCreateMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 

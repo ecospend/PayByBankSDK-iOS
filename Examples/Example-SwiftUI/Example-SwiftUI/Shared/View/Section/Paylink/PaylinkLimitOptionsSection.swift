@@ -16,7 +16,7 @@ struct PaylinkLimitOptionsSection: View {
     @AppStorage(Self.storage(key: .limitOptionsDate)) var date: Date = .default
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaylinkLimitOptions?
     
     var body: some View {
@@ -50,7 +50,7 @@ struct PaylinkLimitOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -63,6 +63,6 @@ struct PaylinkLimitOptionsSection: View {
 
 struct PaylinkLimitOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        PaylinkLimitOptionsSection(isValid: .constant(true), value: .constant(nil))
+        PaylinkLimitOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

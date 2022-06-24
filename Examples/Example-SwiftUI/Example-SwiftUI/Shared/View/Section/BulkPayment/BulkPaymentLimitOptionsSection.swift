@@ -14,7 +14,7 @@ struct BulkPaymentLimitOptionsSection: View {
     @AppStorage(Self.storage(key: .limitOptionsDate)) var date: Date = .default
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: BulkPaymentLimitOptions?
     
     var body: some View {
@@ -40,7 +40,7 @@ struct BulkPaymentLimitOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -51,6 +51,6 @@ struct BulkPaymentLimitOptionsSection: View {
 
 struct BulkPaymentLimitOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        BulkPaymentLimitOptionsSection(isValid: .constant(true), value: .constant(nil))
+        BulkPaymentLimitOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

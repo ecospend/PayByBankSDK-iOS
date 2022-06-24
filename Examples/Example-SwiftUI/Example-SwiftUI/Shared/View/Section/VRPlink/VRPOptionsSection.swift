@@ -16,7 +16,7 @@ struct VRPOptionsSection: View {
     @AppStorage(Self.storage(key: .paymentOptionsGetRefundInfo)) var getRefundInfo: Bool = true
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: VRPOptions?
     
     var body: some View {
@@ -48,7 +48,7 @@ struct VRPOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -61,6 +61,6 @@ struct VRPOptionsSection: View {
 
 struct VRPOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        VRPOptionsSection(isValid: .constant(true), value: .constant(nil))
+        VRPOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

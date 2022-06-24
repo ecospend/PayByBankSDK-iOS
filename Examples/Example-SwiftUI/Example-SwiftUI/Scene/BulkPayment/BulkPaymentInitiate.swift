@@ -41,13 +41,13 @@ struct BulkPaymentInitiate: View {
     var body: some View {
         VStack {
             Form {
-                BulkPaymentCreateMainSection(isValid: $isMainModelValid, value: $mainModel)
-                DebtorAccountSection(isValid: $isDebtorAccountValid, value: $debtorAccount)
-                BulkPaymentOptionsSection(isValid: $isBulkPaymentOptionsValid, value: $bulkPaymentOptions)
-                BulkPaymentPaylinkOptionsSection(isValid: $isBulkPaymentPaylinkOptionsValid, value: $bulkPaymentPaylinktOptions)
-                NotificationOptionsSection(isValid: $isNotificationOptionsValid, value: $notificationOptions)
-                BulkPaymentLimitOptionsSection(isValid: $isBulkPaymentLimitOptionsValid, value: $bulkPaymentLimitOptions)
-                BulkPaymentPaymentsSection(isValid: $isBulkPaymentPaymentsValid, value: $bulkPaymentPayments)
+                BulkPaymentCreateMainSection(valid: $isMainModelValid, value: $mainModel)
+                DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
+                BulkPaymentOptionsSection(valid: $isBulkPaymentOptionsValid, value: $bulkPaymentOptions)
+                BulkPaymentPaylinkOptionsSection(valid: $isBulkPaymentPaylinkOptionsValid, value: $bulkPaymentPaylinktOptions)
+                NotificationOptionsSection(valid: $isNotificationOptionsValid, value: $notificationOptions)
+                BulkPaymentLimitOptionsSection(valid: $isBulkPaymentLimitOptionsValid, value: $bulkPaymentLimitOptions)
+                BulkPaymentPaymentsSection(valid: $isBulkPaymentPaymentsValid, value: $bulkPaymentPayments)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

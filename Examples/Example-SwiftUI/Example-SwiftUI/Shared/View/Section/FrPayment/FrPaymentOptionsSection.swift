@@ -18,7 +18,7 @@ struct FrPaymentOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: FrPaymentOptions?
     
     var body: some View {
@@ -56,7 +56,7 @@ struct FrPaymentOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -73,6 +73,6 @@ struct FrPaymentOptionsSection: View {
 
 struct FrPaymentOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        FrPaymentOptionsSection(isValid: .constant(true), value: .constant(nil))
+        FrPaymentOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

@@ -18,7 +18,7 @@ struct BulkPaymentCreateMainSection: View {
     @AppStorage(Self.storage(key: .merchantID)) private var merchantID: String = ""
     @AppStorage(Self.storage(key: .merchantUserID)) private var merchantUserID: String = ""
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: BulkPaymentCreateMainSectionModel?
     
     var body: some View {
@@ -51,7 +51,7 @@ struct BulkPaymentCreateMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard !fileReference.isBlank, redirectURL.isURL else { return false }
             return true
         }()
@@ -68,7 +68,7 @@ struct BulkPaymentCreateMainSection: View {
 
 struct BulkPaymentCreateMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        BulkPaymentCreateMainSection(isValid: .constant(true), value: .constant(nil))
+        BulkPaymentCreateMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 

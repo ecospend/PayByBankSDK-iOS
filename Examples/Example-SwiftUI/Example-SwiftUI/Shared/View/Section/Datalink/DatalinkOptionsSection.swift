@@ -17,7 +17,7 @@ struct DatalinkOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsGenerateFinancialReport)) private var generateFinancialReport: Bool = false
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: DatalinkOptions?
     
     var body: some View {
@@ -47,7 +47,7 @@ struct DatalinkOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -61,6 +61,6 @@ struct DatalinkOptionsSection: View {
 
 struct DatalinkOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkOptionsSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

@@ -19,7 +19,7 @@ struct PaylinkCreateMainSection: View {
     @AppStorage(Self.storage(key: .merchantID)) private var merchantID: String = ""
     @AppStorage(Self.storage(key: .merchantUserID)) private var merchantUserID: String = ""
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaylinkCreateMainSectionModel?
     
     var body: some View {
@@ -53,7 +53,7 @@ struct PaylinkCreateMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard amount > 0, !reference.isBlank, redirectURL.isURL else { return false }
             return true
         }()
@@ -70,7 +70,7 @@ struct PaylinkCreateMainSection: View {
 
 struct PaylinkCreateMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        PaylinkCreateMainSection(isValid: .constant(true), value: .constant(nil))
+        PaylinkCreateMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 

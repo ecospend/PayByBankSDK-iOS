@@ -14,7 +14,7 @@ struct DatalinkOutputSettingsSection: View {
     @AppStorage(Self.storage(key: .displayPii)) private var displayPii: Bool = false
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: OutputSettings?
     
     var body: some View {
@@ -38,7 +38,7 @@ struct DatalinkOutputSettingsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -49,6 +49,6 @@ struct DatalinkOutputSettingsSection: View {
 
 struct DatalinkOutputSettingsSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkOutputSettingsSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkOutputSettingsSection(valid: .constant(true), value: .constant(nil))
     }
 }

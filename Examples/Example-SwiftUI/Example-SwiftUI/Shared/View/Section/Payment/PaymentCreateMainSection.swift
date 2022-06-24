@@ -21,7 +21,7 @@ struct PaymentCreateMainSection: View {
     @AppStorage(Self.storage(key: .merchantUserID)) private var merchantUserID: String = ""
     @AppStorage(Self.storage(key: .paymentType)) private var paymentType: PaymentType = .auto
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaymentCreateMainSectionModel?
     
     var body: some View {
@@ -71,7 +71,7 @@ struct PaymentCreateMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard redirectURL.isURL, !bankID.isBlank, amount > 0, !reference.isBlank else { return false }
             return true
         }()
@@ -90,7 +90,7 @@ struct PaymentCreateMainSection: View {
 
 struct PaymentCreateMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentCreateMainSection(isValid: .constant(true), value: .constant(nil))
+        PaymentCreateMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 

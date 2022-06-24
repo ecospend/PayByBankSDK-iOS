@@ -14,7 +14,7 @@ struct DatalinkCategoryAggregationSection: View {
     @AppStorage(Self.storage(key: .distributionPeriod)) private var distributionPeriod: DistrubutionPeriod = .month
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: CategoryAggregationParameters?
     
     var body: some View {
@@ -43,7 +43,7 @@ struct DatalinkCategoryAggregationSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -54,6 +54,6 @@ struct DatalinkCategoryAggregationSection: View {
 
 struct DatalinkCategoryAggregationSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkCategoryAggregationSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkCategoryAggregationSection(valid: .constant(true), value: .constant(nil))
     }
 }

@@ -14,7 +14,7 @@ struct VRPlinkLimitOptionsSection: View {
     @AppStorage(Self.storage(key: .limitOptionsDate)) var date: Date = .default
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: VRPlinkLimitOptions?
     
     var body: some View {
@@ -40,7 +40,7 @@ struct VRPlinkLimitOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -51,6 +51,6 @@ struct VRPlinkLimitOptionsSection: View {
 
 struct VRPlinkLimitOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        VRPlinkLimitOptionsSection(isValid: .constant(true), value: .constant(nil))
+        VRPlinkLimitOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

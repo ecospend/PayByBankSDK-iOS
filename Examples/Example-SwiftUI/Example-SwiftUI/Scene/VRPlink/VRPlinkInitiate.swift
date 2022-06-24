@@ -43,14 +43,14 @@ struct VRPlinkInitiate: View {
     var body: some View {
         VStack {
             Form {
-                VRPlinkCreateMainSection(isValid: $isMainModelValid, value: $mainModel)
-                CreditorAccountSection(isValid: $isCreditorAccountValid, value: $creditorAccount)
-                DebtorAccountSection(isValid: $isDebtorAccountValid, value: $debtorAccount)
-                VRPOptionsSection(isValid: $isVRPOptionsValid, value: $vrpOptions)
-                VRPLimitOptionsSection(isValid: $isVRPLimitOptionsValid, value: $vrpLimitOptions)
-                NotificationOptionsSection(isValid: $isNotificationOptionsValid, value: $notificationOptions)
-                VRPlinkOptionsSection(isValid: $isVRPlinkOptionsValid, value: $vrplinkOptions)
-                VRPlinkLimitOptionsSection(isValid: $isVRPlinkLimitOptionsValid, value: $vrplinkLimitOptions)
+                VRPlinkCreateMainSection(valid: $isMainModelValid, value: $mainModel)
+                CreditorAccountSection(valid: $isCreditorAccountValid, value: $creditorAccount)
+                DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
+                VRPOptionsSection(valid: $isVRPOptionsValid, value: $vrpOptions)
+                VRPLimitOptionsSection(valid: $isVRPLimitOptionsValid, value: $vrpLimitOptions)
+                NotificationOptionsSection(valid: $isNotificationOptionsValid, value: $notificationOptions)
+                VRPlinkOptionsSection(valid: $isVRPlinkOptionsValid, value: $vrplinkOptions)
+                VRPlinkLimitOptionsSection(valid: $isVRPlinkLimitOptionsValid, value: $vrplinkLimitOptions)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

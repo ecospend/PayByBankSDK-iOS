@@ -32,10 +32,10 @@ struct PaymentCreate: View {
     var body: some View {
         VStack {
             Form {
-                PaymentCreateMainSection(isValid: $isMainModelValid, value: $mainModel)
-                CreditorAccountSection(isRequired: true, isValid: $isCreditorAccountValid, value: $creditorAccount)
-                DebtorAccountSection(isValid: $isDebtorAccountValid, value: $debtorAccount)
-                PaymentOptionsSection(isValid: $isPaymentOptionValid, value: $paymentOption)
+                PaymentCreateMainSection(valid: $isMainModelValid, value: $mainModel)
+                CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
+                DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
+                PaymentOptionsSection(valid: $isPaymentOptionValid, value: $paymentOption)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

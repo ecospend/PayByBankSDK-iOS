@@ -18,7 +18,7 @@ struct PaymentOptionsSection: View {
     @AppStorage(Self.storage(key: .paymentOptionsPaymentRails)) var paymentRails: String = ""
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaymentOption?
     
     var body: some View {
@@ -54,7 +54,7 @@ struct PaymentOptionsSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -69,6 +69,6 @@ struct PaymentOptionsSection: View {
 
 struct PaymentOptionsSection_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentOptionsSection(isValid: .constant(true), value: .constant(nil))
+        PaymentOptionsSection(valid: .constant(true), value: .constant(nil))
     }
 }

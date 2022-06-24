@@ -14,7 +14,7 @@ struct DatalinkAffordabilitySection: View {
     @AppStorage(Self.storage(key: .type)) private var type: AffordabilityType = .maxRent
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: AffordabilityParameters?
     
     var body: some View {
@@ -43,7 +43,7 @@ struct DatalinkAffordabilitySection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -54,6 +54,6 @@ struct DatalinkAffordabilitySection: View {
 
 struct DatalinkAffordabilitySection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkAffordabilitySection(isValid: .constant(true), value: .constant(nil))
+        DatalinkAffordabilitySection(valid: .constant(true), value: .constant(nil))
     }
 }

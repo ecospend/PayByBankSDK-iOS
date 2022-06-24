@@ -17,7 +17,7 @@ struct DatalinkVerificationSection: View {
     @AppStorage(Self.storage(key: .email)) private var email: String = ""
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: VerificationParameters?
     
     var body: some View {
@@ -52,7 +52,7 @@ struct DatalinkVerificationSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -66,6 +66,6 @@ struct DatalinkVerificationSection: View {
 
 struct DatalinkVerificationSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkVerificationSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkVerificationSection(valid: .constant(true), value: .constant(nil))
     }
 }

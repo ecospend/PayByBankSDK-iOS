@@ -23,7 +23,7 @@ struct PaymentList: View {
     var body: some View {
         VStack {
             Form {
-                PaymentListQuerySection(isValid: $isQueryValid, value: $query)
+                PaymentListQuerySection(valid: $isQueryValid, value: $query)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

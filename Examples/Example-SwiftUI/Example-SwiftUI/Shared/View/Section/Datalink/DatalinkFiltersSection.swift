@@ -15,7 +15,7 @@ struct DatalinkFiltersSection: View {
     @AppStorage(Self.storage(key: .currency)) private var currency: PayByBankCurrency = .pound
     
     @State private var isEnabled: Bool = false
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: Filters?
     
     var body: some View {
@@ -48,7 +48,7 @@ struct DatalinkFiltersSection: View {
     }
     
     func validate() {
-        isValid = true
+        valid = true
         
         value = {
             guard isEnabled else { return nil }
@@ -60,6 +60,6 @@ struct DatalinkFiltersSection: View {
 
 struct DatalinkFiltersSection_Previews: PreviewProvider {
     static var previews: some View {
-        DatalinkFiltersSection(isValid: .constant(true), value: .constant(nil))
+        DatalinkFiltersSection(valid: .constant(true), value: .constant(nil))
     }
 }

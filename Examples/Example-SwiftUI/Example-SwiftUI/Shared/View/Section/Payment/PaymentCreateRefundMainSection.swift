@@ -19,7 +19,7 @@ struct PaymentCreateRefundMainSection: View {
     @AppStorage(Self.storage(key: .description)) private var description: String = ""
     @AppStorage(Self.storage(key: .redirectURL)) private var redirectURL: String = ""
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaymentCreateRefundMainSectionModel?
     
     var body: some View {
@@ -57,7 +57,7 @@ struct PaymentCreateRefundMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard !id.isBlank, !bankID.isBlank, amount > 0, !reference.isBlank, redirectURL.isURL else { return false }
             return true
         }()
@@ -74,7 +74,7 @@ struct PaymentCreateRefundMainSection: View {
 
 struct PaymentCreateRefundMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentCreateRefundMainSection(isValid: .constant(true), value: .constant(nil))
+        PaymentCreateRefundMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 

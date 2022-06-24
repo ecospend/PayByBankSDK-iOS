@@ -24,7 +24,7 @@ struct FrPaymentCreateMainSection: View {
     @AppStorage(Self.storage(key: .standingOrderType)) var standingOrderType: FrPaymentStandingOrderType = .auto
     @AppStorage(Self.storage(key: .allowFrpCustomerChanges)) var allowFrpCustomerChanges: Bool = false
     
-    @Binding private(set) var isValid: Bool
+    @Binding private(set) var valid: Bool
     @Binding private(set) var value: FrPaymentCreateMainSectionModel?
     
     var body: some View {
@@ -87,7 +87,7 @@ struct FrPaymentCreateMainSection: View {
     }
     
     func validate() {
-        isValid = {
+        valid = {
             guard amount > 0,
                   !reference.isBlank,
                   redirectURL.isURL,
@@ -115,7 +115,7 @@ struct FrPaymentCreateMainSection: View {
 
 struct FrPaymentCreateMainSection_Previews: PreviewProvider {
     static var previews: some View {
-        FrPaymentCreateMainSection(isValid: .constant(true), value: .constant(nil))
+        FrPaymentCreateMainSection(valid: .constant(true), value: .constant(nil))
     }
 }
 
