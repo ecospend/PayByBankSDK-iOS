@@ -60,9 +60,17 @@ enum L10n {
     case datalinkGetTitle
     case datalinkDeleteTitle
     case datalinkGetOfConsentTitle
+    // MARK: - Payment
+    case paymentTitle
+    case paymentCreateTitle
+    case paymentListTitle
+    case paymentGetTitle
+    case paymentCheckURLTitle
+    case paymentCreateRefundTitle
     // MARK: - Section
     case sectionCreditorAccount
     case sectionDebtorAccount
+    case sectionRefundAccount
     case sectionPaylinkOptions
     case sectionNotificationOptions
     case sectionFrPaymentOptions
@@ -119,6 +127,7 @@ enum L10n {
     case inputPaymentOptionsValidTo
     case inputPaymentOptionsScheduledFor
     case inputPaymentOptionsClientReferenceID
+    case inputPaymentOptionsPsuID
     // MARK: - Input Options
     case inputOptionsFirstPaymentAmount
     case inputOptionsLastPaymentAmount
@@ -136,6 +145,8 @@ enum L10n {
     case inputAccountIdentification
     case inputAccountName
     case inputAccountType
+    case inputAccountOwnerName
+    case inputAccountBic
     // MARK: - Input
     case inputAmount
     case inputBankID
@@ -160,6 +171,7 @@ enum L10n {
     case inputPermissions
     case inputName
     case inputStartDate
+    case inputEndDate
     case inputCurrency
     case inputPhoneNumbers
     case inputAddress
@@ -168,6 +180,9 @@ enum L10n {
     case inputDistributionPeriod
     case inputDisplayPii
     case inputConsentID
+    case inputPaymentType
+    case inputPage
+    case inputID
 }
 
 // MARK: - Logic

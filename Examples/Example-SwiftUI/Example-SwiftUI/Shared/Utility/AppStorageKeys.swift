@@ -45,6 +45,7 @@ enum AppStorageKeys: String {
     case paymentOptionsValidTo
     case paymentOptionsScheduledFor
     case paymentOptionsClientReferenceID
+    case paymentOptionsPsuID
     // MARK: - Input Options
     case optionsFirstPaymentAmount
     case optionsLastPaymentAmount
@@ -62,6 +63,8 @@ enum AppStorageKeys: String {
     case accountIdentification
     case accountName
     case accountType
+    case accountOwnerName
+    case accountBic
     // MARK: - Input
     case amount
     case bankID
@@ -86,6 +89,7 @@ enum AppStorageKeys: String {
     case permissions
     case name
     case startDate
+    case endDate
     case currency
     case phoneNumbers
     case address
@@ -94,4 +98,7 @@ enum AppStorageKeys: String {
     case distributionPeriod
     case displayPii
     case consentID
+    case paymentType
+    case page
+    case id
 }

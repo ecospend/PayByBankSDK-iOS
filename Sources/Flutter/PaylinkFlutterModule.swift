@@ -31,7 +31,7 @@ public class PaylinkFlutterModule: NSObject {
     private var eventSink: FlutterEventSink?
     
     private override init() {
-        super.init()        
+        super.init()
     }
     
     public func start() {

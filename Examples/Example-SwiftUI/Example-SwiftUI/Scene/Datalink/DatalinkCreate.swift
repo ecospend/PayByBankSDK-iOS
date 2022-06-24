@@ -52,7 +52,6 @@ struct DatalinkCreate: View {
         .navigationTitle(L10n.datalinkCreateTitle.localizedKey)
         .safari(APIDocuments.Datalink.create)
         .response($response)
-        
     }
     
     func submit() {

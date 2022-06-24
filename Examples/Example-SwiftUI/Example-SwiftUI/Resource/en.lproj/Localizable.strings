@@ -56,9 +56,17 @@
 "DatalinkGetTitle" = "Get Datalink";
 "DatalinkDeleteTitle" = "Delete Datalink";
 "DatalinkGetOfConsentTitle" = "Get Datalink of Consent";
+// MARK: - Payment
+"PaymentTitle" = "Payment";
+"PaymentCreateTitle" = "Create Payment";
+"PaymentListTitle" = "List Payments";
+"PaymentGetTitle" = "Get Payment";
+"PaymentCheckURLTitle" = "Check Payment URL";
+"PaymentCreateRefundTitle" = "Create Refund";
 // MARK: - Section
 "SectionCreditorAccount" = "Creditor Account";
 "SectionDebtorAccount" = "Debtor Account";
+"SectionRefundAccount" = "Refund Account";
 "SectionFrPaymentOptions" = "FrPayment Options";
 "SectionPaylinkOptions" = "Paylink Options";
 "SectionVRPOptions" = "VRP Options";
@@ -115,6 +123,7 @@
 "InputPaymentOptionsValidTo" = "Valid To";
 "InputPaymentOptionsScheduledFor" = "Scheduled For";
 "InputPaymentOptionsClientReferenceID" = "Client Reference ID";
+"InputPaymentOptionsPsuID" = "PSU ID";
 // MARK: - Input Options
 "InputOptionsFirstPaymentAmount" = "First Payment Amount";
 "InputOptionsLastPaymentAmount" = "Last Payment Amount";
@@ -132,6 +141,8 @@
 "InputAccountIdentification" = "Identification";
 "InputAccountName" = "Name";
 "InputAccountType" = "Type";
+"InputAccountOwnerName" = "Owner Name";
+"InputAccountBic" = "Bic";
 // MARK: - Input
 "InputAmount" = "Amount";
 "InputBankID" = "Bank ID";
@@ -156,6 +167,7 @@
 "InputPermissions" = "Permissions";
 "InputCurrency" = "Currency";
 "InputStartDate" = "Start Date";
+"InputEndDate" = "End Date";
 "InputName" = "Name";
 "InputPhoneNumbers" = "Phone Numbers";
 "InputAddress" = "Address";
@@ -164,3 +176,6 @@
 "InputDistributionPeriod" = "Distribution Period";
 "InputDisplayPii" = "Display Pii";
 "InputConsentID" = "Consent ID";
+"InputPaymentType" = "Payment Type";
+"InputPage" = "Page";
+"InputID" = "ID";

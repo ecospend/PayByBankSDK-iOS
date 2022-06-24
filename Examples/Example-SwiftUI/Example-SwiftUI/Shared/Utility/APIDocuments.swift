@@ -50,4 +50,13 @@ struct APIDocuments {
         static let delete = "\(base)/paths/~1api~1v2.0~1datalink~1%7Bunique_id%7D/delete"
         static let getOfConsent = "\(base)/paths/~1api~1v2.0~1datalink~1consent~1%7Bconsent_id%7D/get"
     }
+    
+    struct Payment {
+        static let base = "https://docs.ecospend.com/api/pis/V2/#tag/Payments-API"
+        static let create = "\(base)/paths/~1api~1v2.0~1payments/post"
+        static let list = "\(base)/paths/~1api~1v2.0~1payments/get"
+        static let get = "\(base)/paths/~1api~1v2.0~1payments~1%7Bid%7D/get"
+        static let checkURL = "\(base)/paths/~1api~1v2.0~1payments~1%7Bid%7D~1url-consumed/get"
+        static let createRefund = "\(base)/paths/~1api~1v2.0~1payments~1%7Bid%7D~1refund/post"
+    }
 }

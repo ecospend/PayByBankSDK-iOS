@@ -67,7 +67,6 @@ struct PaylinkCreate: View {
         .navigationTitle(L10n.paylinkCreateTitle.localizedKey)
         .safari(APIDocuments.Paylink.create)
         .response($response)
-        
     }
     
     func submit() {
