@@ -1,14 +1,13 @@
 //
-//  ExampleUITestsLaunchTests.swift
+//  Example_SwiftUIUITestsLaunchTests.swift
 //  ExampleUITests
 //
-//  Created by Berk Akkerman on 13.12.2021.
-//  Copyright © 2021 Ecospend. All rights reserved.
+//  Created by Yunus TÜR on 10.05.2022.
 //
 
 import XCTest
 
-class ExampleUITestsLaunchTests: XCTestCase {
+class Example_SwiftUIUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

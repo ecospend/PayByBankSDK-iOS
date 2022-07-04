@@ -1,14 +1,13 @@
 //
-//  ExampleUITests.swift
+//  Example_SwiftUIUITests.swift
 //  ExampleUITests
 //
-//  Created by Berk Akkerman on 13.12.2021.
-//  Copyright © 2021 Ecospend. All rights reserved.
+//  Created by Yunus TÜR on 10.05.2022.
 //
 
 import XCTest
 
-class ExampleUITests: XCTestCase {
+class Example_SwiftUIUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,7 +27,6 @@ class ExampleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 

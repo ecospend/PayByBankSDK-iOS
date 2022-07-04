@@ -7,356 +7,704 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EC671A9C258A225946D5EFA /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94412FB9025F5CDCAF142232 /* Pods_Example.framework */; };
-		605411E427676A2D0044D861 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605411E327676A2D0044D861 /* ExampleTests.swift */; };
-		605411EE27676A2E0044D861 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605411ED27676A2E0044D861 /* ExampleUITests.swift */; };
-		605411F027676A2E0044D861 /* ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605411EF27676A2E0044D861 /* ExampleUITestsLaunchTests.swift */; };
-		606AD00527FED5BD00F18782 /* DatalinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD00427FED5BD00F18782 /* DatalinkVC.swift */; };
-		606AD00827FED73500F18782 /* TabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD00727FED73500F18782 /* TabsVC.swift */; };
-		606AD01227FF21D200F18782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AD01127FF21D200F18782 /* ViewController.swift */; };
-		60FD543027758D7000EB7080 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD542F27758D6F00EB7080 /* Button.swift */; };
-		60FD543227758E7B00EB7080 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD543127758E7B00EB7080 /* Label.swift */; };
-		60FD543527758FEC00EB7080 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD543427758FEC00EB7080 /* TextField.swift */; };
-		60FD54382775903600EB7080 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD54372775903600EB7080 /* Color.swift */; };
-		60FD543A2775906800EB7080 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FD54392775906800EB7080 /* Font.swift */; };
-		95DDCE539A93406FCC280303 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39B598098C0F066E7EEEC69 /* Pods_ExampleTests.framework */; };
-		D622D58E280D9258005E0BEF /* PaylinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D622D58D280D9258005E0BEF /* PaylinkVC.swift */; };
-		D622D5A2280EE434005E0BEF /* VRPlinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D622D5A1280EE434005E0BEF /* VRPlinkVC.swift */; };
-		D622D5C428102B61005E0BEF /* BulkPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D622D5C328102B61005E0BEF /* BulkPaymentVC.swift */; };
-		D622D5F12812C625005E0BEF /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D622D5F02812C625005E0BEF /* PaymentVC.swift */; };
-		D6F46041276B6EAB00D49C4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */; };
-		D6F46042276B6EAB00D49C4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6F4603C276B6EAB00D49C4E /* Assets.xcassets */; };
-		D6F46044276B6EAB00D49C4E /* FrPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4603E276B6EAB00D49C4E /* FrPaymentVC.swift */; };
-		D6F46046276B6F4900D49C4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F46045276B6F4900D49C4E /* LaunchScreen.storyboard */; };
-		D6F46048276B6F6600D49C4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F46047276B6F6600D49C4E /* Main.storyboard */; };
-		FDD9496B85DDB50D1C7D641C /* Pods_Example_ExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225621A28AB641ACAF024272 /* Pods_Example_ExampleUITests.framework */; };
+		D62AEED92873032B00CC2DD2 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEED82873032B00CC2DD2 /* ExampleApp.swift */; };
+		D6900933282A75A300979630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900932282A75A300979630 /* Assets.xcassets */; };
+		D6900936282A75A300979630 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900935282A75A300979630 /* Preview Assets.xcassets */; };
+		D6900940282A75A300979630 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690093F282A75A300979630 /* ExampleTests.swift */; };
+		D690094A282A75A300979630 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900949282A75A300979630 /* ExampleUITests.swift */; };
+		D690094C282A75A300979630 /* ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690094B282A75A300979630 /* ExampleUITestsLaunchTests.swift */; };
+		D690096D282A9C9300979630 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D690096C282A9C9300979630 /* PayByBank */; };
+		D6900976282AA5DC00979630 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900975282AA5DC00979630 /* HomeView.swift */; };
+		D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690097B282BC54700979630 /* PaylinkAPIs.swift */; };
+		D6900981282BC85400979630 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900980282BC85400979630 /* Settings.swift */; };
+		D6900987282BD7A700979630 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6900989282BD7A700979630 /* Localizable.strings */; };
+		D690098B282BD99400979630 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690098A282BD99400979630 /* L10n.swift */; };
+		D690098F282BDB2E00979630 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690098E282BDB2E00979630 /* Array+.swift */; };
+		D6900994282BF52400979630 /* PaylinkOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6900993282BF52400979630 /* PaylinkOpen.swift */; };
+		D6900998282C029800979630 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D6900997282C029800979630 /* PayByBank */; };
+		D690099F282C071F00979630 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690099E282C071F00979630 /* UIApplication+.swift */; };
+		D69009A1283246FD00979630 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009A0283246FD00979630 /* Color+.swift */; };
+		D69009AF28328D6A00979630 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009AE28328D6A00979630 /* Loading.swift */; };
+		D69009B12837998D00979630 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009B02837998D00979630 /* Toast.swift */; };
+		D69009B32837C06300979630 /* PaylinkCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69009B22837C06200979630 /* PaylinkCreate.swift */; };
+		D695AF072857592900CB7103 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF062857592900CB7103 /* View+.swift */; };
+		D695AF0928575C9900CB7103 /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF0828575C9900CB7103 /* AppStorageKeys.swift */; };
+		D695AF0B285767D800CB7103 /* Titled.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF0A285767D800CB7103 /* Titled.swift */; };
+		D695AF0D2857697B00CB7103 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF0C2857697B00CB7103 /* PrimaryButton.swift */; };
+		D695AF0F2857D60A00CB7103 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF0E2857D60A00CB7103 /* String+.swift */; };
+		D695AF112857E46B00CB7103 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF102857E46B00CB7103 /* Date+.swift */; };
+		D695AF142859C3D400CB7103 /* CreditorAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF132859C3D400CB7103 /* CreditorAccountSection.swift */; };
+		D695AF162859F64B00CB7103 /* DebtorAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF152859F64B00CB7103 /* DebtorAccountSection.swift */; };
+		D695AF182859F7DD00CB7103 /* PaylinkCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF172859F7DD00CB7103 /* PaylinkCreateMainSection.swift */; };
+		D695AF1A2859F8CD00CB7103 /* Decimal+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF192859F8CD00CB7103 /* Decimal+.swift */; };
+		D695AF1C2859FF9E00CB7103 /* PaylinkOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF1B2859FF9E00CB7103 /* PaylinkOptionsSection.swift */; };
+		D695AF1E285A0FB100CB7103 /* NotificationOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF1D285A0FB100CB7103 /* NotificationOptionsSection.swift */; };
+		D695AF20285B113500CB7103 /* PaylinkPaymentOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF1F285B113500CB7103 /* PaylinkPaymentOptionsSection.swift */; };
+		D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */; };
+		D695AF24285B3C1900CB7103 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF23285B3C1900CB7103 /* Encodable+.swift */; };
+		D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF28285CA71200CB7103 /* ResponseView.swift */; };
+		D695AF2B285CB63300CB7103 /* PaylinkDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */; };
+		D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2C285CB76200CB7103 /* PaylinkGet.swift */; };
+		D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */; };
+		D695AF32285CBBD900CB7103 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF31285CBBD900CB7103 /* SafariView.swift */; };
+		D695AF35285CBE5200CB7103 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695AF34285CBE5200CB7103 /* URL+.swift */; };
+		D6AEF3D5285FC0F4008FD82E /* APIDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3D4285FC0F4008FD82E /* APIDocuments.swift */; };
+		D6AEF3D828609C8B008FD82E /* FrPaymentAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3D728609C8B008FD82E /* FrPaymentAPIs.swift */; };
+		D6AEF3DA28609C9D008FD82E /* FrPaymentOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3D928609C9D008FD82E /* FrPaymentOpen.swift */; };
+		D6AEF3DC28609E7E008FD82E /* FrPaymentInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3DB28609E7E008FD82E /* FrPaymentInitiate.swift */; };
+		D6AEF3DE28609EE4008FD82E /* FrPaymentCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3DD28609EE4008FD82E /* FrPaymentCreateMainSection.swift */; };
+		D6AEF3E02860A8D2008FD82E /* FrPaymentOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3DF2860A8D2008FD82E /* FrPaymentOptionsSection.swift */; };
+		D6AEF3E42860B4CA008FD82E /* FrPaymentCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E32860B4CA008FD82E /* FrPaymentCreate.swift */; };
+		D6AEF3E62861AD98008FD82E /* FrPaymentGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */; };
+		D6AEF3E82861AE11008FD82E /* FrPaymentDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */; };
+		D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3E92861B1FA008FD82E /* Result+.swift */; };
+		D6AEF3EF2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3EE2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift */; };
+		D6AEF3F12861D045008FD82E /* VRPlinkOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F02861D045008FD82E /* VRPlinkOptionsSection.swift */; };
+		D6AEF3F32861DB10008FD82E /* VRPOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F22861DB10008FD82E /* VRPOptionsSection.swift */; };
+		D6AEF3F52861E0E0008FD82E /* VRPlinkCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F42861E0E0008FD82E /* VRPlinkCreateMainSection.swift */; };
+		D6AEF3F72861ECB8008FD82E /* VRPLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F62861ECB8008FD82E /* VRPLimitOptionsSection.swift */; };
+		D6AEF3FA2861F608008FD82E /* VRPlinkAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3F92861F608008FD82E /* VRPlinkAPIs.swift */; };
+		D6AEF3FC2861F61A008FD82E /* VRPlinkCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3FB2861F61A008FD82E /* VRPlinkCreate.swift */; };
+		D6AEF3FE28624463008FD82E /* VRPlinkOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */; };
+		D6AEF400286245DD008FD82E /* VRPlinkDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF3FF286245DD008FD82E /* VRPlinkDeactivate.swift */; };
+		D6AEF4022862463B008FD82E /* VRPlinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4012862463B008FD82E /* VRPlinkGet.swift */; };
+		D6AEF40428624694008FD82E /* VRPlinkInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */; };
+		D6AEF4062862472F008FD82E /* VRPlinkListRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */; };
+		D6AEF40928645067008FD82E /* BulkPaymentOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF40828645067008FD82E /* BulkPaymentOptionsSection.swift */; };
+		D6AEF40B2864537E008FD82E /* BulkPaymentPaylinkOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF40A2864537E008FD82E /* BulkPaymentPaylinkOptionsSection.swift */; };
+		D6AEF40D28645564008FD82E /* BulkPaymentLimitOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF40C28645564008FD82E /* BulkPaymentLimitOptionsSection.swift */; };
+		D6AEF40F2864591C008FD82E /* BulkPaymentPaymentsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF40E2864591C008FD82E /* BulkPaymentPaymentsSection.swift */; };
+		D6AEF411286475B4008FD82E /* BulkPaymentCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF410286475B4008FD82E /* BulkPaymentCreateMainSection.swift */; };
+		D6AEF4142864779C008FD82E /* BulkPaymentAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4132864779C008FD82E /* BulkPaymentAPIs.swift */; };
+		D6AEF416286477AE008FD82E /* BulkPaymentCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF415286477AE008FD82E /* BulkPaymentCreate.swift */; };
+		D6AEF41828647DBD008FD82E /* BulkPaymentDeactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41728647DBD008FD82E /* BulkPaymentDeactivate.swift */; };
+		D6AEF41C28647E12008FD82E /* BulkPaymentGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41B28647E12008FD82E /* BulkPaymentGet.swift */; };
+		D6AEF41E28648768008FD82E /* BulkPaymentInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41D28648768008FD82E /* BulkPaymentInitiate.swift */; };
+		D6AEF420286487F5008FD82E /* BulkPaymentOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF41F286487F5008FD82E /* BulkPaymentOpen.swift */; };
+		D6AEF42228648B59008FD82E /* SafariModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42128648B59008FD82E /* SafariModifier.swift */; };
+		D6AEF42428648D18008FD82E /* ResponseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42328648D18008FD82E /* ResponseModifier.swift */; };
+		D6AEF4282864991E008FD82E /* DatalinkOutputSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4272864991E008FD82E /* DatalinkOutputSettingsSection.swift */; };
+		D6AEF42A286499F5008FD82E /* DatalinkCategoryAggregationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF429286499F5008FD82E /* DatalinkCategoryAggregationSection.swift */; };
+		D6AEF42C28649B04008FD82E /* DatalinkVerificationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42B28649B04008FD82E /* DatalinkVerificationSection.swift */; };
+		D6AEF42E28649D2C008FD82E /* DatalinkAffordabilitySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42D28649D2C008FD82E /* DatalinkAffordabilitySection.swift */; };
+		D6AEF43028649E40008FD82E /* DatalinkFiltersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF42F28649E40008FD82E /* DatalinkFiltersSection.swift */; };
+		D6AEF43228649FB4008FD82E /* DatalinkParametersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF43128649FB4008FD82E /* DatalinkParametersSection.swift */; };
+		D6AEF4342864A046008FD82E /* DatalinkFinancialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4332864A046008FD82E /* DatalinkFinancialSection.swift */; };
+		D6AEF4372864A4B0008FD82E /* DatalinkFinancialReportSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4362864A4B0008FD82E /* DatalinkFinancialReportSection.swift */; };
+		D6AEF4392864A5D8008FD82E /* DatalinkOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4382864A5D8008FD82E /* DatalinkOptionsSection.swift */; };
+		D6AEF43B2864A6A0008FD82E /* DatalinkCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF43A2864A6A0008FD82E /* DatalinkCreateMainSection.swift */; };
+		D6AEF43E2864A9DD008FD82E /* DatalinkAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF43D2864A9DD008FD82E /* DatalinkAPIs.swift */; };
+		D6AEF4402864AA5E008FD82E /* DatalinkCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF43F2864AA5E008FD82E /* DatalinkCreate.swift */; };
+		D6AEF4422864AD65008FD82E /* DatalinkGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4412864AD65008FD82E /* DatalinkGet.swift */; };
+		D6AEF4442865A37B008FD82E /* DatalinkDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4432865A37B008FD82E /* DatalinkDelete.swift */; };
+		D6AEF4462865A3EE008FD82E /* DatalinkGetOfConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4452865A3EE008FD82E /* DatalinkGetOfConsent.swift */; };
+		D6AEF4482865A504008FD82E /* DatalinkOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4472865A504008FD82E /* DatalinkOpen.swift */; };
+		D6AEF44A2865A568008FD82E /* DatalinkInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4492865A568008FD82E /* DatalinkInitiate.swift */; };
+		D6AEF44E2865A8C1008FD82E /* PaymentOptionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF44D2865A8C1008FD82E /* PaymentOptionsSection.swift */; };
+		D6AEF4502865AF5A008FD82E /* PaymentCreateMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF44F2865AF5A008FD82E /* PaymentCreateMainSection.swift */; };
+		D6AEF4532865D4B3008FD82E /* PaymentAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4522865D4B3008FD82E /* PaymentAPIs.swift */; };
+		D6AEF4552865D4BD008FD82E /* PaymentCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4542865D4BD008FD82E /* PaymentCreate.swift */; };
+		D6AEF4572865D8C9008FD82E /* PaymentListQuerySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4562865D8C8008FD82E /* PaymentListQuerySection.swift */; };
+		D6AEF4592865DADB008FD82E /* PaymentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4582865DADB008FD82E /* PaymentList.swift */; };
+		D6AEF45B2865DB88008FD82E /* PaymentGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF45A2865DB88008FD82E /* PaymentGet.swift */; };
+		D6AEF45D2865DC1C008FD82E /* PaymentCheckURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF45C2865DC1C008FD82E /* PaymentCheckURL.swift */; };
+		D6AEF45F2865DC9A008FD82E /* PaymentCreateRefund.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */; };
+		D6AEF4612865E1E1008FD82E /* RefundAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */; };
+		D6AEF4632865E328008FD82E /* PaymentCreateRefundMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		605411E027676A2D0044D861 /* PBXContainerItemProxy */ = {
+		D690093C282A75A300979630 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 605411C127676A2C0044D861 /* Project object */;
+			containerPortal = D6900923282A75A100979630 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 605411C827676A2C0044D861;
-			remoteInfo = Example;
+			remoteGlobalIDString = D690092A282A75A100979630;
+			remoteInfo = "Example-SwiftUI";
 		};
-		605411EA27676A2E0044D861 /* PBXContainerItemProxy */ = {
+		D6900946282A75A300979630 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 605411C127676A2C0044D861 /* Project object */;
+			containerPortal = D6900923282A75A100979630 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 605411C827676A2C0044D861;
-			remoteInfo = Example;
-		};
-		608F5CC12768C8F50053F379 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1F667CC0E19EAF34E5A4119E2121F585;
-			remoteInfo = "Pods-Example";
-		};
-		608F5CC32768C8F50053F379 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E8E5A2DDEE01CA7716145CA1B033B7A3;
-			remoteInfo = "Pods-Example-ExampleUITests";
-		};
-		608F5CC52768C8F50053F379 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 630CABE8F692FCDBFD1B122A2D0CE388;
-			remoteInfo = "Pods-ExampleTests";
-		};
-		D630E3BD27FDAC9600AAAD67 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 22CF4473548B319322179C041F6D489A;
-			remoteInfo = PayByBank;
+			remoteGlobalIDString = D690092A282A75A100979630;
+			remoteInfo = "Example-SwiftUI";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21F3EAD93D21A712734ED722 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		225621A28AB641ACAF024272 /* Pods_Example_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_ExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2792475D4D19FBAE48B5B9D7 /* Pods-Example-ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-ExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
-		49918D7648D1F17B5A0AD36A /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		605411C927676A2C0044D861 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		605411DF27676A2D0044D861 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		605411E327676A2D0044D861 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		605411E927676A2E0044D861 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		605411ED27676A2E0044D861 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
-		605411EF27676A2E0044D861 /* ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		606AD00427FED5BD00F18782 /* DatalinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkVC.swift; sourceTree = "<group>"; };
-		606AD00727FED73500F18782 /* TabsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsVC.swift; sourceTree = "<group>"; };
-		606AD01127FF21D200F18782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		608F5CB52768C8F50053F379 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		60DB8F5C2774B5C300AE132E /* PaylinkSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PaylinkSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60E67A672767716F0032A5C3 /* PaylinkMobileSDK_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PaylinkMobileSDK_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60FD542F27758D6F00EB7080 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		60FD543127758E7B00EB7080 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		60FD543427758FEC00EB7080 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		60FD54372775903600EB7080 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		60FD54392775906800EB7080 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		80097DE5BEB0D50893EEA911 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		94412FB9025F5CDCAF142232 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A34EEA0F53FEFF0BDE4A0E21 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleTests/Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A39B598098C0F066E7EEEC69 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4B8136B371DF2FEB06EC3EC /* Pods-Example-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-ExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D622D58D280D9258005E0BEF /* PaylinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkVC.swift; sourceTree = "<group>"; };
-		D622D5A1280EE434005E0BEF /* VRPlinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkVC.swift; sourceTree = "<group>"; };
-		D622D5C328102B61005E0BEF /* BulkPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentVC.swift; sourceTree = "<group>"; };
-		D622D5F02812C625005E0BEF /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
-		D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D6F4603C276B6EAB00D49C4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D6F4603D276B6EAB00D49C4E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6F4603E276B6EAB00D49C4E /* FrPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrPaymentVC.swift; sourceTree = "<group>"; };
-		D6F46045276B6F4900D49C4E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D6F46047276B6F6600D49C4E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D62AEED82873032B00CC2DD2 /* ExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
+		D690092B282A75A100979630 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6900932282A75A300979630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6900935282A75A300979630 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D690093B282A75A300979630 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D690093F282A75A300979630 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		D6900945282A75A300979630 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6900949282A75A300979630 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
+		D690094B282A75A300979630 /* ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6900963282A979700979630 /* PaylinkMobileSDK-iOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "PaylinkMobileSDK-iOS"; path = ../..; sourceTree = "<group>"; };
+		D6900975282AA5DC00979630 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D690097B282BC54700979630 /* PaylinkAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkAPIs.swift; sourceTree = "<group>"; };
+		D6900980282BC85400979630 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		D6900988282BD7A700979630 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D690098A282BD99400979630 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		D690098E282BDB2E00979630 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		D6900993282BF52400979630 /* PaylinkOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkOpen.swift; sourceTree = "<group>"; };
+		D690099E282C071F00979630 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		D69009A0283246FD00979630 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		D69009AE28328D6A00979630 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		D69009B02837998D00979630 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		D69009B22837C06200979630 /* PaylinkCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkCreate.swift; sourceTree = "<group>"; };
+		D695AF062857592900CB7103 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		D695AF0828575C9900CB7103 /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		D695AF0A285767D800CB7103 /* Titled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Titled.swift; sourceTree = "<group>"; };
+		D695AF0C2857697B00CB7103 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		D695AF0E2857D60A00CB7103 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		D695AF102857E46B00CB7103 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		D695AF132859C3D400CB7103 /* CreditorAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditorAccountSection.swift; sourceTree = "<group>"; };
+		D695AF152859F64B00CB7103 /* DebtorAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtorAccountSection.swift; sourceTree = "<group>"; };
+		D695AF172859F7DD00CB7103 /* PaylinkCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkCreateMainSection.swift; sourceTree = "<group>"; };
+		D695AF192859F8CD00CB7103 /* Decimal+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+.swift"; sourceTree = "<group>"; };
+		D695AF1B2859FF9E00CB7103 /* PaylinkOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkOptionsSection.swift; sourceTree = "<group>"; };
+		D695AF1D285A0FB100CB7103 /* NotificationOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsSection.swift; sourceTree = "<group>"; };
+		D695AF1F285B113500CB7103 /* PaylinkPaymentOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkPaymentOptionsSection.swift; sourceTree = "<group>"; };
+		D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkLimitOptionsSection.swift; sourceTree = "<group>"; };
+		D695AF23285B3C1900CB7103 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
+		D695AF28285CA71200CB7103 /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
+		D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkDeactivate.swift; sourceTree = "<group>"; };
+		D695AF2C285CB76200CB7103 /* PaylinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGet.swift; sourceTree = "<group>"; };
+		D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkInitiate.swift; sourceTree = "<group>"; };
+		D695AF31285CBBD900CB7103 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		D695AF34285CBE5200CB7103 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		D6AEF3D4285FC0F4008FD82E /* APIDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDocuments.swift; sourceTree = "<group>"; };
+		D6AEF3D728609C8B008FD82E /* FrPaymentAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentAPIs.swift; sourceTree = "<group>"; };
+		D6AEF3D928609C9D008FD82E /* FrPaymentOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentOpen.swift; sourceTree = "<group>"; };
+		D6AEF3DB28609E7E008FD82E /* FrPaymentInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentInitiate.swift; sourceTree = "<group>"; };
+		D6AEF3DD28609EE4008FD82E /* FrPaymentCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentCreateMainSection.swift; sourceTree = "<group>"; };
+		D6AEF3DF2860A8D2008FD82E /* FrPaymentOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3E32860B4CA008FD82E /* FrPaymentCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentCreate.swift; sourceTree = "<group>"; };
+		D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentGet.swift; sourceTree = "<group>"; };
+		D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentDeactivate.swift; sourceTree = "<group>"; };
+		D6AEF3E92861B1FA008FD82E /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
+		D6AEF3EE2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkLimitOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F02861D045008FD82E /* VRPlinkOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F22861DB10008FD82E /* VRPOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F42861E0E0008FD82E /* VRPlinkCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkCreateMainSection.swift; sourceTree = "<group>"; };
+		D6AEF3F62861ECB8008FD82E /* VRPLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPLimitOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF3F92861F608008FD82E /* VRPlinkAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkAPIs.swift; sourceTree = "<group>"; };
+		D6AEF3FB2861F61A008FD82E /* VRPlinkCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkCreate.swift; sourceTree = "<group>"; };
+		D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkOpen.swift; sourceTree = "<group>"; };
+		D6AEF3FF286245DD008FD82E /* VRPlinkDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkDeactivate.swift; sourceTree = "<group>"; };
+		D6AEF4012862463B008FD82E /* VRPlinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkGet.swift; sourceTree = "<group>"; };
+		D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkInitiate.swift; sourceTree = "<group>"; };
+		D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkListRecords.swift; sourceTree = "<group>"; };
+		D6AEF40828645067008FD82E /* BulkPaymentOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF40A2864537E008FD82E /* BulkPaymentPaylinkOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentPaylinkOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF40C28645564008FD82E /* BulkPaymentLimitOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentLimitOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF40E2864591C008FD82E /* BulkPaymentPaymentsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentPaymentsSection.swift; sourceTree = "<group>"; };
+		D6AEF410286475B4008FD82E /* BulkPaymentCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentCreateMainSection.swift; sourceTree = "<group>"; };
+		D6AEF4132864779C008FD82E /* BulkPaymentAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentAPIs.swift; sourceTree = "<group>"; };
+		D6AEF415286477AE008FD82E /* BulkPaymentCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentCreate.swift; sourceTree = "<group>"; };
+		D6AEF41728647DBD008FD82E /* BulkPaymentDeactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentDeactivate.swift; sourceTree = "<group>"; };
+		D6AEF41B28647E12008FD82E /* BulkPaymentGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentGet.swift; sourceTree = "<group>"; };
+		D6AEF41D28648768008FD82E /* BulkPaymentInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentInitiate.swift; sourceTree = "<group>"; };
+		D6AEF41F286487F5008FD82E /* BulkPaymentOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentOpen.swift; sourceTree = "<group>"; };
+		D6AEF42128648B59008FD82E /* SafariModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariModifier.swift; sourceTree = "<group>"; };
+		D6AEF42328648D18008FD82E /* ResponseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModifier.swift; sourceTree = "<group>"; };
+		D6AEF4272864991E008FD82E /* DatalinkOutputSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkOutputSettingsSection.swift; sourceTree = "<group>"; };
+		D6AEF429286499F5008FD82E /* DatalinkCategoryAggregationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkCategoryAggregationSection.swift; sourceTree = "<group>"; };
+		D6AEF42B28649B04008FD82E /* DatalinkVerificationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkVerificationSection.swift; sourceTree = "<group>"; };
+		D6AEF42D28649D2C008FD82E /* DatalinkAffordabilitySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkAffordabilitySection.swift; sourceTree = "<group>"; };
+		D6AEF42F28649E40008FD82E /* DatalinkFiltersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkFiltersSection.swift; sourceTree = "<group>"; };
+		D6AEF43128649FB4008FD82E /* DatalinkParametersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkParametersSection.swift; sourceTree = "<group>"; };
+		D6AEF4332864A046008FD82E /* DatalinkFinancialSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkFinancialSection.swift; sourceTree = "<group>"; };
+		D6AEF4362864A4B0008FD82E /* DatalinkFinancialReportSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkFinancialReportSection.swift; sourceTree = "<group>"; };
+		D6AEF4382864A5D8008FD82E /* DatalinkOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF43A2864A6A0008FD82E /* DatalinkCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkCreateMainSection.swift; sourceTree = "<group>"; };
+		D6AEF43D2864A9DD008FD82E /* DatalinkAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkAPIs.swift; sourceTree = "<group>"; };
+		D6AEF43F2864AA5E008FD82E /* DatalinkCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkCreate.swift; sourceTree = "<group>"; };
+		D6AEF4412864AD65008FD82E /* DatalinkGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkGet.swift; sourceTree = "<group>"; };
+		D6AEF4432865A37B008FD82E /* DatalinkDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkDelete.swift; sourceTree = "<group>"; };
+		D6AEF4452865A3EE008FD82E /* DatalinkGetOfConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkGetOfConsent.swift; sourceTree = "<group>"; };
+		D6AEF4472865A504008FD82E /* DatalinkOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkOpen.swift; sourceTree = "<group>"; };
+		D6AEF4492865A568008FD82E /* DatalinkInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkInitiate.swift; sourceTree = "<group>"; };
+		D6AEF44D2865A8C1008FD82E /* PaymentOptionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsSection.swift; sourceTree = "<group>"; };
+		D6AEF44F2865AF5A008FD82E /* PaymentCreateMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreateMainSection.swift; sourceTree = "<group>"; };
+		D6AEF4522865D4B3008FD82E /* PaymentAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAPIs.swift; sourceTree = "<group>"; };
+		D6AEF4542865D4BD008FD82E /* PaymentCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreate.swift; sourceTree = "<group>"; };
+		D6AEF4562865D8C8008FD82E /* PaymentListQuerySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListQuerySection.swift; sourceTree = "<group>"; };
+		D6AEF4582865DADB008FD82E /* PaymentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentList.swift; sourceTree = "<group>"; };
+		D6AEF45A2865DB88008FD82E /* PaymentGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentGet.swift; sourceTree = "<group>"; };
+		D6AEF45C2865DC1C008FD82E /* PaymentCheckURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCheckURL.swift; sourceTree = "<group>"; };
+		D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreateRefund.swift; sourceTree = "<group>"; };
+		D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundAccountSection.swift; sourceTree = "<group>"; };
+		D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreateRefundMainSection.swift; sourceTree = "<group>"; };
+		D6AEF4642865EFCE008FD82E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		605411C627676A2C0044D861 /* Frameworks */ = {
+		D6900928282A75A100979630 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EC671A9C258A225946D5EFA /* Pods_Example.framework in Frameworks */,
+				D6900998282C029800979630 /* PayByBank in Frameworks */,
+				D690096D282A9C9300979630 /* PayByBank in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		605411DC27676A2D0044D861 /* Frameworks */ = {
+		D6900938282A75A300979630 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95DDCE539A93406FCC280303 /* Pods_ExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		605411E627676A2D0044D861 /* Frameworks */ = {
+		D6900942282A75A300979630 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDD9496B85DDB50D1C7D641C /* Pods_Example_ExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		605411C027676A2C0044D861 = {
+		D6900922282A75A100979630 = {
 			isa = PBXGroup;
 			children = (
-				605411CB27676A2C0044D861 /* Example */,
-				605411E227676A2D0044D861 /* ExampleTests */,
-				605411EC27676A2E0044D861 /* ExampleUITests */,
-				605411CA27676A2C0044D861 /* Products */,
-				60E67A662767716F0032A5C3 /* Frameworks */,
-				BAFEC56B07532760A811E411 /* Pods */,
-				608F5CB52768C8F50053F379 /* Pods.xcodeproj */,
+				D6900962282A979700979630 /* Packages */,
+				D690092D282A75A100979630 /* Example */,
+				D690093E282A75A300979630 /* ExampleTests */,
+				D6900948282A75A300979630 /* ExampleUITests */,
+				D690092C282A75A100979630 /* Products */,
+				D690096B282A9C9300979630 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		605411CA27676A2C0044D861 /* Products */ = {
+		D690092C282A75A100979630 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				605411C927676A2C0044D861 /* Example.app */,
-				605411DF27676A2D0044D861 /* ExampleTests.xctest */,
-				605411E927676A2E0044D861 /* ExampleUITests.xctest */,
+				D690092B282A75A100979630 /* Example.app */,
+				D690093B282A75A300979630 /* ExampleTests.xctest */,
+				D6900945282A75A300979630 /* ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		605411CB27676A2C0044D861 /* Example */ = {
+		D690092D282A75A100979630 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				606AD00627FED5F500F18782 /* Scenes */,
-				60FD543327758F0400EB7080 /* UI */,
-				D6F4603D276B6EAB00D49C4E /* Info.plist */,
-				D6F46045276B6F4900D49C4E /* LaunchScreen.storyboard */,
-				D6F46047276B6F6600D49C4E /* Main.storyboard */,
-				D6F4603B276B6EAB00D49C4E /* AppDelegate.swift */,
-				D6F4603C276B6EAB00D49C4E /* Assets.xcassets */,
+				D690097D282BC70E00979630 /* Application */,
+				D690097E282BC71900979630 /* Resource */,
+				D6900977282BC41400979630 /* Scene */,
+				D6900983282BD66100979630 /* Shared */,
 			);
 			path = Example;
 			sourceTree = "<group>";
 		};
-		605411E227676A2D0044D861 /* ExampleTests */ = {
+		D6900934282A75A300979630 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				605411E327676A2D0044D861 /* ExampleTests.swift */,
+				D6900935282A75A300979630 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D690093E282A75A300979630 /* ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D690093F282A75A300979630 /* ExampleTests.swift */,
 			);
 			path = ExampleTests;
 			sourceTree = "<group>";
 		};
-		605411EC27676A2E0044D861 /* ExampleUITests */ = {
+		D6900948282A75A300979630 /* ExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				605411ED27676A2E0044D861 /* ExampleUITests.swift */,
-				605411EF27676A2E0044D861 /* ExampleUITestsLaunchTests.swift */,
+				D6900949282A75A300979630 /* ExampleUITests.swift */,
+				D690094B282A75A300979630 /* ExampleUITestsLaunchTests.swift */,
 			);
 			path = ExampleUITests;
 			sourceTree = "<group>";
 		};
-		606AD00627FED5F500F18782 /* Scenes */ = {
+		D6900962282A979700979630 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				D622D5C328102B61005E0BEF /* BulkPaymentVC.swift */,
-				606AD00427FED5BD00F18782 /* DatalinkVC.swift */,
-				D6F4603E276B6EAB00D49C4E /* FrPaymentVC.swift */,
-				D622D58D280D9258005E0BEF /* PaylinkVC.swift */,
-				D622D5F02812C625005E0BEF /* PaymentVC.swift */,
-				606AD00727FED73500F18782 /* TabsVC.swift */,
-				D622D5A1280EE434005E0BEF /* VRPlinkVC.swift */,
+				D6900963282A979700979630 /* PaylinkMobileSDK-iOS */,
 			);
-			path = Scenes;
+			name = Packages;
 			sourceTree = "<group>";
 		};
-		608F5CB62768C8F50053F379 /* Products */ = {
+		D690096B282A9C9300979630 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D630E3BE27FDAC9600AAAD67 /* PayByBank */,
-				608F5CC22768C8F50053F379 /* Pods-Example */,
-				608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */,
-				608F5CC62768C8F50053F379 /* Pods-ExampleTests */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		60E67A662767716F0032A5C3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				60DB8F5C2774B5C300AE132E /* PaylinkSDK.framework */,
-				60E67A672767716F0032A5C3 /* PaylinkMobileSDK_iOS.framework */,
-				94412FB9025F5CDCAF142232 /* Pods_Example.framework */,
-				225621A28AB641ACAF024272 /* Pods_Example_ExampleUITests.framework */,
-				A39B598098C0F066E7EEEC69 /* Pods_ExampleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		60FD542A27758D5300EB7080 /* Component */ = {
+		D6900977282BC41400979630 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				60FD542F27758D6F00EB7080 /* Button.swift */,
-				60FD543127758E7B00EB7080 /* Label.swift */,
-				60FD543427758FEC00EB7080 /* TextField.swift */,
+				D6AEF41228647709008FD82E /* BulkPayment */,
+				D6AEF43C2864A9C0008FD82E /* Datalink */,
+				D6AEF3D628609C75008FD82E /* FrPayment */,
+				D6900978282BC42700979630 /* Home */,
+				D690097A282BC4C300979630 /* Paylink */,
+				D6AEF4512865D4A4008FD82E /* Payment */,
+				D690097F282BC82900979630 /* Settings */,
+				D6AEF3F82861F5AD008FD82E /* VRPlink */,
 			);
-			path = Component;
+			path = Scene;
 			sourceTree = "<group>";
 		};
-		60FD543327758F0400EB7080 /* UI */ = {
+		D6900978282BC42700979630 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				60FD542A27758D5300EB7080 /* Component */,
-				60FD54372775903600EB7080 /* Color.swift */,
-				60FD54392775906800EB7080 /* Font.swift */,
-				606AD01127FF21D200F18782 /* ViewController.swift */,
+				D6900975282AA5DC00979630 /* HomeView.swift */,
 			);
-			path = UI;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		BAFEC56B07532760A811E411 /* Pods */ = {
+		D690097A282BC4C300979630 /* Paylink */ = {
 			isa = PBXGroup;
 			children = (
-				49918D7648D1F17B5A0AD36A /* Pods-Example.debug.xcconfig */,
-				21F3EAD93D21A712734ED722 /* Pods-Example.release.xcconfig */,
-				B4B8136B371DF2FEB06EC3EC /* Pods-Example-ExampleUITests.debug.xcconfig */,
-				2792475D4D19FBAE48B5B9D7 /* Pods-Example-ExampleUITests.release.xcconfig */,
-				A34EEA0F53FEFF0BDE4A0E21 /* Pods-ExampleTests.debug.xcconfig */,
-				80097DE5BEB0D50893EEA911 /* Pods-ExampleTests.release.xcconfig */,
+				D690097B282BC54700979630 /* PaylinkAPIs.swift */,
+				D69009B22837C06200979630 /* PaylinkCreate.swift */,
+				D695AF2A285CB63300CB7103 /* PaylinkDeactivate.swift */,
+				D695AF2C285CB76200CB7103 /* PaylinkGet.swift */,
+				D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */,
+				D6900993282BF52400979630 /* PaylinkOpen.swift */,
 			);
-			path = Pods;
+			path = Paylink;
+			sourceTree = "<group>";
+		};
+		D690097D282BC70E00979630 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D62AEED82873032B00CC2DD2 /* ExampleApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D690097E282BC71900979630 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D6900934282A75A300979630 /* Preview Content */,
+				D6900932282A75A300979630 /* Assets.xcassets */,
+				D6900989282BD7A700979630 /* Localizable.strings */,
+				D6AEF4642865EFCE008FD82E /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D690097F282BC82900979630 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D6900980282BC85400979630 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D6900983282BD66100979630 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D690098D282BDB1B00979630 /* Extension */,
+				D6900984282BD66900979630 /* Utility */,
+				D69009AD28328D4E00979630 /* View */,
+				D69009A22832634E00979630 /* ViewModifier */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D6900984282BD66900979630 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3D4285FC0F4008FD82E /* APIDocuments.swift */,
+				D695AF0828575C9900CB7103 /* AppStorageKeys.swift */,
+				D690098A282BD99400979630 /* L10n.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D690098D282BDB1B00979630 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D690098E282BDB2E00979630 /* Array+.swift */,
+				D69009A0283246FD00979630 /* Color+.swift */,
+				D695AF102857E46B00CB7103 /* Date+.swift */,
+				D695AF192859F8CD00CB7103 /* Decimal+.swift */,
+				D695AF23285B3C1900CB7103 /* Encodable+.swift */,
+				D695AF0E2857D60A00CB7103 /* String+.swift */,
+				D690099E282C071F00979630 /* UIApplication+.swift */,
+				D695AF062857592900CB7103 /* View+.swift */,
+				D695AF34285CBE5200CB7103 /* URL+.swift */,
+				D6AEF3E92861B1FA008FD82E /* Result+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D69009A22832634E00979630 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				D695AF0C2857697B00CB7103 /* PrimaryButton.swift */,
+				D6AEF42328648D18008FD82E /* ResponseModifier.swift */,
+				D6AEF42128648B59008FD82E /* SafariModifier.swift */,
+				D695AF0A285767D800CB7103 /* Titled.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		D69009AD28328D4E00979630 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D695AF122859C36800CB7103 /* Section */,
+				D69009AE28328D6A00979630 /* Loading.swift */,
+				D695AF28285CA71200CB7103 /* ResponseView.swift */,
+				D695AF31285CBBD900CB7103 /* SafariView.swift */,
+				D69009B02837998D00979630 /* Toast.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D695AF122859C36800CB7103 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF40728645000008FD82E /* BulkPayment */,
+				D6AEF425286498FB008FD82E /* Datalink */,
+				D6AEF3EC2861BE7C008FD82E /* FrPayment */,
+				D6AEF3EB2861BE72008FD82E /* Paylink */,
+				D6AEF44B2865A88C008FD82E /* Payment */,
+				D6AEF3ED2861BE94008FD82E /* VRPlink */,
+				D695AF132859C3D400CB7103 /* CreditorAccountSection.swift */,
+				D695AF152859F64B00CB7103 /* DebtorAccountSection.swift */,
+				D695AF1D285A0FB100CB7103 /* NotificationOptionsSection.swift */,
+				D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		D6AEF3D628609C75008FD82E /* FrPayment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3D728609C8B008FD82E /* FrPaymentAPIs.swift */,
+				D6AEF3E32860B4CA008FD82E /* FrPaymentCreate.swift */,
+				D6AEF3E72861AE11008FD82E /* FrPaymentDeactivate.swift */,
+				D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */,
+				D6AEF3DB28609E7E008FD82E /* FrPaymentInitiate.swift */,
+				D6AEF3D928609C9D008FD82E /* FrPaymentOpen.swift */,
+			);
+			path = FrPayment;
+			sourceTree = "<group>";
+		};
+		D6AEF3EB2861BE72008FD82E /* Paylink */ = {
+			isa = PBXGroup;
+			children = (
+				D695AF172859F7DD00CB7103 /* PaylinkCreateMainSection.swift */,
+				D695AF21285B146800CB7103 /* PaylinkLimitOptionsSection.swift */,
+				D695AF1B2859FF9E00CB7103 /* PaylinkOptionsSection.swift */,
+				D695AF1F285B113500CB7103 /* PaylinkPaymentOptionsSection.swift */,
+			);
+			path = Paylink;
+			sourceTree = "<group>";
+		};
+		D6AEF3EC2861BE7C008FD82E /* FrPayment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3DD28609EE4008FD82E /* FrPaymentCreateMainSection.swift */,
+				D6AEF3DF2860A8D2008FD82E /* FrPaymentOptionsSection.swift */,
+			);
+			path = FrPayment;
+			sourceTree = "<group>";
+		};
+		D6AEF3ED2861BE94008FD82E /* VRPlink */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3F62861ECB8008FD82E /* VRPLimitOptionsSection.swift */,
+				D6AEF3F42861E0E0008FD82E /* VRPlinkCreateMainSection.swift */,
+				D6AEF3EE2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift */,
+				D6AEF3F02861D045008FD82E /* VRPlinkOptionsSection.swift */,
+				D6AEF3F22861DB10008FD82E /* VRPOptionsSection.swift */,
+			);
+			path = VRPlink;
+			sourceTree = "<group>";
+		};
+		D6AEF3F82861F5AD008FD82E /* VRPlink */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF3F92861F608008FD82E /* VRPlinkAPIs.swift */,
+				D6AEF3FB2861F61A008FD82E /* VRPlinkCreate.swift */,
+				D6AEF3FF286245DD008FD82E /* VRPlinkDeactivate.swift */,
+				D6AEF4012862463B008FD82E /* VRPlinkGet.swift */,
+				D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */,
+				D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */,
+				D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */,
+			);
+			path = VRPlink;
+			sourceTree = "<group>";
+		};
+		D6AEF40728645000008FD82E /* BulkPayment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF410286475B4008FD82E /* BulkPaymentCreateMainSection.swift */,
+				D6AEF40C28645564008FD82E /* BulkPaymentLimitOptionsSection.swift */,
+				D6AEF40828645067008FD82E /* BulkPaymentOptionsSection.swift */,
+				D6AEF40A2864537E008FD82E /* BulkPaymentPaylinkOptionsSection.swift */,
+				D6AEF40E2864591C008FD82E /* BulkPaymentPaymentsSection.swift */,
+			);
+			path = BulkPayment;
+			sourceTree = "<group>";
+		};
+		D6AEF41228647709008FD82E /* BulkPayment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF4132864779C008FD82E /* BulkPaymentAPIs.swift */,
+				D6AEF415286477AE008FD82E /* BulkPaymentCreate.swift */,
+				D6AEF41728647DBD008FD82E /* BulkPaymentDeactivate.swift */,
+				D6AEF41B28647E12008FD82E /* BulkPaymentGet.swift */,
+				D6AEF41D28648768008FD82E /* BulkPaymentInitiate.swift */,
+				D6AEF41F286487F5008FD82E /* BulkPaymentOpen.swift */,
+			);
+			path = BulkPayment;
+			sourceTree = "<group>";
+		};
+		D6AEF425286498FB008FD82E /* Datalink */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF42D28649D2C008FD82E /* DatalinkAffordabilitySection.swift */,
+				D6AEF429286499F5008FD82E /* DatalinkCategoryAggregationSection.swift */,
+				D6AEF43A2864A6A0008FD82E /* DatalinkCreateMainSection.swift */,
+				D6AEF42F28649E40008FD82E /* DatalinkFiltersSection.swift */,
+				D6AEF4362864A4B0008FD82E /* DatalinkFinancialReportSection.swift */,
+				D6AEF4332864A046008FD82E /* DatalinkFinancialSection.swift */,
+				D6AEF4382864A5D8008FD82E /* DatalinkOptionsSection.swift */,
+				D6AEF4272864991E008FD82E /* DatalinkOutputSettingsSection.swift */,
+				D6AEF43128649FB4008FD82E /* DatalinkParametersSection.swift */,
+				D6AEF42B28649B04008FD82E /* DatalinkVerificationSection.swift */,
+			);
+			path = Datalink;
+			sourceTree = "<group>";
+		};
+		D6AEF43C2864A9C0008FD82E /* Datalink */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF43D2864A9DD008FD82E /* DatalinkAPIs.swift */,
+				D6AEF43F2864AA5E008FD82E /* DatalinkCreate.swift */,
+				D6AEF4432865A37B008FD82E /* DatalinkDelete.swift */,
+				D6AEF4412864AD65008FD82E /* DatalinkGet.swift */,
+				D6AEF4452865A3EE008FD82E /* DatalinkGetOfConsent.swift */,
+				D6AEF4492865A568008FD82E /* DatalinkInitiate.swift */,
+				D6AEF4472865A504008FD82E /* DatalinkOpen.swift */,
+			);
+			path = Datalink;
+			sourceTree = "<group>";
+		};
+		D6AEF44B2865A88C008FD82E /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF44F2865AF5A008FD82E /* PaymentCreateMainSection.swift */,
+				D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */,
+				D6AEF4562865D8C8008FD82E /* PaymentListQuerySection.swift */,
+				D6AEF44D2865A8C1008FD82E /* PaymentOptionsSection.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		D6AEF4512865D4A4008FD82E /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				D6AEF4522865D4B3008FD82E /* PaymentAPIs.swift */,
+				D6AEF4542865D4BD008FD82E /* PaymentCreate.swift */,
+				D6AEF4582865DADB008FD82E /* PaymentList.swift */,
+				D6AEF45A2865DB88008FD82E /* PaymentGet.swift */,
+				D6AEF45C2865DC1C008FD82E /* PaymentCheckURL.swift */,
+				D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */,
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		605411C827676A2C0044D861 /* Example */ = {
+		D690092A282A75A100979630 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 605411F327676A2E0044D861 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = D690094F282A75A300979630 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				D51DE515D331B5371FAF8F75 /* [CP] Check Pods Manifest.lock */,
-				605411C527676A2C0044D861 /* Sources */,
-				605411C627676A2C0044D861 /* Frameworks */,
-				605411C727676A2C0044D861 /* Resources */,
-				D630E3B827FDAC9600AAAD67 /* SwiftLint */,
-				CE2621AB40EAC790B81DCC6B /* [CP] Embed Pods Frameworks */,
+				D6900927282A75A100979630 /* Sources */,
+				D6900928282A75A100979630 /* Frameworks */,
+				D6900929282A75A100979630 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Example;
-			productName = Example;
-			productReference = 605411C927676A2C0044D861 /* Example.app */;
+			packageProductDependencies = (
+				D690096C282A9C9300979630 /* PayByBank */,
+				D6900997282C029800979630 /* PayByBank */,
+			);
+			productName = "Example-SwiftUI";
+			productReference = D690092B282A75A100979630 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		605411DE27676A2D0044D861 /* ExampleTests */ = {
+		D690093A282A75A300979630 /* ExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 605411F627676A2E0044D861 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
+			buildConfigurationList = D6900952282A75A300979630 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
 			buildPhases = (
-				CCAEC4EACE01CBCF38BCE350 /* [CP] Check Pods Manifest.lock */,
-				605411DB27676A2D0044D861 /* Sources */,
-				605411DC27676A2D0044D861 /* Frameworks */,
-				605411DD27676A2D0044D861 /* Resources */,
+				D6900937282A75A300979630 /* Sources */,
+				D6900938282A75A300979630 /* Frameworks */,
+				D6900939282A75A300979630 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				605411E127676A2D0044D861 /* PBXTargetDependency */,
+				D690093D282A75A300979630 /* PBXTargetDependency */,
 			);
 			name = ExampleTests;
-			productName = ExampleTests;
-			productReference = 605411DF27676A2D0044D861 /* ExampleTests.xctest */;
+			productName = "Example-SwiftUITests";
+			productReference = D690093B282A75A300979630 /* ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		605411E827676A2D0044D861 /* ExampleUITests */ = {
+		D6900944282A75A300979630 /* ExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 605411F927676A2E0044D861 /* Build configuration list for PBXNativeTarget "ExampleUITests" */;
+			buildConfigurationList = D6900955282A75A300979630 /* Build configuration list for PBXNativeTarget "ExampleUITests" */;
 			buildPhases = (
-				B5366BB54C556538ABBAF63B /* [CP] Check Pods Manifest.lock */,
-				605411E527676A2D0044D861 /* Sources */,
-				605411E627676A2D0044D861 /* Frameworks */,
-				605411E727676A2D0044D861 /* Resources */,
-				180FD00B64750A6D8863772A /* [CP] Embed Pods Frameworks */,
+				D6900941282A75A300979630 /* Sources */,
+				D6900942282A75A300979630 /* Frameworks */,
+				D6900943282A75A300979630 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				605411EB27676A2E0044D861 /* PBXTargetDependency */,
+				D6900947282A75A300979630 /* PBXTargetDependency */,
 			);
 			name = ExampleUITests;
-			productName = ExampleUITests;
-			productReference = 605411E927676A2E0044D861 /* ExampleUITests.xctest */;
+			productName = "Example-SwiftUIUITests";
+			productReference = D6900945282A75A300979630 /* ExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		605411C127676A2C0044D861 /* Project object */ = {
+		D6900923282A75A100979630 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = Ecospend;
 				TargetAttributes = {
-					605411C827676A2C0044D861 = {
-						CreatedOnToolsVersion = 13.1;
-						LastSwiftMigration = 1320;
+					D690092A282A75A100979630 = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
-					605411DE27676A2D0044D861 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 605411C827676A2C0044D861;
+					D690093A282A75A300979630 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = D690092A282A75A100979630;
 					};
-					605411E827676A2D0044D861 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 605411C827676A2C0044D861;
+					D6900944282A75A300979630 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = D690092A282A75A100979630;
 					};
 				};
 			};
-			buildConfigurationList = 605411C427676A2C0044D861 /* Build configuration list for PBXProject "Example" */;
+			buildConfigurationList = D6900926282A75A100979630 /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -364,78 +712,40 @@
 				en,
 				Base,
 			);
-			mainGroup = 605411C027676A2C0044D861;
-			productRefGroup = 605411CA27676A2C0044D861 /* Products */;
-			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 608F5CB62768C8F50053F379 /* Products */;
-					ProjectRef = 608F5CB52768C8F50053F379 /* Pods.xcodeproj */;
-				},
+			mainGroup = D6900922282A75A100979630;
+			packageReferences = (
+				D6900996282C029800979630 /* XCRemoteSwiftPackageReference "PaylinkMobileSDK-iOS" */,
 			);
+			productRefGroup = D690092C282A75A100979630 /* Products */;
+			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				605411C827676A2C0044D861 /* Example */,
-				605411DE27676A2D0044D861 /* ExampleTests */,
-				605411E827676A2D0044D861 /* ExampleUITests */,
+				D690092A282A75A100979630 /* Example */,
+				D690093A282A75A300979630 /* ExampleTests */,
+				D6900944282A75A300979630 /* ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		608F5CC22768C8F50053F379 /* Pods-Example */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = "Pods-Example";
-			path = Pods_Example.framework;
-			remoteRef = 608F5CC12768C8F50053F379 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		608F5CC42768C8F50053F379 /* Pods-Example-ExampleUITests */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = "Pods-Example-ExampleUITests";
-			path = Pods_Example_ExampleUITests.framework;
-			remoteRef = 608F5CC32768C8F50053F379 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		608F5CC62768C8F50053F379 /* Pods-ExampleTests */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = "Pods-ExampleTests";
-			path = Pods_ExampleTests.framework;
-			remoteRef = 608F5CC52768C8F50053F379 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D630E3BE27FDAC9600AAAD67 /* PayByBank */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = PayByBank;
-			path = PayByBank.framework;
-			remoteRef = D630E3BD27FDAC9600AAAD67 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		605411C727676A2C0044D861 /* Resources */ = {
+		D6900929282A75A100979630 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F46046276B6F4900D49C4E /* LaunchScreen.storyboard in Resources */,
-				D6F46048276B6F6600D49C4E /* Main.storyboard in Resources */,
-				D6F46042276B6EAB00D49C4E /* Assets.xcassets in Resources */,
+				D6900936282A75A300979630 /* Preview Assets.xcassets in Resources */,
+				D6900987282BD7A700979630 /* Localizable.strings in Resources */,
+				D6900933282A75A300979630 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		605411DD27676A2D0044D861 /* Resources */ = {
+		D6900939282A75A300979630 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		605411E727676A2D0044D861 /* Resources */ = {
+		D6900943282A75A300979630 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -444,190 +754,161 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		180FD00B64750A6D8863772A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example-ExampleUITests/Pods-Example-ExampleUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5366BB54C556538ABBAF63B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-ExampleUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CCAEC4EACE01CBCF38BCE350 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ExampleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE2621AB40EAC790B81DCC6B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D51DE515D331B5371FAF8F75 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D630E3B827FDAC9600AAAD67 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		605411C527676A2C0044D861 /* Sources */ = {
+		D6900927282A75A100979630 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				606AD01227FF21D200F18782 /* ViewController.swift in Sources */,
-				D622D5A2280EE434005E0BEF /* VRPlinkVC.swift in Sources */,
-				D6F46041276B6EAB00D49C4E /* AppDelegate.swift in Sources */,
-				60FD543027758D7000EB7080 /* Button.swift in Sources */,
-				60FD543A2775906800EB7080 /* Font.swift in Sources */,
-				D622D5F12812C625005E0BEF /* PaymentVC.swift in Sources */,
-				60FD543227758E7B00EB7080 /* Label.swift in Sources */,
-				606AD00827FED73500F18782 /* TabsVC.swift in Sources */,
-				606AD00527FED5BD00F18782 /* DatalinkVC.swift in Sources */,
-				60FD543527758FEC00EB7080 /* TextField.swift in Sources */,
-				D622D5C428102B61005E0BEF /* BulkPaymentVC.swift in Sources */,
-				D6F46044276B6EAB00D49C4E /* FrPaymentVC.swift in Sources */,
-				D622D58E280D9258005E0BEF /* PaylinkVC.swift in Sources */,
-				60FD54382775903600EB7080 /* Color.swift in Sources */,
+				D6AEF42A286499F5008FD82E /* DatalinkCategoryAggregationSection.swift in Sources */,
+				D6AEF3F52861E0E0008FD82E /* VRPlinkCreateMainSection.swift in Sources */,
+				D695AF1C2859FF9E00CB7103 /* PaylinkOptionsSection.swift in Sources */,
+				D6AEF40F2864591C008FD82E /* BulkPaymentPaymentsSection.swift in Sources */,
+				D6AEF400286245DD008FD82E /* VRPlinkDeactivate.swift in Sources */,
+				D6AEF3F32861DB10008FD82E /* VRPOptionsSection.swift in Sources */,
+				D6AEF43B2864A6A0008FD82E /* DatalinkCreateMainSection.swift in Sources */,
+				D695AF2F285CB81300CB7103 /* PaylinkInitiate.swift in Sources */,
+				D6AEF4502865AF5A008FD82E /* PaymentCreateMainSection.swift in Sources */,
+				D6AEF3DE28609EE4008FD82E /* FrPaymentCreateMainSection.swift in Sources */,
+				D6AEF42228648B59008FD82E /* SafariModifier.swift in Sources */,
+				D695AF20285B113500CB7103 /* PaylinkPaymentOptionsSection.swift in Sources */,
+				D69009B32837C06300979630 /* PaylinkCreate.swift in Sources */,
+				D695AF1A2859F8CD00CB7103 /* Decimal+.swift in Sources */,
+				D6AEF40D28645564008FD82E /* BulkPaymentLimitOptionsSection.swift in Sources */,
+				D6AEF4442865A37B008FD82E /* DatalinkDelete.swift in Sources */,
+				D6900976282AA5DC00979630 /* HomeView.swift in Sources */,
+				D69009B12837998D00979630 /* Toast.swift in Sources */,
+				D6AEF4612865E1E1008FD82E /* RefundAccountSection.swift in Sources */,
+				D6AEF41828647DBD008FD82E /* BulkPaymentDeactivate.swift in Sources */,
+				D6AEF40428624694008FD82E /* VRPlinkInitiate.swift in Sources */,
+				D6AEF4482865A504008FD82E /* DatalinkOpen.swift in Sources */,
+				D695AF162859F64B00CB7103 /* DebtorAccountSection.swift in Sources */,
+				D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */,
+				D6AEF416286477AE008FD82E /* BulkPaymentCreate.swift in Sources */,
+				D6AEF3E42860B4CA008FD82E /* FrPaymentCreate.swift in Sources */,
+				D6AEF45B2865DB88008FD82E /* PaymentGet.swift in Sources */,
+				D6AEF4062862472F008FD82E /* VRPlinkListRecords.swift in Sources */,
+				D6AEF44E2865A8C1008FD82E /* PaymentOptionsSection.swift in Sources */,
+				D695AF0928575C9900CB7103 /* AppStorageKeys.swift in Sources */,
+				D69009A1283246FD00979630 /* Color+.swift in Sources */,
+				D6AEF4632865E328008FD82E /* PaymentCreateRefundMainSection.swift in Sources */,
+				D695AF142859C3D400CB7103 /* CreditorAccountSection.swift in Sources */,
+				D6AEF4462865A3EE008FD82E /* DatalinkGetOfConsent.swift in Sources */,
+				D695AF072857592900CB7103 /* View+.swift in Sources */,
+				D6AEF3FE28624463008FD82E /* VRPlinkOpen.swift in Sources */,
+				D6AEF3D828609C8B008FD82E /* FrPaymentAPIs.swift in Sources */,
+				D6AEF4342864A046008FD82E /* DatalinkFinancialSection.swift in Sources */,
+				D6AEF3DC28609E7E008FD82E /* FrPaymentInitiate.swift in Sources */,
+				D6AEF3E62861AD98008FD82E /* FrPaymentGet.swift in Sources */,
+				D695AF182859F7DD00CB7103 /* PaylinkCreateMainSection.swift in Sources */,
+				D6AEF4552865D4BD008FD82E /* PaymentCreate.swift in Sources */,
+				D695AF2B285CB63300CB7103 /* PaylinkDeactivate.swift in Sources */,
+				D69009AF28328D6A00979630 /* Loading.swift in Sources */,
+				D6AEF4392864A5D8008FD82E /* DatalinkOptionsSection.swift in Sources */,
+				D6AEF42C28649B04008FD82E /* DatalinkVerificationSection.swift in Sources */,
+				D690098F282BDB2E00979630 /* Array+.swift in Sources */,
+				D6AEF3DA28609C9D008FD82E /* FrPaymentOpen.swift in Sources */,
+				D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */,
+				D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */,
+				D6AEF3EF2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift in Sources */,
+				D6AEF43228649FB4008FD82E /* DatalinkParametersSection.swift in Sources */,
+				D6AEF44A2865A568008FD82E /* DatalinkInitiate.swift in Sources */,
+				D6AEF3F12861D045008FD82E /* VRPlinkOptionsSection.swift in Sources */,
+				D6AEF43028649E40008FD82E /* DatalinkFiltersSection.swift in Sources */,
+				D6AEF41E28648768008FD82E /* BulkPaymentInitiate.swift in Sources */,
+				D6AEF45F2865DC9A008FD82E /* PaymentCreateRefund.swift in Sources */,
+				D6AEF4142864779C008FD82E /* BulkPaymentAPIs.swift in Sources */,
+				D695AF35285CBE5200CB7103 /* URL+.swift in Sources */,
+				D6AEF3D5285FC0F4008FD82E /* APIDocuments.swift in Sources */,
+				D6AEF4532865D4B3008FD82E /* PaymentAPIs.swift in Sources */,
+				D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */,
+				D695AF112857E46B00CB7103 /* Date+.swift in Sources */,
+				D6AEF45D2865DC1C008FD82E /* PaymentCheckURL.swift in Sources */,
+				D6AEF4592865DADB008FD82E /* PaymentList.swift in Sources */,
+				D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */,
+				D6AEF40B2864537E008FD82E /* BulkPaymentPaylinkOptionsSection.swift in Sources */,
+				D6AEF3E02860A8D2008FD82E /* FrPaymentOptionsSection.swift in Sources */,
+				D6AEF3F72861ECB8008FD82E /* VRPLimitOptionsSection.swift in Sources */,
+				D6AEF4372864A4B0008FD82E /* DatalinkFinancialReportSection.swift in Sources */,
+				D695AF0B285767D800CB7103 /* Titled.swift in Sources */,
+				D6AEF420286487F5008FD82E /* BulkPaymentOpen.swift in Sources */,
+				D62AEED92873032B00CC2DD2 /* ExampleApp.swift in Sources */,
+				D6900981282BC85400979630 /* Settings.swift in Sources */,
+				D6AEF4402864AA5E008FD82E /* DatalinkCreate.swift in Sources */,
+				D6AEF42428648D18008FD82E /* ResponseModifier.swift in Sources */,
+				D6AEF3E82861AE11008FD82E /* FrPaymentDeactivate.swift in Sources */,
+				D6AEF4022862463B008FD82E /* VRPlinkGet.swift in Sources */,
+				D6AEF411286475B4008FD82E /* BulkPaymentCreateMainSection.swift in Sources */,
+				D6AEF40928645067008FD82E /* BulkPaymentOptionsSection.swift in Sources */,
+				D690099F282C071F00979630 /* UIApplication+.swift in Sources */,
+				D6AEF4572865D8C9008FD82E /* PaymentListQuerySection.swift in Sources */,
+				D6900994282BF52400979630 /* PaylinkOpen.swift in Sources */,
+				D6AEF4422864AD65008FD82E /* DatalinkGet.swift in Sources */,
+				D695AF0F2857D60A00CB7103 /* String+.swift in Sources */,
+				D695AF0D2857697B00CB7103 /* PrimaryButton.swift in Sources */,
+				D695AF32285CBBD900CB7103 /* SafariView.swift in Sources */,
+				D6AEF3FA2861F608008FD82E /* VRPlinkAPIs.swift in Sources */,
+				D6AEF41C28647E12008FD82E /* BulkPaymentGet.swift in Sources */,
+				D6AEF42E28649D2C008FD82E /* DatalinkAffordabilitySection.swift in Sources */,
+				D6AEF3FC2861F61A008FD82E /* VRPlinkCreate.swift in Sources */,
+				D695AF24285B3C1900CB7103 /* Encodable+.swift in Sources */,
+				D695AF1E285A0FB100CB7103 /* NotificationOptionsSection.swift in Sources */,
+				D6AEF43E2864A9DD008FD82E /* DatalinkAPIs.swift in Sources */,
+				D6AEF4282864991E008FD82E /* DatalinkOutputSettingsSection.swift in Sources */,
+				D690098B282BD99400979630 /* L10n.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		605411DB27676A2D0044D861 /* Sources */ = {
+		D6900937282A75A300979630 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				605411E427676A2D0044D861 /* ExampleTests.swift in Sources */,
+				D6900940282A75A300979630 /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		605411E527676A2D0044D861 /* Sources */ = {
+		D6900941282A75A300979630 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				605411EE27676A2E0044D861 /* ExampleUITests.swift in Sources */,
-				605411F027676A2E0044D861 /* ExampleUITestsLaunchTests.swift in Sources */,
+				D690094A282A75A300979630 /* ExampleUITests.swift in Sources */,
+				D690094C282A75A300979630 /* ExampleUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		605411E127676A2D0044D861 /* PBXTargetDependency */ = {
+		D690093D282A75A300979630 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 605411C827676A2C0044D861 /* Example */;
-			targetProxy = 605411E027676A2D0044D861 /* PBXContainerItemProxy */;
+			target = D690092A282A75A100979630 /* Example */;
+			targetProxy = D690093C282A75A300979630 /* PBXContainerItemProxy */;
 		};
-		605411EB27676A2E0044D861 /* PBXTargetDependency */ = {
+		D6900947282A75A300979630 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 605411C827676A2C0044D861 /* Example */;
-			targetProxy = 605411EA27676A2E0044D861 /* PBXContainerItemProxy */;
+			target = D690092A282A75A100979630 /* Example */;
+			targetProxy = D6900946282A75A300979630 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		D6900989282BD7A700979630 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6900988282BD7A700979630 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		605411F127676A2E0044D861 /* Debug */ = {
+		D690094D282A75A300979630 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -681,14 +962,13 @@
 			};
 			name = Debug;
 		};
-		605411F227676A2E0044D861 /* Release */ = {
+		D690094E282A75A300979630 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -736,23 +1016,21 @@
 			};
 			name = Release;
 		};
-		605411F427676A2E0044D861 /* Debug */ = {
+		D6900950282A75A300979630 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49918D7648D1F17B5A0AD36A /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Example/Resource/Preview Content\"";
 				DEVELOPMENT_TEAM = WS566YMMA9;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = Example/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PayByBank;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -763,29 +1041,26 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		605411F527676A2E0044D861 /* Release */ = {
+		D6900951282A75A300979630 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21F3EAD93D21A712734ED722 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Example/Resource/Preview Content\"";
 				DEVELOPMENT_TEAM = WS566YMMA9;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = Example/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PayByBank;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -801,24 +1076,18 @@
 			};
 			name = Release;
 		};
-		605411F727676A2E0044D861 /* Debug */ = {
+		D6900953282A75A300979630 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A34EEA0F53FEFF0BDE4A0E21 /* Pods-ExampleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example.ExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -827,24 +1096,18 @@
 			};
 			name = Debug;
 		};
-		605411F827676A2E0044D861 /* Release */ = {
+		D6900954282A75A300979630 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80097DE5BEB0D50893EEA911 /* Pods-ExampleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example.ExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -853,96 +1116,105 @@
 			};
 			name = Release;
 		};
-		605411FA27676A2E0044D861 /* Debug */ = {
+		D6900956282A75A300979630 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4B8136B371DF2FEB06EC3EC /* Pods-Example-ExampleUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example.ExampleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Example;
+				TEST_TARGET_NAME = "Example-SwiftUI";
 			};
 			name = Debug;
 		};
-		605411FB27676A2E0044D861 /* Release */ = {
+		D6900957282A75A300979630 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2792475D4D19FBAE48B5B9D7 /* Pods-Example-ExampleUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WS566YMMA9;
 				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example.ExampleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Example;
+				TEST_TARGET_NAME = "Example-SwiftUI";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		605411C427676A2C0044D861 /* Build configuration list for PBXProject "Example" */ = {
+		D6900926282A75A100979630 /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				605411F127676A2E0044D861 /* Debug */,
-				605411F227676A2E0044D861 /* Release */,
+				D690094D282A75A300979630 /* Debug */,
+				D690094E282A75A300979630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		605411F327676A2E0044D861 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		D690094F282A75A300979630 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				605411F427676A2E0044D861 /* Debug */,
-				605411F527676A2E0044D861 /* Release */,
+				D6900950282A75A300979630 /* Debug */,
+				D6900951282A75A300979630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		605411F627676A2E0044D861 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
+		D6900952282A75A300979630 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				605411F727676A2E0044D861 /* Debug */,
-				605411F827676A2E0044D861 /* Release */,
+				D6900953282A75A300979630 /* Debug */,
+				D6900954282A75A300979630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		605411F927676A2E0044D861 /* Build configuration list for PBXNativeTarget "ExampleUITests" */ = {
+		D6900955282A75A300979630 /* Build configuration list for PBXNativeTarget "ExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				605411FA27676A2E0044D861 /* Debug */,
-				605411FB27676A2E0044D861 /* Release */,
+				D6900956282A75A300979630 /* Debug */,
+				D6900957282A75A300979630 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D6900996282C029800979630 /* XCRemoteSwiftPackageReference "PaylinkMobileSDK-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "/Users/ecospend/Workspace/iOS/PaylinkMobileSDK-iOS/";
+			requirement = {
+				branch = "feature/SP-9400";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D690096C282A9C9300979630 /* PayByBank */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PayByBank;
+		};
+		D6900997282C029800979630 /* PayByBank */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6900996282C029800979630 /* XCRemoteSwiftPackageReference "PaylinkMobileSDK-iOS" */;
+			productName = PayByBank;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 605411C127676A2C0044D861 /* Project object */;
+	rootObject = D6900923282A75A100979630 /* Project object */;
 }
