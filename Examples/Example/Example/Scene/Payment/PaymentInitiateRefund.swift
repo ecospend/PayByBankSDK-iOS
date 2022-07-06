@@ -20,7 +20,6 @@ struct PaymentInitiateRefund: View {
     @State private var isRefundAccountValid: Bool = false
     @State private var refundAccount: PayByBankAccountRequest? = nil
     
-    @State private var response: String? = nil
     @State private var url: URL? = nil
     
     var body: some View {
@@ -41,7 +40,6 @@ struct PaymentInitiateRefund: View {
         .background(Color.formBackground)
         .navigationTitle(L10n.paymentInitiateRefundTitle.localizedKey)
         .safari(APIDocuments.Payment.createRefund)
-        .response($response)
     }
     
     func submit() {

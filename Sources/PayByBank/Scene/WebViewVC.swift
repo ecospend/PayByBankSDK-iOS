@@ -46,9 +46,9 @@ class WebViewVC: UIViewController {
     lazy var activityIndicator: UIActivityIndicatorView = {
         let view: UIActivityIndicatorView = {
             if #available(iOS 13.0, *) {
-                return UIActivityIndicatorView(style: .medium)
+                return UIActivityIndicatorView(style: .large)
             } else {
-                return UIActivityIndicatorView(style: .white)
+                return UIActivityIndicatorView(style: .whiteLarge)
             }
         }()
         return view
