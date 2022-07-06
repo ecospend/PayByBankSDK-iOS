@@ -27,7 +27,7 @@ struct PaymentCreateRefund: View {
         VStack {
             Form {
                 PaymentCreateRefundMainSection(valid: $isMainModelValid, value: $mainModel)
-                RefundAccountSection(valid: $isRefundAccountValid, value: $refundAccount)
+                RefundAccountSection(isRequired: true, valid: $isRefundAccountValid, value: $refundAccount)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {
@@ -45,7 +45,7 @@ struct PaymentCreateRefund: View {
     }
     
     func submit() {
-        guard let main = mainModel else { return }
+        guard let main = mainModel, let refundAccount = refundAccount else { return }
         
         let request = PaymentCreateRefundRequest(id: main.id,
                                                  bankID: main.bankID,

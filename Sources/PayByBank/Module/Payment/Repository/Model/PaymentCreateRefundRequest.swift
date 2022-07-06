@@ -35,7 +35,7 @@ public struct PaymentCreateRefundRequest: Codable {
     public let redirectURL: String
     
     /// Represents the refund account information structure of that is returned by the bank.
-    public let refundAccount: PayByBankAccountRequest?
+    public let refundAccount: PayByBankAccountRequest
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -55,7 +55,7 @@ public struct PaymentCreateRefundRequest: Codable {
                 description: String? = nil,
                 reference: String,
                 redirectURL: String,
-                refundAccount: PayByBankAccountRequest? = nil) {
+                refundAccount: PayByBankAccountRequest) {
         self.id = id
         self.bankID = bankID
         self.amount = amount
