@@ -622,9 +622,9 @@
 				D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */,
 				D6AEF45A2865DB88008FD82E /* PaymentGet.swift */,
 				D62AEEE12875759000CC2DD2 /* PaymentInitiate.swift */,
+				D62AEEE3287597EF00CC2DD2 /* PaymentInitiateRefund.swift */,
 				D6AEF4582865DADB008FD82E /* PaymentList.swift */,
 				D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */,
-				D62AEEE3287597EF00CC2DD2 /* PaymentInitiateRefund.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
