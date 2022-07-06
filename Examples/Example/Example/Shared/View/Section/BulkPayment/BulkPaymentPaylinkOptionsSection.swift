@@ -16,7 +16,7 @@ struct BulkPaymentPaylinkOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     @AppStorage(Self.storage(key: .optionsPurpose)) private var purpose: String = ""
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: BulkPaymentPaylinkOptions?
     
@@ -30,11 +30,11 @@ struct BulkPaymentPaylinkOptionsSection: View {
                     TextField("", text: $purpose)
                         .titled(L10n.inputOptionsPurpose.localized)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: autoRedirect) { _ in validate() }
         .onChange(of: generateQRCode) { _ in validate() }
         .onChange(of: disableQRCode) { _ in validate() }
@@ -44,14 +44,14 @@ struct BulkPaymentPaylinkOptionsSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionPaylinkOptions.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionPaylinkOptions.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return BulkPaymentPaylinkOptions(autoRedirect: autoRedirect,
                                              generateQrCode: generateQRCode,
                                              disableQrCode: disableQRCode,

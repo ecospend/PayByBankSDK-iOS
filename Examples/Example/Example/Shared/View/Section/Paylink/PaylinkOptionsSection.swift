@@ -16,7 +16,7 @@ struct PaylinkOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsAllowPartialPayments)) private var allowPartialPayments: Bool = false
     @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaylinkOptions?
     
@@ -29,11 +29,11 @@ struct PaylinkOptionsSection: View {
                     Toggle(L10n.inputOptionsAllowPartialPayments.localized, isOn: $allowPartialPayments)
                     Toggle(L10n.inputOptionsDisableQRCode.localized, isOn: $disableQRCode)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: autoRedirect) { _ in validate() }
         .onChange(of: generateQRCode) { _ in validate() }
         .onChange(of: allowPartialPayments) { _ in validate() }
@@ -43,14 +43,14 @@ struct PaylinkOptionsSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionPaylinkOptions.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionPaylinkOptions.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return PaylinkOptions(autoRedirect: autoRedirect,
                                   generateQrCode: generateQRCode,
                                   allowPartialPayments: allowPartialPayments,

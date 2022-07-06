@@ -36,7 +36,7 @@ struct FrPaymentCreate: View {
         VStack {
             Form {
                 FrPaymentCreateMainSection(valid: $isMainModelValid, value: $mainModel)
-                CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
+                CreditorAccountSection(required: true, valid: $isCreditorAccountValid, value: $creditorAccount)
                 DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
                 FrPaymentOptionsSection(valid: $isFrPaymentOptionsValid, value: $frPaymentOptions)
                 NotificationOptionsSection(valid: $isNotificationOptionsValid, value: $notificationOptions)

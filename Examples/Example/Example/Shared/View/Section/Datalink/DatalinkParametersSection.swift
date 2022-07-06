@@ -23,7 +23,7 @@ struct DatalinkParametersSection: View {
     @State private var isCategoryValid: Bool = false
     @State private var category: CategoryAggregationParameters? = nil
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: FinancialReportParameters?
     
@@ -36,11 +36,11 @@ struct DatalinkParametersSection: View {
                     DatalinkFinancialSection(valid: $isFinancialValid, value: $financial)
                     DatalinkCategoryAggregationSection(valid: $isCategoryValid, value: $category)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: isAffordabilityValid) { _ in validate() }
         .onChange(of: isVerificationValid) { _ in validate() }
         .onChange(of: isFinancialValid) { _ in validate() }
@@ -50,14 +50,14 @@ struct DatalinkParametersSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionParameters.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionParameters.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = isAffordabilityValid && isVerificationValid && isVerificationValid && isCategoryValid
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             let affordabilityList: [AffordabilityParameters]? = {
                 guard let affordability = affordability else { return nil }
                 return [affordability]

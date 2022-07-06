@@ -17,7 +17,7 @@ struct FrPaymentOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsGenerateQRCode)) private var generateQRCode: Bool = false
     @AppStorage(Self.storage(key: .optionsDisableQRCode)) private var disableQRCode: Bool = false
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: FrPaymentOptions?
     
@@ -36,11 +36,11 @@ struct FrPaymentOptionsSection: View {
                     Toggle(L10n.inputOptionsGenerateQRCode.localized, isOn: $generateQRCode)
                     Toggle(L10n.inputOptionsDisableQRCode.localized, isOn: $disableQRCode)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: getRefundInfo) { _ in validate() }
         .onChange(of: firstPaymentAmount) { _ in validate() }
         .onChange(of: lastPaymentAmount) { _ in validate() }
@@ -52,14 +52,14 @@ struct FrPaymentOptionsSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionFrPaymentOptions.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionFrPaymentOptions.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return FrPaymentOptions(getRefundInfo: getRefundInfo,
                                     firstPaymentAmount: firstPaymentAmount > 0 ? firstPaymentAmount : nil,
                                     lastPaymentAmount: lastPaymentAmount > 0 ? lastPaymentAmount : nil,

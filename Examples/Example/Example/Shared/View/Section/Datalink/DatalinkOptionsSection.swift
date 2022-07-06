@@ -16,7 +16,7 @@ struct DatalinkOptionsSection: View {
     @AppStorage(Self.storage(key: .optionsAllowMultipleConsent)) private var allowMultipleConsent: Bool = false
     @AppStorage(Self.storage(key: .optionsGenerateFinancialReport)) private var generateFinancialReport: Bool = false
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: DatalinkOptions?
     
@@ -29,11 +29,11 @@ struct DatalinkOptionsSection: View {
                     Toggle(L10n.inputOptionsAllowMultipleConsent.localized, isOn: $allowMultipleConsent)
                     Toggle(L10n.inputOptionsGenerateFinancialReport.localized, isOn: $generateFinancialReport)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: autoRedirect) { _ in validate() }
         .onChange(of: generateQRCode) { _ in validate() }
         .onChange(of: allowMultipleConsent) { _ in validate() }
@@ -43,14 +43,14 @@ struct DatalinkOptionsSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionDatalinkOptions.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionDatalinkOptions.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return DatalinkOptions(autoRedirect: autoRedirect,
                                    generateQrCode: generateQRCode,
                                    allowMultipleConsent: allowMultipleConsent,

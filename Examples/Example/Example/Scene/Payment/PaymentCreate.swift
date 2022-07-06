@@ -33,7 +33,7 @@ struct PaymentCreate: View {
         VStack {
             Form {
                 PaymentCreateMainSection(valid: $isMainModelValid, value: $mainModel)
-                CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
+                CreditorAccountSection(required: true, valid: $isCreditorAccountValid, value: $creditorAccount)
                 DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
                 PaymentOptionsSection(valid: $isPaymentOptionValid, value: $paymentOption)
             }

@@ -26,7 +26,7 @@ struct BulkPaymentPaymentsSection: View {
         List {
             Section(header: header) {
                 Group {
-                    CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
+                    CreditorAccountSection(required: true, valid: $isCreditorAccountValid, value: $creditorAccount)
                     TextField("", value: $amount, format: .number)
                         .keyboardType(.decimalPad)
                         .titled(L10n.inputAmount.localized.required)

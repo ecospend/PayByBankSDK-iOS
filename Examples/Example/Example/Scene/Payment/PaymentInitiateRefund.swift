@@ -27,7 +27,7 @@ struct PaymentInitiateRefund: View {
         VStack {
             Form {
                 PaymentCreateRefundMainSection(valid: $isMainModelValid, value: $mainModel)
-                RefundAccountSection(isRequired: true, valid: $isRefundAccountValid, value: $refundAccount)
+                RefundAccountSection(required: true, valid: $isRefundAccountValid, value: $refundAccount)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {

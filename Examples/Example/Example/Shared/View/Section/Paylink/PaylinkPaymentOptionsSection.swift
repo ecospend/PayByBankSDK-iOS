@@ -15,7 +15,7 @@ struct PaylinkPaymentOptionsSection: View {
     @AppStorage(Self.storage(key: .paymentOptionsGetRefundInfo)) var getRefundInfo: Bool = true
     @AppStorage(Self.storage(key: .paymentOptionsForPayout)) var forPayout: Bool = false
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: PaylinkPaymentOptions?
     
@@ -28,11 +28,11 @@ struct PaylinkPaymentOptionsSection: View {
                     Toggle(L10n.inputPaymentOptionsGetRefundInfo.localized, isOn: $getRefundInfo)
                     Toggle(L10n.inputPaymentOptionsForPayout.localized, isOn: $forPayout)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: paymentRails) { _ in validate() }
         .onChange(of: getRefundInfo) { _ in validate() }
         .onChange(of: forPayout) { _ in validate() }
@@ -41,14 +41,14 @@ struct PaylinkPaymentOptionsSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionPaymentOptions.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionPaymentOptions.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return PaylinkPaymentOptions(paymentRails: !paymentRails.isBlank ? paymentRails : nil,
                                          getRefundInfo: getRefundInfo,
                                          forPayout: forPayout)

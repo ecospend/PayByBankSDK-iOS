@@ -20,7 +20,7 @@ struct DatalinkFinancialReportSection: View {
     @State private var isOutputSettingsValid: Bool = false
     @State private var outputSettings: OutputSettings? = nil
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: FinancialReport?
     
@@ -32,11 +32,11 @@ struct DatalinkFinancialReportSection: View {
                     DatalinkParametersSection(valid: $isParametersValid, value: $parameters)
                     DatalinkOutputSettingsSection(valid: $isOutputSettingsValid, value: $outputSettings)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: isFiltersValid) { _ in validate() }
         .onChange(of: isParametersValid) { _ in validate() }
         .onChange(of: isOutputSettingsValid) { _ in validate() }
@@ -45,14 +45,14 @@ struct DatalinkFinancialReportSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionFinancialReport.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionFinancialReport.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = isFiltersValid && isParametersValid && isOutputSettingsValid
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return FinancialReport(filters: filters,
                                    parameters: parameters,
                                    outputSettings: outputSettings)

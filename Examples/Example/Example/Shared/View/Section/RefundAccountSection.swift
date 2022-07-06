@@ -17,8 +17,8 @@ struct RefundAccountSection: View {
     @AppStorage(Self.storage(key: .accountCurrency)) private var currency: PayByBankCurrency = .pound
     @AppStorage(Self.storage(key: .accountBic)) private var bic: String = ""
     
-    @State private var isEnabled: Bool = false
-    @State private(set) var isRequired: Bool = false
+    @State private var enabled: Bool = false
+    @State private(set) var required: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: PayByBankAccountRequest?
     
@@ -45,11 +45,11 @@ struct RefundAccountSection: View {
                     TextField("", text: $bic)
                         .titled(L10n.inputAccountBic.localized)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: type) { _ in validate() }
         .onChange(of: identification) { _ in validate() }
         .onChange(of: ownerName) { _ in validate() }
@@ -60,22 +60,22 @@ struct RefundAccountSection: View {
     
     @ViewBuilder
     var header: some View {
-        switch isRequired {
+        switch required {
         case true: Text(L10n.sectionRefundAccount.localized.required)
-                .onAppear { isEnabled = true }
-        case false: Toggle(L10n.sectionRefundAccount.localized, isOn: $isEnabled)
+                .onAppear { enabled = true }
+        case false: Toggle(L10n.sectionRefundAccount.localized, isOn: $enabled)
         }
     }
     
     func validate() {
         valid = {
-            guard isEnabled else { return true }
+            guard enabled else { return true }
             guard !identification.isBlank, !ownerName.isBlank else { return false  }
             return true
         }()
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return PayByBankAccountRequest(type: type,
                                            identification: identification,
                                            name: ownerName,

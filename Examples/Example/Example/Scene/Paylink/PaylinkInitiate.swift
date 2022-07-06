@@ -41,7 +41,7 @@ struct PaylinkInitiate: View {
         VStack {
             Form {
                 PaylinkCreateMainSection(valid: $isMainModelValid, value: $mainModel)
-                CreditorAccountSection(isRequired: true, valid: $isCreditorAccountValid, value: $creditorAccount)
+                CreditorAccountSection(required: true, valid: $isCreditorAccountValid, value: $creditorAccount)
                 DebtorAccountSection(valid: $isDebtorAccountValid, value: $debtorAccount)
                 PaylinkOptionsSection(valid: $isPaylinkOptionsValid, value: $paylinkOptions)
                 NotificationOptionsSection(valid: $isNotificationOptionsValid, value: $notificationOptions)

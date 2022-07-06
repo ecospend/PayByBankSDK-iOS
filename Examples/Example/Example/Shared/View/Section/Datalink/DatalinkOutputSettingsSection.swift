@@ -13,7 +13,7 @@ struct DatalinkOutputSettingsSection: View {
     
     @AppStorage(Self.storage(key: .displayPii)) private var displayPii: Bool = false
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: OutputSettings?
     
@@ -23,25 +23,25 @@ struct DatalinkOutputSettingsSection: View {
                 Group {
                     Toggle(L10n.inputDisplayPii.localized, isOn: $displayPii)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: displayPii) { _ in validate() }
         .onAppear { validate() }
     }
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionOutputSettings.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionOutputSettings.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return OutputSettings(displayPii: displayPii)
         }()
     }

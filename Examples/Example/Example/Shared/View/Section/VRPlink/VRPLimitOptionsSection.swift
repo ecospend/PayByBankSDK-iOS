@@ -27,7 +27,7 @@ struct VRPLimitOptionsSection: View {
     @AppStorage(Self.storage(key: .limitOptionsHalfYearlyAlignment)) var halfYearlyAlignment: VRPAlignment = .consent
     @AppStorage(Self.storage(key: .limitOptionsYearlyAlignment)) var yearlyAlignment: VRPAlignment = .consent
     
-    @State private var isEnabled: Bool = false
+    @State private var enabled: Bool = false
     @Binding private(set) var valid: Bool
     @Binding private(set) var value: VRPLimitOptions?
     
@@ -63,8 +63,8 @@ struct VRPLimitOptionsSection: View {
                         .keyboardType(.decimalPad)
                         .titled(L10n.inputLimitOptionsYearlyAmount.localized)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
                 
                 Group {
                     Menu(dailyAlignment.rawValue) {
@@ -98,11 +98,11 @@ struct VRPLimitOptionsSection: View {
                     }
                     .titled(L10n.inputLimitOptionsYearlyAlignment.localized)
                 }
-                .disabled(!isEnabled)
-                .opacity(!isEnabled ? 0.5 : 1)
+                .disabled(!enabled)
+                .opacity(!enabled ? 0.5 : 1)
             }
         }
-        .onChange(of: isEnabled) { _ in validate() }
+        .onChange(of: enabled) { _ in validate() }
         .onChange(of: currency) { _ in validate() }
         .onChange(of: singlePaymentAmount) { _ in validate() }
         .onChange(of: dailyAmount) { _ in validate() }
@@ -122,14 +122,14 @@ struct VRPLimitOptionsSection: View {
     
     @ViewBuilder
     var header: some View {
-        Toggle(L10n.sectionLimitOptions.localized, isOn: $isEnabled)
+        Toggle(L10n.sectionLimitOptions.localized, isOn: $enabled)
     }
     
     func validate() {
         valid = true
         
         value = {
-            guard isEnabled else { return nil }
+            guard enabled else { return nil }
             return VRPLimitOptions(currency: currency,
                                    singlePaymentAmount: singlePaymentAmount > 0 ? singlePaymentAmount : nil,
                                    dailyAmount: dailyAmount > 0 ? dailyAmount : nil,
