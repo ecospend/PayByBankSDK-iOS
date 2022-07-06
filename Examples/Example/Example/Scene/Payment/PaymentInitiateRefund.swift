@@ -1,15 +1,15 @@
 //
-//  PaymentCreateRefund.swift
+//  PaymentInitiateRefund.swift
 //  Example
 //
-//  Created by Yunus TÜR on 24.06.2022.
+//  Created by Yunus TÜR on 6.07.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
 import SwiftUI
 import PayByBank
 
-struct PaymentCreateRefund: View {
+struct PaymentInitiateRefund: View {
     
     @EnvironmentObject var loading: Loading
     @EnvironmentObject var toast: Toast
@@ -39,7 +39,7 @@ struct PaymentCreateRefund: View {
             .padding()
         }
         .background(Color.formBackground)
-        .navigationTitle(L10n.paymentCreateRefundTitle.localizedKey)
+        .navigationTitle(L10n.paymentInitiateRefundTitle.localizedKey)
         .safari(APIDocuments.Payment.createRefund)
         .response($response)
     }
@@ -58,15 +58,15 @@ struct PaymentCreateRefund: View {
         
         loading(true)
         
-        PayByBank.payment.createRefund(request: request) { result in
+        PayByBank.payment.initiateRefund(request: request) { result in
             loading(false)
-            response = result.string
+            toast(result.string)
         }
     }
 }
 
-struct PaymentCreateRefund_Previews: PreviewProvider {
+struct PaymentInitiateRefund_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentCreateRefund()
+        PaymentInitiateRefund()
     }
 }

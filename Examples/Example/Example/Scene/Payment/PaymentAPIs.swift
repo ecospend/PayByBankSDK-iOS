@@ -17,6 +17,7 @@ struct PaymentAPIs: View {
             Section {
                 NavigationLink(L10n.paymentOpenTitle.localizedKey, destination: PaymentOpen())
                 NavigationLink(L10n.paymentInitiateTitle.localizedKey, destination: PaymentInitiate())
+                NavigationLink(L10n.paymentInitiateRefundTitle.localizedKey, destination: PaymentInitiateRefund())
             }
             Section {
                 NavigationLink(L10n.paymentCreateTitle.localizedKey, destination: PaymentCreate())

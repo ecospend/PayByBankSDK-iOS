@@ -60,6 +60,7 @@
 "PaymentTitle" = "Payment";
 "PaymentOpenTitle" = "Open Payment";
 "PaymentInitiateTitle" = "Initiate Payment";
+"PaymentInitiateRefundTitle" = "Initiate Refund";
 "PaymentCreateTitle" = "Create Payment";
 "PaymentListTitle" = "List Payments";
 "PaymentGetTitle" = "Get Payment";

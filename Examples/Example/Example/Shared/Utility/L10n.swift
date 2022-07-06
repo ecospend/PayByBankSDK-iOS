@@ -64,6 +64,7 @@ enum L10n {
     case paymentTitle
     case paymentOpenTitle
     case paymentInitiateTitle
+    case paymentInitiateRefundTitle
     case paymentCreateTitle
     case paymentListTitle
     case paymentGetTitle

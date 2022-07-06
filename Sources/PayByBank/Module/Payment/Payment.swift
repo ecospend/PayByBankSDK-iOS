@@ -43,6 +43,17 @@ public extension Payment {
         }
     }
     
+    /// Opens bank application or bank website using with request model of refund
+    ///
+    /// - Parameters:
+    ///     - request: Request to create refund
+    ///     - completion: It provides to handle result or error
+    func initiateRefund(request: PaymentCreateRefundRequest, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.execute(type: .initiateRefund(request), completion: completion)
+        }
+    }
+    
     /// Creates payment.
     ///
     /// - Parameters:
@@ -114,6 +125,7 @@ private extension Payment {
     enum PaymentExecuteType {
         case open(String)
         case initiate(PaymentCreateRequest)
+        case initiateRefund(PaymentCreateRefundRequest)
     }
     
     func execute(type: PaymentExecuteType, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
@@ -135,6 +147,18 @@ private extension Payment {
                 }
             case .initiate(let request):
                 switch paymentRepository.createPayment(request: request) {
+                case .success(let createResponse):
+                    guard let uniqueID = createResponse.id else { return .failure(PayByBankError.wrongLink) }
+                    
+                    switch paymentRepository.getPayment(request: PaymentGetRequest(id: uniqueID)) {
+                    case .success(let response): return .success(response)
+                    case .failure(let error): return .failure(error)
+                    }
+                case .failure(let error):
+                    return .failure(error)
+                }
+            case .initiateRefund(let request):
+                switch paymentRepository.createRefund(request: request) {
                 case .success(let createResponse):
                     guard let uniqueID = createResponse.id else { return .failure(PayByBankError.wrongLink) }
                     
