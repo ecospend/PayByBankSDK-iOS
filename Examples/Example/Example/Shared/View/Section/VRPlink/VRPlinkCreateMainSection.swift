@@ -105,6 +105,6 @@ struct VRPlinkCreateMainSectionModel {
     let verifyDebtorAccount: Bool?
     let merchantID: String?
     let merchantUserID: String?
-    let reference: String?
-    let description: String?
+    let reference: String
+    let description: String
 }

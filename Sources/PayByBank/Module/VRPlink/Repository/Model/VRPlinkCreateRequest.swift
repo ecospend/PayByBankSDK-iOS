@@ -41,10 +41,10 @@ public struct VRPlinkCreateRequest: Codable {
     public let merchantUserID: String?
     
     /// Payment reference that will be displayed on the bank statement. 18 characters MAX.
-    public let reference: String?
+    public let reference: String
     
     /// Description for the payment. 255 character MAX.
-    public let description: String?
+    public let description: String
     
     /// It is the account that will receive the payment.
     public let creditorAccount: PayByBankAccountRequest?
@@ -94,8 +94,8 @@ public struct VRPlinkCreateRequest: Codable {
                 verifyDebtorAccount: Bool? = nil,
                 merchantID: String? = nil,
                 merchantUserID: String? = nil,
-                reference: String? = nil,
-                description: String? = nil,
+                reference: String,
+                description: String,
                 creditorAccount: PayByBankAccountRequest? = nil,
                 debtorAccount: PayByBankAccountRequest? = nil,
                 vrpOptions: VRPOptions? = nil,
