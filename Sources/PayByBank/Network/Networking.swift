@@ -96,7 +96,7 @@ private extension Networking {
         let result = verify(data: data, urlResponse: urlResponse, error: error)
         switch result {
         case .success(let data):
-            if let decoded = try? JSONDecoder().decode(T.self, from: data) {
+            if let decoded = try? PayByBankConstant.Network.jsonDecoder.decode(T.self, from: data) {
                 completion(.success(decoded))
             } else {
                 completion(.failure(NetworkError.invalidResponse))

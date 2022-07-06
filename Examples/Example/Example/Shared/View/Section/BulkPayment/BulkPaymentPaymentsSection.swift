@@ -65,7 +65,7 @@ struct BulkPaymentPaymentsSection: View {
                 BulkPaymentPaylinkEntry(creditorAccount: creditorAccount,
                                         amount: amount,
                                         reference: reference,
-                                        scheduledFor: scheduledFor != .default ? scheduledFor.rawValue : nil,
+                                        scheduledFor: scheduledFor != .default ? scheduledFor : nil,
                                         clientReferenceID: clientReferenceID.isBlank ? clientReferenceID : nil)
             ]
         }()

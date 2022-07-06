@@ -61,8 +61,8 @@ struct PaymentListQuerySection: View {
         
         value = PaymentListRequest(merchantID: !merchantID.isBlank ? merchantID : nil,
                                    merchantUserID: !merchantUserID.isBlank ? merchantUserID : nil,
-                                   startDate: startDate != .default ? startDate.rawValue : nil,
-                                   endDate: endDate != .default ? endDate.rawValue : nil,
+                                   startDate: startDate != .default ? startDate : nil,
+                                   endDate: endDate != .default ? endDate : nil,
                                    paymentType: paymentType,
                                    page: page > 0 ? page : nil)
     }

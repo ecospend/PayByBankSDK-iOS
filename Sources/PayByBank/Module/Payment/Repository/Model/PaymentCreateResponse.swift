@@ -20,7 +20,7 @@ public struct PaymentCreateResponse: Codable {
     public let bankReferenceID: String?
     
     /// Initiation date and time of the payment request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let dateCreated: String?
+    public let dateCreated: Date?
     
     /// A unique and one time use only URL of the debtor's banking system.
     /// You will need to redirect PSU to this link in order the payment to proceed.
@@ -94,7 +94,7 @@ public struct PaymentCreateResponse: Codable {
     
     public init(id: String?,
                 bankReferenceID: String?,
-                dateCreated: String?,
+                dateCreated: Date?,
                 paymentURL: String?,
                 status: PaymentInitiationStatus?,
                 isRefund: Bool?,

@@ -224,7 +224,7 @@ public struct PaylinkLimitOptionsResponse: Codable {
     public let amount: Decimal?
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let date: String?
+    public let date: Date?
     
     enum CodingKeys: String, CodingKey {
         case isLimitExceeded = "limit_exceeded"
@@ -234,7 +234,7 @@ public struct PaylinkLimitOptionsResponse: Codable {
     public init(isLimitExceeded: Bool?,
                 count: Int?,
                 amount: Decimal?,
-                date: String?) {
+                date: Date?) {
         self.isLimitExceeded = isLimitExceeded
         self.count = count
         self.amount = amount

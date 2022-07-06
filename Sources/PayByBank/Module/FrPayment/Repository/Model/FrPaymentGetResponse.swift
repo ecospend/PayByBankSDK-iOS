@@ -54,7 +54,7 @@ public struct FrPaymentGetResponse: Codable {
     
     /// Date and time of the first payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     /// - Warning: This date must be a work day.
-    public let firstPaymentDate: String?
+    public let firstPaymentDate: Date?
     
     /// Number of total payments being set with this standing order.
     public let numberOfPayments: Int?
@@ -96,7 +96,7 @@ public struct FrPaymentGetResponse: Codable {
                 creditorAccount: PayByBankAccountResponse?,
                 debtorAccount: PayByBankAccountResponse?,
                 frPaymentOptions: FrPaymentOptionsResponse?,
-                firstPaymentDate: String?,
+                firstPaymentDate: Date?,
                 numberOfPayments: Int?,
                 period: FrPaymentPeriod?,
                 allowFrpCustomerChanges: Bool?) {

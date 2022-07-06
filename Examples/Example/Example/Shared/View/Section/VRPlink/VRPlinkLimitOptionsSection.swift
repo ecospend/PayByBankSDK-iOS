@@ -44,7 +44,7 @@ struct VRPlinkLimitOptionsSection: View {
         
         value = {
             guard enabled else { return nil }
-            return VRPlinkLimitOptions(date: date != .default ? date.rawValue : nil)
+            return VRPlinkLimitOptions(date: date != .default ? date : nil)
         }()
     }
 }

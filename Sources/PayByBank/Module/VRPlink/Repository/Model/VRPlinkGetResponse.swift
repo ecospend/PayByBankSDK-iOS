@@ -241,10 +241,10 @@ public struct VRPLimitOptionsResponse: Codable {
 public struct VRPOptionsResponse: Codable {
     
     /// Indicates Validity Start Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let validFrom: String?
+    public let validFrom: Date?
     
     /// Indicates Validity End Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let validTo: String?
+    public let validTo: Date?
     
     /// Set true, if you would like to get back the debtor's account information that the payment is made from.
     /// - Note: If not provided, defaults to 'true'.
@@ -256,8 +256,8 @@ public struct VRPOptionsResponse: Codable {
         case validTo = "valid_to"
     }
     
-    public init(validFrom: String?,
-                validTo: String?,
+    public init(validFrom: Date?,
+                validTo: Date?,
                 getRefundInfo: Bool?) {
         self.validFrom = validFrom
         self.validTo = validTo
@@ -269,13 +269,13 @@ public struct VRPOptionsResponse: Codable {
 public struct VRPlinkLimitOptionsResponse: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let date: String?
+    public let date: Date?
     
     enum CodingKeys: String, CodingKey {
         case date
     }
     
-    public init(date: String?) {
+    public init(date: Date?) {
         self.date = date
     }
 }

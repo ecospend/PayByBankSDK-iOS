@@ -109,7 +109,7 @@ public struct PaymentOption: Codable {
     
     /// If provided, our system automatically converts the payment into a Scheduled Payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     /// - Warning: Must be set to a future date/time (it must be the next day or later) in GMT+0.
-    public let scheduledFor: String?
+    public let scheduledFor: Date?
     
     /// Mandatory information for Berlin Group and STET specifications.
     public let psuID: String?
@@ -128,7 +128,7 @@ public struct PaymentOption: Codable {
     
     public init(getRefundInfo: Bool? = nil,
                 forPayout: Bool? = nil,
-                scheduledFor: String? = nil,
+                scheduledFor: Date? = nil,
                 psuID: String? = nil,
                 paymentRails: String? = nil) {
         self.getRefundInfo = getRefundInfo

@@ -48,7 +48,7 @@ struct BulkPaymentOptionsSection: View {
         
         value = {
             guard enabled else { return nil }
-            return BulkPaymentOptions(scheduledFor: scheduledFor != .default ? scheduledFor.rawValue : nil,
+            return BulkPaymentOptions(scheduledFor: scheduledFor != .default ? scheduledFor : nil,
                                       paymentRails: !paymentRails.isBlank ? paymentRails : nil)
         }()
     }

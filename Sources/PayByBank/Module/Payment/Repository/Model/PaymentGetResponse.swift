@@ -19,7 +19,7 @@ public struct PaymentGetResponse: Codable {
     public let bankReferenceID: String?
     
     /// Initiation date and time of the payment request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let dateCreated: String?
+    public let dateCreated: Date?
     
     /// Status of the payment
     /// - Note: Enum: "Initial" "AwaitingAuthorization" "Authorised" "Verified" "Completed" "Canceled" "Failed" "Rejected" "Abandoned"
@@ -79,7 +79,7 @@ public struct PaymentGetResponse: Codable {
     public let isReconciled: Bool?
     
     /// Date and time information that is gathered from the creditor account statement by the [optional] Reconciliation Feature in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let reconciliationDate: String?
+    public let reconciliationDate: Date?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -108,7 +108,7 @@ public struct PaymentGetResponse: Codable {
     
     public init(id: String?,
                 bankReferenceID: String?,
-                dateCreated: String?,
+                dateCreated: Date?,
                 status: PaymentStatus?,
                 isRefund: Bool?,
                 originalPaymentID: String?,
@@ -127,7 +127,7 @@ public struct PaymentGetResponse: Codable {
                 paymentOption: PaymentOptionResponse?,
                 refundAccount: PayByBankAccountResponse?,
                 isReconciled: Bool?,
-                reconciliationDate: String?) {
+                reconciliationDate: Date?) {
         self.id = id
         self.bankReferenceID = bankReferenceID
         self.dateCreated = dateCreated

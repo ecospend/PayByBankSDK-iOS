@@ -44,7 +44,7 @@ struct BulkPaymentLimitOptionsSection: View {
         
         value = {
             guard enabled else { return nil }
-            return BulkPaymentLimitOptions(date: date != .default ? date.rawValue : nil)
+            return BulkPaymentLimitOptions(date: date != .default ? date : nil)
         }()
     }
 }

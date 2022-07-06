@@ -67,10 +67,10 @@ public struct VRPlinkRecord: Codable {
     public let failureMessage: String?
     
     /// Indicates Validity Start Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let validFrom: String?
+    public let validFrom: Date?
     
     /// ndicates Validity End Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let validTo: String?
+    public let validTo: Date?
     
     /// If you are set true, no redirect after vrp.
     public let dontRedirect: Bool?
@@ -115,8 +115,8 @@ public struct VRPlinkRecord: Codable {
                 creditorAccount: PayByBankAccountResponse?,
                 debtorAccount: PayByBankAccountResponse?,
                 failureMessage: String?,
-                validFrom: String?,
-                validTo: String?,
+                validFrom: Date?,
+                validTo: Date?,
                 dontRedirect: Bool?) {
         self.uniqueID = uniqueID
         self.clientID = clientID

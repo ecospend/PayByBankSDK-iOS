@@ -60,7 +60,7 @@ struct PaymentOptionsSection: View {
             guard enabled else { return nil }
             return PaymentOption(getRefundInfo: getRefundInfo,
                                  forPayout: forPayout,
-                                 scheduledFor: scheduledFor != .default ? scheduledFor.rawValue : nil,
+                                 scheduledFor: scheduledFor != .default ? scheduledFor : nil,
                                  psuID: !psuID.isBlank ? psuID : nil,
                                  paymentRails: !paymentRails.isBlank ? paymentRails : nil)
         }()

@@ -19,10 +19,10 @@ public struct PaymentListRequest: Codable {
     public let merchantUserID: String?
     
     /// Filter results that has been created after the `startDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let startDate: String?
+    public let startDate: Date?
     
     /// Filter results that has been created before the `endDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let endDate: String?
+    public let endDate: Date?
     
     /// Filter results by `paymentType`.
     /// - Note: Enum: "Auto" "Domestic" "DomesticScheduled" "International" "InternationalScheduled"
@@ -43,8 +43,8 @@ public struct PaymentListRequest: Codable {
     
     public init(merchantID: String?,
                 merchantUserID: String?,
-                startDate: String?,
-                endDate: String?,
+                startDate: Date?,
+                endDate: Date?,
                 paymentType: PaymentType?,
                 page: Int?) {
         self.merchantID = merchantID

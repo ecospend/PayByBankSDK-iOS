@@ -51,8 +51,8 @@ function_parameter_count:
   warning: 9
   error: 10
 cyclomatic_complexity:
-  warning: 20
-  error: 25
+  warning: 25
+  error: 30
 nesting:
   type_level:
     warning: 2 # this means the warning appears if you nest 3 level deep instead of 1

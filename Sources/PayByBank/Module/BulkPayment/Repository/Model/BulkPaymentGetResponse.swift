@@ -198,7 +198,7 @@ public struct BulkPaymentPaylinkOptionsResponse: Codable {
 public struct BulkPaymentOptionsResponse: Codable {
     
     /// Defines the schedule date  for the payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let scheduledFor: String?
+    public let scheduledFor: Date?
     
     /// Gets or sets the bulk payment rails.
     public let paymentRails: String?
@@ -208,7 +208,7 @@ public struct BulkPaymentOptionsResponse: Codable {
         case paymentRails = "payment_rails"
     }
     
-    public init(scheduledFor: String?, paymentRails: String?) {
+    public init(scheduledFor: Date?, paymentRails: String?) {
         self.scheduledFor = scheduledFor
         self.paymentRails = paymentRails
     }
@@ -218,13 +218,13 @@ public struct BulkPaymentOptionsResponse: Codable {
 public struct BulkPaymentLimitOptionsResponse: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let date: String?
+    public let date: Date?
     
     enum CodingKeys: String, CodingKey {
         case date
     }
     
-    public init(date: String?) {
+    public init(date: Date?) {
         self.date = date
     }
 }
@@ -242,7 +242,7 @@ public struct BulkPaymentPaylinkEntryResponse: Codable {
     public let reference: String?
     
     /// Must be set to a date/time in GMT+0 in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let scheduledFor: String?
+    public let scheduledFor: Date?
     
     /// Free text field for any client reference usage.
     public let clientReferenceID: String?
@@ -258,7 +258,7 @@ public struct BulkPaymentPaylinkEntryResponse: Codable {
     public init(creditorAccount: PayByBankAccountResponse?,
                 amount: Decimal?,
                 reference: String?,
-                scheduledFor: String?,
+                scheduledFor: Date?,
                 clientReferenceID: String?) {
         self.creditorAccount = creditorAccount
         self.amount = amount

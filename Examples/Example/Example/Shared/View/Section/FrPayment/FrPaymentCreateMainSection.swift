@@ -105,7 +105,7 @@ struct FrPaymentCreateMainSection: View {
                                                 bankID: !bankID.isBlank ? bankID : nil,
                                                 merchantID: !merchantID.isBlank ? merchantID : nil,
                                                 merchantUserID: !merchantUserID.isBlank ? merchantUserID : nil,
-                                                firstPaymentDate: firstPaymentDate.rawValue,
+                                                firstPaymentDate: firstPaymentDate,
                                                 numberOfPayments: numberOfPayments,
                                                 period: period,
                                                 standingOrderType: standingOrderType,
@@ -128,7 +128,7 @@ struct FrPaymentCreateMainSectionModel {
     let bankID: String?
     let merchantID: String?
     let merchantUserID: String?
-    let firstPaymentDate: String
+    let firstPaymentDate: Date
     let numberOfPayments: Int
     let period: FrPaymentPeriod
     let standingOrderType: FrPaymentStandingOrderType?

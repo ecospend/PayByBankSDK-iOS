@@ -108,7 +108,7 @@ public struct PaylinkLimitOptions: Codable {
     public let amount: Decimal?
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    public let date: String?
+    public let date: Date?
     
     /// - Parameters:
     ///     - count: Maximum successfull payment count limit.
@@ -116,7 +116,7 @@ public struct PaylinkLimitOptions: Codable {
     ///     - date: Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public init(count: Int?,
                 amount: Decimal?,
-                date: String?) {
+                date: Date?) {
         self.count = count
         self.amount = amount
         self.date = date

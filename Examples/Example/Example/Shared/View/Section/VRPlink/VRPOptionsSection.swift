@@ -52,8 +52,8 @@ struct VRPOptionsSection: View {
         
         value = {
             guard enabled else { return nil }
-            return VRPOptions(validFrom: validFrom != .default ? validFrom.rawValue : nil,
-                              validTo: validTo != .default ? validTo.rawValue : nil,
+            return VRPOptions(validFrom: validFrom != .default ? validFrom : nil,
+                              validTo: validTo != .default ? validTo : nil,
                               getRefundInfo: getRefundInfo)
         }()
     }
