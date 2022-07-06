@@ -15,6 +15,10 @@ struct PaymentAPIs: View {
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.paymentOpenTitle.localizedKey, destination: PaymentOpen())
+                NavigationLink(L10n.paymentInitiateTitle.localizedKey, destination: PaymentInitiate())
+            }
+            Section {
                 NavigationLink(L10n.paymentCreateTitle.localizedKey, destination: PaymentCreate())
                 NavigationLink(L10n.paymentListTitle.localizedKey, destination: PaymentList())
                 NavigationLink(L10n.paymentGetTitle.localizedKey, destination: PaymentGet())

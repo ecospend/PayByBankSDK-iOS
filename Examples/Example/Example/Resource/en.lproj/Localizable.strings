@@ -58,6 +58,8 @@
 "DatalinkGetOfConsentTitle" = "Get Datalink of Consent";
 // MARK: - Payment
 "PaymentTitle" = "Payment";
+"PaymentOpenTitle" = "Open Payment";
+"PaymentInitiateTitle" = "Initiate Payment";
 "PaymentCreateTitle" = "Create Payment";
 "PaymentListTitle" = "List Payments";
 "PaymentGetTitle" = "Get Payment";

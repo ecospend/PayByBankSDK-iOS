@@ -62,6 +62,8 @@ enum L10n {
     case datalinkGetOfConsentTitle
     // MARK: - Payment
     case paymentTitle
+    case paymentOpenTitle
+    case paymentInitiateTitle
     case paymentCreateTitle
     case paymentListTitle
     case paymentGetTitle

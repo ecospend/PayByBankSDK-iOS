@@ -69,8 +69,8 @@ extension PayByBankEnvironment: PayByBankEnvironmentProtocol {
     
     var paymentEndpointURL: String {
         switch self {
-        case .production: return "https://pis-api.ecospend.com/api/v2.0"
-        case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.0"
+        case .production: return "https://pis-api.ecospend.com/api/v2.1"
+        case .sandbox: return "https://pis-api-sandbox.ecospend.com/api/v2.1"
         }
     }
 }

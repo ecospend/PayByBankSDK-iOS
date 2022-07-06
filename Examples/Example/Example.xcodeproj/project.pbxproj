@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D62AEED92873032B00CC2DD2 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEED82873032B00CC2DD2 /* ExampleApp.swift */; };
+		D62AEEDB28747BEB00CC2DD2 /* PaymentOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */; };
+		D62AEEE22875759000CC2DD2 /* PaymentInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEEE12875759000CC2DD2 /* PaymentInitiate.swift */; };
 		D6900933282A75A300979630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900932282A75A300979630 /* Assets.xcassets */; };
 		D6900936282A75A300979630 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900935282A75A300979630 /* Preview Assets.xcassets */; };
 		D6900940282A75A300979630 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690093F282A75A300979630 /* ExampleTests.swift */; };
@@ -132,6 +134,8 @@
 
 /* Begin PBXFileReference section */
 		D62AEED82873032B00CC2DD2 /* ExampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
+		D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOpen.swift; sourceTree = "<group>"; };
+		D62AEEE12875759000CC2DD2 /* PaymentInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInitiate.swift; sourceTree = "<group>"; };
 		D690092B282A75A100979630 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900932282A75A300979630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6900935282A75A300979630 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -611,11 +615,13 @@
 			isa = PBXGroup;
 			children = (
 				D6AEF4522865D4B3008FD82E /* PaymentAPIs.swift */,
-				D6AEF4542865D4BD008FD82E /* PaymentCreate.swift */,
-				D6AEF4582865DADB008FD82E /* PaymentList.swift */,
-				D6AEF45A2865DB88008FD82E /* PaymentGet.swift */,
 				D6AEF45C2865DC1C008FD82E /* PaymentCheckURL.swift */,
+				D6AEF4542865D4BD008FD82E /* PaymentCreate.swift */,
 				D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */,
+				D6AEF45A2865DB88008FD82E /* PaymentGet.swift */,
+				D62AEEE12875759000CC2DD2 /* PaymentInitiate.swift */,
+				D6AEF4582865DADB008FD82E /* PaymentList.swift */,
+				D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				D6AEF3DC28609E7E008FD82E /* FrPaymentInitiate.swift in Sources */,
 				D6AEF3E62861AD98008FD82E /* FrPaymentGet.swift in Sources */,
 				D695AF182859F7DD00CB7103 /* PaylinkCreateMainSection.swift in Sources */,
+				D62AEEE22875759000CC2DD2 /* PaymentInitiate.swift in Sources */,
 				D6AEF4552865D4BD008FD82E /* PaymentCreate.swift in Sources */,
 				D695AF2B285CB63300CB7103 /* PaylinkDeactivate.swift in Sources */,
 				D69009AF28328D6A00979630 /* Loading.swift in Sources */,
@@ -823,6 +830,7 @@
 				D6AEF3EA2861B1FA008FD82E /* Result+.swift in Sources */,
 				D695AF112857E46B00CB7103 /* Date+.swift in Sources */,
 				D6AEF45D2865DC1C008FD82E /* PaymentCheckURL.swift in Sources */,
+				D62AEEDB28747BEB00CC2DD2 /* PaymentOpen.swift in Sources */,
 				D6AEF4592865DADB008FD82E /* PaymentList.swift in Sources */,
 				D695AF22285B146800CB7103 /* PaylinkLimitOptionsSection.swift in Sources */,
 				D6AEF40B2864537E008FD82E /* BulkPaymentPaylinkOptionsSection.swift in Sources */,

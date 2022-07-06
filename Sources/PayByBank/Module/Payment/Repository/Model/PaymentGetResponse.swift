@@ -89,7 +89,7 @@ public struct PaymentGetResponse: Codable {
         case isRefund = "is_refund"
         case originalPaymentID = "original_payment_id"
         case redirectURL = "redirect_url"
-        case url
+        case url = "payment_url"
         case bankID = "bank_id"
         case amount = "amount"
         case currency = "currency"

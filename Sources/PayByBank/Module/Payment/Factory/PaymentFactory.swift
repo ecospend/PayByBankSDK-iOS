@@ -11,6 +11,10 @@ import Foundation
 protocol PaymentFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
     func makePaymentRepository() -> PaymentRepositoryProtocol
+    func makePaymentHandler(uniqueID: String,
+                            webViewURL: URL,
+                            redirectURL: URL,
+                            completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol 
 }
 
 class PaymentFactory: PaymentFactoryProtocol {
@@ -26,5 +30,12 @@ extension PaymentFactory {
     
     func makePaymentRepository() -> PaymentRepositoryProtocol {
         return PaymentRepository(networking: payByBankFactory.makeNetworking())
+    }
+    
+    func makePaymentHandler(uniqueID: String,
+                            webViewURL: URL,
+                            redirectURL: URL,
+                            completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
+        return PaymentHandler(uniqueID: uniqueID, webViewURL: webViewURL, redirectURL: redirectURL, completionHandler: completionHandler)
     }
 }

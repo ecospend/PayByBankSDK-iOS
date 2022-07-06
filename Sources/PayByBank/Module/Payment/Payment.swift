@@ -126,29 +126,37 @@ private extension Payment {
         case .failure(let error): return completion(.failure(PayByBankError(error: error)))
         }
         
-        let paymentResult: Result<(id: String, url: URL), Error> = {
+        let paymentGetResult: Result<PaymentGetResponse, Error> = {
             switch type {
-            case .open(let id):
-                switch paymentRepository.getPayment(request: PaymentGetRequest(id: id)) {
-                case .success(let response):
-                    guard let id = response.id,
-                          let url = URL(string: response.url ?? "") else {
-                        return .failure(PayByBankError.wrongLink)
-                    }
-                    return .success((id, url))
+            case .open(let uniqueID):
+                switch paymentRepository.getPayment(request: PaymentGetRequest(id: uniqueID)) {
+                case .success(let response): return .success(response)
                 case .failure(let error): return .failure(error)
                 }
             case .initiate(let request):
                 switch paymentRepository.createPayment(request: request) {
-                case .success(let response):
-                    guard let id = response.id,
-                          let url = URL(string: response.paymentURL ?? "") else {
-                        return .failure(PayByBankError.wrongLink)
+                case .success(let createResponse):
+                    guard let uniqueID = createResponse.id else { return .failure(PayByBankError.wrongLink) }
+                    
+                    switch paymentRepository.getPayment(request: PaymentGetRequest(id: uniqueID)) {
+                    case .success(let response): return .success(response)
+                    case .failure(let error): return .failure(error)
                     }
-                    return .success((id, url))
                 case .failure(let error):
                     return .failure(error)
                 }
+            }
+        }()
+        
+        let paymentResult: Result<(id: String, url: URL), Error> = {
+            switch paymentGetResult {
+            case .success(let response):
+                guard let id = response.id,
+                      let url = URL(string: response.url ?? "") else {
+                    return .failure(PayByBankError.wrongLink)
+                }
+                return .success((id, url))
+            case .failure(let error): return .failure(error)
             }
         }()
         
