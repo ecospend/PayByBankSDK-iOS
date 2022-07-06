@@ -34,7 +34,7 @@ struct PaymentOpen: View {
         }
         .background(Color.formBackground)
         .navigationTitle(L10n.paymentOpenTitle.localizedKey)
-        .safari(APIDocuments.Paylink.create)
+        .safari(APIDocuments.Payment.get)
     }
     
     func submit() {
