@@ -40,6 +40,7 @@ struct VRPlinkListRecords: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.vrplink.getVRPlinkRecords(request: VRPlinkGetRecordsRequest(uniqueID: uniqueID)) { result in
             loading(false)

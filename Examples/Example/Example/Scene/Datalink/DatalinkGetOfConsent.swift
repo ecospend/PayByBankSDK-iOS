@@ -40,6 +40,7 @@ struct DatalinkGetOfConsent: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.datalink.getDatalinkOfConsent(request: DatalinkGetConsentDatalinkRequest(consentID: consentID)) { result in
             loading(false)

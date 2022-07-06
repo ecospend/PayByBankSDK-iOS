@@ -38,6 +38,7 @@ struct PaylinkOpen: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let viewController = UIApplication.shared.topViewController else { return }
         loading(true)
         PayByBank.paylink.open(uniqueID: uniqueID, viewController: viewController) { result in

@@ -40,6 +40,7 @@ struct DatalinkGet: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.datalink.getDatalink(request: DatalinkGetRequest(uniqueID: uniqueID)) { result in
             loading(false)

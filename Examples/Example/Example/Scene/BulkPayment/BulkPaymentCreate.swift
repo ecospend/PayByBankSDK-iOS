@@ -70,6 +70,7 @@ struct BulkPaymentCreate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel else { return }
         
         let request = BulkPaymentCreateRequest(bankID: main.bankID,

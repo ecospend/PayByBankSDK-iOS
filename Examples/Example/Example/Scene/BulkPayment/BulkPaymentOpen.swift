@@ -38,6 +38,7 @@ struct BulkPaymentOpen: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let viewController = UIApplication.shared.topViewController else { return }
         
         loading(true)

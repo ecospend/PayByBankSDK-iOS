@@ -38,6 +38,7 @@ struct VRPlinkOpen: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let viewController = UIApplication.shared.topViewController else { return }
         loading(true)
         PayByBank.vrplink.open(uniqueID: uniqueID, viewController: viewController) { result in

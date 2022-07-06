@@ -75,6 +75,7 @@ struct VRPlinkCreate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel else { return }
         
         let request = VRPlinkCreateRequest(redirectURL: main.redirectURL,

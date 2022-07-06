@@ -40,6 +40,7 @@ struct DatalinkDelete: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.datalink.deleteDatalink(request: DatalinkDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)

@@ -40,6 +40,7 @@ struct BulkPaymentDeactivate: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.bulkPayment.deactivateBulkPayment(request: BulkPaymentDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)

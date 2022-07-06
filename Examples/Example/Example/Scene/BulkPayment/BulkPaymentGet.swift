@@ -40,6 +40,7 @@ struct BulkPaymentGet: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.bulkPayment.getBulkPayment(request: BulkPaymentGetRequest(uniqueID: uniqueID)) { result in
             loading(false)

@@ -43,6 +43,7 @@ struct PaymentInitiateRefund: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel, let refundAccount = refundAccount else { return }
         
         let request = PaymentCreateRefundRequest(id: main.id,

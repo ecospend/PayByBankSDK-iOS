@@ -60,6 +60,7 @@ struct FrPaymentCreate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel, let creditorAccount = creditorAccount else { return }
         
         let request = FrPaymentCreateRequest(redirectURL: main.redirectURL,

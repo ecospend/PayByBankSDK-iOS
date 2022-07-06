@@ -73,6 +73,7 @@ struct VRPlinkInitiate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let viewController = UIApplication.shared.topViewController else { return }
         guard let main = mainModel else { return }
         

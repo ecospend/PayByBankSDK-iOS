@@ -38,6 +38,7 @@ struct PaymentOpen: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.payment.open(id: id) { result in
             loading(false)

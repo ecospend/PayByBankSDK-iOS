@@ -40,6 +40,7 @@ struct PaymentCheckURL: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.payment.checkPaymentURL(request: PaymentCheckURLRequest(id: id)) { result in
             loading(false)

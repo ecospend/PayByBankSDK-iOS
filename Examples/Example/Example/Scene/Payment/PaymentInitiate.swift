@@ -53,6 +53,7 @@ struct PaymentInitiate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel, let creditorAccount = creditorAccount else { return }
         
         let request = PaymentCreateRequest(redirectURL: main.redirectURL,

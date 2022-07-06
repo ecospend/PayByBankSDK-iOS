@@ -40,6 +40,7 @@ struct FrPaymentDeactivate: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.frPayment.deactivateFrPayment(request: FrPaymentDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)

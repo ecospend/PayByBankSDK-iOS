@@ -40,6 +40,7 @@ struct PaylinkDeactivate: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.paylink.deactivatePaylink(request: PaylinkDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)

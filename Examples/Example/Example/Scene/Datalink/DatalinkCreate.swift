@@ -55,6 +55,7 @@ struct DatalinkCreate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel else { return }
         
         let request = DatalinkCreateRequest(redirectURL: main.redirectURL,

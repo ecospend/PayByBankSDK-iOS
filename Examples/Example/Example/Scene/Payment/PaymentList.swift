@@ -40,6 +40,7 @@ struct PaymentList: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let request = query else { return }
         
         loading(true)

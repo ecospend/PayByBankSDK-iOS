@@ -40,6 +40,7 @@ struct FrPaymentGet: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.frPayment.getFrPayment(request: FrPaymentGetRequest(uniqueID: uniqueID)) { result in
             loading(false)

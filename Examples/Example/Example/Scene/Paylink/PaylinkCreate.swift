@@ -70,6 +70,7 @@ struct PaylinkCreate: View {
     }
     
     func submit() {
+        hideKeyboard()
         guard let main = mainModel, let creditorAccount = creditorAccount else { return }
         
         let request = PaylinkCreateRequest(redirectURL: main.redirectURL,

@@ -40,6 +40,7 @@ struct VRPlinkDeactivate: View {
     }
     
     func submit() {
+        hideKeyboard()
         loading(true)
         PayByBank.vrplink.deactivateVRPlink(request: VRPlinkDeleteRequest(uniqueID: uniqueID)) { result in
             loading(false)
