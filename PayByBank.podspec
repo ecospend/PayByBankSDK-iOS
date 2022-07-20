@@ -10,23 +10,23 @@ Pod::Spec.new do |spec|
   spec.requires_arc          = true
   spec.swift_version         = '5.0'
   spec.pod_target_xcconfig   = {'ENABLE_BITCODE' => 'YES'}
-  spec.default_subspec       = 'Core'
+  spec.default_subspec       = 'PayByBank'
   
-  spec.subspec 'Core' do |core|
-    core.source_files = '**/PayByBank/Sources/Core/**/*.{swift,h,m}'
-    core.resources    = '**/PayByBank/Sources/Core/Resources/**/*.{storyboard,xib,strings,xcassets,json,png}'
+  spec.subspec 'PayByBank' do |core|
+    core.source_files = '**/Sources/PayByBank/**/*.{swift,h,m}'
+    core.resources    = '**/Sources/PayByBank/Resources/**/*.{storyboard,xib,strings,xcassets,json,png}'
   end
   
   spec.subspec 'React' do |rn|
-    rn.source_files = '**/PayByBank/Sources/React/**/*.{m,swift}'
+    rn.source_files = '**/Sources/React/**/*.{m,swift}'
     rn.dependency 'React'
-    rn.dependency 'PayByBank/Core'
+    rn.dependency 'Sources/PayByBank'
   end
   
   spec.subspec 'Flutter' do |fl|
-    fl.source_files = '**/PayByBank/Sources/Flutter/**/*.{m,swift}'
+    fl.source_files = '**/Sources/Flutter/**/*.{m,swift}'
     fl.dependency 'Flutter'
-    fl.dependency 'PayByBank/Core'
+    fl.dependency 'Sources/PayByBank'
   end
   
 end
