@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PaymentCreateResponse Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/PaymentCreateResponse" class="dashAnchor"></a>
+    <a title="PaymentCreateResponse Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        PaymentCreateResponse Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BulkPayment.html">BulkPayment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Datalink.html">Datalink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FrPayment.html">FrPayment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PayByBank.html">PayByBank</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Paylink.html">Paylink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Payment.html">Payment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VRPlink.html">VRPlink</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AffordabilityType.html">AffordabilityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BulkPaymentStatus.html">BulkPaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ConsentPermission.html">ConsentPermission</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ConsentStatus.html">ConsentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DistrubutionPeriod.html">DistrubutionPeriod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FrPaymentPeriod.html">FrPaymentPeriod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FrPaymentStandingOrderType.html">FrPaymentStandingOrderType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkError.html">NetworkError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PayByBankAccountType.html">PayByBankAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PayByBankEnvironment.html">PayByBankEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PayByBankError.html">PayByBankError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PayByBankStatus.html">PayByBankStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PaylinkTipOptionType.html">PaylinkTipOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PaymentInitiationStatus.html">PaymentInitiationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PaymentStatus.html">PaymentStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PaymentType.html">PaymentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VRPAlignment.html">VRPAlignment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VRPReason.html">VRPReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VRPStatus.html">VRPStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VRPType.html">VRPType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/EndpointProtocol.html">EndpointProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/c:@M@PayByBank@objc(cs)NetworkSession">NetworkSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/c:@M@PayByBank@objc(cs)WebViewVC">WebViewVC</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AffordabilityParameters.html">AffordabilityParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentCreateRequest.html">BulkPaymentCreateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentCreateResponse.html">BulkPaymentCreateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentDeleteRequest.html">BulkPaymentDeleteRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentGetRequest.html">BulkPaymentGetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentGetResponse.html">BulkPaymentGetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentLimitOptions.html">BulkPaymentLimitOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentLimitOptionsResponse.html">BulkPaymentLimitOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentOptions.html">BulkPaymentOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentOptionsResponse.html">BulkPaymentOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentPaylinkEntry.html">BulkPaymentPaylinkEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentPaylinkEntryResponse.html">BulkPaymentPaylinkEntryResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentPaylinkOptions.html">BulkPaymentPaylinkOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BulkPaymentPaylinkOptionsResponse.html">BulkPaymentPaylinkOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CategoryAggregationParameters.html">CategoryAggregationParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ConsentModel.html">ConsentModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkCreateRequest.html">DatalinkCreateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkCreateResponse.html">DatalinkCreateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkDeleteRequest.html">DatalinkDeleteRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkGetConsentDatalinkRequest.html">DatalinkGetConsentDatalinkRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkGetRequest.html">DatalinkGetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkGetResponse.html">DatalinkGetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkModel.html">DatalinkModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DatalinkOptions.html">DatalinkOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Filters.html">Filters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FinancialMultiParameters.html">FinancialMultiParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FinancialReport.html">FinancialReport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FinancialReportParameters.html">FinancialReportParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentCreateRequest.html">FrPaymentCreateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentCreateResponse.html">FrPaymentCreateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentDeleteRequest.html">FrPaymentDeleteRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentEditableField.html">FrPaymentEditableField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentGetRequest.html">FrPaymentGetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentGetResponse.html">FrPaymentGetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentOptions.html">FrPaymentOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OutputSettings.html">OutputSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayByBankAccountRequest.html">PayByBankAccountRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayByBankNotificationOptionsRequest.html">PayByBankNotificationOptionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayByBankNotificationOptionsResponse.html">PayByBankNotificationOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayByBankResult.html">PayByBankResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkCreateRequest.html">PaylinkCreateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkCreateResponse.html">PaylinkCreateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkDeleteRequest.html">PaylinkDeleteRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkGetRequest.html">PaylinkGetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkGetResponse.html">PaylinkGetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkLimitOptions.html">PaylinkLimitOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkLimitOptionsResponse.html">PaylinkLimitOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkOptions.html">PaylinkOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkOptionsResponse.html">PaylinkOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkPaymentOptions.html">PaylinkPaymentOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkPaymentOptionsResponse.html">PaylinkPaymentOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkTip.html">PaylinkTip</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkTipOption.html">PaylinkTipOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaylinkTipResponse.html">PaylinkTipResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentCheckURLRequest.html">PaymentCheckURLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentCheckURLResponse.html">PaymentCheckURLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentCreateRefundRequest.html">PaymentCreateRefundRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentCreateRequest.html">PaymentCreateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentCreateResponse.html">PaymentCreateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentGetRequest.html">PaymentGetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentGetResponse.html">PaymentGetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentListRequest.html">PaymentListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentListResponse.html">PaymentListResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentMetaResponse.html">PaymentMetaResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentOption.html">PaymentOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentOptionResponse.html">PaymentOptionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPLimitOptions.html">VRPLimitOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPLimitOptionsResponse.html">VRPLimitOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPOptions.html">VRPOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPOptionsResponse.html">VRPOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkCreateRequest.html">VRPlinkCreateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkCreateResponse.html">VRPlinkCreateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkDeleteRequest.html">VRPlinkDeleteRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkGetRecordsRequest.html">VRPlinkGetRecordsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkGetRequest.html">VRPlinkGetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkGetResponse.html">VRPlinkGetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkLimitOptions.html">VRPlinkLimitOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkLimitOptionsResponse.html">VRPlinkLimitOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkOptions.html">VRPlinkOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkOptionsResponse.html">VRPlinkOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VRPlinkRecord.html">VRPlinkRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VerificationParameters.html">VerificationParameters</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:9PayByBank27PaymentCreateRefundResponsea">PaymentCreateRefundResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:9PayByBank25VRPlinkGetRecordsResponsea">VRPlinkGetRecordsResponse</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PaymentCreateResponse</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PaymentCreateResponse</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV2idSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV2idSSSgvp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A system assigned unique identification for the payment.
+You may need to use this id to query payments or initiate a refund.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV15bankReferenceIDSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/bankReferenceID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV15bankReferenceIDSSSgvp">bankReferenceID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An identification number for the payment that is assigned by the bank.
+Can have different formats for each bank.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">bankReferenceID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV11dateCreated10Foundation4DateVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/dateCreated" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV11dateCreated10Foundation4DateVSgvp">dateCreated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initiation date and time of the payment request in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">dateCreated</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV10paymentURLSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/paymentURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV10paymentURLSSSgvp">paymentURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A unique and one time use only URL of the debtor&rsquo;s banking system.
+You will need to redirect PSU to this link in order the payment to proceed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">paymentURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV6statusAA0D16InitiationStatusOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/status" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV6statusAA0D16InitiationStatusOSgvp">status</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Status of the Payment Initiation</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Enum: &ldquo;AwaitingAuthorization&rdquo;
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/PaymentInitiationStatus.html">PaymentInitiationStatus</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV8isRefundSbSgvp"></a>
+                    <a name="//apple_ref/swift/Property/isRefund" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV8isRefundSbSgvp">isRefund</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates if the payment is a refund.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">isRefund</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV11redirectURLSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/redirectURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV11redirectURLSSSgvp">redirectURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The URL submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">redirectURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV6bankIDSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/bankID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV6bankIDSSSgvp">bankID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>bankID</code> value submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">bankID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV6amountSo9NSDecimalaSgvp"></a>
+                    <a name="//apple_ref/swift/Property/amount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV6amountSo9NSDecimalaSgvp">amount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>amount</code> value submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Decimal</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV8currencyAA0abC8CurrencyOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/currency" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV8currencyAA0abC8CurrencyOSgvp">currency</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Currency code  in <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a> format.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Enum: &ldquo;GBP&rdquo; &ldquo;USD&rdquo; &ldquo;EUR&rdquo;
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV11descriptionSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV11descriptionSSSgvp">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>description</code> value submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV9referenceSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/reference" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV9referenceSSSgvp">reference</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>reference</code> value submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">reference</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV10merchantIDSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/merchantID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV10merchantIDSSSgvp">merchantID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>merchantID</code> value submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">merchantID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV14merchantUserIDSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/merchantUserID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV14merchantUserIDSSSgvp">merchantUserID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>merchantUserID</code> value submitted with the Request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">merchantUserID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV11paymentTypeAA0dH0OSgvp"></a>
+                    <a name="//apple_ref/swift/Property/paymentType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV11paymentTypeAA0dH0OSgvp">paymentType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>It determines which type of payment operation will be executed by the Gateway.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Enum: &ldquo;Auto&rdquo; &ldquo;Domestic&rdquo; &ldquo;DomesticScheduled&rdquo; &ldquo;International&rdquo; &ldquo;InternationalScheduled&rdquo;
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">paymentType</span><span class="p">:</span> <span class="kt"><a href="../Enums/PaymentType.html">PaymentType</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV15creditorAccountAA0abchF0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/creditorAccount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV15creditorAccountAA0abchF0VSgvp">creditorAccount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>It is the account that will receive the payment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">creditorAccount</span><span class="p">:</span> <span class="kt"><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV13debtorAccountAA0abchF0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/debtorAccount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV13debtorAccountAA0abchF0VSgvp">debtorAccount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>It is the account from which the payment will be taken.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">debtorAccount</span><span class="p">:</span> <span class="kt"><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV13paymentOptionAA0dhF0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/paymentOption" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV13paymentOptionAA0dhF0VSgvp">paymentOption</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Additional fields for a payment that can be mandotary for specific cases.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">paymentOption</span><span class="p">:</span> <span class="kt"><a href="../Structs/PaymentOptionResponse.html">PaymentOptionResponse</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:9PayByBank21PaymentCreateResponseV2id15bankReferenceID11dateCreated10paymentURL6status8isRefund08redirectN00hJ06amount8currency11description9reference08merchantJ00w4UserJ00M4Type15creditorAccount13debtorAccount0M6OptionACSSSg_AV10Foundation4DateVSgAvA0D16InitiationStatusOSgSbSgA2VSo9NSDecimalaSgAA0abC8CurrencyOSgA4vA0dY0OSgAA0abc7AccountF0VSgA14_AA0d6OptionF0VSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:bankReferenceID:dateCreated:paymentURL:status:isRefund:redirectURL:bankID:amount:currency:description:reference:merchantID:merchantUserID:paymentType:creditorAccount:debtorAccount:paymentOption:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank21PaymentCreateResponseV2id15bankReferenceID11dateCreated10paymentURL6status8isRefund08redirectN00hJ06amount8currency11description9reference08merchantJ00w4UserJ00M4Type15creditorAccount13debtorAccount0M6OptionACSSSg_AV10Foundation4DateVSgAvA0D16InitiationStatusOSgSbSgA2VSo9NSDecimalaSgAA0abC8CurrencyOSgA4vA0dY0OSgAA0abc7AccountF0VSgA14_AA0d6OptionF0VSgtcfc">init(id:<wbr>bankReferenceID:<wbr>dateCreated:<wbr>paymentURL:<wbr>status:<wbr>isRefund:<wbr>redirectURL:<wbr>bankID:<wbr>amount:<wbr>currency:<wbr>description:<wbr>reference:<wbr>merchantID:<wbr>merchantUserID:<wbr>paymentType:<wbr>creditorAccount:<wbr>debtorAccount:<wbr>paymentOption:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">bankReferenceID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">dateCreated</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?,</span>
+            <span class="nv">paymentURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/PaymentInitiationStatus.html">PaymentInitiationStatus</a></span><span class="p">?,</span>
+            <span class="nv">isRefund</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?,</span>
+            <span class="nv">redirectURL</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">bankID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">amount</span><span class="p">:</span> <span class="kt">Decimal</span><span class="p">?,</span>
+            <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a></span><span class="p">?,</span>
+            <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">reference</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">merchantID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">merchantUserID</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+            <span class="nv">paymentType</span><span class="p">:</span> <span class="kt"><a href="../Enums/PaymentType.html">PaymentType</a></span><span class="p">?,</span>
+            <span class="nv">creditorAccount</span><span class="p">:</span> <span class="kt"><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></span><span class="p">?,</span>
+            <span class="nv">debtorAccount</span><span class="p">:</span> <span class="kt"><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></span><span class="p">?,</span>
+            <span class="nv">paymentOption</span><span class="p">:</span> <span class="kt"><a href="../Structs/PaymentOptionResponse.html">PaymentOptionResponse</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2022 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2022-07-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
