@@ -1,20 +1,76 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# PayByBank SDK (iOS)
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of Open Banking Instant Payment solutions. PayByBank SDK provides you the option of downsizing the development effort for a PIS and AIS journeys to a single SDK integration. PayByBank undertakes all of interaction in the payment user journey with your branding on display.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+- `Paylink` provides to execute the payment order.
+- `FrPayment` provides to execute a standing order.
+- `Bulk Payment` provides to execute the Bulk Payment order.
+- `VRPlink` provides to execute the Variable Recurring Payments consent.
+- `Datalink` is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration.
+- `Payment` provides to execute the domestic instant payments, international payments, and scheduled payments.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## Requirements
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- iOS 10.3+
+- Swift 5.5+
+
+## Installation
+
+### CocoaPods
+
+To integrate PayByBank into your Xcode project using CocoaPods, add this to your Podfile:
+
+```
+pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :branch => 'develop'
+```
+
+Then run `pod install`.
+
+In any file you'd like to use PayByBank in, don't forget to import the framework with `import PayByBank`
+
+### Swift Package Manager
+
+#### User Interface
+
+To integrate using Apple's Swift package manager, with Xcode integration, apply the following steps:
+
+- File > Swift Packages > Add Package Dependency
+- Add `https://github.com/ecospend/PayByBankSDK-iOS.git`
+- Select "Branch" with "develop"
+
+#### Manually
+
+To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`
+
+```
+.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", .branch(from: "develop"))
+```
+
+### Usage
+
+*Note: Please look at <https://docs.ecospend.com/api/intro> for more details.*
+
+To start using our API, you need to onboard with us and get a Client Id (`client_id`) and Client Secret (`client_secret`) via email to <support@ecospend.com>. For onboarding we will need the following information:
+
+- The full name of your company/organization
+- An email address for your admin user (used as username)
+- A mobile phone number for the admin user (used for two-factor authentication)
+
+Once onboarded, a Client Id is generated for you and you will have access to our Management Console, through which you can generate your Client Secret(s).
+
+- The `client_id` is created by Ecospend when your organization is registered with us.
+- The `client_secret` is a security key that your administrator should create from the Management Console. This is not visible to or accessible  by the Ecospend team. Therefore, you should store it safely.
+
+You will be given separate pairs of Client Id and Client Secret for our `Sandbox` and `Production` environments respectively. Ecospend does not store these parameters; therefore, you need to keep them safe and secure.
+
+- `Sandbox` environment should be used for testing purposes.
+- `Production` environment should be used for released applications.
+
+`PayByBank.configure` function should be called to access `client_id` and `client_secret` before using APIs of PayByBank SDK:
+```
+PayByBank.configure(environment: <environment>, clientID: <client_id>, clientSecret: <client_secret>)
+```
+
+### Sample Projects
+
+We have provided two sample projects in the repository. Source files for these are in the `Examples` directory in project navigator. 
