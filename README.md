@@ -21,7 +21,7 @@ The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of
 To integrate PayByBank into your Xcode project using CocoaPods, add this to your Podfile:
 
 ```
-pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :branch => 'develop'
+pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.0.0'
 ```
 
 Then run `pod install`.
@@ -36,14 +36,14 @@ To integrate using Apple's Swift package manager, with Xcode integration, apply 
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/ecospend/PayByBankSDK-iOS.git`
-- Select "Branch" with "develop"
+- Select "Dependency Rule" with "Exact Version" and "1.0.0"
 
 #### Manually
 
 To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`
 
 ```
-.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", .branch(from: "develop"))
+.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.0.0")
 ```
 
 ### Usage
