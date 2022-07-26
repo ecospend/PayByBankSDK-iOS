@@ -16,17 +16,4 @@ Pod::Spec.new do |spec|
     core.source_files = '**/Sources/PayByBank/**/*.{swift,h,m}'
     core.resources    = '**/Sources/PayByBank/Resources/**/*.{storyboard,xib,strings,xcassets,json,png}'
   end
-  
-  spec.subspec 'React' do |rn|
-    rn.source_files = '**/Sources/React/**/*.{m,swift}'
-    rn.dependency 'React'
-    rn.dependency 'Sources/PayByBank'
-  end
-  
-  spec.subspec 'Flutter' do |fl|
-    fl.source_files = '**/Sources/Flutter/**/*.{m,swift}'
-    fl.dependency 'Flutter'
-    fl.dependency 'Sources/PayByBank'
-  end
-  
 end
