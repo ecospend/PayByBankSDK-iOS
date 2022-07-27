@@ -2,6 +2,7 @@
 
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/PayByBank.svg)](https://cocoapods.org/pods/PaybyBank)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/ios)](https://img.shields.io/cocoapods/p/ios)
 [![Swift](https://img.shields.io/badge/Swift-5-orange?style=flat)](https://img.shields.io/badge/Swift-5-orange?style=flat)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
@@ -24,15 +25,17 @@ The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of
 
 ### CocoaPods
 
-To integrate PayByBank into your Xcode project using CocoaPods, add this to your Podfile:
+To integrate PayByBank into your Xcode project using CocoaPods, add this to your `Podfile`:
 
 ```
 pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.0.0'
+
+# or
+
+pod 'PayByBank', '1.0.0'
 ```
 
 Then run `pod install`.
-
-In any file you'd like to use PayByBank in, don't forget to import the framework with `import PayByBank`
 
 ### Swift Package Manager
 
@@ -52,7 +55,17 @@ To integrate using Apple's Swift package manager, without Xcode integration, add
 .package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.0.0")
 ```
 
-### Usage
+### Carthage
+
+To integrate PayByBank into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```
+github "ecospend/PayByBankSDK-iOS" ~> 1.0.0
+```
+
+Then run `carthage update --use-xcframeworks` and drag the built `PayByBank.xcframework` bundle from `Carthage/Build` into the "Frameworks and Libraries" section of your application’s Xcode project.
+
+## Usage
 
 *Note: Please look at <https://docs.ecospend.com/api/intro> for more details.*
 
@@ -77,10 +90,10 @@ You will be given separate pairs of Client Id and Client Secret for our `Sandbox
 PayByBank.configure(environment: <environment>, clientID: <client_id>, clientSecret: <client_secret>)
 ```
 
-### Sample Projects
+## Sample Projects
 
 We have provided two sample projects in the repository. Source files for these are in the `Examples` directory in project navigator. 
 
-### License
+## License
 
 PayByBank SDK is released under the [Apache License](LICENSE).
