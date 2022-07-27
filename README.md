@@ -74,3 +74,7 @@ PayByBank.configure(environment: <environment>, clientID: <client_id>, clientSec
 ### Sample Projects
 
 We have provided two sample projects in the repository. Source files for these are in the `Examples` directory in project navigator. 
+
+### License
+
+PayByBank SDK is released under the [Apache License](License).
