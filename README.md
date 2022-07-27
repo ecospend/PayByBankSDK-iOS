@@ -77,4 +77,4 @@ We have provided two sample projects in the repository. Source files for these a
 
 ### License
 
-PayByBank SDK is released under the [Apache License](License).
+PayByBank SDK is released under the [Apache License](LICENSE).
