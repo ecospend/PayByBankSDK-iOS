@@ -92,7 +92,7 @@ PayByBank.configure(environment: <environment>, clientID: <client_id>, clientSec
 
 ## Sample Projects
 
-We have provided two sample projects in the repository. Source files for these are in the `Examples` directory in project navigator. 
+We have provided a sample project in the repository. Source files for these are in the `Examples` directory in the project navigator.
 
 ## License
 
