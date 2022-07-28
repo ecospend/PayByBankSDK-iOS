@@ -78,7 +78,8 @@ public struct PaymentGetResponse: Codable {
     /// Indicates if the payment transaction is settled on the creditor account. Available with the [optional] Reconciliation Feature.
     public let isReconciled: Bool?
     
-    /// Date and time information that is gathered from the creditor account statement by the [optional] Reconciliation Feature in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators)..
+    /// Date and time information that is gathered from the creditor account statement by the [optional] Reconciliation Feature.
+    /// It should be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
     public let reconciliationDate: Date?
     
     enum CodingKeys: String, CodingKey {
