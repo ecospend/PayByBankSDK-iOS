@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.version               = "1.0.1"
   spec.author                = { 'Ecospend Technologies Limited' => 'hello@ecospend.com' }
   spec.homepage              = 'https://github.com/ecospend/PayByBankSDK-iOS.git'
-  spec.summary               = 'PayByBank SDK for iOS'
+  spec.summary               = 'PayByBank SDK is an alternative and easier form of Open Banking solutions.'
   spec.license               = { :type => 'Apache License, Version 2.0' }
   spec.source                = { :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.0.1' }
   spec.ios.deployment_target = '11.0'
