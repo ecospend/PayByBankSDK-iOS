@@ -11,7 +11,7 @@ The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of
 
 - `Paylink` provides to execute the payment order.
 - `FrPayment` provides to execute a standing order.
-- `Bulk Payment` provides to execute the Bulk Payment order.
+- `BulkPayment` provides to execute the Bulk Payment order.
 - `VRPlink` provides to execute the Variable Recurring Payments consent.
 - `Datalink` is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration.
 - `Payment` provides to execute the domestic instant payments, international payments, and scheduled payments.
@@ -64,6 +64,10 @@ github "ecospend/PayByBankSDK-iOS" ~> 1.0.1
 ```
 
 Then run `carthage update --use-xcframeworks` and drag the built `PayByBank.xcframework` bundle from `Carthage/Build` into the "Frameworks and Libraries" section of your application’s Xcode project.
+
+## Documentation
+
+To get more information about PaybyBank, check out the [documentation](https://ecospend.github.io/PayByBankSDK-iOS).
 
 ## Usage
 
