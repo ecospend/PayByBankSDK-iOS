@@ -67,7 +67,7 @@ Then run `carthage update --use-xcframeworks` and drag the built `PayByBank.xcfr
 
 ## Documentation
 
-To get more information about PaybyBank, check out the [documentation](https://ecospend.github.io/PayByBankSDK-iOS).
+To get more information about PayByBank, check out the [documentation](https://ecospend.github.io/PayByBankSDK-iOS).
 
 ## Usage
 
