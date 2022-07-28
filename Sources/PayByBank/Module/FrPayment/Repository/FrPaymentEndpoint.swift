@@ -14,6 +14,7 @@ enum FrPaymentEndpoint {
     case deleteFrPayment(FrPaymentDeleteRequest)
 }
 
+// MARK: - EndpointProtocol
 extension FrPaymentEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -70,5 +71,21 @@ extension FrPaymentEndpoint: EndpointProtocol {
         switch self {
         case .createFrPayment, .getFrPayment, .deleteFrPayment: return .data
         }
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension FrPaymentEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension FrPaymentEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601
     }
 }

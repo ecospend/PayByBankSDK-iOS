@@ -14,6 +14,7 @@ enum PaylinkEndpoint {
     case deletePaylink(PaylinkDeleteRequest)
 }
 
+// MARK: - EndpointProtocol
 extension PaylinkEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -70,5 +71,21 @@ extension PaylinkEndpoint: EndpointProtocol {
         switch self {
         case .createPaylink, .getPaylink, .deletePaylink: return .data
         }
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension PaylinkEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension PaylinkEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601
     }
 }

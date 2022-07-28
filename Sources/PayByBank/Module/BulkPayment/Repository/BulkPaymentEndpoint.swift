@@ -14,6 +14,7 @@ enum BulkPaymentEndpoint {
     case deleteBulkPayment(BulkPaymentDeleteRequest)
 }
 
+// MARK: - EndpointProtocol
 extension BulkPaymentEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -70,5 +71,21 @@ extension BulkPaymentEndpoint: EndpointProtocol {
         switch self {
         case .createBulkPayment, .getBulkPayment, .deleteBulkPayment: return .data
         }
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension BulkPaymentEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension BulkPaymentEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601
     }
 }

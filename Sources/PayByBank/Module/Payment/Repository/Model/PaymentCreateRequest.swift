@@ -107,7 +107,8 @@ public struct PaymentOption: Codable {
     ///  (see: [/banks response model](https://docs.ecospend.com/api/pis/V2/#tag/Banks/paths/~1api~1v2.0~1banks~1{id}/get))
     public let forPayout: Bool?
     
-    /// If provided, our system automatically converts the payment into a Scheduled Payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// If provided, our system automatically converts the payment into a Scheduled Payment.
+    /// It should be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
     /// - Warning: Must be set to a future date/time (it must be the next day or later) in GMT+0.
     public let scheduledFor: Date?
     

@@ -16,6 +16,7 @@ enum PaymentEndpoint {
     case createRefund(PaymentCreateRefundRequest)
 }
 
+// MARK: - EndpointProtocol
 extension PaymentEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -52,7 +53,7 @@ extension PaymentEndpoint: EndpointProtocol {
     var parameters: [String: Any?]? {
         switch self {
         case .createPayment, .getPayment, .createRefund, .checkPaymentURL: return nil
-        case .listPayments(let request): return request.dictionary
+        case .listPayments(let request): return request.dictionary(jsonEncoder: jsonEncoder)
         }
     }
     
@@ -74,5 +75,21 @@ extension PaymentEndpoint: EndpointProtocol {
         switch self {
         case .createPayment, .listPayments, .getPayment, .checkPaymentURL, .createRefund: return .data
         }
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension PaymentEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601withFractionalSeconds
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension PaymentEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601withFractionalSeconds
     }
 }

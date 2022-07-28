@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import PayByBank
 
 extension Encodable {
     
     var jsonString: String? {
         let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601withFractionalSeconds
         encoder.outputFormatting = .prettyPrinted
         
         guard let jsonData = try? encoder.encode(self) else { return nil }

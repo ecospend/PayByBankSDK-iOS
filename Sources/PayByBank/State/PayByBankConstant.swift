@@ -22,17 +22,4 @@ struct PayByBankConstant {
     struct Localizable {
         static let tableName = "PayByBank"
     }
-    
-    struct Network {
-        static var jsonDecoder: JSONDecoder {
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            return decoder
-        }
-        static var jsonEncoder: JSONEncoder {
-            let encoder = JSONEncoder()
-            encoder.dateEncodingStrategy = .iso8601
-            return encoder
-        }
-    }
 }

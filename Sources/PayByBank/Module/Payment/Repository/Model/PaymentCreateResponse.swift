@@ -19,7 +19,7 @@ public struct PaymentCreateResponse: Codable {
     /// Can have different formats for each bank.
     public let bankReferenceID: String?
     
-    /// Initiation date and time of the payment request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// Initiation date and time of the payment request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
     public let dateCreated: Date?
     
     /// A unique and one time use only URL of the debtor's banking system.

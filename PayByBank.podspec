@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
   spec.name                  = 'PayByBank'
-  spec.version               = "1.0.0"
+  spec.version               = "1.0.1"
   spec.author                = { 'Ecospend Technologies Limited' => 'hello@ecospend.com' }
   spec.homepage              = 'https://github.com/ecospend/PayByBankSDK-iOS.git'
   spec.summary               = 'PayByBank SDK for iOS'
   spec.license               = { :type => 'Apache License, Version 2.0' }
-  spec.source                = { :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.0.0' }
-  spec.ios.deployment_target = '10.3'
+  spec.source                = { :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.0.1' }
+  spec.ios.deployment_target = '11.0'
   spec.requires_arc          = true
   spec.swift_version         = '5.0'
   spec.pod_target_xcconfig   = {'ENABLE_BITCODE' => 'YES'}

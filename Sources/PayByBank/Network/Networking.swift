@@ -59,7 +59,7 @@ class Networking: NetworkingProtocol {
         switch endpoint.requestType {
         case .data:
             task = networkSession.dataTask(with: urlRequest, completionHandler: { [weak self] (data, urlResponse, error) in
-                self?.handleJsonTaskResponse(data: data, urlResponse: urlResponse, error: error, completion: completion)
+                self?.handleJsonTaskResponse(endpoint: endpoint, data: data, urlResponse: urlResponse, error: error, completion: completion)
             })
         case .download(let progressHandler):
             task = networkSession.downloadTask(request: urlRequest, progressHandler: progressHandler, completionHandler: { [weak self] (fileUrl, urlResponse, error) in
@@ -67,7 +67,7 @@ class Networking: NetworkingProtocol {
             })
         case .upload(let fileURL, let progressHandler):
             task = networkSession.uploadTask(with: urlRequest, from: fileURL, progressHandler: progressHandler, completion: { [weak self] (data, urlResponse, error) in
-                self?.handleJsonTaskResponse(data: data, urlResponse: urlResponse, error: error, completion: completion)
+                self?.handleJsonTaskResponse(endpoint: endpoint, data: data, urlResponse: urlResponse, error: error, completion: completion)
             })
         }
         // Start the task.
@@ -82,11 +82,12 @@ private extension Networking {
     
     /// Handles the data response that is expected as a JSON object output.
     /// - Parameters:
+    ///   -  endpoint: Instance conforming to `EndpointProtocol`
     ///   - data: The `Data` instance to be serialized into a JSON object.
     ///   - urlResponse: The received  optional `URLResponse` instance.
     ///   - error: The received  optional `Error` instance.
     ///   - completion: Completion handler.
-    private func handleJsonTaskResponse<T: Decodable>(data: Data?, urlResponse: URLResponse?, error: Error?, completion: @escaping (Result<T, Error>) -> Void) {
+    private func handleJsonTaskResponse<T: Decodable>(endpoint: EndpointProtocol, data: Data?, urlResponse: URLResponse?, error: Error?, completion: @escaping (Result<T, Error>) -> Void) {
         // Check if the response is valid.
         guard let urlResponse = urlResponse as? HTTPURLResponse else {
             completion(.failure(NetworkError.invalidResponse))
@@ -96,7 +97,7 @@ private extension Networking {
         let result = verify(data: data, urlResponse: urlResponse, error: error)
         switch result {
         case .success(let data):
-            if let decoded = try? PayByBankConstant.Network.jsonDecoder.decode(T.self, from: data) {
+            if let decoded = try? endpoint.jsonDecoder.decode(T.self, from: data) {
                 completion(.success(decoded))
             } else {
                 completion(.failure(NetworkError.invalidResponse))

@@ -12,6 +12,7 @@ enum IamEndpoint {
     case token(IamTokenRequest)
 }
 
+// MARK: - EndpointProtocol
 extension IamEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -58,5 +59,21 @@ extension IamEndpoint: EndpointProtocol {
         switch self {
         case .token: return .data
         }
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension IamEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension IamEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601
     }
 }

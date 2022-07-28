@@ -9,7 +9,7 @@
 import Foundation
 
 /// Protocol to which the HTTP requests must conform.
-protocol EndpointProtocol {
+protocol EndpointProtocol: JSONDecoderStrategy, JSONEncoderStrategy {
     
     /// The base URL of the environment.
     var baseURL: String { get }
@@ -88,8 +88,8 @@ extension EndpointProtocol {
     
     private var bodyData: Data? {
         switch bodySchema {
-        case .json: return body?.jsonData
-        case .form: return body?.formData
+        case .json: return body?.jsonData(jsonEncoder: jsonEncoder)
+        case .form: return body?.formData(jsonEncoder: jsonEncoder)
         case .none: return nil
         }
     }

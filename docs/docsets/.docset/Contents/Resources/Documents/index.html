@@ -17,6 +17,7 @@
     <header>
       <div class="content-wrapper">
         <p><a href="index.html"> Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/ecospend/PayByBankSDK-iOS"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -133,6 +134,18 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Extensions/EndpointProtocol.html">EndpointProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/JSONDecoder.html">JSONDecoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/JSONDecoder/DateDecodingStrategy.html">– DateDecodingStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/JSONEncoder.html">JSONEncoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/JSONEncoder/DateEncodingStrategy.html">– DateEncodingStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions.html#/c:@M@PayByBank@objc(cs)NetworkSession">NetworkSession</a>
@@ -422,12 +435,105 @@
         <section>
           <section class="section">
             
-            <h3 id='authors' class='heading'>Authors</h3>
+            <h1 id='paybybank-sdk-ios' class='heading'>PayByBank SDK (iOS)</h1>
+
+<p><a href="https://cocoapods.org/pods/PaybyBank"><img src="https://img.shields.io/cocoapods/v/PayByBank.svg" alt="CocoaPods compatible"></a>
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="Swift Package Manager compatible"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="https://img.shields.io/cocoapods/p/ios"><img src="https://img.shields.io/cocoapods/p/ios" alt="Platform"></a>
+<a href="https://img.shields.io/badge/Swift-5-orange?style=flat"><img src="https://img.shields.io/badge/Swift-5-orange?style=flat" alt="Swift"></a>
+<a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a></p>
+
+<p>The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of Open Banking Instant Payment solutions. PayByBank SDK provides you the option of downsizing the development effort for a PIS and AIS journeys to a single SDK integration. PayByBank undertakes all of interaction in the payment user journey with your branding on display.</p>
+
+<ul>
+<li><code><a href="Classes/Paylink.html">Paylink</a></code> provides to execute the payment order.</li>
+<li><code><a href="Classes/FrPayment.html">FrPayment</a></code> provides to execute a standing order.</li>
+<li><code>Bulk Payment</code> provides to execute the Bulk Payment order.</li>
+<li><code><a href="Classes/VRPlink.html">VRPlink</a></code> provides to execute the Variable Recurring Payments consent.</li>
+<li><code><a href="Classes/Datalink.html">Datalink</a></code> is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration.</li>
+<li><code><a href="Classes/Payment.html">Payment</a></code> provides to execute the domestic instant payments, international payments, and scheduled payments.</li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 11.0+</li>
+<li>Swift 5.0+</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>To integrate PayByBank into your Xcode project using CocoaPods, add this to your <code>Podfile</code>:</p>
+<pre class="highlight plaintext"><code>pod 'PayByBank', :git =&gt; 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag =&gt; '1.0.1'
+
+# or
+
+pod 'PayByBank', '1.0.1'
+</code></pre>
+
+<p>Then run <code>pod install</code>.</p>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+<h4 id='user-interface' class='heading'>User Interface</h4>
+
+<p>To integrate using Apple&rsquo;s Swift package manager, with Xcode integration, apply the following steps:</p>
+
+<ul>
+<li>File &gt; Swift Packages &gt; Add Package Dependency</li>
+<li>Add <code>https://github.com/ecospend/PayByBankSDK-iOS.git</code></li>
+<li>Select &ldquo;Dependency Rule&rdquo; with &ldquo;Exact Version&rdquo; and &ldquo;1.0.1&rdquo;</li>
+</ul>
+<h4 id='manually' class='heading'>Manually</h4>
+
+<p>To integrate using Apple&rsquo;s Swift package manager, without Xcode integration, add the following as a dependency to your <code>Package.swift</code></p>
+<pre class="highlight plaintext"><code>.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.0.1")
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>To integrate PayByBank into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "ecospend/PayByBankSDK-iOS" ~&gt; 1.0.1
+</code></pre>
+
+<p>Then run <code>carthage update --use-xcframeworks</code> and drag the built <code>PayByBank.xcframework</code> bundle from <code>Carthage/Build</code> into the &ldquo;Frameworks and Libraries&rdquo; section of your application’s Xcode project.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p><em>Note: Please look at <a href="https://docs.ecospend.com/api/intro">https://docs.ecospend.com/api/intro</a> for more details.</em></p>
+
+<p>To start using our API, you need to onboard with us and get a Client Id (<code>client_id</code>) and Client Secret (<code>client_secret</code>) via email to <a href="mailto:support@ecospend.com">support@ecospend.com</a>. For onboarding we will need the following information:</p>
+
+<ul>
+<li>The full name of your company/organization</li>
+<li>An email address for your admin user (used as username)</li>
+<li>A mobile phone number for the admin user (used for two-factor authentication)</li>
+</ul>
+
+<p>Once onboarded, a Client Id is generated for you and you will have access to our Management Console, through which you can generate your Client Secret(s).</p>
+
+<ul>
+<li>The <code>client_id</code> is created by Ecospend when your organization is registered with us.</li>
+<li>The <code>client_secret</code> is a security key that your administrator should create from the Management Console. This is not visible to or accessible  by the Ecospend team. Therefore, you should store it safely.</li>
+</ul>
+
+<p>You will be given separate pairs of Client Id and Client Secret for our <code>Sandbox</code> and <code>Production</code> environments respectively. Ecospend does not store these parameters; therefore, you need to keep them safe and secure.</p>
+
+<ul>
+<li><code>Sandbox</code> environment should be used for testing purposes.</li>
+<li><code>Production</code> environment should be used for released applications.</li>
+</ul>
+
+<p><code>PayByBank.configure</code> function should be called to access <code>client_id</code> and <code>client_secret</code> before using APIs of PayByBank SDK:</p>
+<pre class="highlight plaintext"><code>PayByBank.configure(environment: &lt;environment&gt;, clientID: &lt;client_id&gt;, clientSecret: &lt;client_secret&gt;)
+</code></pre>
+<h2 id='sample-projects' class='heading'>Sample Projects</h2>
+
+<p>We have provided a sample project in the repository. Source files for these are in the <code>Examples</code> directory in the project navigator.</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>PayByBank SDK is released under the <a href="LICENSE">Apache License</a>.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2022-07-26)</p>
+          <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-07-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
