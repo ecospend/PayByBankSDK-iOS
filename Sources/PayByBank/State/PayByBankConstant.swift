@@ -26,12 +26,12 @@ struct PayByBankConstant {
     struct Network {
         static var jsonDecoder: JSONDecoder {
             let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
+            decoder.dateDecodingStrategy = .iso8601withFractionalSeconds
             return decoder
         }
         static var jsonEncoder: JSONEncoder {
             let encoder = JSONEncoder()
-            encoder.dateEncodingStrategy = .iso8601
+            encoder.dateEncodingStrategy = .iso8601withFractionalSeconds
             return encoder
         }
     }

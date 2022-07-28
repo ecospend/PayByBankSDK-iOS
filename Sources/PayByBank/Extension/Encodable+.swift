@@ -10,16 +10,16 @@ import Foundation
 
 extension Encodable {
     
-    var dictionary: [String: Any]? {
-        guard let data = try? PayByBankConstant.Network.jsonEncoder.encode(self) else { return nil }
+    func dictionary(jsonEncoder: JSONEncoder) -> [String: Any]? {
+        guard let data = try? jsonEncoder.encode(self) else { return nil }
         return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
     }
     
-    var jsonData: Data? {
-        try? PayByBankConstant.Network.jsonEncoder.encode(self)
+    func jsonData(jsonEncoder: JSONEncoder) -> Data? {
+        try? jsonEncoder.encode(self)
     }
     
-    var formData: Data? {
-        dictionary?.formData
+    func formData(jsonEncoder: JSONEncoder) -> Data? {
+        dictionary(jsonEncoder: jsonEncoder)?.formData
     }
 }

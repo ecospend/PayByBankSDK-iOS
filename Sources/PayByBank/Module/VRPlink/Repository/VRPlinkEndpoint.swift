@@ -15,6 +15,7 @@ enum VRPlinkEndpoint {
     case getVRPlinkRecords(VRPlinkGetRecordsRequest)
 }
 
+// MARK: - EndpointProtocol
 extension VRPlinkEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -72,5 +73,21 @@ extension VRPlinkEndpoint: EndpointProtocol {
         switch self {
         case .createVRPlink, .getVRPlink, .deleteVRPlink, .getVRPlinkRecords: return .data
         }
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension VRPlinkEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension VRPlinkEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601
     }
 }

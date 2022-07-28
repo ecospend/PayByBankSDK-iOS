@@ -112,7 +112,7 @@
 		D6AEF45F2865DC9A008FD82E /* PaymentCreateRefund.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */; };
 		D6AEF4612865E1E1008FD82E /* RefundAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */; };
 		D6AEF4632865E328008FD82E /* PaymentCreateRefundMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */; };
-		D6B4F26E28915FCC00921FA2 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D6B4F26D28915FCC00921FA2 /* PayByBank */; };
+		D6B4F2BD28917D2700921FA2 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D6B4F2BC28917D2700921FA2 /* PayByBank */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,7 +242,7 @@
 		D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundAccountSection.swift; sourceTree = "<group>"; };
 		D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCreateRefundMainSection.swift; sourceTree = "<group>"; };
 		D6AEF4642865EFCE008FD82E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6B4F26C28915FAB00921FA2 /* PayByBankSDK-iOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "PayByBankSDK-iOS"; path = ../..; sourceTree = "<group>"; };
+		D6B4F2BB28917CFC00921FA2 /* PayByBankSDK-iOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "PayByBankSDK-iOS"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,7 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6B4F26E28915FCC00921FA2 /* PayByBank in Frameworks */,
+				D6B4F2BD28917D2700921FA2 /* PayByBank in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +332,7 @@
 		D6900962282A979700979630 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F26C28915FAB00921FA2 /* PayByBankSDK-iOS */,
+				D6B4F2BB28917CFC00921FA2 /* PayByBankSDK-iOS */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -644,7 +644,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				D6B4F26D28915FCC00921FA2 /* PayByBank */,
+				D6B4F2BC28917D2700921FA2 /* PayByBank */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = D690092B282A75A100979630 /* Example.app */;
@@ -1202,7 +1202,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D6B4F26D28915FCC00921FA2 /* PayByBank */ = {
+		D6B4F2BC28917D2700921FA2 /* PayByBank */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PayByBank;
 		};

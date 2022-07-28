@@ -14,6 +14,7 @@ enum DatalinkEndpoint {
     case getConsentDatalink(DatalinkGetConsentDatalinkRequest)
 }
 
+// MARK: - EndpointProtocol
 extension DatalinkEndpoint: EndpointProtocol {
     
     var baseURL: String {
@@ -65,5 +66,21 @@ extension DatalinkEndpoint: EndpointProtocol {
     
     var requestType: RequestType {
         return .data
+    }
+}
+
+// MARK: - JSONDecoderStrategy
+extension DatalinkEndpoint {
+    
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+}
+
+// MARK: - JSONEncoderStrategy
+extension DatalinkEndpoint {
+    
+    var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy {
+        return .iso8601
     }
 }

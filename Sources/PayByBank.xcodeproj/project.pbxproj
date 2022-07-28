@@ -108,6 +108,10 @@
 		D681EA782771CB4300A29870 /* PaylinkGetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D681EA772771CB4300A29870 /* PaylinkGetRequest.swift */; };
 		D6B2C95627747DD5004044C0 /* WebViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2C95527747DD5004044C0 /* WebViewVM.swift */; };
 		D6B2C9692775A4E4004044C0 /* PayByBankEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B2C9682775A4E4004044C0 /* PayByBankEnvironment.swift */; };
+		D6B4F2B82891795800921FA2 /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F2B72891795800921FA2 /* JSONDecoder+.swift */; };
+		D6B4F2BA2891796D00921FA2 /* JSONEncoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F2B92891796D00921FA2 /* JSONEncoder+.swift */; };
+		D6B4F2BF2892755800921FA2 /* JSONDecoderStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F2BE2892755800921FA2 /* JSONDecoderStrategy.swift */; };
+		D6B4F2C12892756800921FA2 /* JSONEncoderStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F2C02892756800921FA2 /* JSONEncoderStrategy.swift */; };
 		D6F46021276B6E4C00D49C4E /* PaylinkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46004276B6E4C00D49C4E /* PaylinkEndpoint.swift */; };
 		D6F46022276B6E4C00D49C4E /* PaylinkCreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46006276B6E4C00D49C4E /* PaylinkCreateResponse.swift */; };
 		D6F46023276B6E4C00D49C4E /* PaylinkCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F46007276B6E4C00D49C4E /* PaylinkCreateRequest.swift */; };
@@ -226,6 +230,10 @@
 		D681EA772771CB4300A29870 /* PaylinkGetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkGetRequest.swift; sourceTree = "<group>"; };
 		D6B2C95527747DD5004044C0 /* WebViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVM.swift; sourceTree = "<group>"; };
 		D6B2C9682775A4E4004044C0 /* PayByBankEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayByBankEnvironment.swift; sourceTree = "<group>"; };
+		D6B4F2B72891795800921FA2 /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
+		D6B4F2B92891796D00921FA2 /* JSONEncoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+.swift"; sourceTree = "<group>"; };
+		D6B4F2BE2892755800921FA2 /* JSONDecoderStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderStrategy.swift; sourceTree = "<group>"; };
+		D6B4F2C02892756800921FA2 /* JSONEncoderStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoderStrategy.swift; sourceTree = "<group>"; };
 		D6F46004276B6E4C00D49C4E /* PaylinkEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkEndpoint.swift; sourceTree = "<group>"; };
 		D6F46006276B6E4C00D49C4E /* PaylinkCreateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkCreateResponse.swift; sourceTree = "<group>"; };
 		D6F46007276B6E4C00D49C4E /* PaylinkCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaylinkCreateRequest.swift; sourceTree = "<group>"; };
@@ -683,6 +691,8 @@
 			isa = PBXGroup;
 			children = (
 				D6F4600F276B6E4C00D49C4E /* EndpointProtocol.swift */,
+				D6B4F2BE2892755800921FA2 /* JSONDecoderStrategy.swift */,
+				D6B4F2C02892756800921FA2 /* JSONEncoderStrategy.swift */,
 				D6F46013276B6E4C00D49C4E /* NetworkError.swift */,
 				D6F46011276B6E4C00D49C4E /* Networking.swift */,
 				D6F46012276B6E4C00D49C4E /* NetworkSession.swift */,
@@ -738,6 +748,8 @@
 				D62AEEDF2874823700CC2DD2 /* Bundle+.swift */,
 				D622D5A3280EEE85005E0BEF /* Dictionary+.swift */,
 				D6F4601E276B6E4C00D49C4E /* Encodable+.swift */,
+				D6B4F2B72891795800921FA2 /* JSONDecoder+.swift */,
+				D6B4F2B92891796D00921FA2 /* JSONEncoder+.swift */,
 				D6460C1F277AE7A900109908 /* URL+.swift */,
 			);
 			path = Extension;
@@ -917,6 +929,7 @@
 				D622D5A4280EEE85005E0BEF /* Dictionary+.swift in Sources */,
 				D630E3DC27FEF4DE00AAAD67 /* PayByBankAccountRequest.swift in Sources */,
 				D681EA762771C32400A29870 /* PaylinkGetResponse.swift in Sources */,
+				D6B4F2B82891795800921FA2 /* JSONDecoder+.swift in Sources */,
 				D622D5BE28102956005E0BEF /* BulkPaymentHandler.swift in Sources */,
 				D630E3F727FF19AE00AAAD67 /* FrPaymentHandler.swift in Sources */,
 				D622D5E628119253005E0BEF /* PaymentCreateRefundRequest.swift in Sources */,
@@ -966,12 +979,14 @@
 				D6292E1128099EC0007792D8 /* VRPlinkCreateResponse.swift in Sources */,
 				D6F4602D276B6E4C00D49C4E /* NetworkError.swift in Sources */,
 				6010C057280D82AF00057125 /* DatalinkEndpoint.swift in Sources */,
+				D6B4F2C12892756800921FA2 /* JSONEncoderStrategy.swift in Sources */,
 				D67CCEA6278C5D5F00D27CE0 /* PayByBankColors.swift in Sources */,
 				D6292E192809A313007792D8 /* VRPlinkGetRecordsResponse.swift in Sources */,
 				D622D5DE28118E93005E0BEF /* PaymentGetRequest.swift in Sources */,
 				D6292E232809A953007792D8 /* VRPlinkFactory.swift in Sources */,
 				D6F4602A276B6E4C00D49C4E /* RepositoryErrorResponse.swift in Sources */,
 				6010C05C280D82AF00057125 /* DatalinkCreateRequest.swift in Sources */,
+				D6B4F2BF2892755800921FA2 /* JSONDecoderStrategy.swift in Sources */,
 				D6460C20277AE7A900109908 /* URL+.swift in Sources */,
 				D6292E172809A2DF007792D8 /* VRPlinkDeleteRequest.swift in Sources */,
 				D681EA782771CB4300A29870 /* PaylinkGetRequest.swift in Sources */,
@@ -987,6 +1002,7 @@
 				D6F4606C276B7A6900D49C4E /* Paylink.swift in Sources */,
 				D622D5AD28101A95005E0BEF /* BulkPayment.swift in Sources */,
 				D6292E0F28099213007792D8 /* VRPlinkCreateRequest.swift in Sources */,
+				D6B4F2BA2891796D00921FA2 /* JSONEncoder+.swift in Sources */,
 				D622D5E228119107005E0BEF /* PaymentCheckURLRequest.swift in Sources */,
 				D630E3B127FD95B100AAAD67 /* PayByBankConstant.swift in Sources */,
 				D630E3F227FF142D00AAAD67 /* FrPaymentDeleteRequest.swift in Sources */,
@@ -1188,7 +1204,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1223,7 +1239,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
