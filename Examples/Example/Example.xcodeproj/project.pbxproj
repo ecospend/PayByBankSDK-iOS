@@ -112,6 +112,7 @@
 		D6AEF45F2865DC9A008FD82E /* PaymentCreateRefund.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF45E2865DC9A008FD82E /* PaymentCreateRefund.swift */; };
 		D6AEF4612865E1E1008FD82E /* RefundAccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4602865E1E1008FD82E /* RefundAccountSection.swift */; };
 		D6AEF4632865E328008FD82E /* PaymentCreateRefundMainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AEF4622865E328008FD82E /* PaymentCreateRefundMainSection.swift */; };
+		D6B4F2C42892A67F00921FA2 /* PayByBank in Frameworks */ = {isa = PBXBuildFile; productRef = D6B4F2C32892A67F00921FA2 /* PayByBank */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B4F2C42892A67F00921FA2 /* PayByBank in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +644,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
+				D6B4F2C32892A67F00921FA2 /* PayByBank */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = D690092B282A75A100979630 /* Example.app */;
@@ -1197,6 +1200,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6B4F2C32892A67F00921FA2 /* PayByBank */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PayByBank;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D6900923282A75A100979630 /* Project object */;
 }
