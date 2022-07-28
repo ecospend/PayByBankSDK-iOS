@@ -18,10 +18,10 @@ public struct PaymentListRequest: Codable {
     /// If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
     public let merchantUserID: String?
     
-    /// Filter results that has been created after the `startDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// Filter results that has been created after the `startDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
     public let startDate: Date?
     
-    /// Filter results that has been created before the `endDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// Filter results that has been created before the `endDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
     public let endDate: Date?
     
     /// Filter results by `paymentType`.
