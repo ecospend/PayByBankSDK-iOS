@@ -1,6 +1,2140 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Extension/JSONDecoder+.swift",
+      "line": 13,
+      "symbol": "JSONDecoder.DateDecodingStrategy.iso8601withFractionalSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Extension/JSONEncoder+.swift",
+      "line": 13,
+      "symbol": "JSONEncoder.DateEncodingStrategy.iso8601withFractionalSeconds",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Model/PayByBankResult.swift",
+      "line": 12,
+      "symbol": "PayByBankResult",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Model/PayByBankResult.swift",
+      "line": 21,
+      "symbol": "PayByBankResult.init(uniqueID:status:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Model/PayByBankResult.swift",
+      "line": 28,
+      "symbol": "PayByBankStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Model/PayByBankResult.swift",
+      "line": 29,
+      "symbol": "PayByBankStatus.canceled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Model/PayByBankResult.swift",
+      "line": 30,
+      "symbol": "PayByBankStatus.initiated",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Model/PayByBankResult.swift",
+      "line": 31,
+      "symbol": "PayByBankStatus.redirected",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/BulkPayment.swift",
+      "line": 12,
+      "symbol": "BulkPayment",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/BulkPayment.swift",
+      "line": 22,
+      "symbol": "BulkPayment",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 12,
+      "symbol": "BulkPaymentCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 71,
+      "symbol": "BulkPaymentCreateRequest.init(bankID:debtorAccount:description:fileReference:reference:redirectURL:merchantID:merchantUserID:paymentOptions:options:notificationOptions:limitOptions:payments:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 101,
+      "symbol": "BulkPaymentLimitOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 110,
+      "symbol": "BulkPaymentLimitOptions.init(date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 116,
+      "symbol": "BulkPaymentPaylinkOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 139,
+      "symbol": "BulkPaymentPaylinkOptions.init(autoRedirect:generateQrCode:disableQrCode:purpose:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 151,
+      "symbol": "BulkPaymentOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 164,
+      "symbol": "BulkPaymentOptions.init(scheduledFor:paymentRails:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 171,
+      "symbol": "BulkPaymentPaylinkEntry",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateRequest.swift",
+      "line": 196,
+      "symbol": "BulkPaymentPaylinkEntry.init(creditorAccount:amount:reference:scheduledFor:clientReferenceID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateResponse.swift",
+      "line": 12,
+      "symbol": "BulkPaymentCreateResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentCreateResponse.swift",
+      "line": 30,
+      "symbol": "BulkPaymentCreateResponse.init(uniqueID:url:qrCode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentDeleteRequest.swift",
+      "line": 12,
+      "symbol": "BulkPaymentDeleteRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentDeleteRequest.swift",
+      "line": 21,
+      "symbol": "BulkPaymentDeleteRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetRequest.swift",
+      "line": 12,
+      "symbol": "BulkPaymentGetRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetRequest.swift",
+      "line": 21,
+      "symbol": "BulkPaymentGetRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 12,
+      "symbol": "BulkPaymentGetResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 90,
+      "symbol": "BulkPaymentGetResponse.init(url:paymentID:uniqueID:status:reference:fileReference:description:redirectURL:bankID:merchantID:merchantUserID:debtorAccount:paylinkOptions:notificationOptions:paymentOptions:limitOptions:payments:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 127,
+      "symbol": "BulkPaymentStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 128,
+      "symbol": "BulkPaymentStatus.initial",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 129,
+      "symbol": "BulkPaymentStatus.awaitingAuthorization",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 130,
+      "symbol": "BulkPaymentStatus.authorised",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 131,
+      "symbol": "BulkPaymentStatus.verified",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 132,
+      "symbol": "BulkPaymentStatus.completed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 133,
+      "symbol": "BulkPaymentStatus.canceled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 134,
+      "symbol": "BulkPaymentStatus.failed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 135,
+      "symbol": "BulkPaymentStatus.rejected",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 136,
+      "symbol": "BulkPaymentStatus.abandoned",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 140,
+      "symbol": "BulkPaymentPaylinkOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 178,
+      "symbol": "BulkPaymentPaylinkOptionsResponse.init(clientID:tenantID:autoRedirect:dontRedirect:temporaryConsentURL:temporaryConsentURLExpireDate:disableQrCode:purpose:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 198,
+      "symbol": "BulkPaymentOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 211,
+      "symbol": "BulkPaymentOptionsResponse.init(scheduledFor:paymentRails:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 218,
+      "symbol": "BulkPaymentLimitOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 227,
+      "symbol": "BulkPaymentLimitOptionsResponse.init(date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 233,
+      "symbol": "BulkPaymentPaylinkEntryResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/BulkPayment/Repository/Model/BulkPaymentGetResponse.swift",
+      "line": 258,
+      "symbol": "BulkPaymentPaylinkEntryResponse.init(creditorAccount:amount:reference:scheduledFor:clientReferenceID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Datalink.swift",
+      "line": 11,
+      "symbol": "Datalink",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Datalink.swift",
+      "line": 21,
+      "symbol": "Datalink",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 11,
+      "symbol": "DatalinkCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 40,
+      "symbol": "DatalinkCreateRequest.datalinkOptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 42,
+      "symbol": "DatalinkCreateRequest.notificationOptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 44,
+      "symbol": "DatalinkCreateRequest.financialReport",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 59,
+      "symbol": "DatalinkCreateRequest.init(redirectURL:bankID:merchantID:merchantUserID:consentEndDate:expiryDate:permissions:datalinkOptions:notificationOptions:financialReport:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 83,
+      "symbol": "DatalinkOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 110,
+      "symbol": "DatalinkOptions.init(autoRedirect:generateQrCode:allowMultipleConsent:generateFinancialReport:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 122,
+      "symbol": "FinancialReport",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 124,
+      "symbol": "FinancialReport.filters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 125,
+      "symbol": "FinancialReport.parameters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 126,
+      "symbol": "FinancialReport.outputSettings",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 134,
+      "symbol": "FinancialReport.init(filters:parameters:outputSettings:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 144,
+      "symbol": "FinancialReportParameters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 146,
+      "symbol": "FinancialReportParameters.affordability",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 147,
+      "symbol": "FinancialReportParameters.verification",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 148,
+      "symbol": "FinancialReportParameters.financial",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 149,
+      "symbol": "FinancialReportParameters.categoryAggregation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 158,
+      "symbol": "FinancialReportParameters.init(affordability:verification:financial:categoryAggregation:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 170,
+      "symbol": "CategoryAggregationParameters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 172,
+      "symbol": "CategoryAggregationParameters.distributionPeriod",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 178,
+      "symbol": "CategoryAggregationParameters.init(distributionPeriod:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 184,
+      "symbol": "DistrubutionPeriod",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 185,
+      "symbol": "DistrubutionPeriod.month",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 186,
+      "symbol": "DistrubutionPeriod.quarter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 187,
+      "symbol": "DistrubutionPeriod.year",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 191,
+      "symbol": "AffordabilityParameters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 193,
+      "symbol": "AffordabilityParameters.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 195,
+      "symbol": "AffordabilityParameters.init(type:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 201,
+      "symbol": "AffordabilityType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 202,
+      "symbol": "AffordabilityType.maxRent",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 203,
+      "symbol": "AffordabilityType.maxInstallments",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 204,
+      "symbol": "AffordabilityType.gamblingLimit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 208,
+      "symbol": "VerificationParameters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 229,
+      "symbol": "VerificationParameters.init(name:phoneNumbers:address:email:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 241,
+      "symbol": "FinancialMultiParameters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 246,
+      "symbol": "FinancialMultiParameters.init(financial:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 252,
+      "symbol": "Filters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 265,
+      "symbol": "Filters.init(startDate:currency:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 273,
+      "symbol": "OutputSettings",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateRequest.swift",
+      "line": 282,
+      "symbol": "OutputSettings.init(displayPii:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateResponse.swift",
+      "line": 11,
+      "symbol": "DatalinkCreateResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkCreateResponse.swift",
+      "line": 29,
+      "symbol": "DatalinkCreateResponse.init(uniqueID:url:qrCode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkDeleteRequest.swift",
+      "line": 11,
+      "symbol": "DatalinkDeleteRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkDeleteRequest.swift",
+      "line": 13,
+      "symbol": "DatalinkDeleteRequest.uniqueID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkDeleteRequest.swift",
+      "line": 19,
+      "symbol": "DatalinkDeleteRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetConsentDatalinkRequest.swift",
+      "line": 11,
+      "symbol": "DatalinkGetConsentDatalinkRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetConsentDatalinkRequest.swift",
+      "line": 13,
+      "symbol": "DatalinkGetConsentDatalinkRequest.consentID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetConsentDatalinkRequest.swift",
+      "line": 19,
+      "symbol": "DatalinkGetConsentDatalinkRequest.init(consentID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetRequest.swift",
+      "line": 11,
+      "symbol": "DatalinkGetRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetRequest.swift",
+      "line": 13,
+      "symbol": "DatalinkGetRequest.uniqueID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetRequest.swift",
+      "line": 19,
+      "symbol": "DatalinkGetRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 11,
+      "symbol": "DatalinkGetResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 27,
+      "symbol": "DatalinkGetResponse.datalinkOptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 29,
+      "symbol": "DatalinkGetResponse.notificationOptions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 31,
+      "symbol": "DatalinkGetResponse.financialReport",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 33,
+      "symbol": "DatalinkGetResponse.datalink",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 35,
+      "symbol": "DatalinkGetResponse.consents",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 49,
+      "symbol": "DatalinkGetResponse.init(redirectionURL:merchantID:merchantUserID:permissions:datalinkOptions:notificationOptions:financialReport:datalink:consents:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 71,
+      "symbol": "DatalinkModel",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 93,
+      "symbol": "DatalinkModel.init(uniqueID:url:qrCode:expireDate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 111,
+      "symbol": "ConsentModel.status",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 138,
+      "symbol": "ConsentModel.init(consentID:status:dateCreated:bankReferenceID:consentExpiryDate:bankID:consentEndDate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 156,
+      "symbol": "ConsentStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 157,
+      "symbol": "ConsentStatus.initial",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 158,
+      "symbol": "ConsentStatus.awaitingAuthorization",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 159,
+      "symbol": "ConsentStatus.authorised",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 160,
+      "symbol": "ConsentStatus.active",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 161,
+      "symbol": "ConsentStatus.canceled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 162,
+      "symbol": "ConsentStatus.failed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 163,
+      "symbol": "ConsentStatus.abandoned",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 164,
+      "symbol": "ConsentStatus.revoked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 165,
+      "symbol": "ConsentStatus.expired",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 166,
+      "symbol": "ConsentStatus.revocationPending",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 170,
+      "symbol": "ConsentPermission",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 171,
+      "symbol": "ConsentPermission.account",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 172,
+      "symbol": "ConsentPermission.balance",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 173,
+      "symbol": "ConsentPermission.trasactions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 174,
+      "symbol": "ConsentPermission.directDebits",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 175,
+      "symbol": "ConsentPermission.standingOrders",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 176,
+      "symbol": "ConsentPermission.parties",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 177,
+      "symbol": "ConsentPermission.scheduledPayments",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 178,
+      "symbol": "ConsentPermission.statements",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Datalink/Repository/Model/DatalinkGetResponse.swift",
+      "line": 179,
+      "symbol": "ConsentPermission.offers",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/FrPayment.swift",
+      "line": 12,
+      "symbol": "FrPayment",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/FrPayment.swift",
+      "line": 22,
+      "symbol": "FrPayment",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 12,
+      "symbol": "FrPaymentCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 90,
+      "symbol": "FrPaymentCreateRequest.init(redirectURL:amount:reference:description:bankID:merchantID:merchantUserID:creditorAccount:debtorAccount:firstPaymentDate:numberOfPayments:period:standingOrderType:frPaymentOptions:allowFrpCustomerChanges:notificationOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 126,
+      "symbol": "FrPaymentPeriod",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 127,
+      "symbol": "FrPaymentPeriod.weekly",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 128,
+      "symbol": "FrPaymentPeriod.monthly",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 129,
+      "symbol": "FrPaymentPeriod.yearly",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 133,
+      "symbol": "FrPaymentStandingOrderType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 134,
+      "symbol": "FrPaymentStandingOrderType.auto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 135,
+      "symbol": "FrPaymentStandingOrderType.domestic",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 136,
+      "symbol": "FrPaymentStandingOrderType.international",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 140,
+      "symbol": "FrPaymentOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 176,
+      "symbol": "FrPaymentOptions.init(getRefundInfo:firstPaymentAmount:lastPaymentAmount:autoRedirect:generateQrCode:disableQrCode:editableFields:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 194,
+      "symbol": "FrPaymentEditableField",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateRequest.swift",
+      "line": 222,
+      "symbol": "FrPaymentEditableField.init(firstPaymentDate:firstPaymentAmount:lastPaymentAmount:amount:period:numberOfPayments:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateResponse.swift",
+      "line": 12,
+      "symbol": "FrPaymentCreateResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentCreateResponse.swift",
+      "line": 30,
+      "symbol": "FrPaymentCreateResponse.init(uniqueID:url:qrCode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentDeleteRequest.swift",
+      "line": 12,
+      "symbol": "FrPaymentDeleteRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentDeleteRequest.swift",
+      "line": 21,
+      "symbol": "FrPaymentDeleteRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetRequest.swift",
+      "line": 12,
+      "symbol": "FrPaymentGetRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetRequest.swift",
+      "line": 21,
+      "symbol": "FrPaymentGetRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetResponse.swift",
+      "line": 12,
+      "symbol": "FrPaymentGetResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetResponse.swift",
+      "line": 21,
+      "symbol": "FrPaymentGetResponse.reference",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetResponse.swift",
+      "line": 87,
+      "symbol": "FrPaymentGetResponse.init(uniqueID:amount:reference:description:redirectURL:url:bankID:merchantID:merchantUserID:creditorAccount:debtorAccount:frPaymentOptions:firstPaymentDate:numberOfPayments:period:allowFrpCustomerChanges:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetResponse.swift",
+      "line": 123,
+      "symbol": "FrPaymentOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/FrPayment/Repository/Model/FrPaymentGetResponse.swift",
+      "line": 157,
+      "symbol": "FrPaymentOptionsResponse.init(clientID:tenantID:getRefundInfo:firstPaymentAmount:lastPaymentAmount:disableQrCode:editableFields:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountRequest.swift",
+      "line": 12,
+      "symbol": "PayByBankAccountRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountRequest.swift",
+      "line": 42,
+      "symbol": "PayByBankAccountRequest.init(type:identification:name:currency:bic:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountRequest.swift",
+      "line": 56,
+      "symbol": "PayByBankAccountRequest",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountResponse.swift",
+      "line": 12,
+      "symbol": "PayByBankAccountResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountResponse.swift",
+      "line": 40,
+      "symbol": "PayByBankAccountResponse.init(type:identification:name:currency:bic:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountResponse.swift",
+      "line": 54,
+      "symbol": "PayByBankAccountResponse",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountType.swift",
+      "line": 12,
+      "symbol": "PayByBankAccountType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountType.swift",
+      "line": 13,
+      "symbol": "PayByBankAccountType.sortCode",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountType.swift",
+      "line": 14,
+      "symbol": "PayByBankAccountType.iban",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankAccountType.swift",
+      "line": 15,
+      "symbol": "PayByBankAccountType.bban",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankCurrency.swift",
+      "line": 12,
+      "symbol": "PayByBankCurrency",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankCurrency.swift",
+      "line": 13,
+      "symbol": "PayByBankCurrency.pound",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankCurrency.swift",
+      "line": 14,
+      "symbol": "PayByBankCurrency.usd",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankCurrency.swift",
+      "line": 15,
+      "symbol": "PayByBankCurrency.euro",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankNotificationOptionsRequest.swift",
+      "line": 12,
+      "symbol": "PayByBankNotificationOptionsRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankNotificationOptionsRequest.swift",
+      "line": 37,
+      "symbol": "PayByBankNotificationOptionsRequest.init(sendEmailNotification:email:sendSMSNotification:phoneNumber:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankNotificationOptionsResponse.swift",
+      "line": 12,
+      "symbol": "PayByBankNotificationOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Model/PayByBankNotificationOptionsResponse.swift",
+      "line": 27,
+      "symbol": "PayByBankNotificationOptionsResponse.init(isEmailSent:isSmsSent:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/PayByBank.swift",
+      "line": 11,
+      "symbol": "PayByBank",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/PayByBank.swift",
+      "line": 16,
+      "symbol": "PayByBank",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Repository/Model/IamTokenRequest.swift",
+      "line": 11,
+      "symbol": "IamTokenRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Repository/Model/IamTokenRequest.swift",
+      "line": 28,
+      "symbol": "IamTokenRequest.init(grantType:clientID:clientSecret:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Repository/Model/IamTokenResponse.swift",
+      "line": 11,
+      "symbol": "IamTokenResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/PayByBank/Repository/Model/IamTokenResponse.swift",
+      "line": 33,
+      "symbol": "IamTokenResponse.init(accessToken:expiresIn:tokenType:scope:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Paylink.swift",
+      "line": 12,
+      "symbol": "Paylink",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Paylink.swift",
+      "line": 22,
+      "symbol": "Paylink",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 12,
+      "symbol": "PaylinkCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 72,
+      "symbol": "PaylinkCreateRequest.init(redirectURL:amount:reference:description:bankID:merchantID:merchantUserID:creditorAccount:debtorAccount:paylinkOptions:notificationOptions:paymentOptions:limitOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 102,
+      "symbol": "PaylinkLimitOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 127,
+      "symbol": "PaylinkOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 156,
+      "symbol": "PaylinkOptions.init(autoRedirect:generateQrCode:allowPartialPayments:disableQrCode:tip:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 170,
+      "symbol": "PaylinkTip",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 195,
+      "symbol": "PaylinkTip.init(requestTip:title:text:isRequired:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 209,
+      "symbol": "PaylinkTipOption",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 230,
+      "symbol": "PaylinkTipOptionType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 231,
+      "symbol": "PaylinkTipOptionType.amount",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 232,
+      "symbol": "PaylinkTipOptionType.percentage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 233,
+      "symbol": "PaylinkTipOptionType.manual",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 237,
+      "symbol": "PaylinkPaymentOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateRequest.swift",
+      "line": 256,
+      "symbol": "PaylinkPaymentOptions.init(paymentRails:getRefundInfo:forPayout:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateResponse.swift",
+      "line": 12,
+      "symbol": "PaylinkCreateResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkCreateResponse.swift",
+      "line": 30,
+      "symbol": "PaylinkCreateResponse.init(uniqueID:url:qrCode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkDeleteRequest.swift",
+      "line": 12,
+      "symbol": "PaylinkDeleteRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkDeleteRequest.swift",
+      "line": 21,
+      "symbol": "PaylinkDeleteRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetRequest.swift",
+      "line": 12,
+      "symbol": "PaylinkGetRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetRequest.swift",
+      "line": 21,
+      "symbol": "PaylinkGetRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 12,
+      "symbol": "PaylinkGetResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 21,
+      "symbol": "PaylinkGetResponse.reference",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 79,
+      "symbol": "PaylinkGetResponse.init(uniqueID:amount:reference:description:redirectURL:url:bankID:merchantID:merchantUserID:creditorAccount:debtorAccount:paylinkOptions:notificationOptions:paymentOptions:limitOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 113,
+      "symbol": "PaylinkOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 135,
+      "symbol": "PaylinkOptionsResponse.init(autoRedirect:allowPartialPayments:disableQrCode:tip:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 147,
+      "symbol": "PaylinkTipResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 172,
+      "symbol": "PaylinkTipResponse.init(requestTip:title:text:isRequired:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 186,
+      "symbol": "PaylinkPaymentOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 205,
+      "symbol": "PaylinkPaymentOptionsResponse.init(paymentRails:getRefundInfo:forPayout:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 215,
+      "symbol": "PaylinkLimitOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Paylink/Repository/Model/PaylinkGetResponse.swift",
+      "line": 234,
+      "symbol": "PaylinkLimitOptionsResponse.init(isLimitExceeded:count:amount:date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Payment.swift",
+      "line": 12,
+      "symbol": "Payment",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Payment.swift",
+      "line": 22,
+      "symbol": "Payment",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCheckURLRequest.swift",
+      "line": 12,
+      "symbol": "PaymentCheckURLRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCheckURLRequest.swift",
+      "line": 21,
+      "symbol": "PaymentCheckURLRequest.init(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCheckURLResponse.swift",
+      "line": 12,
+      "symbol": "PaymentCheckURLResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCheckURLResponse.swift",
+      "line": 23,
+      "symbol": "PaymentCheckURLResponse.init(isConsumed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRefundRequest.swift",
+      "line": 12,
+      "symbol": "PaymentCreateRefundRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRefundRequest.swift",
+      "line": 51,
+      "symbol": "PaymentCreateRefundRequest.init(id:bankID:amount:currency:description:reference:redirectURL:refundAccount:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRefundResponse.swift",
+      "line": 11,
+      "symbol": "PaymentCreateRefundResponse",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 12,
+      "symbol": "PaymentCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 70,
+      "symbol": "PaymentCreateRequest.init(redirectURL:bankID:amount:currency:description:reference:merchantID:merchantUserID:creditorAccount:debtorAccount:paymentOption:paymentType:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 98,
+      "symbol": "PaymentOption",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 130,
+      "symbol": "PaymentOption.init(getRefundInfo:forPayout:scheduledFor:psuID:paymentRails:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 144,
+      "symbol": "PaymentType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 145,
+      "symbol": "PaymentType.auto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 146,
+      "symbol": "PaymentType.domestic",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 147,
+      "symbol": "PaymentType.domesticScheduled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 148,
+      "symbol": "PaymentType.international",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateRequest.swift",
+      "line": 149,
+      "symbol": "PaymentType.internationalScheduled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateResponse.swift",
+      "line": 12,
+      "symbol": "PaymentCreateResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateResponse.swift",
+      "line": 95,
+      "symbol": "PaymentCreateResponse.init(id:bankReferenceID:dateCreated:paymentURL:status:isRefund:redirectURL:bankID:amount:currency:description:reference:merchantID:merchantUserID:paymentType:creditorAccount:debtorAccount:paymentOption:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateResponse.swift",
+      "line": 135,
+      "symbol": "PaymentInitiationStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateResponse.swift",
+      "line": 142,
+      "symbol": "PaymentOptionResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentCreateResponse.swift",
+      "line": 167,
+      "symbol": "PaymentOptionResponse.init(getRefundInfo:forPayout:scheduledFor:psuID:paymentRails:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentGetRequest.swift",
+      "line": 12,
+      "symbol": "PaymentGetRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentGetRequest.swift",
+      "line": 21,
+      "symbol": "PaymentGetRequest.init(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentGetResponse.swift",
+      "line": 12,
+      "symbol": "PaymentGetResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentGetResponse.swift",
+      "line": 110,
+      "symbol": "PaymentGetResponse.init(id:bankReferenceID:dateCreated:status:isRefund:originalPaymentID:redirectURL:url:bankID:amount:currency:description:reference:merchantID:merchantUserID:paymentType:creditorAccount:debtorAccount:paymentOption:refundAccount:isReconciled:reconciliationDate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentGetResponse.swift",
+      "line": 158,
+      "symbol": "PaymentStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListRequest.swift",
+      "line": 11,
+      "symbol": "PaymentListRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListRequest.swift",
+      "line": 44,
+      "symbol": "PaymentListRequest.init(merchantID:merchantUserID:startDate:endDate:paymentType:page:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 12,
+      "symbol": "PaymentListResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 13,
+      "symbol": "PaymentListResponse.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 14,
+      "symbol": "PaymentListResponse.meta",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 21,
+      "symbol": "PaymentListResponse.init(data:meta:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 28,
+      "symbol": "PaymentMetaResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 29,
+      "symbol": "PaymentMetaResponse.totalCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 30,
+      "symbol": "PaymentMetaResponse.totalPages",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 31,
+      "symbol": "PaymentMetaResponse.currentPage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/Payment/Repository/Model/PaymentListResponse.swift",
+      "line": 39,
+      "symbol": "PaymentMetaResponse.init(totalCount:totalPages:currentPage:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPLinkGetRecordsRequest.swift",
+      "line": 12,
+      "symbol": "VRPlinkGetRecordsRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPLinkGetRecordsRequest.swift",
+      "line": 17,
+      "symbol": "VRPlinkGetRecordsRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 11,
+      "symbol": "VRPlinkCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 89,
+      "symbol": "VRPlinkCreateRequest.init(redirectURL:bankID:reason:type:verifyCreditorAccount:verifyDebtorAccount:merchantID:merchantUserID:reference:description:creditorAccount:debtorAccount:vrpOptions:limitOptions:notificationOptions:vrplinkOptions:vrplinkLimitOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 127,
+      "symbol": "VRPReason",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 128,
+      "symbol": "VRPReason.none",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 129,
+      "symbol": "VRPReason.partyToParty",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 130,
+      "symbol": "VRPReason.billPayment",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 131,
+      "symbol": "VRPReason.ecommerceGoods",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 132,
+      "symbol": "VRPReason.ecommerceServices",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 133,
+      "symbol": "VRPReason.other",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 137,
+      "symbol": "VRPType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 138,
+      "symbol": "VRPType.sweeping",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 139,
+      "symbol": "VRPType.vrp",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 143,
+      "symbol": "VRPLimitOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 211,
+      "symbol": "VRPLimitOptions.init(currency:singlePaymentAmount:dailyAmount:weeklyAmount:fortnightlyAmount:monthlyAmount:halfYearlyAmount:yearlyAmount:dailyAlignment:weeklyAlignment:fortnightlyAlignment:monthlyAlignment:halfYearlyAlignment:yearlyAlignment:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 243,
+      "symbol": "VRPAlignment",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 244,
+      "symbol": "VRPAlignment.consent",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 245,
+      "symbol": "VRPAlignment.calendar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 249,
+      "symbol": "VRPOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 267,
+      "symbol": "VRPOptions.init(validFrom:validTo:getRefundInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 277,
+      "symbol": "VRPlinkLimitOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 282,
+      "symbol": "VRPlinkLimitOptions.init(date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 288,
+      "symbol": "VRPlinkOptions",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateRequest.swift",
+      "line": 310,
+      "symbol": "VRPlinkOptions.init(generateQrCode:disableQrCode:autoRedirect:dontRedirect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateResponse.swift",
+      "line": 12,
+      "symbol": "VRPlinkCreateResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkCreateResponse.swift",
+      "line": 30,
+      "symbol": "VRPlinkCreateResponse.init(uniqueID:url:qrCode:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkDeleteRequest.swift",
+      "line": 12,
+      "symbol": "VRPlinkDeleteRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkDeleteRequest.swift",
+      "line": 21,
+      "symbol": "VRPlinkDeleteRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetRecordsResponse.swift",
+      "line": 11,
+      "symbol": "VRPlinkGetRecordsResponse",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetRecordsResponse.swift",
+      "line": 14,
+      "symbol": "VRPlinkRecord",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetRecordsResponse.swift",
+      "line": 101,
+      "symbol": "VRPlinkRecord.init(uniqueID:clientID:tenantID:id:bankReferenceID:dateCreated:bankID:status:description:reference:merchantID:merchantUserID:redirectURL:type:creditorAccount:debtorAccount:failureMessage:validFrom:validTo:dontRedirect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetRecordsResponse.swift",
+      "line": 145,
+      "symbol": "VRPStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetRequest.swift",
+      "line": 12,
+      "symbol": "VRPlinkGetRequest",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetRequest.swift",
+      "line": 21,
+      "symbol": "VRPlinkGetRequest.init(uniqueID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 12,
+      "symbol": "VRPlinkGetResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 99,
+      "symbol": "VRPlinkGetResponse.init(uniqueID:reference:description:redirectURL:url:bankID:merchantID:merchantUserID:type:reason:verifyCreditorAccount:verifyDebtorAccount:creditorAccount:debtorAccount:vrpOptions:limitOptions:notificationOptions:vrplinkOptions:vrplinkLimitOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 141,
+      "symbol": "VRPLimitOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 209,
+      "symbol": "VRPLimitOptionsResponse.init(currency:singlePaymentAmount:dailyAmount:weeklyAmount:fortnightlyAmount:monthlyAmount:halfYearlyAmount:yearlyAmount:dailyAlignment:weeklyAlignment:fortnightlyAlignment:monthlyAlignment:halfYearlyAlignment:yearlyAlignment:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 241,
+      "symbol": "VRPOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 259,
+      "symbol": "VRPOptionsResponse.init(validFrom:validTo:getRefundInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 269,
+      "symbol": "VRPlinkLimitOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 278,
+      "symbol": "VRPlinkLimitOptionsResponse.init(date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 284,
+      "symbol": "VRPlinkOptionsResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/Repository/Model/VRPlinkGetResponse.swift",
+      "line": 314,
+      "symbol": "VRPlinkOptionsResponse.init(generateQrCode:disableQrCode:autoRedirect:clientID:tenantID:dontRedirect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/VRPlink.swift",
+      "line": 12,
+      "symbol": "VRPlink",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/Module/VRPlink/VRPlink.swift",
+      "line": 22,
+      "symbol": "VRPlink",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/State/PayByBankEnvironment.swift",
+      "line": 21,
+      "symbol": "PayByBankEnvironment",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/State/PayByBankEnvironment.swift",
+      "line": 22,
+      "symbol": "PayByBankEnvironment.production",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources/PayByBank/State/PayByBankEnvironment.swift",
+      "line": 23,
+      "symbol": "PayByBankEnvironment.sandbox",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
   ],
-  "source_directory": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS/Sources"
+  "source_directory": "/Users/ecospend/Workspace/iOS/PayByBankSDK-iOS"
 }

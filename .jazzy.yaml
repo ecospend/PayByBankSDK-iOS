@@ -1,0 +1,10 @@
+author: Ecospend Technologies Limited
+author_url: https://ecospend.com
+github_url: https://github.com/ecospend/PayByBankSDK-iOS
+root_url: https://ecospend.github.io/PayByBankSDK-iOS
+module: PayByBank
+sdk: iphone
+output: docs
+theme: fullwidth
+undocumented_text: ""
+clean: true
