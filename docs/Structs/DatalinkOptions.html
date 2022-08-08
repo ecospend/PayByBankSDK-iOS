@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Options that are about Datalink.</p>
+
           </div>
         </section>
 
@@ -536,7 +531,7 @@ If it is set true, then PSU will be redirected directly to Tenant&rsquo;s redire
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Optional parameter for allowing user to create consent multiply</p>
+                        <p>Optional parameter for allowing user to create consent multiply.</p>
 
 <ul>
 <li>When this value is set, datalink will be ask for connect an another account at the end of journey.</li>
@@ -571,7 +566,7 @@ If it is set true, then PSU will be redirected directly to Tenant&rsquo;s redire
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Optional parameter to enable generating financial report</p>
+                        <p>Optional parameter to enable generating financial report.</p>
 
 <ul>
 <li>When this value is set, datalink will be give an option to redirect financial report at the end of journey.</li>
@@ -606,7 +601,8 @@ If it is set true, then PSU will be redirected directly to Tenant&rsquo;s redire
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -619,6 +615,61 @@ If it is set true, then PSU will be redirected directly to Tenant&rsquo;s redire
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>autoRedirect</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Determines if the PSU will see a completed page by Ecospend.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generateQrCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional parameter for getting a QRCode image in Base64 format with the response.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>allowMultipleConsent</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional parameter for allowing user to create consent multiply.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generateFinancialReport</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional parameter to enable generating financial report.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -630,7 +681,7 @@ If it is set true, then PSU will be redirected directly to Tenant&rsquo;s redire
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

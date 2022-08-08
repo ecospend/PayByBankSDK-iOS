@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// Paylink API
+/// - Note: The Ecospend Gateway presents Paylink as an alternative and easier form of Open Banking Instant Payment solution. Paylink provides you the option of downsizing the development effort for a PIS journey to a single endpoint integration. Paylink undertakes all of interaction in the payment user journey with your branding on display.
 public final class Paylink {
     
     private let factory: PaylinkFactoryProtocol

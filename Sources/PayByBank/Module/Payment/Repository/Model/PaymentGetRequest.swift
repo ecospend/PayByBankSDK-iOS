@@ -9,15 +9,20 @@
 import Foundation
 
 // MARK: - PaymentGetRequest
+/// Request model to get Payment.
 public struct PaymentGetRequest: Codable {
     
-    /// Unique id value to query Payment
+    /// Unique id value to query Payment.
     public let id: String
     
     enum CodingKeys: String, CodingKey {
         case id
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - id: Unique id value to query Payment.
     public init(id: String) {
         self.id = id
     }

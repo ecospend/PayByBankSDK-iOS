@@ -52,7 +52,7 @@ struct DatalinkFiltersSection: View {
         
         value = {
             guard enabled else { return nil }
-            return Filters(startDate: startDate != .default ? startDate.rawValue : nil,
+            return Filters(startDate: startDate != .default ? startDate : nil,
                            currency: currency)
         }()
     }

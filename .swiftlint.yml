@@ -41,8 +41,9 @@ file_length:
   - 700
   - 1000
 line_length:
-  - 230
-  - 250
+  warning: 230
+  error: 250
+  ignores_comments: true
 # parameterized rules are first parameterized as a warning level, then error level.
 function_body_length:
   - 150 # warning

@@ -8,18 +8,20 @@
 
 import Foundation
 
+/// Response model to get records of VRPlink.
 public typealias VRPlinkGetRecordsResponse = [VRPlinkRecord]
 
 // MARK: - VRPlinkRecord
+/// Record of VRPlink.
 public struct VRPlinkRecord: Codable {
     
-    /// Paylink Id of the payment
+    /// Paylink Id of the payment.
     public let uniqueID: String?
     
-    /// Client Id of the payment
+    /// Client Id of the payment.
     public let clientID: String?
     
-    /// Tenant id of the API consumer
+    /// Tenant id of the API consumer.
     public let tenantID: Int?
     
     /// A system assigned unique identification for the payment. You may need to use this id to query payments or initiate a refund.
@@ -28,33 +30,35 @@ public struct VRPlinkRecord: Codable {
     /// An identification number for the payment that is assigned by the bank. Can have different formats for each bank.
     public let bankReferenceID: String?
     
-    /// A unique and one time use only URL from the PSU’s bank. You will need to redirect the PSU to this link for them to authorise a payment.
-    public let dateCreated: String?
+    /// A unique and one time use only URL from the PSU’s bank in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. You will need to redirect the PSU to this link for them to authorise a payment.
+    public let dateCreated: Date?
     
     /// Unique identification string assigned to the bank by our system.
     public let bankID: String?
     
-    /// Status of the VRP flow
-    /// - Enum: "Initial" "AwaitingAuthorization" "Authorised" "Revoked" "Expired" "Canceled" "Failed" "Rejected" "Abandoned"
-    public let status: String?
+    /// Status of the VRP flow.
+    /// - Note: Enum: "Initial" "AwaitingAuthorization" "Authorised" "Revoked" "Expired" "Canceled" "Failed" "Rejected" "Abandoned"
+    public let status: VRPStatus?
     
-    /// The description that you provided with the request (if any).
+    /// Description for the payment. 255 character MAX.
     public let description: String?
     
-    /// The reference that you provided with the request.
+    /// Payment reference that will be displayed on the bank statement. 18 characters MAX.
     public let reference: String?
     
-    /// The merchantID that you provided with the request (if any).
+    /// If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
     public let merchantID: String?
     
-    /// The merchantUserID that you provided with the request (if any).
+    /// The Id of the end-user.
+    /// - If you are providing this service directly to the end-users, then you can assign that Id to this parameter.
+    /// - If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
     public let merchantUserID: String?
     
     /// The URL of the Tenant that the PSU will be redirected at the end of payment process.
     public let redirectURL: String?
     
     /// It determines which type of payment operation will be executed by the Gateway.
-    /// - Enum: "Sweeping" "Vrp"
+    /// - Note: Enum: "Sweeping" "Vrp"
     public let type: VRPType?
     
     /// It is the account that will receive the payment.
@@ -63,13 +67,13 @@ public struct VRPlinkRecord: Codable {
     /// It is the account from which the payment will be taken.
     public let debtorAccount: PayByBankAccountResponse?
     
-    /// Failure reason of the failed payments
+    /// Failure reason of the failed payments.
     public let failureMessage: String?
     
     /// Indicates Validity Start Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let validFrom: Date?
     
-    /// ndicates Validity End Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// Indicates Validity End Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let validTo: Date?
     
     /// If you are set true, no redirect after vrp.
@@ -98,14 +102,37 @@ public struct VRPlinkRecord: Codable {
         case dontRedirect = "dont_redirect"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Paylink Id of the payment.
+    ///     - clientID: Client Id of the payment.
+    ///     - tenantID: Tenant id of the API consumer.
+    ///     - id: A system assigned unique identification for the payment. You may need to use this id to query payments or initiate a refund.
+    ///     - bankReferenceID: An identification number for the payment that is assigned by the bank. Can have different formats for each bank.
+    ///     - dateCreated: A unique and one time use only URL from the PSU’s bank in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. You will need to redirect the PSU to this link for them to authorise a payment.
+    ///     - bankID:Unique identification string assigned to the bank by our system.
+    ///     - status:  Instance’s `VRPStatus`,  which is status of the VRP flow.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - type: Instance’s `VRPType`,  which determines which type of payment operation will be executed by the Gateway.
+    ///     - creditorAccount:  Instance’s `PayByBankAccountResponse`, which is the account that will receive the payment.
+    ///     - debtorAccount:  Instance’s `PayByBankAccountResponse`, which is the account from which the payment will be taken.
+    ///     - failureMessage: Failure reason of the failed payments.
+    ///     - validFrom:Indicates Validity Start Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - validTo: Indicates Validity End Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - dontRedirect: If you are set true, no redirect after vrp.
     public init(uniqueID: String?,
                 clientID: String?,
                 tenantID: Int?,
                 id: String?,
                 bankReferenceID: String?,
-                dateCreated: String?,
+                dateCreated: Date?,
                 bankID: String?,
-                status: String?,
+                status: VRPStatus?,
                 description: String?,
                 reference: String?,
                 merchantID: String?,
@@ -142,7 +169,9 @@ public struct VRPlinkRecord: Codable {
 }
 
 // MARK: - VRPStatus
+/// Status of the VRP flow.
 public enum VRPStatus: String, Codable {
+    
     /// Reques' is made but a response is not provided yet.
     case initial = "Initial"
     

@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Response model to get Bulk Payment Paylink.</p>
+
           </div>
         </section>
 
@@ -476,7 +471,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The URL to open bank selection screen</p>
+                        <p>The URL to open bank selection screen.</p>
 
                       </div>
                       <div class="declaration">
@@ -616,7 +611,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Bulk payment reference that will be displayed on the bank statement. 18 characters MAX.</p>
+                        <p>Bulk Payment reference that will be displayed on the bank statement. 18 characters MAX.</p>
 
                       </div>
                       <div class="declaration">
@@ -809,7 +804,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Paylink Options model</p>
+                        <p>Options that are about paylink.</p>
 
                       </div>
                       <div class="declaration">
@@ -836,7 +831,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Notification Options model</p>
+                        <p>Options that are about notification.</p>
 
                       </div>
                       <div class="declaration">
@@ -863,7 +858,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Payment Options model</p>
+                        <p>Options that are about payment.</p>
 
                       </div>
                       <div class="declaration">
@@ -890,7 +885,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Limit Options model</p>
+                        <p>Options that are about limit.</p>
 
                       </div>
                       <div class="declaration">
@@ -944,7 +939,8 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -970,6 +966,217 @@ If you are providing this service to businesses, then you should assign the Id o
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL to open bank selection screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Id of payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uniqueID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A system assigned unique identification for the Bulk Payment Paylink.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>status</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/BulkPaymentStatus.html">BulkPaymentStatus</a></code>, which is status of the Bulk Payment Paylink.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reference</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Payment reference that will be displayed on the bank statement. 18 characters MAX.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileReference</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Bulk Payment reference that will be displayed on the bank statement. 18 characters MAX.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Description for the payment. 255 character MAX.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>redirectURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL of the Tenant that the PSU will be redirected at the end of payment process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bankID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Unique identification string assigned to the bank by our system.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantUserID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Id of the end-user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>debtorAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></code>, which is the account from which the payment will be taken.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paylinkOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/BulkPaymentPaylinkOptionsResponse.html">BulkPaymentPaylinkOptionsResponse</a></code>, which contains options about paylink.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>notificationOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PayByBankNotificationOptionsResponse.html">PayByBankNotificationOptionsResponse</a></code>, which contains options about notification.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/BulkPaymentOptionsResponse.html">BulkPaymentOptionsResponse</a></code>, which contains options about payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>limitOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/BulkPaymentLimitOptionsResponse.html">BulkPaymentLimitOptionsResponse</a></code>, which contains options about limit.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>payments</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s array of <code><a href="../Structs/BulkPaymentPaylinkEntryResponse.html">BulkPaymentPaylinkEntryResponse</a></code>, which is for individual payments for the bulk payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -981,7 +1188,7 @@ If you are providing this service to businesses, then you should assign the Id o
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

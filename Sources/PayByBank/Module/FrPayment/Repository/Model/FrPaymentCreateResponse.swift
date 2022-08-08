@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - FrPaymentCreateResponse
+/// Response model to create FrPayment.
 public struct FrPaymentCreateResponse: Codable {
     
     /// A system assigned unique identification for the FrPayment.
@@ -27,6 +28,12 @@ public struct FrPaymentCreateResponse: Codable {
         case qrCode = "qr_code"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the FrPayment.
+    ///     - url: Unique FrPayment URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - qrCode: Base64 encoded QRCode image data that represents FrPayment URL.
     public init(uniqueID: String?,
                 url: String?,
                 qrCode: String?) {

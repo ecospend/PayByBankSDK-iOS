@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+/// Datalink API
+/// - Note: Datalink is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration. By making a single call to /datalink endpoint you will be able to initiate the consent journey.
 public final class Datalink {
     
     private let factory: DatalinkFactoryProtocol

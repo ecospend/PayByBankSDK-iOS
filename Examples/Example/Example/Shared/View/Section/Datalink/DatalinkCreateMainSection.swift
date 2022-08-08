@@ -73,8 +73,8 @@ struct DatalinkCreateMainSection: View {
                                                bankID: !bankID.isBlank ? bankID : nil,
                                                merchantID: !merchantID.isBlank ? merchantID : nil,
                                                merchantUserID: !merchantUserID.isBlank ? merchantUserID : nil,
-                                               consentEndDate: consentEndDate.rawValue,
-                                               expiryDate: expiryDate > .default ? expiryDate.rawValue : nil,
+                                               consentEndDate: consentEndDate,
+                                               expiryDate: expiryDate > .default ? expiryDate : nil,
                                                permissions: [permissions])
     }
 }
@@ -91,7 +91,7 @@ struct DatalinkCreateMainSectionModel {
     let bankID: String?
     let merchantID: String?
     let merchantUserID: String?
-    let consentEndDate: String
-    let expiryDate: String?
+    let consentEndDate: Date
+    let expiryDate: Date?
     let permissions: [ConsentPermission]?
 }

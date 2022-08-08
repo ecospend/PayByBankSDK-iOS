@@ -8,20 +8,22 @@
 
 import Foundation
 
-public struct IamTokenResponse: Codable {
+// MARK: - IamTokenResponse
+/// Response model to get access token.
+struct IamTokenResponse: Codable {
     
     /// Access Token to be used on Ecospend calls.
-    public let accessToken: String?
+    let accessToken: String?
     
     /// Expiration time in seconds.
-    /// - Default: 3600
-    public let expiresIn: Int?
+    /// - Note: Default: 3600
+    let expiresIn: Int?
     
     /// Type of token provided.
-    public let tokenType: String?
+    let tokenType: String?
     
     /// Scope of the access granted.
-    public let scope: String?
+    let scope: String?
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
@@ -30,7 +32,14 @@ public struct IamTokenResponse: Codable {
         case scope
     }
     
-    public init(accessToken: String?,
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - accessToken: Access Token to be used on Ecospend calls.
+    ///     - expiresIn: Expiration time in seconds.
+    ///     - tokenType: Type of token provided.
+    ///     - scope: Scope of the access granted.
+    init(accessToken: String?,
                 expiresIn: Int?,
                 tokenType: String?,
                 scope: String?) {

@@ -10,6 +10,7 @@ import Foundation
 
 public extension JSONEncoder.DateEncodingStrategy {
     
+    /// Date encoding strategy for [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with fractional seconds.
     static let iso8601withFractionalSeconds = custom {
         var container = $1.singleValueContainer()
         

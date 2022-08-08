@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - FrPaymentCreateRequest
+/// Request model to create FrPayment.
 public struct FrPaymentCreateRequest: Codable {
     
     /// The URL of the Tenant that the PSU will be redirected at the end of the FrPayment journey.
@@ -50,7 +51,7 @@ public struct FrPaymentCreateRequest: Codable {
     /// Number of total payments being set with this standing order.
     public let numberOfPayments: Int
     
-    /// Period of FrPayment
+    /// Period of FrPayment.
     /// - Note: Enum: "Weekly" "Monthly" "Yearly"
     public let period: FrPaymentPeriod
     
@@ -59,14 +60,14 @@ public struct FrPaymentCreateRequest: Codable {
     /// - Note: Enum: "Auto" "Domestic" "International"
     public let standingOrderType: FrPaymentStandingOrderType?
     
-    /// The FrPayment Options model
+    /// Options that are about payment for FrPayment.
     public let frPaymentOptions: FrPaymentOptions?
     
     /// The user has the right to change the FrPayment related additional parameters
     /// - Note: Defaults to false.
     public let allowFrpCustomerChanges: Bool?
     
-    /// The Notification Options model
+    /// Options that are about notification.
     public let notificationOptions: PayByBankNotificationOptionsRequest?
     
     enum CodingKeys: String, CodingKey {
@@ -87,6 +88,25 @@ public struct FrPaymentCreateRequest: Codable {
         case notificationOptions = "notification_options"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of data access process.
+    ///     - amount: Payment amount in decimal format.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - creditorAccount: Instance's `PayByBankAccountRequest`, which is the account that will receive the payment.
+    ///     - debtorAccount: Instance's `PayByBankAccountRequest`, which is the account from which the payment will be taken.
+    ///     - firstPaymentDate: Date and time of the first payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - numberOfPayments: Number of total payments being set with this standing order.
+    ///     - period: Instance's `FrPaymentPeriod`, which represents period of FrPayment.
+    ///     - standingOrderType: Instance's `FrPaymentStandingOrderType`, which can be Domestic, International or Auto.
+    ///     - frPaymentOptions: Instance's `FrPaymentOptions`, which contains options about payment for FrPayment..
+    ///     - allowFrpCustomerChanges: The user has the right to change the FrPayment related additional parameters.
+    ///     - notificationOptions: Instance's `PayByBankNotificationOptionsRequest`, which contains options about notification.
     public init(redirectURL: String,
                 amount: Decimal,
                 reference: String,
@@ -123,30 +143,45 @@ public struct FrPaymentCreateRequest: Codable {
 }
 
 // MARK: - FrPaymentPeriod
+/// Period of FrPayment.
 public enum FrPaymentPeriod: Int, Codable {
+    
+    /// Weekly.
     case weekly
+    
+    /// Monthly.
     case monthly
+    
+    /// Yearly.
     case yearly
 }
 
 // MARK: - FrPaymentStandingOrderType
+/// Standing order types for FrPayment.
 public enum FrPaymentStandingOrderType: String, Codable {
+    
+    /// Automatic.
     case auto = "Auto"
+    
+    /// Domestic.
     case domestic = "Domestic"
+    
+    /// International.
     case international = "International"
 }
 
 // MARK: - FrPaymentOptions
+/// Options which are about payment for FrPayment.
 public struct FrPaymentOptions: Codable {
     
     /// Set true, if you would like to get back the debtor's account information that the payment is made from.
     /// - Note: Defaults to true.
     public let getRefundInfo: Bool?
     
-    /// Amount of first payment
+    /// Amount of first payment.
     public let firstPaymentAmount: Decimal?
     
-    /// Amount of last payment
+    /// Amount of last payment.
     public let lastPaymentAmount: Decimal?
     
     /// After the payment directly returns to the tenant's url if set to true.
@@ -157,10 +192,10 @@ public struct FrPaymentOptions: Codable {
     ///  - Note: Defaults to false.
     public let generateQrCode: Bool?
     
-    /// Disables QR Code component on FrPayment
+    /// Disables QR Code component on FrPayment.
     public let disableQrCode: Bool?
     
-    /// Customizes editable options of fields
+    /// Customizes editable options of fields.
     public let editableFields: FrPaymentEditableField?
     
     enum CodingKeys: String, CodingKey {
@@ -173,6 +208,16 @@ public struct FrPaymentOptions: Codable {
         case editableFields = "editable_fields"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - getRefundInfo: Set true, if you would like to get back the debtor's account information that the payment is made from.
+    ///     - firstPaymentAmount: Amount of first payment.
+    ///     - lastPaymentAmount: Amount of last payment.
+    ///     - autoRedirect: After the payment directly returns to the tenant's url if set to true.
+    ///     - generateQrCode: Optional parameter for getting a QRCode image in Base64 format with the response.
+    ///     - disableQrCode: Disables QR Code component on FrPayment.
+    ///     - editableFields:  Instance's `FrPaymentEditableField`, which customizes editable options of fields.
     public init(getRefundInfo: Bool?,
                 firstPaymentAmount: Decimal?,
                 lastPaymentAmount: Decimal?,
@@ -191,24 +236,25 @@ public struct FrPaymentOptions: Codable {
 }
 
 // MARK: - FrPaymentEditableField
+/// Editable options of fields for FrPayment.
 public struct FrPaymentEditableField: Codable {
     
-    /// Editable status of first payment date field
+    /// Editable status of first payment date field.
     public let firstPaymentDate: Bool?
     
-    /// Editable status of first payment amount field
+    /// Editable status of first payment amount field.
     public let firstPaymentAmount: Bool?
     
-    /// Editable status of last payment date field
+    /// Editable status of last payment date field.
     public let lastPaymentAmount: Bool?
     
-    /// Editable status of  amount field
+    /// Editable status of amount field.
     public let amount: Bool?
     
-    /// Editable status of  period field
+    /// Editable status of period field.
     public let period: Bool?
     
-    /// Editable status of  number of payments field
+    /// Editable status of number of payments field.
     public let numberOfPayments: Bool?
     
     enum CodingKeys: String, CodingKey {
@@ -219,6 +265,15 @@ public struct FrPaymentEditableField: Codable {
         case numberOfPayments = "number_of_payments"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - firstPaymentDate: Editable status of first payment date field.
+    ///     - firstPaymentAmount: Editable status of first payment amount field.
+    ///     - lastPaymentAmount: Editable status of last payment date field.
+    ///     - amount: Editable status of amount field.
+    ///     - period: Editable status of period field.
+    ///     - numberOfPayments: Editable status of number of payments field.
     public init(firstPaymentDate: Bool?,
                 firstPaymentAmount: Bool?,
                 lastPaymentAmount: Bool?,

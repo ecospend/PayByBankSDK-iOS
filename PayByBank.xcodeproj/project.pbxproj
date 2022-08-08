@@ -301,13 +301,13 @@
 			isa = PBXGroup;
 			children = (
 				D6B4F3CC289413B500921FA2 /* Extension */,
-				D6B4F3D4289413B500921FA2 /* Util */,
-				D6B4F3D8289413B500921FA2 /* Module */,
-				D6B4F44C289413B500921FA2 /* Resources */,
-				D6B4F451289413B500921FA2 /* Network */,
-				D6B4F459289413B500921FA2 /* State */,
 				D6B4F45D289413B500921FA2 /* Model */,
+				D6B4F3D8289413B500921FA2 /* Module */,
+				D6B4F451289413B500921FA2 /* Network */,
+				D6B4F44C289413B500921FA2 /* Resources */,
 				D6B4F461289413B500921FA2 /* Scene */,
+				D6B4F459289413B500921FA2 /* State */,
+				D6B4F3D4289413B500921FA2 /* Util */,
 			);
 			path = PayByBank;
 			sourceTree = "<group>";
@@ -315,13 +315,13 @@
 		D6B4F3CC289413B500921FA2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F3CD289413B500921FA2 /* Encodable+.swift */,
-				D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */,
 				D6B4F3CF289413B500921FA2 /* Array+.swift */,
-				D6B4F3D0289413B500921FA2 /* URL+.swift */,
-				D6B4F3D1289413B500921FA2 /* Dictionary+.swift */,
 				D6B4F3D2289413B500921FA2 /* Bundle+.swift */,
+				D6B4F3D1289413B500921FA2 /* Dictionary+.swift */,
+				D6B4F3CD289413B500921FA2 /* Encodable+.swift */,
 				D6B4F3D3289413B500921FA2 /* JSONDecoder+.swift */,
+				D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */,
+				D6B4F3D0289413B500921FA2 /* URL+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -329,9 +329,9 @@
 		D6B4F3D4289413B500921FA2 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F3D5289413B500921FA2 /* PayByBankStrings.swift */,
-				D6B4F3D6289413B500921FA2 /* PayByBankImages.swift */,
 				D6B4F3D7289413B500921FA2 /* PayByBankColors.swift */,
+				D6B4F3D6289413B500921FA2 /* PayByBankImages.swift */,
+				D6B4F3D5289413B500921FA2 /* PayByBankStrings.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -339,12 +339,12 @@
 		D6B4F3D8289413B500921FA2 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F42C289413B500921FA2 /* BulkPayment */,
+				D6B4F40D289413B500921FA2 /* Datalink */,
 				D6B4F3D9289413B500921FA2 /* FrPayment */,
 				D6B4F3E8289413B500921FA2 /* PayByBank */,
-				D6B4F3F9289413B500921FA2 /* Payment */,
-				D6B4F40D289413B500921FA2 /* Datalink */,
 				D6B4F41D289413B500921FA2 /* Paylink */,
-				D6B4F42C289413B500921FA2 /* BulkPayment */,
+				D6B4F3F9289413B500921FA2 /* Payment */,
 				D6B4F43B289413B500921FA2 /* VRPlink */,
 			);
 			path = Module;
@@ -353,10 +353,10 @@
 		D6B4F3D9289413B500921FA2 /* FrPayment */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F3E6289413B500921FA2 /* Factory */,
 				D6B4F3DA289413B500921FA2 /* Handler */,
 				D6B4F3DC289413B500921FA2 /* Repository */,
 				D6B4F3E5289413B500921FA2 /* FrPayment.swift */,
-				D6B4F3E6289413B500921FA2 /* Factory */,
 			);
 			path = FrPayment;
 			sourceTree = "<group>";
@@ -402,10 +402,10 @@
 		D6B4F3E8289413B500921FA2 /* PayByBank */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F3E9289413B500921FA2 /* Repository */,
-				D6B4F3EF289413B500921FA2 /* Model */,
-				D6B4F3F6289413B500921FA2 /* PayByBank.swift */,
 				D6B4F3F7289413B500921FA2 /* Factory */,
+				D6B4F3EF289413B500921FA2 /* Model */,
+				D6B4F3E9289413B500921FA2 /* Repository */,
+				D6B4F3F6289413B500921FA2 /* PayByBank.swift */,
 			);
 			path = PayByBank;
 			sourceTree = "<group>";
@@ -453,10 +453,10 @@
 		D6B4F3F9289413B500921FA2 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F40B289413B500921FA2 /* Factory */,
 				D6B4F3FA289413B500921FA2 /* Handler */,
 				D6B4F3FC289413B500921FA2 /* Repository */,
 				D6B4F40A289413B500921FA2 /* Payment.swift */,
-				D6B4F40B289413B500921FA2 /* Factory */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -507,10 +507,10 @@
 		D6B4F40D289413B500921FA2 /* Datalink */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F41B289413B500921FA2 /* Factory */,
 				D6B4F40E289413B500921FA2 /* Handler */,
 				D6B4F410289413B500921FA2 /* Repository */,
 				D6B4F41A289413B500921FA2 /* Datalink.swift */,
-				D6B4F41B289413B500921FA2 /* Factory */,
 			);
 			path = Datalink;
 			sourceTree = "<group>";
@@ -557,10 +557,10 @@
 		D6B4F41D289413B500921FA2 /* Paylink */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F42A289413B500921FA2 /* Factory */,
 				D6B4F41E289413B500921FA2 /* Handler */,
 				D6B4F420289413B500921FA2 /* Repository */,
 				D6B4F429289413B500921FA2 /* Paylink.swift */,
-				D6B4F42A289413B500921FA2 /* Factory */,
 			);
 			path = Paylink;
 			sourceTree = "<group>";
@@ -606,10 +606,10 @@
 		D6B4F42C289413B500921FA2 /* BulkPayment */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F439289413B500921FA2 /* Factory */,
 				D6B4F42D289413B500921FA2 /* Handler */,
 				D6B4F42F289413B500921FA2 /* Repository */,
 				D6B4F438289413B500921FA2 /* BulkPayment.swift */,
-				D6B4F439289413B500921FA2 /* Factory */,
 			);
 			path = BulkPayment;
 			sourceTree = "<group>";
@@ -655,10 +655,10 @@
 		D6B4F43B289413B500921FA2 /* VRPlink */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F44A289413B500921FA2 /* Factory */,
 				D6B4F43C289413B500921FA2 /* Handler */,
 				D6B4F43E289413B500921FA2 /* Repository */,
 				D6B4F449289413B500921FA2 /* VRPlink.swift */,
-				D6B4F44A289413B500921FA2 /* Factory */,
 			);
 			path = VRPlink;
 			sourceTree = "<group>";
@@ -706,8 +706,8 @@
 		D6B4F44C289413B500921FA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F44D289413B500921FA2 /* PayByBank.xcassets */,
 				D6B4F44E289413B500921FA2 /* Localizable */,
+				D6B4F44D289413B500921FA2 /* PayByBank.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -723,13 +723,13 @@
 		D6B4F451289413B500921FA2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F452289413B500921FA2 /* JSONEncoderStrategy.swift */,
-				D6B4F453289413B500921FA2 /* RepositoryErrorResponse.swift */,
 				D6B4F454289413B500921FA2 /* EndpointProtocol.swift */,
-				D6B4F455289413B500921FA2 /* Networking.swift */,
 				D6B4F456289413B500921FA2 /* JSONDecoderStrategy.swift */,
-				D6B4F457289413B500921FA2 /* NetworkSession.swift */,
+				D6B4F452289413B500921FA2 /* JSONEncoderStrategy.swift */,
 				D6B4F458289413B500921FA2 /* NetworkError.swift */,
+				D6B4F455289413B500921FA2 /* Networking.swift */,
+				D6B4F457289413B500921FA2 /* NetworkSession.swift */,
+				D6B4F453289413B500921FA2 /* RepositoryErrorResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -737,9 +737,9 @@
 		D6B4F459289413B500921FA2 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F45A289413B500921FA2 /* PayByBankState.swift */,
-				D6B4F45B289413B500921FA2 /* PayByBankEnvironment.swift */,
 				D6B4F45C289413B500921FA2 /* PayByBankConstant.swift */,
+				D6B4F45B289413B500921FA2 /* PayByBankEnvironment.swift */,
+				D6B4F45A289413B500921FA2 /* PayByBankState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -757,8 +757,8 @@
 		D6B4F461289413B500921FA2 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F462289413B500921FA2 /* WebViewVM.swift */,
 				D6B4F463289413B500921FA2 /* WebViewVC.swift */,
+				D6B4F462289413B500921FA2 /* WebViewVM.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";

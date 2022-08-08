@@ -9,15 +9,20 @@
 import Foundation
 
 // MARK: - BulkPaymentGetRequest
+/// Request model to get Bulk Payment Paylink.
 public struct BulkPaymentGetRequest: Codable {
     
-    /// Unique id value to query Bulk Payment Paylink
+    /// Unique id value to query Bulk Payment Paylink.
     public let uniqueID: String
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value to query Bulk Payment Paylink.
     public init(uniqueID: String) {
         self.uniqueID = uniqueID
     }

@@ -8,4 +8,5 @@
 
 import Foundation
 
+/// Response model to create refund of Payment.
 public typealias PaymentCreateRefundResponse = PaymentCreateResponse

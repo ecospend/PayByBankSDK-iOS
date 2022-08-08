@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Response model to create Payment.</p>
+
           </div>
         </section>
 
@@ -532,7 +527,7 @@ Can have different formats for each bank.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initiation date and time of the payment request in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format with <a href="https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators">time zone designator</a>.</p>
+                        <p>Initiation date and time of the payment request in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with fractional seconds.</p>
 
                       </div>
                       <div class="declaration">
@@ -587,7 +582,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Status of the Payment Initiation</p>
+                        <p>Status of the Payment Initiation.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     Enum: &ldquo;AwaitingAuthorization&rdquo;
@@ -673,7 +668,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>bankID</code> value submitted with the Request.</p>
+                        <p>Unique identification string assigned to the bank by our system.</p>
 
                       </div>
                       <div class="declaration">
@@ -700,7 +695,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>amount</code> value submitted with the Request.</p>
+                        <p>Payment amount in decimal format.</p>
 
                       </div>
                       <div class="declaration">
@@ -759,7 +754,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>description</code> value submitted with the Request.</p>
+                        <p>Description for the payment. 255 character MAX.</p>
 
                       </div>
                       <div class="declaration">
@@ -786,7 +781,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>reference</code> value submitted with the Request.</p>
+                        <p>Payment reference that will be displayed on the bank statement. 18 characters MAX.</p>
 
                       </div>
                       <div class="declaration">
@@ -813,7 +808,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>merchantID</code> value submitted with the Request.</p>
+                        <p>If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.</p>
 
                       </div>
                       <div class="declaration">
@@ -840,7 +835,9 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>merchantUserID</code> value submitted with the Request.</p>
+                        <p>The Id of the end-user.
+If you are providing this service directly to the end-users, then you can assign that Id to this parameter.
+If you are providing this service to businesses, then you should assign the Id of that merchant’s user.</p>
 
                       </div>
                       <div class="declaration">
@@ -980,7 +977,8 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1007,6 +1005,229 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A system assigned unique identification for the payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bankReferenceID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An identification number for the payment that is assigned by the bank.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dateCreated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Initiation date and time of the payment request in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with fractional seconds.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique and one time use only URL of the debtor&rsquo;s banking system.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>status</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Enums/PaymentInitiationStatus.html">PaymentInitiationStatus</a></code>, which represents status of the Payment Initiation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isRefund</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Indicates if the payment is a refund.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>redirectURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL of the Tenant that the PSU will be redirected at the end of the payment journey.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bankID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Unique identification string assigned to the bank by our system.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Payment amount in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a></code>, which is currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Description for the payment. 255 character MAX.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reference</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Payment reference that will be displayed on the bank statement. 18 characters MAX.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantUserID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Id of the end-user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Enums/PaymentType.html">PaymentType</a></code>, which determines which type of payment operation will be executed by the Gateway.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>creditorAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></code>, which is the account that will receive the payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>debtorAccount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Structs/PayByBankAccountResponse.html">PayByBankAccountResponse</a></code>, which is the account from which the payment will be taken.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentOption</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Structs/PaymentOptionResponse.html">PaymentOptionResponse</a></code>, which is additional fields for a payment that can be mandotary for specific cases.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1018,7 +1239,7 @@ You will need to redirect PSU to this link in order the payment to proceed.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

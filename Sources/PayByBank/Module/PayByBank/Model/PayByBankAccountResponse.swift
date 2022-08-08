@@ -9,19 +9,21 @@
 import Foundation
 
 // MARK: - PayByBankAccountResponse
+/// Response model for bank account.
 public struct PayByBankAccountResponse: Codable {
     
-    /// - Enum: "SortCode" "Iban" "Bban"
+    /// Format of the account identification text.
+    /// - Note: Enum: "SortCode" "Iban" "Bban"
     public let type: PayByBankAccountType?
     
-    /// The identification that you provided with the request.
+    /// Account identification. 
     public let identification: String?
     
-    /// The owner_name that you provided with the PaymentRequest.
+    /// Full legal name of the account owner.
     public let name: String?
     
     /// Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
-    /// - Enum: "GBP" "USD" "EUR"
+    /// - Note: Enum: "GBP" "USD" "EUR"
     public let currency: PayByBankCurrency?
     
     /// A standard [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362#Structure) compliant Bank Identifier Code.
@@ -37,6 +39,14 @@ public struct PayByBankAccountResponse: Codable {
         case bic
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - type: Instance's `PayByBankAccountType`, which is format of the account identification text.
+    ///     - identification: Account identification.
+    ///     - name: Full legal name of the account owner.
+    ///     - currency: Instance's `PayByBankCurrency`, which is currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    ///     - bic: A standard [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362#Structure) compliant Bank Identifier Code.
     public init(type: PayByBankAccountType?,
                 identification: String?,
                 name: String?,
@@ -53,6 +63,10 @@ public struct PayByBankAccountResponse: Codable {
 // MARK: - Decodable & Encodable
 public extension PayByBankAccountResponse {
     
+    /// Creates a new instance by decoding from the given decoder.
+    ///
+    /// - Parameters:
+    ///     - decoder: The decoder to read data from.
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decodeIfPresent(PayByBankAccountType.self, forKey: .type)
@@ -67,6 +81,10 @@ public extension PayByBankAccountResponse {
         bic = try container.decodeIfPresent(String.self, forKey: .bic)
     }
     
+    /// Encodes instance into the given encoder.
+    ///
+    /// - Parameters:
+    ///     - encoder: The encoder to write data to.
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)

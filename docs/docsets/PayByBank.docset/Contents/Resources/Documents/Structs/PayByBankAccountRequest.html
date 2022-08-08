@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Request model for bank account.</p>
+
           </div>
         </section>
 
@@ -476,10 +471,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
-<ul>
-<li>Enum: &ldquo;SortCode&rdquo; &ldquo;Iban&rdquo; &ldquo;Bban&rdquo;</li>
-</ul>
+                        <p>Format of the account identification text.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Enum: &ldquo;SortCode&rdquo; &ldquo;Iban&rdquo; &ldquo;Bban&rdquo;
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -506,7 +503,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Account identification. The value of this parameter depends on the value of AccountType.
+                        <p>Account identification. 
 If type = “SortCode” then a 6-digit SortCode appended with a 8-digit Account Number merged into a 14-digit value, with no dashes in between.
 For type = “IBAN” the IBAN of the account (compliant with <a href="https://en.wikipedia.org/wiki/International_Bank_Account_Number#Structure">ISO 13616-1</a>) and for type = “BNAN” the BBAN of the account must be set.</p>
 
@@ -563,10 +560,11 @@ For type = “IBAN” the IBAN of the account (compliant with <a href="https://e
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Currency code of the account in <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a> format.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Enum: &ldquo;GBP&rdquo; &ldquo;USD&rdquo; &ldquo;EUR&rdquo;
 
-<ul>
-<li>Enum: &ldquo;GBP&rdquo; &ldquo;USD&rdquo; &ldquo;EUR&rdquo;</li>
-</ul>
+</div>
 
                       </div>
                       <div class="declaration">
@@ -593,8 +591,12 @@ For type = “IBAN” the IBAN of the account (compliant with <a href="https://e
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A standard <a href="https://en.wikipedia.org/wiki/ISO_9362#Structure">ISO 9362</a> compliant Bank Identifier Code.
-It is required for international payments (if either sender or the creditor account is outside the SEPA region).</p>
+                        <p>A standard <a href="https://en.wikipedia.org/wiki/ISO_9362#Structure">ISO 9362</a> compliant Bank Identifier Code.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    It is required for international payments (if either sender or the creditor account is outside the SEPA region).
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -621,7 +623,8 @@ It is required for international payments (if either sender or the creditor acco
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -634,6 +637,73 @@ It is required for international payments (if either sender or the creditor acco
             <span class="nv">bic</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/PayByBankAccountType.html">PayByBankAccountType</a></code>, which is format of the account identification text.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identification</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Account identification.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Full legal name of the account owner.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a></code>, which is currency code of the account in <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A standard <a href="https://en.wikipedia.org/wiki/ISO_9362#Structure">ISO 9362</a> compliant Bank Identifier Code.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -654,9 +724,9 @@ It is required for international payments (if either sender or the creditor acco
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:Se4fromxs7Decoder_p_tKcfc"></a>
+                    <a name="/s:9PayByBank0abC14AccountRequestV4fromACs7Decoder_p_tKcfc"></a>
                     <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:Se4fromxs7Decoder_p_tKcfc">init(from:<wbr>)</a>
+                    <a class="token" href="#/s:9PayByBank0abC14AccountRequestV4fromACs7Decoder_p_tKcfc">init(from:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -664,7 +734,8 @@ It is required for international payments (if either sender or the creditor acco
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates a new instance by decoding from the given decoder.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -674,15 +745,34 @@ It is required for international payments (if either sender or the creditor acco
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>decoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The decoder to read data from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:SE6encode2toys7Encoder_p_tKF"></a>
+                    <a name="/s:9PayByBank0abC14AccountRequestV6encode2toys7Encoder_p_tKF"></a>
                     <a name="//apple_ref/swift/Method/encode(to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:SE6encode2toys7Encoder_p_tKF">encode(to:<wbr>)</a>
+                    <a class="token" href="#/s:9PayByBank0abC14AccountRequestV6encode2toys7Encoder_p_tKF">encode(to:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -690,7 +780,8 @@ It is required for international payments (if either sender or the creditor acco
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Encodes instance into the given encoder.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -699,6 +790,25 @@ It is required for international payments (if either sender or the creditor acco
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="n">to</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">Encoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoder to write data to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -711,7 +821,7 @@ It is required for international payments (if either sender or the creditor acco
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

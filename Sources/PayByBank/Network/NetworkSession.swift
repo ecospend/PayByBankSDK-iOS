@@ -6,8 +6,6 @@
 //  Copyright © 2021 Ecospend. All rights reserved.
 //
 
-// swiftlint:disable line_length
-
 import Foundation
 
 /// Protocol to which network session handling classes must conform to.

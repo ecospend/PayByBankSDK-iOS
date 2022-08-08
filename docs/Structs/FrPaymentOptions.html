@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Options which are about payment for FrPayment.</p>
+
           </div>
         </section>
 
@@ -508,7 +503,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Amount of first payment</p>
+                        <p>Amount of first payment.</p>
 
                       </div>
                       <div class="declaration">
@@ -535,7 +530,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Amount of last payment</p>
+                        <p>Amount of last payment.</p>
 
                       </div>
                       <div class="declaration">
@@ -626,7 +621,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables QR Code component on FrPayment</p>
+                        <p>Disables QR Code component on FrPayment.</p>
 
                       </div>
                       <div class="declaration">
@@ -653,7 +648,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Customizes editable options of fields</p>
+                        <p>Customizes editable options of fields.</p>
 
                       </div>
                       <div class="declaration">
@@ -680,7 +675,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -696,6 +692,97 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>getRefundInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set true, if you would like to get back the debtor&rsquo;s account information that the payment is made from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>firstPaymentAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Amount of first payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lastPaymentAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Amount of last payment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>autoRedirect</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>After the payment directly returns to the tenant&rsquo;s url if set to true.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>generateQrCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional parameter for getting a QRCode image in Base64 format with the response.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>disableQrCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Disables QR Code component on FrPayment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>editableFields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/FrPaymentEditableField.html">FrPaymentEditableField</a></code>, which customizes editable options of fields.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -707,7 +794,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

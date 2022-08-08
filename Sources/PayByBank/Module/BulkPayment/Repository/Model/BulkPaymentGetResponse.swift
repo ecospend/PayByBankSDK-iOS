@@ -9,9 +9,10 @@
 import Foundation
 
 // MARK: - BulkPaymentGetResponse
+/// Response model to get Bulk Payment Paylink.
 public struct BulkPaymentGetResponse: Codable {
     
-    /// The URL to open bank selection screen
+    /// The URL to open bank selection screen.
     public let url: String?
     
     /// Id of payment.
@@ -27,7 +28,7 @@ public struct BulkPaymentGetResponse: Codable {
     /// Payment reference that will be displayed on the bank statement. 18 characters MAX.
     public let reference: String?
     
-    /// Bulk payment reference that will be displayed on the bank statement. 18 characters MAX.
+    /// Bulk Payment reference that will be displayed on the bank statement. 18 characters MAX.
     public let fileReference: String?
     
     /// Description for the payment. 255 character MAX.
@@ -52,16 +53,16 @@ public struct BulkPaymentGetResponse: Codable {
     /// It is the account from which the payment will be taken.
     public let debtorAccount: PayByBankAccountResponse?
     
-    /// The Paylink Options model
+    /// Options that are about paylink.
     public let paylinkOptions: BulkPaymentPaylinkOptionsResponse?
     
-    /// The Notification Options model
+    /// Options that are about notification.
     public let notificationOptions: PayByBankNotificationOptionsResponse?
     
-    /// The Payment Options model
+    /// Options that are about payment.
     public let paymentOptions: BulkPaymentOptionsResponse?
     
-    /// The Limit Options model
+    /// Options that are about limit.
     public let limitOptions: BulkPaymentLimitOptionsResponse?
     
     /// Payments object for individual payments for the bulk payment.
@@ -87,6 +88,26 @@ public struct BulkPaymentGetResponse: Codable {
         case payments = "payments"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - url: The URL to open bank selection screen.
+    ///     - paymentID: Id of payment.
+    ///     - uniqueID: A system assigned unique identification for the Bulk Payment Paylink.
+    ///     - status: Instance's `BulkPaymentStatus`, which is status of the Bulk Payment Paylink.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - fileReference: Bulk Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - debtorAccount: Instance's `PayByBankAccountResponse`, which is the account from which the payment will be taken.
+    ///     - paylinkOptions: Instance's `BulkPaymentPaylinkOptionsResponse`, which contains options about paylink.
+    ///     - notificationOptions: Instance's `PayByBankNotificationOptionsResponse`, which contains options about notification.
+    ///     - paymentOptions: Instance's `BulkPaymentOptionsResponse`, which contains options about payment.
+    ///     - limitOptions: Instance's `BulkPaymentLimitOptionsResponse`, which contains options about limit.
+    ///     - payments: Instance's array of `BulkPaymentPaylinkEntryResponse`, which is for individual payments for the bulk payment.
     public init(url: String?,
                 paymentID: String?,
                 uniqueID: String?,
@@ -124,19 +145,40 @@ public struct BulkPaymentGetResponse: Codable {
     }
 }
 
+// MARK: - BulkPaymentStatus
+/// Status of the Bulk Payment Paylink.
 public enum BulkPaymentStatus: String, Codable {
+    
+    /// PaymentRequest is made but a PaymentResponse is not provided yet.
     case initial = "Initial"
+    
+    /// A PaymentResponse, including bank's payment URL is returned and the PSU is expected to authorise the payment.
     case awaitingAuthorization = "AwaitingAuthorization"
+    
+    /// The PSU has authorized the payment from their banking system.
     case authorised = "Authorised"
+    
+    /// Ecospend and the PSU’s Bank verified the payment authorization. This does not necessarily mean that the money has been received by the creditor account.
     case verified = "Verified"
+    
+    /// Payment is completed, and transfer is made.
     case completed = "Completed"
+    
+    /// The PSU has cancelled the payment flow.
     case canceled = "Canceled"
+    
+    /// Payment flow has failed due to an error.
     case failed = "Failed"
+    
+    /// Bank has rejected the payment.
     case rejected = "Rejected"
+    
+    /// The PSU has deserted the payment journey prior to being redirected back from the bank.
     case abandoned = "Abandoned"
 }
 
-// MARK: - PaylinkOptions
+// MARK: - BulkPaymentPaylinkOptionsResponse
+/// Options which are about paylink for Bulk Payment.
 public struct BulkPaymentPaylinkOptionsResponse: Codable {
     
     /// Client id of the API consumer.
@@ -156,7 +198,7 @@ public struct BulkPaymentPaylinkOptionsResponse: Codable {
     public let temporaryConsentURL: String?
     
     /// Expire date of temporary consent url.
-    public let temporaryConsentURLExpireDate: String?
+    public let temporaryConsentURLExpireDate: Date?
     
     /// Disables QR Code component on paylink.
     public let disableQrCode: Bool?
@@ -175,12 +217,23 @@ public struct BulkPaymentPaylinkOptionsResponse: Codable {
         case purpose = "purpose"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - clientID: Client id of the API consumer.
+    ///     - tenantID: Tenant id of the API consumer.
+    ///     - autoRedirect: After the payment directly returns to the tenant's url if set to true.
+    ///     - dontRedirect: If you are set true, no redirect after payment.
+    ///     - temporaryConsentURL: If bank is pre-set on creation a temporary consent url for payment operation.
+    ///     - temporaryConsentURLExpireDate: Expire date of temporary consent url.
+    ///     - disableQrCode: Disables QR Code component on paylink.
+    ///     - purpose: Purpose of the bulk payment.
     public init(clientID: String?,
                 tenantID: String?,
                 autoRedirect: Bool?,
                 dontRedirect: Bool?,
                 temporaryConsentURL: String?,
-                temporaryConsentURLExpireDate: String?,
+                temporaryConsentURLExpireDate: Date?,
                 disableQrCode: Bool?,
                 purpose: String?) {
         self.clientID = clientID
@@ -194,10 +247,11 @@ public struct BulkPaymentPaylinkOptionsResponse: Codable {
     }
 }
 
-// MARK: - PaymentOptions
+// MARK: - BulkPaymentOptionsResponse
+/// Options which are about payment for Bulk Payment Paylink.
 public struct BulkPaymentOptionsResponse: Codable {
     
-    /// Defines the schedule date  for the payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// Defines the schedule date for the payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let scheduledFor: Date?
     
     /// Gets or sets the bulk payment rails.
@@ -208,13 +262,19 @@ public struct BulkPaymentOptionsResponse: Codable {
         case paymentRails = "payment_rails"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - scheduledFor: Defines the schedule date for the payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - paymentRails: Gets or sets the bulk payment rails.
     public init(scheduledFor: Date?, paymentRails: String?) {
         self.scheduledFor = scheduledFor
         self.paymentRails = paymentRails
     }
 }
 
-// MARK: - BulkPaymentLimitOptions
+// MARK: - BulkPaymentLimitOptionsResponse
+/// Options which are about limit for Bulk Payment.
 public struct BulkPaymentLimitOptionsResponse: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -224,12 +284,17 @@ public struct BulkPaymentLimitOptionsResponse: Codable {
         case date
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - date: Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public init(date: Date?) {
         self.date = date
     }
 }
 
-// MARK: - BulkPaymentPaylinkEntry
+// MARK: - BulkPaymentPaylinkEntryResponse
+/// Payment model for the Bulk Payment
 public struct BulkPaymentPaylinkEntryResponse: Codable {
     
     /// It is the account that will receive the payment.
@@ -241,7 +306,8 @@ public struct BulkPaymentPaylinkEntryResponse: Codable {
     /// Payment reference that will be displayed on the bank statement. 18 characters MAX.
     public let reference: String?
     
-    /// Must be set to a date/time in GMT+0 in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// Defines the schedule date for the payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    /// - Warning: Must be set to a date/time in GMT+0.
     public let scheduledFor: Date?
     
     /// Free text field for any client reference usage.
@@ -255,6 +321,14 @@ public struct BulkPaymentPaylinkEntryResponse: Codable {
         case clientReferenceID = "client_reference_id"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - creditorAccount: Instance's `PayByBankAccountRequest`, which is the account that will receive the payment..
+    ///     - amount: Payment amount in decimal format.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - scheduledFor: Defines the schedule date for the payment in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - clientReferenceID: Free text field for any client reference usage.
     public init(creditorAccount: PayByBankAccountResponse?,
                 amount: Decimal?,
                 reference: String?,

@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Request model to list Payments.</p>
+
           </div>
         </section>
 
@@ -532,7 +527,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Filter results that has been created after the <code>startDate</code> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format with <a href="https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators">time zone designator</a>.</p>
+                        <p>Filters results that has been created after the <code>startDate</code> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with fractional seconds.</p>
 
                       </div>
                       <div class="declaration">
@@ -559,7 +554,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Filter results that has been created before the <code>endDate</code> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format with <a href="https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators">time zone designator</a>.</p>
+                        <p>Filter sresults that has been created before the <code>endDate</code> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format with fractional seconds.</p>
 
                       </div>
                       <div class="declaration">
@@ -586,7 +581,7 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Filter results by <code>paymentType</code>.</p>
+                        <p>Filters results by <code>paymentType</code>.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     Enum: &ldquo;Auto&rdquo; &ldquo;Domestic&rdquo; &ldquo;DomesticScheduled&rdquo; &ldquo;International&rdquo; &ldquo;InternationalScheduled&rdquo;
@@ -650,7 +645,8 @@ If you are providing this service to businesses, then you should assign the Id o
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -665,6 +661,85 @@ If you are providing this service to businesses, then you should assign the Id o
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>merchantUserID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Id of the end-user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>startDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Filters results that has been created after the <code><a href="../Structs/PaymentListRequest.html#/s:9PayByBank18PaymentListRequestV9startDate10Foundation0H0VSgvp">startDate</a></code> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> with fractional seconds.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Filters results that has been created before the <code><a href="../Structs/PaymentListRequest.html#/s:9PayByBank18PaymentListRequestV7endDate10Foundation0H0VSgvp">endDate</a></code> in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format with fractional seconds.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance’s <code><a href="../Enums/PaymentType.html">PaymentType</a></code>, which provides to filter results by <code><a href="../Structs/PaymentListRequest.html#/s:9PayByBank18PaymentListRequestV11paymentTypeAA0dH0OSgvp">paymentType</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>page</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Paging number for query results exceeding result count limit for a single response.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -676,7 +751,7 @@ If you are providing this service to businesses, then you should assign the Id o
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

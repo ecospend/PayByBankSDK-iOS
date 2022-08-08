@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - PaymentCreateRequest
+/// Request model to create Payment.
 public struct PaymentCreateRequest: Codable {
     
     /// The URL of the Tenant that the PSU will be redirected at the end of the payment journey.
@@ -67,6 +68,21 @@ public struct PaymentCreateRequest: Codable {
         case paymentType = "payment_type"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the payment journey.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - amount: Payment amount in decimal format.
+    ///     - currency:  Instance’s `PayByBankCurrency`, which is currency code in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - creditorAccount:  Instance’s `PayByBankAccountRequest`, which is the account that will receive the payment.
+    ///     - debtorAccount:  Instance’s `PayByBankAccountRequest`, which is the account from which the payment will be taken.
+    ///     - paymentOption: Instance’s `PaymentOption`, which is additional fields for a payment that can be mandotary for specific cases.
+    ///     - paymentType: Instance’s `PaymentType`, which determines which type of payment operation will be executed by the Gateway.
     public init(redirectURL: String,
                 bankID: String,
                 amount: Decimal,
@@ -95,6 +111,7 @@ public struct PaymentCreateRequest: Codable {
 }
 
 // MARK: - PaymentOption
+/// Additional fields for a payment that can be mandotary for specific cases.
 public struct PaymentOption: Codable {
     
     /// Set true, if you would like to get back the debtor's account information that the payment is made from.
@@ -108,7 +125,7 @@ public struct PaymentOption: Codable {
     public let forPayout: Bool?
     
     /// If provided, our system automatically converts the payment into a Scheduled Payment.
-    /// It should be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
+    /// It should be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with fractional seconds.
     /// - Warning: Must be set to a future date/time (it must be the next day or later) in GMT+0.
     public let scheduledFor: Date?
     
@@ -127,6 +144,14 @@ public struct PaymentOption: Codable {
         case paymentRails = "payment_rails"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - getRefundInfo: Set true, if you would like to get back the debtor's account information that the payment is made from.
+    ///     - forPayout: Set true, if the payment is being created with a possiblity of future payout operation.
+    ///     - scheduledFor: If provided, our system automatically converts the payment into a Scheduled Payment.
+    ///     - psuID: Mandatory information for Berlin Group and STET specifications.
+    ///     - paymentRails: The underlying payment rails that the bank transfers the money.
     public init(getRefundInfo: Bool? = nil,
                 forPayout: Bool? = nil,
                 scheduledFor: Date? = nil,
@@ -141,10 +166,21 @@ public struct PaymentOption: Codable {
 }
 
 // MARK: - PaymentType
+/// It determines which type of payment operation will be executed by the Gateway.
 public enum PaymentType: String, Codable {
+    
+    /// Automatic.
     case auto = "Auto"
+    
+    /// Domestic.
     case domestic = "Domestic"
+    
+    /// Domestic scheduled.
     case domesticScheduled = "DomesticScheduled"
+    
+    /// International.
     case international = "International"
+    
+    /// International scheduled.
     case internationalScheduled = "InternationalScheduled"
 }
