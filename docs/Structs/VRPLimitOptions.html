@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Options which are about limit for VRP.</p>
+
           </div>
         </section>
 
@@ -476,7 +471,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Currency code in ISO 4217 format.</p>
+                        <p>Currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a> format.</p>
 
 <ul>
 <li>Enum: &ldquo;GBP&rdquo; &ldquo;USD&rdquo; &ldquo;EUR&rdquo;</li>
@@ -696,7 +691,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Daily payment alignment</p>
+                        <p>Daily payment alignment.</p>
 
 <ul>
 <li>Enum: &ldquo;Consent&rdquo; &ldquo;Calendar&rdquo;</li>
@@ -758,7 +753,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Fortnightly payment alignment</p>
+                        <p>Fortnightly payment alignment.</p>
 
 <ul>
 <li>Enum: &ldquo;Consent&rdquo; &ldquo;Calendar&rdquo;</li>
@@ -789,7 +784,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Monthly payment alignment</p>
+                        <p>Monthly payment alignment.</p>
 
 <ul>
 <li>Enum: &ldquo;Consent&rdquo; &ldquo;Calendar&rdquo;</li>
@@ -820,7 +815,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>HalfYearly payment alignment</p>
+                        <p>HalfYearly payment alignment.</p>
 
 <ul>
 <li>Enum: &ldquo;Consent&rdquo; &ldquo;Calendar&rdquo;</li>
@@ -851,7 +846,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Yearly payment alignment</p>
+                        <p>Yearly payment alignment.</p>
 
 <ul>
 <li>Enum: &ldquo;Consent&rdquo; &ldquo;Calendar&rdquo;</li>
@@ -882,7 +877,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -905,6 +901,181 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a></code>, which is currency code of the account in <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a> format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>singlePaymentAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Maximum single payment amount in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dailyAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Daily payment amount limit in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>weeklyAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Weekly payment amount limit in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fortnightlyAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Fortnightly payment amount limit in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>monthlyAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Monthly payment amount limit in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>halfYearlyAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>HalfYearly payment amount limit in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>yearlyAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Yearly payment amount limit in decimal format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dailyAlignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/VRPAlignment.html">VRPAlignment</a></code>, which is daily payment alignment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>weeklyAlignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/VRPAlignment.html">VRPAlignment</a></code>, which is weekly payment alignment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fortnightlyAlignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/VRPAlignment.html">VRPAlignment</a></code>, which is fortnightly payment alignment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>monthlyAlignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/VRPAlignment.html">VRPAlignment</a></code>, which is monthly payment alignment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>halfYearlyAlignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/VRPAlignment.html">VRPAlignment</a></code>, which is half yearly payment alignment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>yearlyAlignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Enums/VRPAlignment.html">VRPAlignment</a></code>, which is yearly payment alignment.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -916,7 +1087,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

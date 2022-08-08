@@ -9,19 +9,19 @@
 import Foundation
 
 // MARK: - PaymentGetResponse
+/// Response model to get Payment.
 public struct PaymentGetResponse: Codable {
     
     /// A system assigned unique identification for the payment. You may need to use this id to query payments or initiate a refund.
     public let id: String?
     
-    /// An identification number for the payment that is assigned by the bank.
-    /// Can have different formats for each bank.
+    /// An identification number for the payment that is assigned by the bank. Can have different formats for each bank.
     public let bankReferenceID: String?
     
     /// Initiation date and time of the payment request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let dateCreated: Date?
     
-    /// Status of the payment
+    /// Status of the payment.
     /// - Note: Enum: "Initial" "AwaitingAuthorization" "Authorised" "Verified" "Completed" "Canceled" "Failed" "Rejected" "Abandoned"
     public let status: PaymentStatus?
     
@@ -31,32 +31,34 @@ public struct PaymentGetResponse: Codable {
     /// If `isRefund`='true', provides the payment_id of the original payment that this refund is created for.
     public let originalPaymentID: String?
     
-    /// The URL submitted with the Request.
+    /// The URL of the Tenant that the PSU will be redirected at the end of payment process.
     public let redirectURL: String?
     
-    /// The URL to open bank application or website
+    /// The URL to open bank selection screen.
     public let url: String?
     
-    /// The `bankID` value submitted with the Request.
+    /// Unique identification string assigned to the bank by our system.
     public let bankID: String?
     
-    /// The `amount` value submitted with the Request.
+    /// Payment amount in decimal format.
     public let amount: Decimal?
     
     /// Currency code  in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
     /// - Note: Enum: "GBP" "USD" "EUR"
     public let currency: PayByBankCurrency?
     
-    /// The `description` value submitted with the Request.
+    /// Description for the payment. 255 character MAX.
     public let description: String?
     
-    /// The `reference` value submitted with the Request.
+    /// Payment reference that will be displayed on the bank statement. 18 characters MAX.
     public let reference: String?
     
-    /// The `merchantID` value submitted with the Request.
+    /// If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
     public let merchantID: String?
     
-    /// The `merchantUserID` value submitted with the Request.
+    /// The Id of the end-user.
+    /// If you are providing this service directly to the end-users, then you can assign that Id to this parameter.
+    /// If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
     public let merchantUserID: String?
     
     /// It determines which type of payment operation will be executed by the Gateway.
@@ -78,8 +80,7 @@ public struct PaymentGetResponse: Codable {
     /// Indicates if the payment transaction is settled on the creditor account. Available with the [optional] Reconciliation Feature.
     public let isReconciled: Bool?
     
-    /// Date and time information that is gathered from the creditor account statement by the [optional] Reconciliation Feature.
-    /// It should be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
+    /// Date and time information that is gathered from the creditor account statement by the [optional] Reconciliation Feature  in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with fractional seconds.
     public let reconciliationDate: Date?
     
     enum CodingKeys: String, CodingKey {
@@ -107,6 +108,31 @@ public struct PaymentGetResponse: Codable {
         case reconciliationDate = "reconciliation_date"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - id: A system assigned unique identification for the payment. You may need to use this id to query payments or initiate a refund.
+    ///     - bankReferenceID: An identification number for the payment that is assigned by the bank. Can have different formats for each bank.
+    ///     - dateCreated: Initiation date and time of the payment request in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - status: Instance’s `PaymentStatus`, which is status of the Payment.
+    ///     - isRefund: Indicates if the payment is a refund.
+    ///     - originalPaymentID: If `isRefund`='true', provides the payment_id of the original payment that this refund is created for.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the payment journey.
+    ///     - url: The URL to open bank selection screen.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - amount: Payment amount in decimal format.
+    ///     - currency:  Instance’s `PayByBankCurrency`, which is currency code in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - paymentType: Instance’s `PaymentType`, which determines which type of payment operation will be executed by the Gateway.
+    ///     - creditorAccount:  Instance’s `PayByBankAccountResponse`, which is the account that will receive the payment.
+    ///     - debtorAccount:  Instance’s `PayByBankAccountResponse`, which is the account from which the payment will be taken.
+    ///     - paymentOption: Instance’s `PaymentOptionResponse`, which is additional fields for a payment that can be mandotary for specific cases.
+    ///     - refundAccount:  Instance’s `PayByBankAccountResponse`, which represents the refund account information structure of that is returned by the bank.
+    ///     - isReconciled:  Indicates if the payment transaction is settled on the creditor account. Available with the [optional] Reconciliation Feature.
+    ///     - reconciliationDate:  Date and time information that is gathered from the creditor account statement by the [optional] Reconciliation Feature  in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with fractional seconds.
     public init(id: String?,
                 bankReferenceID: String?,
                 dateCreated: Date?,
@@ -155,6 +181,7 @@ public struct PaymentGetResponse: Codable {
 }
 
 // MARK: - PaymentStatus
+/// Status of the payment.
 public enum PaymentStatus: String, Codable {
     
     /// Your Request POST call to the /payments endpoint is received and registered and the Ecospend Gateway is currently interacting with the bank's system to respond you with a Response.

@@ -23,7 +23,7 @@
         <a class="header-link" href="index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -470,7 +464,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Bulk Payment API</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    A bulk payment is a payment created from a bulk list - so it&rsquo;s a payment to multiple beneficiaries from a single debit account. It will show as one debit on your bank statement. As with bulk lists, there are two types: standard domestic bulk payments and bulk Inter Account Transfers (IATs).
+
+</div>
+
                         <a href="Classes/BulkPayment.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -497,7 +497,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Datalink API</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Datalink is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration. By making a single call to /datalink endpoint you will be able to initiate the consent journey.
+
+</div>
+
                         <a href="Classes/Datalink.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -524,7 +530,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>FrPayment (Standing Order) API</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    A Standing Order is an instruction that an account holder gives to their bank to make payments of a fixed amount at regular intervals. Payments are made automatically by the bank on a defined schedule (e.g. weekly or monthly) on an ongoing basis, unless a specified condition has been met, such as an end-date being reached or a set number of payments having been made. Standing Orders can only be created, amended or cancelled by the account holder, typically by using their online or telephone banking service. They are most commonly used for recurring payments where the amount stays the same, such as rent payments, subscription services or regular account top-ups.
+
+</div>
+
                         <a href="Classes/FrPayment.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -538,6 +550,19 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/PayByBank"></a>
+                <a name="//apple_ref/swift/Section/PayByBank" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/PayByBank"></a>
+                  <h3 class="section-name"><span>PayByBank</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -551,7 +576,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>PayByBank APIs</p>
+
                         <a href="Classes/PayByBank.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -578,7 +604,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Paylink API</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The Ecospend Gateway presents Paylink as an alternative and easier form of Open Banking Instant Payment solution. Paylink provides you the option of downsizing the development effort for a PIS journey to a single endpoint integration. Paylink undertakes all of interaction in the payment user journey with your branding on display.
+
+</div>
+
                         <a href="Classes/Paylink.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -605,7 +637,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Payment API</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Domestic instant payments, international payments, and scheduled payments are all accomplished from the same /payments endpoint. The payment type is automatically identified by our system depending whether the debtor and creditor accounts are from different countries (for international payments), or whether a value has been set for the scheduled_for parameter (meaning a scheduled payment).
+
+</div>
+
                         <a href="Classes/Payment.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -632,7 +670,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>VRPlink (Variable Recurring Payments) API</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Variable Recurring Payments (VRPs) let customers safely connect authorised payments providers to their bank account so that they can make payments on the customer’s behalf, in line with agreed limits. VRPs offer more control and transparency than existing alternatives, such as Direct Debit payments.
+
+</div>
+
                         <a href="Classes/VRPlink.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -654,7 +698,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

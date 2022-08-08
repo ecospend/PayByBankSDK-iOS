@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - BulkPaymentCreateResponse
+/// Response model to create Bulk Payment.
 public struct BulkPaymentCreateResponse: Codable {
     
     /// A system assigned unique identification for the Bulk Payment Paylink.
@@ -27,6 +28,12 @@ public struct BulkPaymentCreateResponse: Codable {
         case qrCode = "qr_code"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the Bulk Payment Paylink.
+    ///     - url: Instance's Unique Bulk Payment Paylink URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - qrCode: Base64 encoded QRCode image data that represents Bulk Payment Paylink URL.
     public init(uniqueID: String?,
                 url: String?,
                 qrCode: String?) {

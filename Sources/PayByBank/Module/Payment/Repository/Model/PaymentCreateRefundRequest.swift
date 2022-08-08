@@ -9,9 +9,10 @@
 import Foundation
 
 // MARK: - PaymentCreateRefundRequest
+/// Request model to create refund of Payment.
 public struct PaymentCreateRefundRequest: Codable {
     
-    /// Unique id value to query Payment
+    /// Unique id value to query Payment.
     public let id: String
     
     /// Unique identification string assigned to the bank by our system.
@@ -21,7 +22,7 @@ public struct PaymentCreateRefundRequest: Codable {
     /// - Warning: This amount can not exceed original payment amount.
     public let amount: Decimal
     
-    /// Currency code  in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    /// Currency code in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
     /// - Note: Enum: "GBP" "USD" "EUR"
     public let currency: PayByBankCurrency
     
@@ -48,6 +49,17 @@ public struct PaymentCreateRefundRequest: Codable {
         case refundAccount = "refund_account"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - id: Unique id value to query Payment.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - amount: Payment amount in decimal format.
+    ///     - currency: Instance’s `PayByBankCurrency`, which is currency code in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - refundAccount:  Instance’s `PayByBankAccountRequest`, which represents the refund account information structure of that is returned by the bank.
     public init(id: String,
                 bankID: String,
                 amount: Decimal,

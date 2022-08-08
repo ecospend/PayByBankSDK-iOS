@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - VRPlinkCreateRequest
+/// Request model to create VRPlink.
 public struct VRPlinkCreateRequest: Codable {
     
     /// The URL of the Tenant that the PSU will be redirected at the end of payment process.
@@ -52,19 +53,19 @@ public struct VRPlinkCreateRequest: Codable {
     /// It is the account from which the payment will be taken.
     public let debtorAccount: PayByBankAccountRequest?
     
-    /// The VRP Options model
+    /// Options that are for VRP.
     public let vrpOptions: VRPOptions?
     
-    /// The VRP Limit Options Options model
+    //// Options that are about limit for VRP.
     public let limitOptions: VRPLimitOptions?
     
-    /// The Notification Options model
+    /// Options that are about notification.
     public let notificationOptions: PayByBankNotificationOptionsRequest?
     
-    /// The VRPlink Options model
+    /// Options that are for VRPlink.
     public let vrplinkOptions: VRPlinkOptions?
     
-    /// The VRPlink Limit Options model
+    /// Options that are for limit for VRPlink.
     public let vrplinkLimitOptions: VRPlinkLimitOptions?
     
     enum CodingKeys: String, CodingKey {
@@ -86,6 +87,26 @@ public struct VRPlinkCreateRequest: Codable {
         case vrplinkLimitOptions = "vrplink_limit_options"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - reason: Instance’s `VRPReason`, which determines which reason of payment operation will be executed by the Gateway.
+    ///     - type:  Instance’s `VRPType`, which determines which type of payment operation will be executed by the Gateway.
+    ///     - verifyCreditorAccount: It provides to verify the account that will receive the payment.
+    ///     - verifyDebtorAccount: It provides to verify the account from which the payment will be taken.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - creditorAccount:  Instance’s `PayByBankAccountRequest`, which is the account that will receive the payment.
+    ///     - debtorAccount:  Instance’s `PayByBankAccountRequest`, which is the account from which the payment will be taken.
+    ///     - vrpOptions: Instance’s `VRPOptions`, which contains options for VRP.
+    ///     - limitOptions:  Instance’s `VRPLimitOptions`, which contains options about limit for VRP.
+    ///     - notificationOptions: Instance’s `PayByBankNotificationOptionsRequest`, which contains options about notification.
+    ///     - vrplinkOptions: Instance’s `VRPlinkOptions`, which contains options for VRPlink.
+    ///     - vrplinkLimitOptions: Instance’s `VRPlinkLimitOptions`, which contains options about limit for VRPlink.
     public init(redirectURL: String? = nil,
                 bankID: String? = nil,
                 reason: VRPReason,
@@ -124,25 +145,44 @@ public struct VRPlinkCreateRequest: Codable {
 }
 
 // MARK: - VRPReason
+/// It determines which reason of payment operation will be executed by the Gateway.
 public enum VRPReason: String, Codable {
+    
+    /// None.
     case none = "None"
+    
+    /// Party to party.
     case partyToParty = "PartyToParty"
+    
+    /// Bill payment.
     case billPayment = "BillPayment"
+    
+    /// E-commerce goods.
     case ecommerceGoods = "EcommerceGoods"
+    
+    /// E-commerce services.
     case ecommerceServices = "EcommerceServices"
+    
+    /// Other.
     case other = "Other"
 }
 
 // MARK: - VRPReason
+/// It determines which type of payment operation will be executed by the Gateway.
 public enum VRPType: String, Codable {
+    
+    /// Sweeping.
     case sweeping = "Sweeping"
+    
+    /// Variable Recurring Payment
     case vrp = "Vrp"
 }
 
 // MARK: - VRPLimitOptions
+/// Options which are about limit for VRP.
 public struct VRPLimitOptions: Codable {
     
-    /// Currency code in ISO 4217 format.
+    /// Currency code in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
     /// - Enum: "GBP" "USD" "EUR"
     public let currency: PayByBankCurrency?
     
@@ -167,7 +207,7 @@ public struct VRPLimitOptions: Codable {
     /// Yearly payment amount limit in decimal format.
     public let yearlyAmount: Decimal?
     
-    /// Daily payment alignment
+    /// Daily payment alignment.
     /// - Enum: "Consent" "Calendar"
     public let dailyAlignment: VRPAlignment?
     
@@ -175,19 +215,19 @@ public struct VRPLimitOptions: Codable {
     /// - Enum: "Consent" "Calendar"
     public let weeklyAlignment: VRPAlignment?
     
-    /// Fortnightly payment alignment
+    /// Fortnightly payment alignment.
     /// - Enum: "Consent" "Calendar"
     public let fortnightlyAlignment: VRPAlignment?
     
-    /// Monthly payment alignment
+    /// Monthly payment alignment.
     /// - Enum: "Consent" "Calendar"
     public let monthlyAlignment: VRPAlignment?
     
-    /// HalfYearly payment alignment
+    /// HalfYearly payment alignment.
     /// - Enum: "Consent" "Calendar"
     public let halfYearlyAlignment: VRPAlignment?
     
-    /// Yearly payment alignment
+    /// Yearly payment alignment.
     /// - Enum: "Consent" "Calendar"
     public let yearlyAlignment: VRPAlignment?
     
@@ -208,6 +248,23 @@ public struct VRPLimitOptions: Codable {
         case yearlyAlignment = "yearly_alignment"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - currency: Instance's `PayByBankCurrency`, which is currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    ///     - singlePaymentAmount: Maximum single payment amount in decimal format.
+    ///     - dailyAmount: Daily payment amount limit in decimal format.
+    ///     - weeklyAmount: Weekly payment amount limit in decimal format.
+    ///     - fortnightlyAmount: Fortnightly payment amount limit in decimal format.
+    ///     - monthlyAmount: Monthly payment amount limit in decimal format.
+    ///     - halfYearlyAmount: HalfYearly payment amount limit in decimal format.
+    ///     - yearlyAmount: Yearly payment amount limit in decimal format.
+    ///     - dailyAlignment: Instance's `VRPAlignment`, which is daily payment alignment.
+    ///     - weeklyAlignment: Instance's `VRPAlignment`, which is weekly payment alignment.
+    ///     - fortnightlyAlignment: Instance's `VRPAlignment`, which is fortnightly payment alignment.
+    ///     - monthlyAlignment: Instance's `VRPAlignment`, which is monthly payment alignment.
+    ///     - halfYearlyAlignment: Instance's `VRPAlignment`, which is half yearly payment alignment.
+    ///     - yearlyAlignment: Instance's `VRPAlignment`, which is yearly payment alignment.
     public init(currency: PayByBankCurrency?,
                 singlePaymentAmount: Decimal?,
                 dailyAmount: Decimal?,
@@ -240,12 +297,18 @@ public struct VRPLimitOptions: Codable {
 }
 
 // MARK: - VRPAlignment
+/// Payment alignments for VRPlink.
 public enum VRPAlignment: String, Codable {
+    
+    /// Consent.
     case consent = "Consent"
+    
+    /// Calendar.
     case calendar = "Calendar"
 }
 
 // MARK: - VRPOptions
+/// Options which are for VRP.
 public struct VRPOptions: Codable {
     
     /// Indicates Validity Start Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -264,6 +327,12 @@ public struct VRPOptions: Codable {
         case getRefundInfo = "get_refund_info"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - validFrom: Indicates Validity Start Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - validTo: Indicates Validity End Date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    ///     - getRefundInfo: Set true, if you would like to get back the debtor's account information that the payment is made from.
     public init(validFrom: Date?,
                 validTo: Date?,
                 getRefundInfo: Bool?) {
@@ -274,24 +343,30 @@ public struct VRPOptions: Codable {
 }
 
 // MARK: - VRPlinkLimitOptions
+/// Options which are about limit for VRPlink.
 public struct VRPlinkLimitOptions: Codable {
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: Date?
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - date: Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public init(date: Date?) {
         self.date = date
     }
 }
 
 // MARK: - VRPlinkOptions
+/// Options which are for VRPlink.
 public struct VRPlinkOptions: Codable {
     
     /// Optional parameter for getting a QRCode image in Base64 format with the response.
     /// - Note: Defaults to false.
     public let generateQrCode: Bool?
     
-    /// Disables QR Code component on Paylinks
+    /// Disables QR Code component on Paylinks.
     public let disableQrCode: Bool?
     
     /// After the payment directly returns to the tenant's url if set to true.
@@ -307,6 +382,13 @@ public struct VRPlinkOptions: Codable {
         case dontRedirect = "dont_redirect"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - generateQrCode: Optional parameter for getting a QRCode image in Base64 format with the response.
+    ///     - disableQrCode: Disables QR Code component on Paylinks.
+    ///     - autoRedirect: After the payment directly returns to the tenant's url if set to true.
+    ///     - dontRedirect: If you are set true, no redirect after VRP.
     public init(generateQrCode: Bool?,
                 disableQrCode: Bool?,
                 autoRedirect: Bool?,

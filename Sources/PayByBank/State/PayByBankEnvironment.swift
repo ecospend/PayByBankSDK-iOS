@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - PayByBankEnvironmentProtocol
 protocol PayByBankEnvironmentProtocol {
     var iamEndpointURL: String { get }
     var paylinkEndpointURL: String { get }
@@ -18,8 +19,14 @@ protocol PayByBankEnvironmentProtocol {
     var paymentEndpointURL: String { get }
 }
 
+// MARK: - PayByBankEnvironment
+/// Environments for testing or released applications.
 public enum PayByBankEnvironment: String {
+    
+    /// **Production** environment should be used for released applications.
     case production = "Production"
+    
+    /// **Sandbox** environment should be used for testing purposes.
     case sandbox = "Sandbox"
 }
 

@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - PaylinkDeleteRequest
+/// Request model to delete Bulk Payment Paylink.
 public struct BulkPaymentDeleteRequest: Codable {
     
     /// Unique id value to delete Paylink
@@ -18,6 +19,10 @@ public struct BulkPaymentDeleteRequest: Codable {
         case uniqueID = "unique_id"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value to delete Bulk Payment Paylink.
     public init(uniqueID: String) {
         self.uniqueID = uniqueID
     }

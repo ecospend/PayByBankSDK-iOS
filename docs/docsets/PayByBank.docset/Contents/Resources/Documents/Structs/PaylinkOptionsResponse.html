@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Options which are for Paylink.</p>
+
           </div>
         </section>
 
@@ -477,10 +472,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>After the payment directly returns to the tenant&rsquo;s url if set to true.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Defaults to false.
 
-<ul>
-<li>Defaults to false.</li>
-</ul>
+</div>
 
                       </div>
                       <div class="declaration">
@@ -561,7 +557,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Tip object model</p>
+                        <p>Tip is a voluntary amount.</p>
 
                       </div>
                       <div class="declaration">
@@ -601,6 +597,61 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>autoRedirect</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>After the payment directly returns to the tenant&rsquo;s url if set to true.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>allowPartialPayments</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>True if the paylink allows partial payments, false otherwise.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>disableQrCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional parameter for displaying a QR Code on the paylink screens, that enables users to transfer their journey from desktop to mobile easily. This feature is only visible on desktop view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PaylinkTipResponse.html">PaylinkTipResponse</a></code>, which is a voluntary amount.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -612,7 +663,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

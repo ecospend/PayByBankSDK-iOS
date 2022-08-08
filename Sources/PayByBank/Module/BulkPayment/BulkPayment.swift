@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// Bulk Payment API
+/// - Note: A bulk payment is a payment created from a bulk list - so it's a payment to multiple beneficiaries from a single debit account. It will show as one debit on your bank statement. As with bulk lists, there are two types: standard domestic bulk payments and bulk Inter Account Transfers (IATs).
 public final class BulkPayment {
     
     private let factory: BulkPaymentFactoryProtocol

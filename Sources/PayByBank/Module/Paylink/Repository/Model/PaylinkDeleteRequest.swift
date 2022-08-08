@@ -9,15 +9,20 @@
 import Foundation
 
 // MARK: - PaylinkDeleteRequest
+/// Request model to delete Paylink.
 public struct PaylinkDeleteRequest: Codable {
     
-    /// Unique id value to delete Paylink
+    /// Unique id value to delete Paylink.
     public let uniqueID: String
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value to delete Paylink.
     public init(uniqueID: String) {
         self.uniqueID = uniqueID
     }

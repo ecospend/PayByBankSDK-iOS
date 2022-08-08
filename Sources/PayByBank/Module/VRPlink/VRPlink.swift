@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// VRPlink (Variable Recurring Payments) API
+/// - Note: Variable Recurring Payments (VRPs) let customers safely connect authorised payments providers to their bank account so that they can make payments on the customer’s behalf, in line with agreed limits. VRPs offer more control and transparency than existing alternatives, such as Direct Debit payments.
 public final class VRPlink {
     
     private let factory: VRPlinkFactoryProtocol

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// Payment API
+/// - Note: Domestic instant payments, international payments, and scheduled payments are all accomplished from the same /payments endpoint. The payment type is automatically identified by our system depending whether the debtor and creditor accounts are from different countries (for international payments), or whether a value has been set for the scheduled_for parameter (meaning a scheduled payment).
 public final class Payment {
     
     private let factory: PaymentFactoryProtocol

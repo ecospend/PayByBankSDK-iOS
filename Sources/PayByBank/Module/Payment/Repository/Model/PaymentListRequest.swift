@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+// MARK: - PaymentListRequest
+/// Request model to list Payments.
 public struct PaymentListRequest: Codable {
     
     /// If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
@@ -18,13 +19,13 @@ public struct PaymentListRequest: Codable {
     /// If you are providing this service to businesses, then you should assign the Id of that merchant’s user.
     public let merchantUserID: String?
     
-    /// Filter results that has been created after the `startDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
+    /// Filters results that has been created after the `startDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with fractional seconds.
     public let startDate: Date?
     
-    /// Filter results that has been created before the `endDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with [time zone designator](https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators).
+    /// Filter sresults that has been created before the `endDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with fractional seconds.
     public let endDate: Date?
     
-    /// Filter results by `paymentType`.
+    /// Filters results by `paymentType`.
     /// - Note: Enum: "Auto" "Domestic" "DomesticScheduled" "International" "InternationalScheduled"
     public let paymentType: PaymentType?
     
@@ -41,6 +42,15 @@ public struct PaymentListRequest: Codable {
         case page = "page"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - startDate: Filters results that has been created after the `startDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) with fractional seconds.
+    ///     - endDate: Filters results that has been created before the `endDate` in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format with fractional seconds.
+    ///     - paymentType:  Instance’s `PaymentType`, which provides to filter results by `paymentType`.
+    ///     - page: Paging number for query results exceeding result count limit for a single response.
     public init(merchantID: String?,
                 merchantUserID: String?,
                 startDate: Date?,

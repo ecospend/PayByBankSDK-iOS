@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - PaylinkCreateRequest
+/// Request model to create Paylink.
 public struct PaylinkCreateRequest: Codable {
     
     /// The URL of the Tenant that the PSU will be redirected at the end of the paylink journey.
@@ -43,16 +44,16 @@ public struct PaylinkCreateRequest: Codable {
     /// It is the account from which the payment will be taken.
     public let debtorAccount: PayByBankAccountRequest?
     
-    /// The Paylink Options model
+    /// Options that are for Paylink.
     public let paylinkOptions: PaylinkOptions?
     
-    /// The Notification Options model
+    /// Options that are about notification for Paylink.
     public let notificationOptions: PayByBankNotificationOptionsRequest?
     
-    /// The Payment Options model
+    /// Options that are about payment for Paylink.
     public let paymentOptions: PaylinkPaymentOptions?
     
-    /// The Limit Options model
+    /// Options that are about limit for Paylink.
     public let limitOptions: PaylinkLimitOptions?
     
     enum CodingKeys: String, CodingKey {
@@ -69,6 +70,22 @@ public struct PaylinkCreateRequest: Codable {
         case limitOptions = "limit_options"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the paylink journey.
+    ///     - amount: Payment amount in decimal format.
+    ///     - reference: Payment reference that will be displayed on the bank statement. 18 characters MAX.
+    ///     - description: Description for the payment. 255 character MAX.
+    ///     - bankID: Unique identification string assigned to the bank by our system.
+    ///     - merchantID: If you are providing our Payment service to your own business clients (merchants), then you should set the Id of your merchant.
+    ///     - merchantUserID: The Id of the end-user.
+    ///     - creditorAccount: Instance's `PayByBankAccountRequest`, which is the account that will receive the payment.
+    ///     - debtorAccount: Instance's `PayByBankAccountRequest`, which is the account from which the payment will be taken.
+    ///     - paylinkOptions: Instance's `PaylinkOptions`, which contains options for Paylink.
+    ///     - notificationOptions: Instance's `PayByBankNotificationOptionsRequest`, which contains options about notification.
+    ///     - paymentOptions: Instance's `PaylinkPaymentOptions`, which contains options about payment for Paylink.
+    ///     - limitOptions: Instance's `PaylinkLimitOptions`, which contains options about limit for Paylink.
     public init(redirectURL: String,
                 amount: Decimal,
                 reference: String,
@@ -99,20 +116,23 @@ public struct PaylinkCreateRequest: Codable {
 }
 
 // MARK: - PaylinkLimitOptions
+/// Options which are about limit for Paylink.
 public struct PaylinkLimitOptions: Codable {
     
     /// Maximum successfull payment count limit.
     public let count: Int?
     
-    /// Maximum amount value for collecting payment with the paylink.
+    /// Maximum amount value for collecting payment with the Paylink.
     public let amount: Decimal?
     
     /// Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public let date: Date?
     
+    /// Creates an instance from the specified parameters.
+    ///
     /// - Parameters:
     ///     - count: Maximum successfull payment count limit.
-    ///     - amount: Maximum amount value for collecting payment with the paylink.
+    ///     - amount: Maximum amount value for collecting payment with the Paylink.
     ///     - date: Expire date for the paylink in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
     public init(count: Int?,
                 amount: Decimal?,
@@ -124,25 +144,26 @@ public struct PaylinkLimitOptions: Codable {
 }
 
 // MARK: - PaylinkOptions
+/// Options which are for Paylink.
 public struct PaylinkOptions: Codable {
     
     /// After the payment directly returns to the tenant's url if set to true.
-    /// - Defaults to false.
+    /// - Note: Defaults to false.
     public let autoRedirect: Bool?
     
     /// Optional parameter for getting a QRCode image in Base64 format with the response.
-    /// - Defaults to false.
+    /// - Note: Defaults to false.
     public let generateQrCode: Bool?
     
     /// Optional parameter for allowing user to pay total amount partially.
     /// - Warning: When this value is set, paylink will be expired total amount is comppublic leted.
-    /// - Defaults to false.
+    /// - Note: Defaults to false.
     public let allowPartialPayments: Bool?
     
     /// Optional parameter for displaying a QR Code on the paylink screens, that enables users to transfer their journey from desktop to mobile easily. This feature is only visible on desktop view.
     public let disableQrCode: Bool?
     
-    /// The Tip object model
+    /// Tip is a voluntary amount.
     public let tip: PaylinkTip?
     
     enum CodingKeys: String, CodingKey {
@@ -153,6 +174,14 @@ public struct PaylinkOptions: Codable {
         case tip
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - autoRedirect: After the payment directly returns to the tenant's url if set to true.
+    ///     - generateQrCode: Optional parameter for getting a QRCode image in Base64 format with the response.
+    ///     - allowPartialPayments: Optional parameter for allowing user to pay total amount partially.
+    ///     - disableQrCode: Optional parameter for displaying a QR Code on the paylink screens, that enables users to transfer their journey from desktop to mobile easily. This feature is only visible on desktop view.
+    ///     - tip:  Instance's `PaylinkTip`, which is a voluntary amount.
     public init(autoRedirect: Bool?,
                 generateQrCode: Bool?,
                 allowPartialPayments: Bool?,
@@ -167,6 +196,7 @@ public struct PaylinkOptions: Codable {
 }
 
 // MARK: - PaylinkTip
+/// Tip is a voluntary amount for Paylink.
 public struct PaylinkTip: Codable {
     
     /// Denotes whether tip requested from payer.
@@ -178,8 +208,7 @@ public struct PaylinkTip: Codable {
     /// The informative text on the Tip Request Page.
     public let text: String?
     
-    /// Tip can be configured as required.
-    /// In this case the payer will be forced to select or enter tip amount.
+    /// Tip can be configured as required. In this case the payer will be forced to select or enter tip amount.
     public let isRequired: Bool?
     
     /// The tip options that will be listed on the Tip Request Page.
@@ -192,6 +221,14 @@ public struct PaylinkTip: Codable {
         case options
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - requestTip: Denotes whether tip requested from payer.
+    ///     - title: The Title of the Tip Request Page.
+    ///     - text: The informative text on the Tip Request Page.
+    ///     - isRequired: Tip can be configured as required. In this case the payer will be forced to select or enter tip amount.
+    ///     - options:  Instance's array of `PaylinkTipOption`, which contains options that will be listed on the Tip Request Page.
     public init(requestTip: Bool?,
                 title: String?,
                 text: String?,
@@ -206,6 +243,7 @@ public struct PaylinkTip: Codable {
 }
 
 // MARK: - PaylinkTipOption
+/// Options which will be listed on the Tip Request Page for Paylink.
 public struct PaylinkTipOption: Codable {
     
     /// Tip options type.
@@ -213,11 +251,13 @@ public struct PaylinkTipOption: Codable {
     public let type: PaylinkTipOptionType
     
     /// Tip options value.
-    /// - Can be left empy or set to zero(0) if type is manual.
+    /// - Note: Can be left empy or set to zero(0) if type is manual.
     public let value: Double
     
+    /// Creates an instance from the specified parameters.
+    ///
     /// - Parameters:
-    ///     - type: Tip options type. Enum: "Amount" "Percentage" "Manual"
+    ///     - type: Instance's `PaylinkTipOptionType`, which is type of tip.
     ///     - value: Tip options value. Can be left empy or set to zero(0) if type is manual.
     public init(type: PaylinkTipOptionType,
                 value: Double) {
@@ -227,24 +267,32 @@ public struct PaylinkTipOption: Codable {
 }
 
 // MARK: - PaylinkTipOptionType
+/// Tip options types for Paylink.
 public enum PaylinkTipOptionType: Int, Codable {
+    
+    /// Amount.
     case amount = 1
+    
+    /// Percentage.
     case percentage = 2
+    
+    /// Manual.
     case manual = 3
 }
 
 // MARK: - PaylinkPaymentOptions
+/// Options that are about payment for Paylink.
 public struct PaylinkPaymentOptions: Codable {
     
     /// Payment rails information of the paylink.
     public let paymentRails: String?
     
     /// Set true, if you would like to get back the debtor's account information that the payment is made from.
-    /// - Defaults to true.
+    /// - Note: Defaults to true.
     public let getRefundInfo: Bool?
     
     /// Specifies that the payment is for payout operation.
-    /// - Default is false.
+    /// - Note: Default is false.
     public let forPayout: Bool?
     
     enum CodingKeys: String, CodingKey {
@@ -253,6 +301,12 @@ public struct PaylinkPaymentOptions: Codable {
         case forPayout = "for_payout"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - paymentRails: Payment rails information of the paylink.
+    ///     - getRefundInfo: Set true, if you would like to get back the debtor's account information that the payment is made from.
+    ///     - forPayout: Specifies that the payment is for payout operation.
     public init(paymentRails: String?,
                 getRefundInfo: Bool?,
                 forPayout: Bool?) {

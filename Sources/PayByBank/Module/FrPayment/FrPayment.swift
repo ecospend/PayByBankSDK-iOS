@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+/// FrPayment (Standing Order) API
+/// - Note: A Standing Order is an instruction that an account holder gives to their bank to make payments of a fixed amount at regular intervals. Payments are made automatically by the bank on a defined schedule (e.g. weekly or monthly) on an ongoing basis, unless a specified condition has been met, such as an end-date being reached or a set number of payments having been made. Standing Orders can only be created, amended or cancelled by the account holder, typically by using their online or telephone banking service. They are most commonly used for recurring payments where the amount stays the same, such as rent payments, subscription services or regular account top-ups.
 public final class FrPayment {
     
     private let factory: FrPaymentFactoryProtocol

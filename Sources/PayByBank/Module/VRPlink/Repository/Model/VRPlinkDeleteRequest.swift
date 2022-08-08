@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - VRPlinkDeleteRequest
+/// Request model to delete VRPlink.
 public struct VRPlinkDeleteRequest: Codable {
     
     /// Unique id value to delete VRPlink
@@ -18,6 +19,10 @@ public struct VRPlinkDeleteRequest: Codable {
         case uniqueID = "unique_id"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value to delete VRPlink
     public init(uniqueID: String) {
         self.uniqueID = uniqueID
     }

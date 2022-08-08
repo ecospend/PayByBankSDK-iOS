@@ -9,15 +9,20 @@
 import Foundation
 
 // MARK: - FrPaymentDeleteRequest
+/// Request model to delete FrPayment.
 public struct FrPaymentDeleteRequest: Codable {
     
-    /// Unique id value to delete FrPayment
+    /// Unique id value to delete FrPayment.
     public let uniqueID: String
     
     enum CodingKeys: String, CodingKey {
         case uniqueID = "unique_id"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: Unique id value to delete FrPayment.
     public init(uniqueID: String) {
         self.uniqueID = uniqueID
     }

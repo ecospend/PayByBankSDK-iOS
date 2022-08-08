@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           PayByBank 1.0.2 Docs
         </a>
-         (63% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -279,12 +279,6 @@
                 <a class="nav-group-task-link" href="../Structs/FrPaymentOptionsResponse.html">FrPaymentOptionsResponse</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenRequest.html">IamTokenRequest</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/IamTokenResponse.html">IamTokenResponse</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/OutputSettings.html">OutputSettings</a>
               </li>
               <li class="nav-group-task">
@@ -455,7 +449,8 @@
 
                 </div>
               </div>
-            
+            <p>Options that are about payment for Paylink.</p>
+
           </div>
         </section>
 
@@ -504,10 +499,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Set true, if you would like to get back the debtor&rsquo;s account information that the payment is made from.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Defaults to true.
 
-<ul>
-<li>Defaults to true.</li>
-</ul>
+</div>
 
                       </div>
                       <div class="declaration">
@@ -535,10 +531,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies that the payment is for payout operation.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Default is false.
 
-<ul>
-<li>Default is false.</li>
-</ul>
+</div>
 
                       </div>
                       <div class="declaration">
@@ -565,7 +562,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>Creates an instance from the specified parameters.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -576,6 +574,49 @@
             <span class="nv">forPayout</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentRails</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Payment rails information of the paylink.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>getRefundInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Set true, if you would like to get back the debtor&rsquo;s account information that the payment is made from.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forPayout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Specifies that the payment is for payout operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -588,7 +629,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-01)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

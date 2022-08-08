@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - PaymentCheckURLResponse
+/// Response model to check url of Payment.
 public struct PaymentCheckURLResponse: Codable {
     
     /// Indicates the current status of the `paymentURL`.
@@ -20,6 +21,10 @@ public struct PaymentCheckURLResponse: Codable {
         case isConsumed = "is_consumed"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - isConsumed: Indicates the current status of the `paymentURL`.
     public init(isConsumed: Bool?) {
         self.isConsumed = isConsumed
     }

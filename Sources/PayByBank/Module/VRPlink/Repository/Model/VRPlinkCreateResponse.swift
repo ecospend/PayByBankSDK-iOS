@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - VRPlinkCreateResponse
+/// Response model to create VRPlink.
 public struct VRPlinkCreateResponse: Codable {
     
     /// A system assigned unique identification for the Paylink.
@@ -27,6 +28,12 @@ public struct VRPlinkCreateResponse: Codable {
         case qrCode = "qr_code"
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the Paylink.
+    ///     - url: Unique Paylink URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - qrCode: Base64 encoded QRCode image data that represents Paylink URL.
     public init(uniqueID: String?,
                 url: String?,
                 qrCode: String?) {

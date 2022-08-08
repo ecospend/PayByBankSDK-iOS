@@ -9,12 +9,14 @@
 import Foundation
 
 // MARK: - PayByBankAccountRequest
+/// Request model for bank account.
 public struct PayByBankAccountRequest: Codable {
     
-    /// - Enum: "SortCode" "Iban" "Bban"
+    /// Format of the account identification text.
+    /// - Note: Enum: "SortCode" "Iban" "Bban"
     public let type: PayByBankAccountType
     
-    /// Account identification. The value of this parameter depends on the value of AccountType.
+    /// Account identification. 
     /// If type = “SortCode” then a 6-digit SortCode appended with a 8-digit Account Number merged into a 14-digit value, with no dashes in between.
     /// For type = “IBAN” the IBAN of the account (compliant with [ISO 13616-1](https://en.wikipedia.org/wiki/International_Bank_Account_Number#Structure)) and for type = “BNAN” the BBAN of the account must be set.
     public let identification: String
@@ -23,11 +25,11 @@ public struct PayByBankAccountRequest: Codable {
     public let name: String
     
     /// Currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
-    /// - Enum: "GBP" "USD" "EUR"
+    /// - Note: Enum: "GBP" "USD" "EUR"
     public let currency: PayByBankCurrency
     
     /// A standard [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362#Structure) compliant Bank Identifier Code.
-    /// It is required for international payments (if either sender or the creditor account is outside the SEPA region).
+    /// - Warning: It is required for international payments (if either sender or the creditor account is outside the SEPA region).
     public let bic: String?
     
     enum CodingKeys: String, CodingKey {
@@ -39,6 +41,14 @@ public struct PayByBankAccountRequest: Codable {
         case bic
     }
     
+    /// Creates an instance from the specified parameters.
+    ///
+    /// - Parameters:
+    ///     - type: Instance's `PayByBankAccountType`, which is format of the account identification text.
+    ///     - identification: Account identification.
+    ///     - name: Full legal name of the account owner.
+    ///     - currency: Instance's `PayByBankCurrency`, which is currency code of the account in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) format.
+    ///     - bic: A standard [ISO 9362](https://en.wikipedia.org/wiki/ISO_9362#Structure) compliant Bank Identifier Code.
     public init(type: PayByBankAccountType,
                 identification: String,
                 name: String,
@@ -55,6 +65,10 @@ public struct PayByBankAccountRequest: Codable {
 // MARK: - Decodable & Encodable
 public extension PayByBankAccountRequest {
     
+    /// Creates a new instance by decoding from the given decoder.
+    ///
+    /// - Parameters:
+    ///     - decoder: The decoder to read data from.
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decode(PayByBankAccountType.self, forKey: .type)
@@ -69,6 +83,10 @@ public extension PayByBankAccountRequest {
         bic = try container.decodeIfPresent(String.self, forKey: .bic)
     }
     
+    /// Encodes instance into the given encoder.
+    ///
+    /// - Parameters:
+    ///     - encoder: The encoder to write data to.
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
