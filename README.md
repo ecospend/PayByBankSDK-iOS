@@ -73,6 +73,8 @@ To get more information about PayByBank, check out the [documentation](https://e
 
 *Note: Please look at <https://docs.ecospend.com/api/intro> for more details.*
 
+### Onboarding
+
 To start using our API, you need to onboard with us and get a Client Id (`client_id`) and Client Secret (`client_secret`) via email to <support@ecospend.com>. For onboarding we will need the following information:
 
 - The full name of your company/organization
@@ -83,15 +85,29 @@ Once onboarded, a Client Id is generated for you and you will have access to our
 
 - The `client_id` is created by Ecospend when your organization is registered with us.
 - The `client_secret` is a security key that your administrator should create from the Management Console. This is not visible to or accessible  by the Ecospend team. Therefore, you should store it safely.
+- The `access_token` is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.
 
 You will be given separate pairs of Client Id and Client Secret for our `Sandbox` and `Production` environments respectively. Ecospend does not store these parameters; therefore, you need to keep them safe and secure.
 
 - `Sandbox` environment should be used for testing purposes.
 - `Production` environment should be used for released applications.
 
-`PayByBank.configure` function should be called to access `client_id` and `client_secret` before using APIs of PayByBank SDK:
+### Authentication
+
+PayByBank SDK supports [Client Credentials Flow](https://en.wikipedia.org/wiki/OAuth) and [Token-Based Authentication](https://en.wikipedia.org/wiki/Access_token) to access Ecospend Gateway endpoints:
+
+- Client Credentials Flow: `PayByBank.configure` function should be called once to access `client_id` and `client_secret` before using APIs of PayByBank SDK.
+
+- Token-Based Authentication: `PayByBank.configure` function should be called to access `access_token` before using APIs of PayByBank SDK. When `access_token` is expired, `PayByBank.configure` function should be called again. To generate `access_token`, check out the [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
+
 ```
-PayByBank.configure(environment: <environment>, clientID: <client_id>, clientSecret: <client_secret>)
+PayByBank.configure(environment: <environment>, 
+                    authentication: .clientCredentials(clientID: <client_id>, clientSecret: <client_secret>))
+
+// or
+
+PayByBank.configure(environment: <environment>, 
+                    authentication: .token(<access_token>))
 ```
 
 ## Sample Projects
