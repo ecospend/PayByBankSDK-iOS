@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PayByBank Class Reference</title>
+    <title>PayByBankAuthentication Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Class/PayByBank" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Enum/PayByBankAuthentication" class="dashAnchor"></a>
 
-    <a title="PayByBank Class Reference"></a>
+    <a title="PayByBankAuthentication Enumeration Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -50,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">PayByBank Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      PayByBank Class Reference
+      PayByBankAuthentication Enumeration Reference
     </p>
 
     <div class="content-wrapper">
@@ -444,20 +444,15 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>PayByBank</h1>
+            <h1>PayByBankAuthentication</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">PayByBank</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">PayByBankAuthentication</span></code></pre>
 
                 </div>
               </div>
-            <p>PayByBank SDK.</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of Open Banking Instant Payment solutions. PayByBank SDK provides you the option of downsizing the development effort for a PIS and AIS journeys to a single SDK integration. PayByBank undertakes all of interaction in the payment user journey with your branding on display.
-
-</div>
+            <p>Configuration for authentication to endpoints.</p>
 
           </div>
         </section>
@@ -465,22 +460,13 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/API"></a>
-                <a name="//apple_ref/swift/Section/API" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/API"></a>
-                  <h3 class="section-name"><span>API</span>
-</h3>
-                </div>
-              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9PayByBankAAC9configure11environment14authenticationyAA0abC11EnvironmentO_AA0abC14AuthenticationOtFZ"></a>
-                    <a name="//apple_ref/swift/Method/configure(environment:authentication:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC9configure11environment14authenticationyAA0abC11EnvironmentO_AA0abC14AuthenticationOtFZ">configure(environment:<wbr>authentication:<wbr>)</a>
+                    <a name="/s:9PayByBank0abC14AuthenticationO17clientCredentialsyACSS_SStcACmF"></a>
+                    <a name="//apple_ref/swift/Element/clientCredentials(clientID:clientSecret:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank0abC14AuthenticationO17clientCredentialsyACSS_SStcACmF">clientCredentials(clientID:<wbr>clientSecret:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -488,14 +474,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets configuration for all PayByBank APIs.</p>
+                        <p>Client Credentials Flow.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
-    <p>For more details, please look at the <a href="https://docs.ecospend.com/api/intro">API Specifications &amp; Developer&rsquo;s Guide</a>.</p>
-
-</div><div class="aside aside-warning">
-    <p class="aside-title">Warning</p>
-    <p>This method should be called before using any PayByBank API, otherwise each API returns an error as <code><a href="../Enums/PayByBankError.html#/s:9PayByBank0abC5ErrorO13notConfiguredyA2CmF">PayByBankError.notConfigured</a></code>.</p>
+    <p>The Client ID is a public identifier of your application. The Client Secret is confidential and should only be used to authenticate your application and make requests to PayByBank&rsquo;s APIs. For more details, please look at <a href="https://docs.ecospend.com/api/intro/#section/Onboarding">Onboarding</a> documentation.</p>
 
 </div>
 
@@ -504,7 +486,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/PayByBankEnvironment.html">PayByBankEnvironment</a></span><span class="p">,</span> <span class="nv">authentication</span><span class="p">:</span> <span class="kt"><a href="../Enums/PayByBankAuthentication.html">PayByBankAuthentication</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">clientCredentials</span><span class="p">(</span><span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -515,24 +497,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>environment</em>
+                                <em>clientID</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Instance&rsquo;s <code><a href="../Enums/PayByBankEnvironment.html">PayByBankEnvironment</a></code>, which is environment for testing or released applications.</p>
+                                  <p>The <strong>Client ID</strong> is created by Ecospend when your organization is registered with us.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>authentication</em>
+                                <em>clientSecret</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Instance&rsquo;s <code><a href="../Enums/PayByBankAuthentication.html">PayByBankAuthentication</a></code>, which is configuration for authentication to Ecospend Gateway APIs.</p>
+                                  <p>The <strong>Client Secret</strong> is a security key that your administrator should create from the Management Console. This is not visible to or accessible  by the Ecospend team. Therefore, you should store it safely.</p>
                                 </div>
                               </td>
                             </tr>
@@ -545,9 +527,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9PayByBankAAC7paylinkAA7PaylinkCvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/paylink" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC7paylinkAA7PaylinkCvpZ">paylink</a>
+                    <a name="/s:9PayByBank0abC14AuthenticationO5tokenyACSS_SStcACmF"></a>
+                    <a name="//apple_ref/swift/Element/token(_:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank0abC14AuthenticationO5tokenyACSS_SStcACmF">token(_:<wbr>type:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -555,10 +537,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Paylink API</p>
+                        <p>Token-Based Authentication.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
-    The Ecospend Gateway presents Paylink as an alternative and easier form of Open Banking Instant Payment solution. Paylink provides you the option of downsizing the development effort for a PIS journey to a single endpoint integration. Paylink undertakes all of interaction in the payment user journey with your branding on display.
+    <p>Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token. During the life of the token, users access the Ecospend Gateway APIs. For more details, please look at <a href="https://docs.ecospend.com/api/intro/#tag/Get-Access-Token">Get Access Token</a> documentation.</p>
 
 </div>
 
@@ -567,169 +549,40 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">paylink</span><span class="p">:</span> <span class="kt"><a href="../Classes/Paylink.html">Paylink</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">token</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"Bearer"</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9PayByBankAAC9frPaymentAA02FrE0CvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/frPayment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC9frPaymentAA02FrE0CvpZ">frPayment</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>FrPayment (Standing Order) API</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    A Standing Order is an instruction that an account holder gives to their bank to make payments of a fixed amount at regular intervals. Payments are made automatically by the bank on a defined schedule (e.g. weekly or monthly) on an ongoing basis, unless a specified condition has been met, such as an end-date being reached or a set number of payments having been made. Standing Orders can only be created, amended or cancelled by the account holder, typically by using their online or telephone banking service. They are most commonly used for recurring payments where the amount stays the same, such as rent payments, subscription services or regular account top-ups.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">frPayment</span><span class="p">:</span> <span class="kt"><a href="../Classes/FrPayment.html">FrPayment</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9PayByBankAAC7vrplinkAA7VRPlinkCvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/vrplink" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC7vrplinkAA7VRPlinkCvpZ">vrplink</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>VRPlink (Variable Recurring Payment ) API</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    Variable Recurring Payments (VRPs) let customers safely connect authorised payments providers to their bank account so that they can make payments on the customer’s behalf, in line with agreed limits. VRPs offer more control and transparency than existing alternatives, such as Direct Debit payments.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">vrplink</span><span class="p">:</span> <span class="kt"><a href="../Classes/VRPlink.html">VRPlink</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9PayByBankAAC11bulkPaymentAA04BulkE0CvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/bulkPayment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC11bulkPaymentAA04BulkE0CvpZ">bulkPayment</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Bulk Payment API</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    A bulk payment is a payment created from a bulk list - so it&rsquo;s a payment to multiple beneficiaries from a single debit account. It will show as one debit on your bank statement. As with bulk lists, there are two types: standard domestic bulk payments and bulk Inter Account Transfers (IATs).
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">bulkPayment</span><span class="p">:</span> <span class="kt"><a href="../Classes/BulkPayment.html">BulkPayment</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9PayByBankAAC8datalinkAA8DatalinkCvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/datalink" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC8datalinkAA8DatalinkCvpZ">datalink</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Datalink API</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    Datalink is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration. By making a single call to /datalink endpoint you will be able to initiate the consent journey.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">datalink</span><span class="p">:</span> <span class="kt"><a href="../Classes/Datalink.html">Datalink</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:9PayByBankAAC7paymentAA7PaymentCvpZ"></a>
-                    <a name="//apple_ref/swift/Variable/payment" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC7paymentAA7PaymentCvpZ">payment</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Payment API</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    Domestic instant payments, international payments, and scheduled payments are all accomplished from the same /payments endpoint. The payment type is automatically identified by our system depending whether the debtor and creditor accounts are from different countries (for international payments), or whether a value has been set for the scheduled_for parameter (meaning a scheduled payment).
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">payment</span><span class="p">:</span> <span class="kt"><a href="../Classes/Payment.html">Payment</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <strong>Access Token</strong> is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Type of token provided. Defaults to &ldquo;Bearer&rdquo;</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

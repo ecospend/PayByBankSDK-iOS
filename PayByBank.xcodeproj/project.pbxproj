@@ -22,7 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		60E67A3B27676AF70032A5C3 /* PayByBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* PayByBank.framework */; };
-		D6ADF6A528A3BEA000CA7D36 /* PayByBankAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADF6A428A3BEA000CA7D36 /* PayByBankAuthentication.swift */; };
+		D6ADF6A728A3EB2900CA7D36 /* PayByBankAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADF6A628A3EB2900CA7D36 /* PayByBankAuthentication.swift */; };
 		D6B4F464289413B500921FA2 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F3CD289413B500921FA2 /* Encodable+.swift */; };
 		D6B4F465289413B500921FA2 /* JSONEncoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */; };
 		D6B4F466289413B500921FA2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F3CF289413B500921FA2 /* Array+.swift */; };
@@ -145,7 +145,7 @@
 /* Begin PBXFileReference section */
 		60E67A3027676AF70032A5C3 /* PayByBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayByBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E67A3A27676AF70032A5C3 /* PayByBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayByBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6ADF6A428A3BEA000CA7D36 /* PayByBankAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayByBankAuthentication.swift; sourceTree = "<group>"; };
+		D6ADF6A628A3EB2900CA7D36 /* PayByBankAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayByBankAuthentication.swift; sourceTree = "<group>"; };
 		D6B4F3CD289413B500921FA2 /* Encodable+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+.swift"; sourceTree = "<group>"; };
 		D6B4F3CF289413B500921FA2 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
@@ -739,7 +739,7 @@
 		D6B4F459289413B500921FA2 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				D6ADF6A428A3BEA000CA7D36 /* PayByBankAuthentication.swift */,
+				D6ADF6A628A3EB2900CA7D36 /* PayByBankAuthentication.swift */,
 				D6B4F45C289413B500921FA2 /* PayByBankConstant.swift */,
 				D6B4F45B289413B500921FA2 /* PayByBankEnvironment.swift */,
 				D6B4F45A289413B500921FA2 /* PayByBankState.swift */,
@@ -961,6 +961,7 @@
 				D6B4F492289413B500921FA2 /* PaymentFactory.swift in Sources */,
 				D6B4F494289413B500921FA2 /* DatalinkEndpoint.swift in Sources */,
 				D6B4F477289413B500921FA2 /* FrPaymentFactory.swift in Sources */,
+				D6ADF6A728A3EB2900CA7D36 /* PayByBankAuthentication.swift in Sources */,
 				D6B4F4C6289413B500921FA2 /* NetworkError.swift in Sources */,
 				D6B4F482289413B500921FA2 /* PayByBank.swift in Sources */,
 				D6B4F499289413B500921FA2 /* DatalinkCreateRequest.swift in Sources */,
@@ -982,7 +983,6 @@
 				D6B4F4CB289413B500921FA2 /* PayByBankHandler.swift in Sources */,
 				D6B4F4AC289413B500921FA2 /* BulkPaymentGetResponse.swift in Sources */,
 				D6B4F4AD289413B500921FA2 /* BulkPaymentDeleteRequest.swift in Sources */,
-				D6ADF6A528A3BEA000CA7D36 /* PayByBankAuthentication.swift in Sources */,
 				D6B4F47B289413B500921FA2 /* IamRepository.swift in Sources */,
 				D6B4F4B8289413B500921FA2 /* VRPlinkGetRecordsResponse.swift in Sources */,
 				D6B4F4A9289413B500921FA2 /* BulkPaymentEndpoint.swift in Sources */,
