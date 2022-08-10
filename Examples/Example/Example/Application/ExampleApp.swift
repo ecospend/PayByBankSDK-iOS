@@ -18,8 +18,7 @@ struct ExampleApp: App {
     
     init() {
         PayByBank.configure(environment: environment,
-                            clientID: clientID,
-                            clientSecret: clientSecret)
+                            authentication: .clientCredentials(clientID: clientID, clientSecret: clientSecret))
     }
     
     var body: some Scene {

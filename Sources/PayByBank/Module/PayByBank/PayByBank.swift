@@ -23,12 +23,10 @@ public extension PayByBank {
     ///
     /// - Parameters:
     ///     - environment: Instance's `PayByBankEnvironment`, which is environment for testing or released applications.
-    ///     - clientID: Unique identification string assigned to the client by our system.
-    ///     - clientSecret: Secret string assigned to the client by our system.
-    static func configure(environment: PayByBankEnvironment, clientID: String, clientSecret: String) {
+    ///     - authentication: Instance's `PayByBankAuthentication`, which is configuration for authentication to endpoints.
+    static func configure(environment: PayByBankEnvironment, authentication: PayByBankAuthentication) {
         PayByBankState.Config.environment = environment
-        PayByBankState.Config.clientID = clientID
-        PayByBankState.Config.clientSecret = clientSecret
+        PayByBankState.Config.authentication = authentication
     }
     
     /// Paylink API

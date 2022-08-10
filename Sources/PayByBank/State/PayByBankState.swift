@@ -12,8 +12,7 @@ struct PayByBankState {
     
     struct Config {
         static var environment: PayByBankEnvironment = .sandbox
-        static var clientID: String?
-        static var clientSecret: String?
+        static var authentication: PayByBankAuthentication?
     }
     
     struct Network {

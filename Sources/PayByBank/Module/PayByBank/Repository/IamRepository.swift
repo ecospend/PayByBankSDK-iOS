@@ -31,19 +31,23 @@ class IamRepository {
 extension IamRepository: IamRepositoryAsyncProtocol {
     
     func getToken(completion: @escaping (Result<IamTokenResponse, Error>) -> Void) {
-        guard let clientID = PayByBankState.Config.clientID,
-              let clietSecret = PayByBankState.Config.clientSecret else {
-                  return completion(.failure(PayByBankError.notConfigured))
-              }
-        
-        let request = IamTokenRequest(clientID: clientID, clientSecret: clietSecret)
-        networking.execute(endpoint: IamEndpoint.token(request), type: IamTokenResponse.self) { result in
-            switch result {
-            case .success(let response):
-                PayByBankState.Network.token = response
-                completion(.success(response))
-            case .failure(let error):
-                completion(.failure(error))
+        switch PayByBankState.Config.authentication {
+        case .none:
+            return completion(.failure(PayByBankError.notConfigured))
+        case .token(let accessToken, let tokenType):
+            let response = IamTokenResponse(accessToken: accessToken, tokenType: tokenType)
+            PayByBankState.Network.token = response
+            return completion(.success(response))
+        case .clientCredentials(let clientID, let clientSecret):
+            let request = IamTokenRequest(clientID: clientID, clientSecret: clientSecret)
+            networking.execute(endpoint: IamEndpoint.token(request), type: IamTokenResponse.self) { result in
+                switch result {
+                case .success(let response):
+                    PayByBankState.Network.token = response
+                    completion(.success(response))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
     }

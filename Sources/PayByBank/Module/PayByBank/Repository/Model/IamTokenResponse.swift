@@ -39,10 +39,10 @@ struct IamTokenResponse: Codable {
     ///     - expiresIn: Expiration time in seconds.
     ///     - tokenType: Type of token provided.
     ///     - scope: Scope of the access granted.
-    init(accessToken: String?,
-                expiresIn: Int?,
-                tokenType: String?,
-                scope: String?) {
+    init(accessToken: String,
+         expiresIn: Int? = nil,
+         tokenType: String,
+         scope: String? = nil) {
         self.accessToken = accessToken
         self.expiresIn = expiresIn
         self.tokenType = tokenType
