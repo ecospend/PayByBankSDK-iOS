@@ -30,8 +30,7 @@ struct Settings: View {
         .navigationTitle(L10n.settingsTitle.localizedKey)
         .onDisappear {
             PayByBank.configure(environment: environment,
-                                clientID: clientID,
-                                clientSecret: clientSecret)
+                                authentication: .clientCredentials(clientID: clientID, clientSecret: clientSecret))
         }
         .safari(APIDocuments.Authentication.base)
     }

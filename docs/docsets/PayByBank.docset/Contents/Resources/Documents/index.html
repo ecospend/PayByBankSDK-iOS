@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          PayByBank 1.0.3 Docs
+          PayByBank 1.1.0 Docs
         </a>
          (100% documented)
       </p>
@@ -470,11 +470,11 @@
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <p>To integrate PayByBank into your Xcode project using CocoaPods, add this to your <code>Podfile</code>:</p>
-<pre class="highlight plaintext"><code>pod 'PayByBank', :git =&gt; 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag =&gt; '1.0.3'
+<pre class="highlight plaintext"><code>pod 'PayByBank', :git =&gt; 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag =&gt; '1.1.0'
 
 # or
 
-pod 'PayByBank', '1.0.3'
+pod 'PayByBank', '1.1.0'
 </code></pre>
 
 <p>Then run <code>pod install</code>.</p>
@@ -486,17 +486,17 @@ pod 'PayByBank', '1.0.3'
 <ul>
 <li>File &gt; Swift Packages &gt; Add Package Dependency</li>
 <li>Add <code>https://github.com/ecospend/PayByBankSDK-iOS.git</code></li>
-<li>Select &ldquo;Dependency Rule&rdquo; with &ldquo;Exact Version&rdquo; and &ldquo;1.0.3&rdquo;</li>
+<li>Select &ldquo;Dependency Rule&rdquo; with &ldquo;Exact Version&rdquo; and &ldquo;1.1.0&rdquo;</li>
 </ul>
 <h4 id='manually' class='heading'>Manually</h4>
 
 <p>To integrate using Apple&rsquo;s Swift package manager, without Xcode integration, add the following as a dependency to your <code>Package.swift</code></p>
-<pre class="highlight plaintext"><code>.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.0.3")
+<pre class="highlight plaintext"><code>.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.1.0")
 </code></pre>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
 <p>To integrate PayByBank into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
-<pre class="highlight plaintext"><code>github "ecospend/PayByBankSDK-iOS" ~&gt; 1.0.3
+<pre class="highlight plaintext"><code>github "ecospend/PayByBankSDK-iOS" ~&gt; 1.1.0
 </code></pre>
 
 <p>Then run <code>carthage update --use-xcframeworks</code> and drag the built <code>PayByBank.xcframework</code> bundle from <code>Carthage/Build</code> into the &ldquo;Frameworks and Libraries&rdquo; section of your application’s Xcode project.</p>
@@ -505,7 +505,8 @@ pod 'PayByBank', '1.0.3'
 <p>To get more information about PayByBank, check out the <a href="https://ecospend.github.io/PayByBankSDK-iOS">documentation</a>.</p>
 <h2 id='usage' class='heading'>Usage</h2>
 
-<p><em>Note: Please look at <a href="https://docs.ecospend.com/api/intro">https://docs.ecospend.com/api/intro</a> for more details.</em></p>
+<p><em>Note: Please look at <a href="https://docs.ecospend.com/api/intro">API Specifications &amp; Developer&rsquo;s Guide</a> for more details.</em></p>
+<h3 id='onboarding' class='heading'>Onboarding</h3>
 
 <p>To start using our API, you need to onboard with us and get a Client Id (<code>client_id</code>) and Client Secret (<code>client_secret</code>) via email to <a href="mailto:support@ecospend.com">support@ecospend.com</a>. For onboarding we will need the following information:</p>
 
@@ -520,6 +521,7 @@ pod 'PayByBank', '1.0.3'
 <ul>
 <li>The <code>client_id</code> is created by Ecospend when your organization is registered with us.</li>
 <li>The <code>client_secret</code> is a security key that your administrator should create from the Management Console. This is not visible to or accessible  by the Ecospend team. Therefore, you should store it safely.</li>
+<li>The <code>access_token</code> is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.</li>
 </ul>
 
 <p>You will be given separate pairs of Client Id and Client Secret for our <code>Sandbox</code> and <code>Production</code> environments respectively. Ecospend does not store these parameters; therefore, you need to keep them safe and secure.</p>
@@ -528,9 +530,21 @@ pod 'PayByBank', '1.0.3'
 <li><code>Sandbox</code> environment should be used for testing purposes.</li>
 <li><code>Production</code> environment should be used for released applications.</li>
 </ul>
+<h3 id='authentication' class='heading'>Authentication</h3>
 
-<p><code>PayByBank.configure</code> function should be called to access <code>client_id</code> and <code>client_secret</code> before using APIs of PayByBank SDK:</p>
-<pre class="highlight plaintext"><code>PayByBank.configure(environment: &lt;environment&gt;, clientID: &lt;client_id&gt;, clientSecret: &lt;client_secret&gt;)
+<p>PayByBank SDK supports <a href="https://en.wikipedia.org/wiki/OAuth">Client Credentials Flow</a> and <a href="https://en.wikipedia.org/wiki/Access_token">Token-Based Authentication</a> to access Ecospend Gateway APIs.</p>
+
+<ul>
+<li><p>Client Credentials Flow: <code>PayByBank.configure</code> function should be called once to access <code>client_id</code> and <code>client_secret</code> before using APIs of PayByBank SDK.</p></li>
+<li><p>Token-Based Authentication: <code>PayByBank.configure</code> function should be called to access <code>access_token</code> before using APIs of PayByBank SDK. When <code>access_token</code> is expired, <code>PayByBank.configure</code> function should be called again. To generate <code>access_token</code>, check out the <a href="https://docs.ecospend.com/api/intro/#tag/Get-Access-Token">Get Access Token</a> documentation.</p></li>
+</ul>
+<pre class="highlight plaintext"><code>PayByBank.configure(environment: &lt;environment&gt;, 
+                    authentication: .clientCredentials(clientID: &lt;client_id&gt;, clientSecret: &lt;client_secret&gt;))
+
+// or
+
+PayByBank.configure(environment: &lt;environment&gt;, 
+                    authentication: .token(&lt;access_token&gt;))
 </code></pre>
 <h2 id='sample-projects' class='heading'>Sample Projects</h2>
 
@@ -546,7 +560,7 @@ pod 'PayByBank', '1.0.3'
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-10)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
