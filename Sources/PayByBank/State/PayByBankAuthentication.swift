@@ -13,7 +13,7 @@ public enum PayByBankAuthentication {
     
     /// Client Credentials Flow.
     ///
-    /// - Note: The Client ID is a public identifier of your application. The Client Secret is confidential and should only be used to authenticate your application and make requests to PayByBank's APIs.
+    /// - Note: The Client ID is a public identifier of your application. The Client Secret is confidential and should only be used to authenticate your application and make requests to PayByBank's APIs. For more details, please look at [Onboarding](https://docs.ecospend.com/api/intro/#section/Onboarding) documentation.
     ///
     /// - Parameters:
     ///     - clientID: The **Client ID** is created by Ecospend when your organization is registered with us.
@@ -22,7 +22,7 @@ public enum PayByBankAuthentication {
     
     /// Token-Based Authentication.
     ///
-    /// - Note: Token-based authentication is a protocol that generates encrypted security tokens. It enables users to verify their identity to websites, which then generates a unique encrypted authentication token. That token provides users with access to protected pages and resources for a limited period of time without having to re-enter **Client ID**and **Client Secret** .
+    /// - Note: Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token. During the life of the token, users access the Ecospend Gateway APIs. For more details, please look at [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
     ///
     /// - Parameters:
     ///     - accessToken: The **Access Token** is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.

@@ -9,7 +9,8 @@
 import Foundation
 
 // MARK: - PayByBank
-/// PayByBank APIs
+/// PayByBank SDK.
+/// - Note: The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of Open Banking Instant Payment solutions. PayByBank SDK provides you the option of downsizing the development effort for a PIS and AIS journeys to a single SDK integration. PayByBank undertakes all of interaction in the payment user journey with your branding on display.
 public final class PayByBank {
     private init() { }
 }
@@ -19,11 +20,13 @@ public extension PayByBank {
     
     /// Sets configuration for all PayByBank APIs.
     ///
+    /// - Note: For more details, please look at the [API Specifications & Developer's Guide](https://docs.ecospend.com/api/intro).
+    ///
     /// - Warning: This method should be called before using any PayByBank API, otherwise each API returns an error as `PayByBankError.notConfigured`.
     ///
     /// - Parameters:
     ///     - environment: Instance's `PayByBankEnvironment`, which is environment for testing or released applications.
-    ///     - authentication: Instance's `PayByBankAuthentication`, which is configuration for authentication to endpoints.
+    ///     - authentication: Instance's `PayByBankAuthentication`, which is configuration for authentication to Ecospend Gateway APIs.
     static func configure(environment: PayByBankEnvironment, authentication: PayByBankAuthentication) {
         PayByBankState.Config.environment = environment
         PayByBankState.Config.authentication = authentication

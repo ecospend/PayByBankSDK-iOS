@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          PayByBank 1.0.3 Docs
+          PayByBank 1.1.0 Docs
         </a>
          (100% documented)
       </p>
@@ -449,7 +449,12 @@
 
                 </div>
               </div>
-            <p>PayByBank APIs</p>
+            <p>PayByBank SDK.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of Open Banking Instant Payment solutions. PayByBank SDK provides you the option of downsizing the development effort for a PIS and AIS journeys to a single SDK integration. PayByBank undertakes all of interaction in the payment user journey with your branding on display.
+
+</div>
 
           </div>
         </section>
@@ -470,9 +475,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:9PayByBankAAC9configure11environment8clientID0F6SecretyAA0abC11EnvironmentO_S2StFZ"></a>
-                    <a name="//apple_ref/swift/Method/configure(environment:clientID:clientSecret:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:9PayByBankAAC9configure11environment8clientID0F6SecretyAA0abC11EnvironmentO_S2StFZ">configure(environment:<wbr>clientID:<wbr>clientSecret:<wbr>)</a>
+                    <a name="/s:9PayByBankAAC9configureyXeXeFZ"></a>
+                    <a name="//apple_ref/swift/Method/configure(environment:authentication:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBankAAC9configureyXeXeFZ">configure(environment:<wbr>authentication:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -481,7 +486,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets configuration for all PayByBank APIs.</p>
-<div class="aside aside-warning">
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>For more details, please look at the <a href="https://docs.ecospend.com/api/intro">API Specifications &amp; Developer&rsquo;s Guide</a>.</p>
+
+</div><div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>This method should be called before using any PayByBank API, otherwise each API returns an error as <code><a href="../Enums/PayByBankError.html#/s:9PayByBank0abC5ErrorO13notConfiguredyA2CmF">PayByBankError.notConfigured</a></code>.</p>
 
@@ -492,7 +501,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/PayByBankEnvironment.html">PayByBankEnvironment</a></span><span class="p">,</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/PayByBankEnvironment.html">PayByBankEnvironment</a></span><span class="p">,</span> <span class="nv">authentication</span><span class="p">:</span> <span class="kt">PayByBankAuthentication</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -515,24 +524,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>clientID</em>
+                                <em>authentication</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Unique identification string assigned to the client by our system.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>clientSecret</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Secret string assigned to the client by our system.</p>
+                                  <p>Instance&rsquo;s <code>PayByBankAuthentication</code>, which is configuration for authentication to Ecospend Gateway APIs.</p>
                                 </div>
                               </td>
                             </tr>
@@ -742,7 +739,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-08)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-10)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

@@ -374,9 +374,9 @@
 		D6B4F3DC289413B500921FA2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F3DD289413B500921FA2 /* FrPaymentRepository.swift */,
-				D6B4F3DE289413B500921FA2 /* FrPaymentEndpoint.swift */,
 				D6B4F3DF289413B500921FA2 /* Model */,
+				D6B4F3DE289413B500921FA2 /* FrPaymentEndpoint.swift */,
+				D6B4F3DD289413B500921FA2 /* FrPaymentRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -474,9 +474,9 @@
 		D6B4F3FC289413B500921FA2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F3FD289413B500921FA2 /* PaymentRepository.swift */,
-				D6B4F3FE289413B500921FA2 /* PaymentEndpoint.swift */,
 				D6B4F3FF289413B500921FA2 /* Model */,
+				D6B4F3FE289413B500921FA2 /* PaymentEndpoint.swift */,
+				D6B4F3FD289413B500921FA2 /* PaymentRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -528,9 +528,9 @@
 		D6B4F410289413B500921FA2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F413289413B500921FA2 /* Model */,
 				D6B4F411289413B500921FA2 /* DatalinkEndpoint.swift */,
 				D6B4F412289413B500921FA2 /* DatalinkRepository.swift */,
-				D6B4F413289413B500921FA2 /* Model */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -578,8 +578,8 @@
 		D6B4F420289413B500921FA2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F421289413B500921FA2 /* PaylinkEndpoint.swift */,
 				D6B4F422289413B500921FA2 /* Model */,
+				D6B4F421289413B500921FA2 /* PaylinkEndpoint.swift */,
 				D6B4F428289413B500921FA2 /* PaylinkRepository.swift */,
 			);
 			path = Repository;
@@ -627,9 +627,9 @@
 		D6B4F42F289413B500921FA2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F432289413B500921FA2 /* Model */,
 				D6B4F430289413B500921FA2 /* BulkPaymentEndpoint.swift */,
 				D6B4F431289413B500921FA2 /* BulkPaymentRepository.swift */,
-				D6B4F432289413B500921FA2 /* Model */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -676,9 +676,9 @@
 		D6B4F43E289413B500921FA2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4F43F289413B500921FA2 /* VRPlinkRepository.swift */,
 				D6B4F440289413B500921FA2 /* Model */,
 				D6B4F448289413B500921FA2 /* VRPlinkEndpoint.swift */,
+				D6B4F43F289413B500921FA2 /* VRPlinkRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1222,7 +1222,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk;
 				PRODUCT_NAME = PayByBank;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1257,7 +1257,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk;
 				PRODUCT_NAME = PayByBank;
 				PROVISIONING_PROFILE_SPECIFIER = "";
