@@ -28,11 +28,11 @@ The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of
 To integrate PayByBank into your Xcode project using CocoaPods, add this to your `Podfile`:
 
 ```
-pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.1.0'
+pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.2.0'
 
 # or
 
-pod 'PayByBank', '1.1.0'
+pod 'PayByBank', '1.2.0'
 ```
 
 Then run `pod install`.
@@ -45,14 +45,14 @@ To integrate using Apple's Swift package manager, with Xcode integration, apply 
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/ecospend/PayByBankSDK-iOS.git`
-- Select "Dependency Rule" with "Exact Version" and "1.1.0"
+- Select "Dependency Rule" with "Exact Version" and "1.2.0"
 
 #### Manually
 
 To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`
 
 ```
-.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.1.0")
+.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.2.0")
 ```
 
 ### Carthage
@@ -60,7 +60,7 @@ To integrate using Apple's Swift package manager, without Xcode integration, add
 To integrate PayByBank into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "ecospend/PayByBankSDK-iOS" ~> 1.1.0
+github "ecospend/PayByBankSDK-iOS" ~> 1.2.0
 ```
 
 Then run `carthage update --use-xcframeworks` and drag the built `PayByBank.xcframework` bundle from `Carthage/Build` into the "Frameworks and Libraries" section of your application’s Xcode project.
