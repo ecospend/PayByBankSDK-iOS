@@ -94,20 +94,18 @@ You will be given separate pairs of Client Id and Client Secret for our `Sandbox
 
 ### Authentication
 
-PayByBank SDK supports [Client Credentials Flow](https://en.wikipedia.org/wiki/OAuth) and [Token-Based Authentication](https://en.wikipedia.org/wiki/Access_token) to access Ecospend Gateway APIs.
+PayByBank SDK supports [Token-Based Authentication](https://en.wikipedia.org/wiki/Access_token) to access Ecospend Gateway APIs.
 
-- Client Credentials Flow: `PayByBank.configure` function should be called once to access `client_id` and `client_secret` before using APIs of PayByBank SDK.
-
-- Token-Based Authentication: `PayByBank.configure` function should be called to access `access_token` before using APIs of PayByBank SDK. When `access_token` is expired, `PayByBank.configure` function should be called again. To generate `access_token`, check out the [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
+`PayByBank.configure` function should be called to access `access_token` before using APIs which requires authentication of PayByBank SDK. When `access_token` is expired, `PayByBank.configure` function should be called again. To generate `access_token`, check out the [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
 
 ```
-PayByBank.configure(environment: <environment>, 
-                    authentication: .clientCredentials(clientID: <client_id>, clientSecret: <client_secret>))
+PayByBank.configure(environment: <environment>)
 
 // or
 
 PayByBank.configure(environment: <environment>, 
-                    authentication: .token(<access_token>))
+                    accessToken: <accessToken>,
+                    tokenType: <tokenType>)
 ```
 
 ## Sample Projects
