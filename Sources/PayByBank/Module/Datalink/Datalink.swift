@@ -22,47 +22,84 @@ public final class Datalink {
 // MARK: - API
 public extension Datalink {
     
-    /// Opens webview using with `uniqueID` of datalink
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of Datalink.
+    ///
+    /// - Note: This method does not require authentication.
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of datalink.
-    ///     - viewController: UIViewController that provides to present bank selection
-    ///     - completion: It provides to handle result or error
-    func open(uniqueID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - uniqueID: A system assigned unique identification for the Datalink.
+    ///     - url: Unique Datalink URL that you will need to redirect PSU in order the account access consent to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of account access process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(uniqueID: String,
+              url: URL,
+              redirectURL: URL,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.open(uniqueID: uniqueID,
+                      webViewURL: url,
+                      redirectURL: redirectURL,
+                      viewController: viewController,
+                      completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID` of Datalink.
+    ///
+    /// - Note: This method requires authentication.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the Datalink.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(uniqueID: String, viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .open(uniqueID), viewController: viewController, completion: completion)
         }
     }
     
-    /// Opens webview using with request model of datalink
+    /// Opens webview using with request model of Datalink.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create datalink
-    ///     - viewController: UIViewController that provides to present bank selection
-    ///     - completion: It provides to handle result or error
-    func initiate(request: DatalinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - request: Instance's `DatalinkCreateRequest`, which is request model to create Datalink.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func initiate(request: DatalinkCreateRequest,
+                  viewController: UIViewController,
+                  completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
         }
     }
     
-    /// Creates Datalink
+    /// Creates Datalink.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create Datalink
-    ///     - completion: It provides to handle result or error
-    func createDatalink(request: DatalinkCreateRequest, completion: @escaping (Result<DatalinkCreateResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `DatalinkCreateRequest`, which is request model to create Datalink.
+    ///     - completion: It provides to handle `DatalinkCreateResponse` or `PayByBankError`.
+    func createDatalink(request: DatalinkCreateRequest,
+                        completion: @escaping (Result<DatalinkCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.createDatalink(request: request))
         }
     }
     
-    /// Gets Datalink detail
+    /// Gets Datalink detail.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to get Datalink detail
-    ///     - completion: It provides to handle result or error
-    func getDatalink(request: DatalinkGetRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `DatalinkGetRequest`, which is request model to get details of Datalink.
+    ///     - completion: It provides to handle `DatalinkGetResponse` or `PayByBankError`.
+    func getDatalink(request: DatalinkGetRequest,
+                     completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.getDatalink(request: request))
         }
@@ -70,21 +107,27 @@ public extension Datalink {
     
     /// Deletes the Datalink with given id.
     ///
+    /// - Note: This method requires authentication.
+    ///
     /// - Parameters:
-    ///     - request: Request to deactivate Datalink
-    ///     - completion: It provides to handle result or error
-    func deleteDatalink(request: DatalinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    ///     - request: Instance's `DatalinkDeleteRequest`, which is request model to delete Datalink.
+    ///     - completion: It provides to handle `Bool` or `PayByBankError`.
+    func deleteDatalink(request: DatalinkDeleteRequest,
+                        completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.deleteDatalink(request: request))
         }
     }
     
-    /// Returns datalink with given `consentID`
+    /// Returns datalink with given `consentID`.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to get Datalink of a consent
-    ///     - completion: It provides to handle result or error
-    func getDatalinkOfConsent(request: DatalinkGetConsentDatalinkRequest, completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
+    ///     - request:  Instance's `DatalinkGetConsentDatalinkRequest`, which is request model to get Datalink of a consent
+    ///     - completion: It provides to handle `DatalinkGetResponse` or `PayByBankError`.
+    func getDatalinkOfConsent(request: DatalinkGetConsentDatalinkRequest,
+                              completion: @escaping (Result<DatalinkGetResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.getDatalinkOfConsent(request: request))
         }
@@ -161,6 +204,27 @@ private extension Datalink {
             DispatchQueue.main.async {
                 completion(.failure(PayByBankError(error: error)))
             }
+        }
+    }
+    
+    func open(uniqueID: String,
+              webViewURL: URL,
+              redirectURL: URL,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        guard webViewURL.isEcospendHost, !uniqueID.isEmpty else {
+            return completion(.failure(PayByBankError.wrongLink))
+        }
+        
+        let handler = factory.makeDatalinkHandler(uniqueID: uniqueID,
+                                                  webViewURL: webViewURL,
+                                                  redirectURL: redirectURL,
+                                                  completionHandler: completion)
+        
+        DispatchQueue.main.async {
+            let vc = self.factory.payByBankFactory.makeWebViewVC(handler: handler)
+            let nc = UINavigationController(rootViewController: vc)
+            viewController.present(nc, animated: true)
         }
     }
     

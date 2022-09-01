@@ -35,7 +35,7 @@ class DatalinkHandler: PayByBankHandlerProtocol {
         case webViewURL.host:
             handle(status: .initiated)
             return .allow
-        case PayByBankConstant.URLHost.ecospend, PayByBankConstant.URLHost.fca:
+        case PayByBankConstant.URLHost.ecospendFull, PayByBankConstant.URLHost.fca:
             UIApplication.shared.open(url)
             handle(status: .initiated)
             return .cancel

@@ -10,11 +10,10 @@ import SwiftUI
 
 struct PaylinkAPIs: View {
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.paylinkOpenNoAuthTitle.localizedKey, destination: PaylinkOpenNoAuth())
                 NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
                 NavigationLink(L10n.paylinkInitiateTitle.localizedKey, destination: PaylinkInitiate())
             }

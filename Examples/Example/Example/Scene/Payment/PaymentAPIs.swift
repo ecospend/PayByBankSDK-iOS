@@ -10,11 +10,10 @@ import SwiftUI
 
 struct PaymentAPIs: View {
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.paymentOpenNoAuthTitle.localizedKey, destination: PaymentOpenNoAuth())
                 NavigationLink(L10n.paymentOpenTitle.localizedKey, destination: PaymentOpen())
                 NavigationLink(L10n.paymentInitiateTitle.localizedKey, destination: PaymentInitiate())
                 NavigationLink(L10n.paymentInitiateRefundTitle.localizedKey, destination: PaymentInitiateRefund())

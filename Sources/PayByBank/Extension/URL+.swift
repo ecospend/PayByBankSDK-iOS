@@ -18,4 +18,8 @@ extension URL {
             result[item.name] = item.value
         }
     }
+    
+    var isEcospendHost: Bool {
+        return String.predicate(host ?? "", pattern: "^(.*)([\(PayByBankConstant.URLHost.ecospend)])")
+    }
 }

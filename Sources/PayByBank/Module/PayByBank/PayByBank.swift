@@ -22,7 +22,7 @@ public extension PayByBank {
     ///
     /// - Note: For more details, please look at the [API Specifications & Developer's Guide](https://docs.ecospend.com/api/intro).
     ///
-    /// - Warning: This method should be called before using any PayByBank API, otherwise each API returns an error as `PayByBankError.notConfigured`.
+    /// - Warning: This method should be called before using any PayByBank API which requires authentication, otherwise, each API returns an error as `PayByBankError.notConfigured`.
     ///
     /// - Parameters:
     ///     - environment: Instance's `PayByBankEnvironment`, which is environment for testing or released applications.

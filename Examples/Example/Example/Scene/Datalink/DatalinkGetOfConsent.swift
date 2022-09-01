@@ -17,7 +17,6 @@ struct DatalinkGetOfConsent: View {
     @AppStorage(Self.storage(key: .consentID)) var consentID: String = ""
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

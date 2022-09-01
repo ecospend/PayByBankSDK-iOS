@@ -36,7 +36,6 @@ struct BulkPaymentCreate: View {
     @State private var bulkPaymentPayments: [BulkPaymentPaylinkEntry]? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

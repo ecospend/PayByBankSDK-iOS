@@ -23,58 +23,99 @@ public final class FrPayment {
 // MARK: - API
 public extension FrPayment {
     
-    /// Opens webview using with `uniqueID` of FrPayment
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of FrPayment.
+    ///
+    /// - Note: This method does not require authentication.
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of FrPayment.
-    ///     - viewController: UIViewController that provides to present bank selection
-    ///     - completion: It provides to handle result or error
-    func open(uniqueID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - uniqueID: A system assigned unique identification for the FrPayment.
+    ///     - url: Unique FrPayment URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(uniqueID: String,
+              url: URL,
+              redirectURL: URL,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.open(uniqueID: uniqueID,
+                      webViewURL: url,
+                      redirectURL: redirectURL,
+                      viewController: viewController,
+                      completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID` of FrPayment.
+    ///
+    /// - Note: This method requires authentication.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the FrPayment.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(uniqueID: String,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .open(uniqueID), viewController: viewController, completion: completion)
         }
     }
     
-    /// Opens webview using with request model of FrPayment
+    /// Opens webview using with request model of FrPayment.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create FrPayment
-    ///     - viewController: UIViewController that provides to present bank selection
-    ///     - completion: It provides to handle result or error
-    func initiate(request: FrPaymentCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - request: Instance's `FrPaymentCreateRequest`, which is request model to create FrPayment.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func initiate(request: FrPaymentCreateRequest,
+                  viewController: UIViewController,
+                  completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
         }
     }
     
-    /// Creates FrPayment
+    /// Creates FrPayment.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create FrPayment
-    ///     - completion: It provides to handle result or error
-    func createFrPayment(request: FrPaymentCreateRequest, completion: @escaping (Result<FrPaymentCreateResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `FrPaymentCreateRequest`, which is request model to create FrPayment.
+    ///     - completion: It provides to handle `FrPaymentCreateResponse` or `PayByBankError`.
+    func createFrPayment(request: FrPaymentCreateRequest,
+                         completion: @escaping (Result<FrPaymentCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.createFrPayment(request: request))
         }
     }
     
-    /// Gets FrPayment detail
+    /// Gets FrPayment detail.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to get FrPayment detail
-    ///     - completion: It provides to handle result or error
-    func getFrPayment(request: FrPaymentGetRequest, completion: @escaping (Result<FrPaymentGetResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `FrPaymentGetRequest`, which is request model to get details of FrPayment.
+    ///     - completion: It provides to handle `FrPaymentGetResponse` or `PayByBankError`.
+    func getFrPayment(request: FrPaymentGetRequest,
+                      completion: @escaping (Result<FrPaymentGetResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.getFrPayment(request: request))
         }
     }
     
-    /// Soft deletes FrPayment with given id
+    /// Soft deletes FrPayment with given id.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to deacvtivate FrPayment
-    ///     - completion: It provides to handle result or error
-    func deactivateFrPayment(request: FrPaymentDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    ///     - request: Instance's `FrPaymentDeleteRequest`, which is request model to delete FrPayment.
+    ///     - completion: It provides to handle `Bool` or `PayByBankError`.
+    func deactivateFrPayment(request: FrPaymentDeleteRequest,
+                             completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.deactivateFrPayment(request: request))
         }
@@ -150,6 +191,27 @@ private extension FrPayment {
             DispatchQueue.main.async {
                 completion(.failure(PayByBankError(error: error)))
             }
+        }
+    }
+    
+    func open(uniqueID: String,
+              webViewURL: URL,
+              redirectURL: URL,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        guard webViewURL.isEcospendHost, !uniqueID.isEmpty else {
+            return completion(.failure(PayByBankError.wrongLink))
+        }
+        
+        let handler = factory.makeFrPaymentHandler(uniqueID: uniqueID,
+                                                   webViewURL: webViewURL,
+                                                   redirectURL: redirectURL,
+                                                   completionHandler: completion)
+        
+        DispatchQueue.main.async {
+            let vc = self.factory.payByBankFactory.makeWebViewVC(handler: handler)
+            let nc = UINavigationController(rootViewController: vc)
+            viewController.present(nc, animated: true)
         }
     }
     

@@ -35,8 +35,6 @@ struct PaylinkInitiate: View {
     @State private var isLimitOptionsValid: Bool = false
     @State private var limitOptions: PaylinkLimitOptions? = nil
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

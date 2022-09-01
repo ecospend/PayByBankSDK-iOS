@@ -9,12 +9,11 @@
 import SwiftUI
 
 struct VRPlinkAPIs: View {
-    
-    @State private var url: URL? = nil
-    
+
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.vrplinkOpenNoAuthTitle.localizedKey, destination: VRPlinkOpenNoAuth())
                 NavigationLink(L10n.vrplinkOpenTitle.localizedKey, destination: VRPlinkOpen())
                 NavigationLink(L10n.vrplinkInitiateTitle.localizedKey, destination: VRPlinkInitiate())
             }

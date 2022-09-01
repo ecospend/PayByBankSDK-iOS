@@ -76,6 +76,7 @@ enum AppStorageKeys: String {
     case merchantUserID
     case numberOfPayments
     case period
+    case url
     case redirectURL
     case reference
     case standingOrderType

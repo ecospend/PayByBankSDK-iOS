@@ -20,8 +20,6 @@ struct PaymentInitiateRefund: View {
     @State private var isRefundAccountValid: Bool = false
     @State private var refundAccount: PayByBankAccountRequest? = nil
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

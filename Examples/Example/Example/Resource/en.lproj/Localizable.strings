@@ -21,6 +21,7 @@
 "SettingsEnvironmentClientSecret" = "Client Secret";
 // MARK: - Paylink
 "PaylinkTitle" = "Paylink";
+"PaylinkOpenNoAuthTitle" = "Open Paylink (No Authentication)";
 "PaylinkOpenTitle" = "Open Paylink";
 "PaylinkInitiateTitle" = "Initiate Paylink";
 "PaylinkCreateTitle" = "Create Paylink";
@@ -28,6 +29,7 @@
 "PaylinkDeactivateTitle" = "Deactivate Paylink";
 // MARK: - FrPayment
 "FrPaymentTitle" = "FrPayment";
+"FrPaymentOpenNoAuthTitle" = "Open FrPayment (No Authentication)";
 "FrPaymentOpenTitle" = "Open FrPayment";
 "FrPaymentInitiateTitle" = "Initiate FrPayment";
 "FrPaymentCreateTitle" = "Create FrPayment";
@@ -35,6 +37,7 @@
 "FrPaymentDeactivateTitle" = "Deactivate FrPayment";
 // MARK: - Bulk Payment
 "BulkPaymentTitle" = "Bulk Payment";
+"BulkPaymentOpenNoAuthTitle" = "Open Bulk Payment (No Authentication)";
 "BulkPaymentOpenTitle" = "Open Bulk Payment";
 "BulkPaymentInitiateTitle" = "Initiate Bulk Payment";
 "BulkPaymentCreateTitle" = "Create Bulk Payment";
@@ -42,6 +45,7 @@
 "BulkPaymentDeactivateTitle" = "Deactivate Bulk Payment";
 // MARK: - VRPlink
 "VrplinkTitle" = "VRPlink";
+"VrplinkOpenNoAuthTitle" = "Open VRPlink (No Authentication)";
 "VrplinkOpenTitle" = "Open VRPlink";
 "VrplinkInitiateTitle" = "Initiate VRPlink";
 "VrplinkCreateTitle" = "Create VRPlink";
@@ -50,6 +54,7 @@
 "VrplinkListRecordsTitle" = "List VRP Records";
 // MARK: - Datalink
 "DatalinkTitle" = "Datalink";
+"DatalinkOpenNoAuthTitle" = "Open Datalink (No Authentication)";
 "DatalinkOpenTitle" = "Open Datalink";
 "DatalinkInitiateTitle" = "Initiate Datalink";
 "DatalinkCreateTitle" = "Create Datalink";
@@ -58,6 +63,7 @@
 "DatalinkGetOfConsentTitle" = "Get Datalink of Consent";
 // MARK: - Payment
 "PaymentTitle" = "Payment";
+"PaymentOpenNoAuthTitle" = "Open Payment (No Authentication)";
 "PaymentOpenTitle" = "Open Payment";
 "PaymentInitiateTitle" = "Initiate Payment";
 "PaymentInitiateRefundTitle" = "Initiate Refund";
@@ -157,6 +163,7 @@
 "InputMerchantUserID" = "Merchant User ID";
 "InputNumberOfPayments" = "Number of Payments";
 "InputPeriod" = "Period";
+"InputURL" = "URL";
 "InputRedirectURL" = "Redirect URL";
 "InputReference" = "Reference";
 "InputStandingOrderType" = "Standing Order Type";

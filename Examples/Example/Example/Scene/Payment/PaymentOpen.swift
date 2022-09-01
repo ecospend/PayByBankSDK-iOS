@@ -16,8 +16,6 @@ struct PaymentOpen: View {
     
     @AppStorage(Self.storage(key: .id)) var id: String = ""
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

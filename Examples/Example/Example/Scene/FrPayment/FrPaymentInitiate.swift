@@ -29,8 +29,6 @@ struct FrPaymentInitiate: View {
     @State private var isNotificationOptionsValid: Bool = false
     @State private var notificationOptions: PayByBankNotificationOptionsRequest? = nil
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {
