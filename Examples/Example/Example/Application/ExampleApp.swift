@@ -13,12 +13,13 @@ import PayByBank
 struct ExampleApp: App {
     
     @AppStorage(Settings.storage(key: .settingsEnvironment)) var environment: PayByBankEnvironment = .sandbox
-    @AppStorage(Settings.storage(key: .settingsClientID)) var clientID: String = ""
-    @AppStorage(Settings.storage(key: .settingsClientSecret)) var clientSecret: String = ""
+    @AppStorage(Settings.storage(key: .settingsAccessToken)) var accessToken: String = ""
+    @AppStorage(Settings.storage(key: .settingsTokenType)) var tokenType: String = ""
     
     init() {
         PayByBank.configure(environment: environment,
-                            authentication: .clientCredentials(clientID: clientID, clientSecret: clientSecret))
+                            accessToken: accessToken,
+                            tokenType: tokenType)
     }
     
     var body: some Scene {

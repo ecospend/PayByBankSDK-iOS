@@ -23,6 +23,8 @@ enum L10n {
     case settingsEnvironmentProduction
     case settingsEnvironmentClientID
     case settingsEnvironmentClientSecret
+    case settingsEnvironmentAccessToken
+    case settingsEnvironmentTokenType
     // MARK: - Paylink
     case paylinkTitle
     case paylinkOpenNoAuthTitle

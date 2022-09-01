@@ -9,7 +9,7 @@
 import Foundation
 
 /// Configuration for authentication to endpoints.
-public enum PayByBankAuthentication {
+enum PayByBankAuthentication {
     
     /// Client Credentials Flow.
     ///
@@ -26,6 +26,6 @@ public enum PayByBankAuthentication {
     ///
     /// - Parameters:
     ///     - accessToken: The **Access Token** is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.
-    ///     - type: Type of token provided. Defaults to "Bearer"
+    ///     - type: Type of token provided. Defaults to "Bearer".
     case token(_ accessToken: String, type: String = "Bearer")
 }

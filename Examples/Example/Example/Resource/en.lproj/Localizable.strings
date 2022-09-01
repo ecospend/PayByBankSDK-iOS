@@ -19,6 +19,8 @@
 "SettingsEnvironmentProduction" = "Production";
 "SettingsEnvironmentClientID" = "Client ID";
 "SettingsEnvironmentClientSecret" = "Client Secret";
+"SettingsEnvironmentAccessToken" = "Access Token";
+"SettingsEnvironmentTokenType" = "Token Type";
 // MARK: - Paylink
 "PaylinkTitle" = "Paylink";
 "PaylinkOpenNoAuthTitle" = "Open Paylink (No Authentication)";

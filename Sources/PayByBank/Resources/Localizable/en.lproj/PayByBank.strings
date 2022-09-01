@@ -18,7 +18,7 @@
 
 // MARK: - Paylink Error
 "paybybank_error_unknown" = "Unknown error.";
-"paybybank_error_not_configured" = "Wrong `clientID` or `clientSecret`.";
+"paybybank_error_not_configured" = "Wrong `accessToken` or `tokenType`.";
 "paybybank_error_wrong_link" = "Wrong Link.";
 "paybybank_error_network" = "Network Error: %@";
 

@@ -12,8 +12,8 @@ import PayByBank
 struct Settings: View {
     
     @AppStorage(Self.storage(key: .settingsEnvironment)) var environment: PayByBankEnvironment = .sandbox
-    @AppStorage(Self.storage(key: .settingsClientID)) var clientID: String = ""
-    @AppStorage(Self.storage(key: .settingsClientSecret)) var clientSecret: String = ""
+    @AppStorage(Self.storage(key: .settingsAccessToken)) var accessToken: String = ""
+    @AppStorage(Self.storage(key: .settingsTokenType)) var tokenType: String = "Bearer"
     
     var body: some View {
         Form {
@@ -22,15 +22,16 @@ struct Settings: View {
                 Button(L10n.settingsEnvironmentProduction.localizedKey) { environment = .production }
             }
             .titled(L10n.settingsEnvironment.localized)
-            TextField("", text: $clientID)
-                .titled(L10n.settingsEnvironmentClientID.localized)
-            TextField("", text: $clientSecret)
-                .titled(L10n.settingsEnvironmentClientSecret.localized)
+            TextField("", text: $accessToken)
+                .titled(L10n.settingsEnvironmentAccessToken.localized)
+            TextField("", text: $tokenType)
+                .titled(L10n.settingsEnvironmentTokenType.localized)
         }
         .navigationTitle(L10n.settingsTitle.localizedKey)
         .onDisappear {
             PayByBank.configure(environment: environment,
-                                authentication: .clientCredentials(clientID: clientID, clientSecret: clientSecret))
+                                accessToken: accessToken,
+                                tokenType: tokenType)
         }
         .safari(APIDocuments.Authentication.base)
     }
