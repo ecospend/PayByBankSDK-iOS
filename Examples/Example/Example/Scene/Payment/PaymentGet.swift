@@ -17,7 +17,6 @@ struct PaymentGet: View {
     @AppStorage(Self.storage(key: .id)) var id: String = ""
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

@@ -10,11 +10,10 @@ import SwiftUI
 
 struct FrPaymentAPIs: View {
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.frPaymentOpenNoAuthTitle.localizedKey, destination: FrPaymentOpenNoAuth())
                 NavigationLink(L10n.frPaymentOpenTitle.localizedKey, destination: FrPaymentOpen())
                 NavigationLink(L10n.frPaymentInitiateTitle.localizedKey, destination: FrPaymentInitiate())
             }

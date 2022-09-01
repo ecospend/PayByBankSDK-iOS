@@ -10,11 +10,10 @@ import SwiftUI
 
 struct DatalinkAPIs: View {
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.datalinkOpenNoAuthTitle.localizedKey, destination: DatalinkOpenNoAuth())
                 NavigationLink(L10n.datalinkOpenTitle.localizedKey, destination: DatalinkOpen())
                 NavigationLink(L10n.datalinkInitiateTitle.localizedKey, destination: DatalinkInitiate())
             }

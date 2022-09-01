@@ -21,7 +21,6 @@ struct PaymentCreateRefund: View {
     @State private var refundAccount: PayByBankAccountRequest? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

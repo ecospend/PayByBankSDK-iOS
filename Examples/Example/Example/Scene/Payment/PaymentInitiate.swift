@@ -26,8 +26,6 @@ struct PaymentInitiate: View {
     @State private var isPaymentOptionValid: Bool = false
     @State private var paymentOption: PaymentOption? = nil
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

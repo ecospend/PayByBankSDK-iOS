@@ -23,44 +23,71 @@ public final class Payment {
 // MARK: - API
 public extension Payment {
     
-    /// Opens bank application or bank website using with `id` of payment
+    /// Opens bank application or bank website using with `id` and`url (payment_url)` of Payment.
+    ///
+    /// - Note: This method does not require authentication.
     ///
     /// - Parameters:
-    ///     - id: Unique id value of payment.
-    ///     - completion: It provides to handle result or error
-    func open(id: String, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - id: A system assigned unique identification for the Payment.
+    ///     - url (payment_url): A unique and one time use only URL of the debtor's banking system. You will need to redirect PSU to this link in order the payment to proceed.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(id: String,
+              url: URL,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.open(id: id, paymentURL: url, completion: completion)
+        }
+    }
+    
+    /// Opens bank application or bank website using with `id` of Payment.
+    ///
+    /// - Note: This method requires authentication.
+    ///
+    /// - Parameters:
+    ///     - id: A system assigned unique identification for the Payment.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(id: String,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .open(id), completion: completion)
         }
     }
     
-    /// Opens bank application or bank website using with request model of payment
+    /// Opens bank application or bank website using with request model of Payment.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create payment
-    ///     - completion: It provides to handle result or error
-    func initiate(request: PaymentCreateRequest, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - request: Instance's `PaymentCreateRequest`, which is request model to create Payment.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func initiate(request: PaymentCreateRequest,
+                  completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), completion: completion)
         }
     }
     
-    /// Opens bank application or bank website using with request model of refund
+    /// Opens bank application or bank website using with request model of refund of Payment.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create refund
-    ///     - completion: It provides to handle result or error
-    func initiateRefund(request: PaymentCreateRefundRequest, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - request: Instance's `PaymentCreateRefundRequest`, which is request model to create refund of Payment.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func initiateRefund(request: PaymentCreateRefundRequest,
+                        completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiateRefund(request), completion: completion)
         }
     }
     
-    /// Creates payment.
+    /// Creates Payment.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create payment.
-    ///     - completion: It provides to handle result or error.
+    ///     - request: Instance's `PaymentCreateRequest`, which is request model to create Payment.
+    ///     - completion: It provides to handle `PaymentCreateResponse` or `PayByBankError`.
     func createPayment(request: PaymentCreateRequest,
                        completion: @escaping (Result<PaymentCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
@@ -68,11 +95,13 @@ public extension Payment {
         }
     }
     
-    /// Gets payments.
+    /// Gets Payments.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to list of payments with filters.
-    ///     - completion: It provides to handle result or error.
+    ///     - request: Instance's `PaymentListRequest`, which is request model to get Payments.
+    ///     - completion: It provides to handle `PaymentListResponse` or `PayByBankError`.
     func listPayments(request: PaymentListRequest,
                       completion: @escaping (Result<PaymentListResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
@@ -80,11 +109,13 @@ public extension Payment {
         }
     }
     
-    /// Gets payment detail.
+    /// Gets Payment detail.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to get payment detail with id.
-    ///     - completion: It provides to handle result or error.
+    ///     - request: Instance's `PaymentGetRequest`, which is request model to get details of Payment.
+    ///     - completion: It provides to handle `PaymentGetResponse` or `PayByBankError`.
     func getPayment(request: PaymentGetRequest,
                     completion: @escaping (Result<PaymentGetResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
@@ -92,15 +123,17 @@ public extension Payment {
         }
     }
     
-    /// Checks availability of payment url.
+    /// Checks availability of Payment url.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// 'url-consumed' endpoint checks whether the bank's payment url has been visited by the PSU.
     /// Return's true if the PSU has logged in to the banking system for this payment.
     /// In such case either wait for the PSU to finish the journey, or create a new payment.
     ///
     /// - Parameters:
-    ///     - request: Request to check availability of payment url.
-    ///     - completion: It provides to handle result or error.
+    ///     - request:  Instance's `PaymentCheckURLRequest`, which is request model to check availability of Payment url.
+    ///     - completion: It provides to handle `PaymentCheckURLResponse` or `PayByBankError`.
     func checkPaymentURL(request: PaymentCheckURLRequest,
                          completion: @escaping (Result<PaymentCheckURLResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
@@ -110,9 +143,11 @@ public extension Payment {
     
     /// Creates refund for given payment
     ///
+    /// - Note: This method requires authentication.
+    ///
     /// - Parameters:
-    ///     - request: Request to create refund for given payment.
-    ///     - completion: It provides to handle result or error.
+    ///     - request: Instance's `PaymentCreateRefundRequest`, which is request model to create refund for given Payment.
+    ///     - completion: It provides to handle `PaymentCreateRefundResponse` or `PayByBankError`.
     func createRefund(request: PaymentCreateRefundRequest,
                       completion: @escaping (Result<PaymentCreateRefundResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
@@ -196,6 +231,19 @@ private extension Payment {
             DispatchQueue.main.async {
                 completion(.failure(PayByBankError(error: error)))
             }
+        }
+    }
+    
+    func open(id: String,
+              paymentURL: URL,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        guard paymentURL.isEcospendHost, !id.isEmpty else {
+            return completion(.failure(PayByBankError.wrongLink))
+        }
+        
+        DispatchQueue.main.async {
+            UIApplication.shared.open(paymentURL)
+            completion(.success(PayByBankResult(uniqueID: id, status: .redirected)))
         }
     }
     

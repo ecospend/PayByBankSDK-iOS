@@ -26,8 +26,6 @@ struct DatalinkInitiate: View {
     @State private var isFinancialReportValid: Bool = false
     @State private var financialReport: FinancialReport? = nil
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

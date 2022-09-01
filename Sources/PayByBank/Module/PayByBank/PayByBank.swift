@@ -21,15 +21,21 @@ public extension PayByBank {
     /// Sets configuration for all PayByBank APIs.
     ///
     /// - Note: For more details, please look at the [API Specifications & Developer's Guide](https://docs.ecospend.com/api/intro).
+    /// - Note: Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token. During the life of the token, users access the Ecospend Gateway APIs. For more details, please look at [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
     ///
-    /// - Warning: This method should be called before using any PayByBank API, otherwise each API returns an error as `PayByBankError.notConfigured`.
+    /// - Warning: **Access token** should be passed before using any PayByBank API which requires authentication, otherwise, each API returns an error as `PayByBankError.notConfigured`.
     ///
     /// - Parameters:
     ///     - environment: Instance's `PayByBankEnvironment`, which is environment for testing or released applications.
-    ///     - authentication: Instance's `PayByBankAuthentication`, which is configuration for authentication to Ecospend Gateway APIs.
-    static func configure(environment: PayByBankEnvironment, authentication: PayByBankAuthentication) {
+    ///     - accessToken: The **Access Token** is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.
+    ///     - tokenType: Type of token provided. Defaults to "Bearer".
+    static func configure(environment: PayByBankEnvironment, accessToken: String = "", tokenType: String = "Bearer") {
         PayByBankState.Config.environment = environment
-        PayByBankState.Config.authentication = authentication
+        
+        PayByBankState.Config.authentication = {
+            guard !accessToken.isEmpty else { return nil }
+            return .token(accessToken, type: tokenType)
+        }()
     }
     
     /// Paylink API

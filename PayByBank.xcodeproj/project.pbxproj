@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		60E67A3B27676AF70032A5C3 /* PayByBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E67A3027676AF70032A5C3 /* PayByBank.framework */; };
+		D669251328C09E7B005F15F1 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251228C09E7B005F15F1 /* String+.swift */; };
 		D6ADF6A728A3EB2900CA7D36 /* PayByBankAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADF6A628A3EB2900CA7D36 /* PayByBankAuthentication.swift */; };
 		D6B4F464289413B500921FA2 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F3CD289413B500921FA2 /* Encodable+.swift */; };
 		D6B4F465289413B500921FA2 /* JSONEncoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */; };
@@ -145,6 +146,7 @@
 /* Begin PBXFileReference section */
 		60E67A3027676AF70032A5C3 /* PayByBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayByBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E67A3A27676AF70032A5C3 /* PayByBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayByBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D669251228C09E7B005F15F1 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D6ADF6A628A3EB2900CA7D36 /* PayByBankAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayByBankAuthentication.swift; sourceTree = "<group>"; };
 		D6B4F3CD289413B500921FA2 /* Encodable+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+.swift"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				D6B4F3CD289413B500921FA2 /* Encodable+.swift */,
 				D6B4F3D3289413B500921FA2 /* JSONDecoder+.swift */,
 				D6B4F3CE289413B500921FA2 /* JSONEncoder+.swift */,
+				D669251228C09E7B005F15F1 /* String+.swift */,
 				D6B4F3D0289413B500921FA2 /* URL+.swift */,
 			);
 			path = Extension;
@@ -588,11 +591,11 @@
 		D6B4F422289413B500921FA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4F427289413B500921FA2 /* PaylinkCreateRequest.swift */,
+				D6B4F425289413B500921FA2 /* PaylinkCreateResponse.swift */,
 				D6B4F423289413B500921FA2 /* PaylinkDeleteRequest.swift */,
 				D6B4F424289413B500921FA2 /* PaylinkGetRequest.swift */,
-				D6B4F425289413B500921FA2 /* PaylinkCreateResponse.swift */,
 				D6B4F426289413B500921FA2 /* PaylinkGetResponse.swift */,
-				D6B4F427289413B500921FA2 /* PaylinkCreateRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				D6B4F4B8289413B500921FA2 /* VRPlinkGetRecordsResponse.swift in Sources */,
 				D6B4F4A9289413B500921FA2 /* BulkPaymentEndpoint.swift in Sources */,
 				D6B4F469289413B500921FA2 /* Bundle+.swift in Sources */,
+				D669251328C09E7B005F15F1 /* String+.swift in Sources */,
 				D6B4F4A7289413B500921FA2 /* PaylinkFactory.swift in Sources */,
 				D6B4F49E289413B500921FA2 /* PaylinkHandler.swift in Sources */,
 				D6B4F481289413B500921FA2 /* PayByBankAccountRequest.swift in Sources */,
@@ -1222,7 +1226,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk;
 				PRODUCT_NAME = PayByBank;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1257,7 +1261,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk;
 				PRODUCT_NAME = PayByBank;
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -23,47 +23,85 @@ public final class VRPlink {
 // MARK: - API
 public extension VRPlink {
     
-    /// Opens webview using with `uniqueID` of VRPlink
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of VRPlink.
+    ///
+    /// - Note: This method does not require authentication.
     ///
     /// - Parameters:
-    ///     - uniqueID: Unique id value of VRPlink.
-    ///     - viewController: UIViewController that provides to present bank selection
-    ///     - completion: It provides to handle result or error
-    func open(uniqueID: String, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - uniqueID: A system assigned unique identification for the VRPlink.
+    ///     - url: Unique VRPlink URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(uniqueID: String,
+              url: URL,
+              redirectURL: URL,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.open(uniqueID: uniqueID,
+                      webViewURL: url,
+                      redirectURL: redirectURL,
+                      viewController: viewController,
+                      completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID` of VRPlink.
+    ///
+    /// - Note: This method requires authentication.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the VRPlink.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func open(uniqueID: String,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .open(uniqueID), viewController: viewController, completion: completion)
         }
     }
     
-    /// Opens webview using with request model of VRPlink
+    /// Opens webview using with request model of VRPlink.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - uniqueID: Request to create VRPlink
-    ///     - viewController: UIViewController that provides to present bank selection
-    ///     - completion: It provides to handle result or error
-    func initiate(request: VRPlinkCreateRequest, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+    ///     - request: Instance's `VRPlinkCreateRequest`, which is request model to create VRPlink.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    func initiate(request: VRPlinkCreateRequest,
+                  viewController: UIViewController,
+                  completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             self.execute(type: .initiate(request), viewController: viewController, completion: completion)
         }
     }
     
-    /// Creates VRPlink
+    /// Creates VRPlink.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to create VRPlink
-    ///     - completion: It provides to handle result or error
-    func createVRPlink(request: VRPlinkCreateRequest, completion: @escaping (Result<VRPlinkCreateResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `VRPlinkCreateRequest`, which is request model to create VRPlink.
+    ///     - completion: It provides to handle `VRPlinkCreateResponse` or `PayByBankError`.
+    func createVRPlink(request: VRPlinkCreateRequest,
+                       completion: @escaping (Result<VRPlinkCreateResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.createVRPlink(request: request))
         }
     }
     
-    /// Gets VRPlink detail
+    /// Gets VRPlink detail.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to get VRPlink detail
-    ///     - completion: It provides to handle result or error
-    func getVRPlink(request: VRPlinkGetRequest, completion: @escaping (Result<VRPlinkGetResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `VRPlinkGetRequest`, which is request model to get details of VRPlink.
+    ///     - completion: It provides to handle `VRPlinkGetResponse` or `PayByBankError`.
+    func getVRPlink(request: VRPlinkGetRequest,
+                    completion: @escaping (Result<VRPlinkGetResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.getVRPlink(request: request))
         }
@@ -71,21 +109,27 @@ public extension VRPlink {
     
     /// Soft deletes the VRPlink with given id.
     ///
+    /// - Note: This method requires authentication.
+    ///
     /// - Parameters:
-    ///     - request: Request to deactivate VRPlink
-    ///     - completion: It provides to handle result or error
-    func deactivateVRPlink(request: VRPlinkDeleteRequest, completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
+    ///     - request: Instance's `VRPlinkDeleteRequest`, which is request model to delete VRPlink.
+    ///     - completion: It provides to handle `Bool` or `PayByBankError`.
+    func deactivateVRPlink(request: VRPlinkDeleteRequest,
+                           completion: @escaping (Result<Bool, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.deactivateVRPlink(request: request))
         }
     }
     
-    /// Returns records of VRPlink
+    /// Returns records of VRPlink.
+    ///
+    /// - Note: This method requires authentication.
     ///
     /// - Parameters:
-    ///     - request: Request to get VRPlink records
-    ///     - completion: It provides to handle result or error
-    func getVRPlinkRecords(request: VRPlinkGetRecordsRequest, completion: @escaping (Result<VRPlinkGetRecordsResponse, PayByBankError>) -> Void) {
+    ///     - request: Instance's `VRPlinkGetRecordsRequest`, which is request model to get records of VRPlink.
+    ///     - completion: It provides to handle `VRPlinkGetRecordsResponse` or `PayByBankError`.
+    func getVRPlinkRecords(request: VRPlinkGetRecordsRequest,
+                           completion: @escaping (Result<VRPlinkGetRecordsResponse, PayByBankError>) -> Void) {
         PayByBankConstant.GCD.dispatchQueue.async {
             completion(self.getVRPlinkRecords(request: request))
         }
@@ -161,6 +205,27 @@ private extension VRPlink {
             DispatchQueue.main.async {
                 completion(.failure(PayByBankError(error: error)))
             }
+        }
+    }
+    
+    func open(uniqueID: String,
+              webViewURL: URL,
+              redirectURL: URL,
+              viewController: UIViewController,
+              completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        guard webViewURL.isEcospendHost, !uniqueID.isEmpty else {
+            return completion(.failure(PayByBankError.wrongLink))
+        }
+        
+        let handler = factory.makeVRPlinkHandler(uniqueID: uniqueID,
+                                                   webViewURL: webViewURL,
+                                                   redirectURL: redirectURL,
+                                                   completionHandler: completion)
+        
+        DispatchQueue.main.async {
+            let vc = self.factory.payByBankFactory.makeWebViewVC(handler: handler)
+            let nc = UINavigationController(rootViewController: vc)
+            viewController.present(nc, animated: true)
         }
     }
     

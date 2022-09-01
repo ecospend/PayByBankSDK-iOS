@@ -38,8 +38,6 @@ struct VRPlinkInitiate: View {
     @State private var isVRPlinkLimitOptionsValid: Bool = false
     @State private var vrplinkLimitOptions: VRPlinkLimitOptions? = nil
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

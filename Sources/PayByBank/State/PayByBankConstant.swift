@@ -15,7 +15,8 @@ struct PayByBankConstant {
     }
     
     struct URLHost {
-        static let ecospend = "www.ecospend.com"
+        static let ecospend = "ecospend.com"
+        static let ecospendFull = "www.\(ecospend)"
         static let fca = "register.fca.org.uk"
     }
     

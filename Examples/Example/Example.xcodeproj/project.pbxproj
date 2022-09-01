@@ -11,6 +11,12 @@
 		D62AEEDB28747BEB00CC2DD2 /* PaymentOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */; };
 		D62AEEE22875759000CC2DD2 /* PaymentInitiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEEE12875759000CC2DD2 /* PaymentInitiate.swift */; };
 		D62AEEE4287597EF00CC2DD2 /* PaymentInitiateRefund.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AEEE3287597EF00CC2DD2 /* PaymentInitiateRefund.swift */; };
+		D669251528C0A5C0005F15F1 /* PaylinkOpenNoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251428C0A5C0005F15F1 /* PaylinkOpenNoAuth.swift */; };
+		D669251728C0AE3E005F15F1 /* BulkPaymentOpenNoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251628C0AE3E005F15F1 /* BulkPaymentOpenNoAuth.swift */; };
+		D669251928C0BDA3005F15F1 /* DatalinkOpenNoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251828C0BDA3005F15F1 /* DatalinkOpenNoAuth.swift */; };
+		D669251B28C0C0C3005F15F1 /* FrPaymentOpenNoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251A28C0C0C3005F15F1 /* FrPaymentOpenNoAuth.swift */; };
+		D669251D28C0C815005F15F1 /* PaymentOpenNoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251C28C0C815005F15F1 /* PaymentOpenNoAuth.swift */; };
+		D669251F28C0CB34005F15F1 /* VRPlinkOpenNoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D669251E28C0CB34005F15F1 /* VRPlinkOpenNoAuth.swift */; };
 		D6900933282A75A300979630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900932282A75A300979630 /* Assets.xcassets */; };
 		D6900936282A75A300979630 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6900935282A75A300979630 /* Preview Assets.xcassets */; };
 		D6900940282A75A300979630 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690093F282A75A300979630 /* ExampleTests.swift */; };
@@ -137,6 +143,12 @@
 		D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOpen.swift; sourceTree = "<group>"; };
 		D62AEEE12875759000CC2DD2 /* PaymentInitiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInitiate.swift; sourceTree = "<group>"; };
 		D62AEEE3287597EF00CC2DD2 /* PaymentInitiateRefund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInitiateRefund.swift; sourceTree = "<group>"; };
+		D669251428C0A5C0005F15F1 /* PaylinkOpenNoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaylinkOpenNoAuth.swift; sourceTree = "<group>"; };
+		D669251628C0AE3E005F15F1 /* BulkPaymentOpenNoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkPaymentOpenNoAuth.swift; sourceTree = "<group>"; };
+		D669251828C0BDA3005F15F1 /* DatalinkOpenNoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatalinkOpenNoAuth.swift; sourceTree = "<group>"; };
+		D669251A28C0C0C3005F15F1 /* FrPaymentOpenNoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrPaymentOpenNoAuth.swift; sourceTree = "<group>"; };
+		D669251C28C0C815005F15F1 /* PaymentOpenNoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOpenNoAuth.swift; sourceTree = "<group>"; };
+		D669251E28C0CB34005F15F1 /* VRPlinkOpenNoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRPlinkOpenNoAuth.swift; sourceTree = "<group>"; };
 		D690092B282A75A100979630 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900932282A75A300979630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6900935282A75A300979630 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -376,6 +388,7 @@
 				D695AF2C285CB76200CB7103 /* PaylinkGet.swift */,
 				D695AF2E285CB81300CB7103 /* PaylinkInitiate.swift */,
 				D6900993282BF52400979630 /* PaylinkOpen.swift */,
+				D669251428C0A5C0005F15F1 /* PaylinkOpenNoAuth.swift */,
 			);
 			path = Paylink;
 			sourceTree = "<group>";
@@ -494,6 +507,7 @@
 				D6AEF3E52861AD98008FD82E /* FrPaymentGet.swift */,
 				D6AEF3DB28609E7E008FD82E /* FrPaymentInitiate.swift */,
 				D6AEF3D928609C9D008FD82E /* FrPaymentOpen.swift */,
+				D669251A28C0C0C3005F15F1 /* FrPaymentOpenNoAuth.swift */,
 			);
 			path = FrPayment;
 			sourceTree = "<group>";
@@ -540,6 +554,7 @@
 				D6AEF40328624694008FD82E /* VRPlinkInitiate.swift */,
 				D6AEF4052862472F008FD82E /* VRPlinkListRecords.swift */,
 				D6AEF3FD28624463008FD82E /* VRPlinkOpen.swift */,
+				D669251E28C0CB34005F15F1 /* VRPlinkOpenNoAuth.swift */,
 			);
 			path = VRPlink;
 			sourceTree = "<group>";
@@ -565,6 +580,7 @@
 				D6AEF41B28647E12008FD82E /* BulkPaymentGet.swift */,
 				D6AEF41D28648768008FD82E /* BulkPaymentInitiate.swift */,
 				D6AEF41F286487F5008FD82E /* BulkPaymentOpen.swift */,
+				D669251628C0AE3E005F15F1 /* BulkPaymentOpenNoAuth.swift */,
 			);
 			path = BulkPayment;
 			sourceTree = "<group>";
@@ -596,6 +612,7 @@
 				D6AEF4452865A3EE008FD82E /* DatalinkGetOfConsent.swift */,
 				D6AEF4492865A568008FD82E /* DatalinkInitiate.swift */,
 				D6AEF4472865A504008FD82E /* DatalinkOpen.swift */,
+				D669251828C0BDA3005F15F1 /* DatalinkOpenNoAuth.swift */,
 			);
 			path = Datalink;
 			sourceTree = "<group>";
@@ -623,6 +640,7 @@
 				D62AEEE3287597EF00CC2DD2 /* PaymentInitiateRefund.swift */,
 				D6AEF4582865DADB008FD82E /* PaymentList.swift */,
 				D62AEEDA28747BEB00CC2DD2 /* PaymentOpen.swift */,
+				D669251C28C0C815005F15F1 /* PaymentOpenNoAuth.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -786,6 +804,7 @@
 				D6AEF4612865E1E1008FD82E /* RefundAccountSection.swift in Sources */,
 				D6AEF41828647DBD008FD82E /* BulkPaymentDeactivate.swift in Sources */,
 				D6AEF40428624694008FD82E /* VRPlinkInitiate.swift in Sources */,
+				D669251928C0BDA3005F15F1 /* DatalinkOpenNoAuth.swift in Sources */,
 				D6AEF4482865A504008FD82E /* DatalinkOpen.swift in Sources */,
 				D695AF162859F64B00CB7103 /* DebtorAccountSection.swift in Sources */,
 				D695AF2D285CB76200CB7103 /* PaylinkGet.swift in Sources */,
@@ -795,6 +814,7 @@
 				D6AEF4062862472F008FD82E /* VRPlinkListRecords.swift in Sources */,
 				D6AEF44E2865A8C1008FD82E /* PaymentOptionsSection.swift in Sources */,
 				D695AF0928575C9900CB7103 /* AppStorageKeys.swift in Sources */,
+				D669251528C0A5C0005F15F1 /* PaylinkOpenNoAuth.swift in Sources */,
 				D69009A1283246FD00979630 /* Color+.swift in Sources */,
 				D6AEF4632865E328008FD82E /* PaymentCreateRefundMainSection.swift in Sources */,
 				D695AF142859C3D400CB7103 /* CreditorAccountSection.swift in Sources */,
@@ -814,8 +834,11 @@
 				D6AEF42C28649B04008FD82E /* DatalinkVerificationSection.swift in Sources */,
 				D690098F282BDB2E00979630 /* Array+.swift in Sources */,
 				D6AEF3DA28609C9D008FD82E /* FrPaymentOpen.swift in Sources */,
+				D669251B28C0C0C3005F15F1 /* FrPaymentOpenNoAuth.swift in Sources */,
+				D669251728C0AE3E005F15F1 /* BulkPaymentOpenNoAuth.swift in Sources */,
 				D690097C282BC54700979630 /* PaylinkAPIs.swift in Sources */,
 				D695AF29285CA71200CB7103 /* ResponseView.swift in Sources */,
+				D669251F28C0CB34005F15F1 /* VRPlinkOpenNoAuth.swift in Sources */,
 				D6AEF3EF2861BED9008FD82E /* VRPlinkLimitOptionsSection.swift in Sources */,
 				D6AEF43228649FB4008FD82E /* DatalinkParametersSection.swift in Sources */,
 				D6AEF44A2865A568008FD82E /* DatalinkInitiate.swift in Sources */,
@@ -849,6 +872,7 @@
 				D6AEF40928645067008FD82E /* BulkPaymentOptionsSection.swift in Sources */,
 				D690099F282C071F00979630 /* UIApplication+.swift in Sources */,
 				D6AEF4572865D8C9008FD82E /* PaymentListQuerySection.swift in Sources */,
+				D669251D28C0C815005F15F1 /* PaymentOpenNoAuth.swift in Sources */,
 				D6900994282BF52400979630 /* PaylinkOpen.swift in Sources */,
 				D6AEF4422864AD65008FD82E /* DatalinkGet.swift in Sources */,
 				D695AF0F2857D60A00CB7103 /* String+.swift in Sources */,

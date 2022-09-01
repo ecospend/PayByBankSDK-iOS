@@ -10,11 +10,10 @@ import SwiftUI
 
 struct BulkPaymentAPIs: View {
     
-    @State private var url: URL? = nil
-    
     var body: some View {
         List {
             Section {
+                NavigationLink(L10n.bulkPaymentOpenNoAuthTitle.localizedKey, destination: BulkPaymentOpenNoAuth())
                 NavigationLink(L10n.bulkPaymentOpenTitle.localizedKey, destination: BulkPaymentOpen())
                 NavigationLink(L10n.bulkPaymentInitiateTitle.localizedKey, destination: BulkPaymentInitiate())
             }

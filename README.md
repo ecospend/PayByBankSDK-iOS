@@ -28,11 +28,11 @@ The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of
 To integrate PayByBank into your Xcode project using CocoaPods, add this to your `Podfile`:
 
 ```
-pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.1.0'
+pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.2.0'
 
 # or
 
-pod 'PayByBank', '1.1.0'
+pod 'PayByBank', '1.2.0'
 ```
 
 Then run `pod install`.
@@ -45,14 +45,14 @@ To integrate using Apple's Swift package manager, with Xcode integration, apply 
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/ecospend/PayByBankSDK-iOS.git`
-- Select "Dependency Rule" with "Exact Version" and "1.1.0"
+- Select "Dependency Rule" with "Exact Version" and "1.2.0"
 
 #### Manually
 
 To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`
 
 ```
-.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.1.0")
+.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.2.0")
 ```
 
 ### Carthage
@@ -60,7 +60,7 @@ To integrate using Apple's Swift package manager, without Xcode integration, add
 To integrate PayByBank into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "ecospend/PayByBankSDK-iOS" ~> 1.1.0
+github "ecospend/PayByBankSDK-iOS" ~> 1.2.0
 ```
 
 Then run `carthage update --use-xcframeworks` and drag the built `PayByBank.xcframework` bundle from `Carthage/Build` into the "Frameworks and Libraries" section of your application’s Xcode project.
@@ -94,20 +94,18 @@ You will be given separate pairs of Client Id and Client Secret for our `Sandbox
 
 ### Authentication
 
-PayByBank SDK supports [Client Credentials Flow](https://en.wikipedia.org/wiki/OAuth) and [Token-Based Authentication](https://en.wikipedia.org/wiki/Access_token) to access Ecospend Gateway APIs.
+PayByBank SDK supports [Token-Based Authentication](https://en.wikipedia.org/wiki/Access_token) to access Ecospend Gateway APIs.
 
-- Client Credentials Flow: `PayByBank.configure` function should be called once to access `client_id` and `client_secret` before using APIs of PayByBank SDK.
-
-- Token-Based Authentication: `PayByBank.configure` function should be called to access `access_token` before using APIs of PayByBank SDK. When `access_token` is expired, `PayByBank.configure` function should be called again. To generate `access_token`, check out the [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
+`PayByBank.configure` function should be called to access `access_token` before using APIs which requires authentication of PayByBank SDK. When `access_token` is expired, `PayByBank.configure` function should be called again. To generate `access_token`, check out the [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
 
 ```
-PayByBank.configure(environment: <environment>, 
-                    authentication: .clientCredentials(clientID: <client_id>, clientSecret: <client_secret>))
+PayByBank.configure(environment: <environment>)
 
 // or
 
 PayByBank.configure(environment: <environment>, 
-                    authentication: .token(<access_token>))
+                    accessToken: <accessToken>,
+                    tokenType: <tokenType>)
 ```
 
 ## Sample Projects

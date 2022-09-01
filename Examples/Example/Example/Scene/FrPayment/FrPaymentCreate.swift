@@ -30,7 +30,6 @@ struct FrPaymentCreate: View {
     @State private var notificationOptions: PayByBankNotificationOptionsRequest? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

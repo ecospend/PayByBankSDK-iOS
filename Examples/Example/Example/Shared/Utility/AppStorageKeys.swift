@@ -13,6 +13,8 @@ enum AppStorageKeys: String {
     case settingsEnvironment
     case settingsClientID
     case settingsClientSecret
+    case settingsAccessToken
+    case settingsTokenType
     // MARK: - Input Notification Options
     case notificationOptionsEmail
     case notificationOptionsPhoneNumber
@@ -76,6 +78,7 @@ enum AppStorageKeys: String {
     case merchantUserID
     case numberOfPayments
     case period
+    case url
     case redirectURL
     case reference
     case standingOrderType

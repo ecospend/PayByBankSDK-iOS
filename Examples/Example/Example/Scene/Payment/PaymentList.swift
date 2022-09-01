@@ -18,7 +18,6 @@ struct PaymentList: View {
     @State private var query: PaymentListRequest? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

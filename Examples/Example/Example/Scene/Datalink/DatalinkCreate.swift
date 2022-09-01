@@ -27,7 +27,6 @@ struct DatalinkCreate: View {
     @State private var financialReport: FinancialReport? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

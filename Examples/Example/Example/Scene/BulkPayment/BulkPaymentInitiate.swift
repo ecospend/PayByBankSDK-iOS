@@ -35,9 +35,6 @@ struct BulkPaymentInitiate: View {
     @State private var isBulkPaymentPaymentsValid: Bool = false
     @State private var bulkPaymentPayments: [BulkPaymentPaylinkEntry]? = nil
     
-    @State private var response: String? = nil
-    @State private var url: URL? = nil
-    
     var body: some View {
         VStack {
             Form {

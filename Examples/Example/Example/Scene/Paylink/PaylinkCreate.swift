@@ -36,7 +36,6 @@ struct PaylinkCreate: View {
     @State private var limitOptions: PaylinkLimitOptions? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

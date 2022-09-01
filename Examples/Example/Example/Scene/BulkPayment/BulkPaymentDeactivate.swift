@@ -17,7 +17,6 @@ struct BulkPaymentDeactivate: View {
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

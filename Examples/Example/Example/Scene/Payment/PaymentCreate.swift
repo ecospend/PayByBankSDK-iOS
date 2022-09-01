@@ -27,7 +27,6 @@ struct PaymentCreate: View {
     @State private var paymentOption: PaymentOption? = nil
     
     @State private var response: String? = nil
-    @State private var url: URL? = nil
     
     var body: some View {
         VStack {

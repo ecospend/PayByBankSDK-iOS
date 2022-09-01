@@ -23,8 +23,11 @@ enum L10n {
     case settingsEnvironmentProduction
     case settingsEnvironmentClientID
     case settingsEnvironmentClientSecret
+    case settingsEnvironmentAccessToken
+    case settingsEnvironmentTokenType
     // MARK: - Paylink
     case paylinkTitle
+    case paylinkOpenNoAuthTitle
     case paylinkOpenTitle
     case paylinkInitiateTitle
     case paylinkCreateTitle
@@ -32,6 +35,7 @@ enum L10n {
     case paylinkDeactivateTitle
     // MARK: - FrPayment
     case frPaymentTitle
+    case frPaymentOpenNoAuthTitle
     case frPaymentOpenTitle
     case frPaymentInitiateTitle
     case frPaymentCreateTitle
@@ -39,6 +43,7 @@ enum L10n {
     case frPaymentDeactivateTitle
     // MARK: - Bulk Payment
     case bulkPaymentTitle
+    case bulkPaymentOpenNoAuthTitle
     case bulkPaymentOpenTitle
     case bulkPaymentInitiateTitle
     case bulkPaymentCreateTitle
@@ -46,6 +51,7 @@ enum L10n {
     case bulkPaymentDeactivateTitle
     // MARK: - VRPlink
     case vrplinkTitle
+    case vrplinkOpenNoAuthTitle
     case vrplinkOpenTitle
     case vrplinkInitiateTitle
     case vrplinkCreateTitle
@@ -54,6 +60,7 @@ enum L10n {
     case vrplinkListRecordsTitle
     // MARK: - Datalink
     case datalinkTitle
+    case datalinkOpenNoAuthTitle
     case datalinkOpenTitle
     case datalinkInitiateTitle
     case datalinkCreateTitle
@@ -62,6 +69,7 @@ enum L10n {
     case datalinkGetOfConsentTitle
     // MARK: - Payment
     case paymentTitle
+    case paymentOpenNoAuthTitle
     case paymentOpenTitle
     case paymentInitiateTitle
     case paymentInitiateRefundTitle
@@ -161,6 +169,7 @@ enum L10n {
     case inputMerchantUserID
     case inputNumberOfPayments
     case inputPeriod
+    case inputURL
     case inputRedirectURL
     case inputReference
     case inputStandingOrderType
