@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          PayByBank 1.1.0 Docs
+          PayByBank 1.2.0 Docs
         </a>
          (100% documented)
       </p>
@@ -111,9 +111,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/PayByBankAccountType.html">PayByBankAccountType</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/PayByBankAuthentication.html">PayByBankAuthentication</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/PayByBankCurrency.html">PayByBankCurrency</a>
@@ -478,6 +475,109 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:9PayByBank7PaylinkC4open8uniqueID3url11redirectURL14viewController10completionySS_10Foundation0J0VALSo06UIViewL0Cys6ResultOyAA0abcP0VAA0abC5ErrorOGctF"></a>
+                    <a name="//apple_ref/swift/Method/open(uniqueID:url:redirectURL:viewController:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:9PayByBank7PaylinkC4open8uniqueID3url11redirectURL14viewController10completionySS_10Foundation0J0VALSo06UIViewL0Cys6ResultOyAA0abcP0VAA0abC5ErrorOGctF">open(uniqueID:<wbr>url:<wbr>redirectURL:<wbr>viewController:<wbr>completion:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Opens webview using with <code>uniqueID</code>, <code>url</code> and <code>redirectURL</code> of Paylink.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This method does not require authentication.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">open</span><span class="p">(</span><span class="nv">uniqueID</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+          <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+          <span class="nv">redirectURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+          <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span>
+          <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/PayByBankResult.html">PayByBankResult</a></span><span class="p">,</span> <span class="kt"><a href="../Enums/PayByBankError.html">PayByBankError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uniqueID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A system assigned unique identification for the Paylink.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Unique Paylink URL that you will need to redirect PSU in order the payment to proceed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>redirectURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL of the Tenant that the PSU will be redirected at the end of the paylink journey.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Instance&rsquo;s <code>UIViewController</code>, which provides to present bank selection.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>It provides to handle <code><a href="../Structs/PayByBankResult.html">PayByBankResult</a></code> or <code><a href="../Enums/PayByBankError.html">PayByBankError</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:9PayByBank7PaylinkC4open8uniqueID14viewController10completionySS_So06UIViewI0Cys6ResultOyAA0abcL0VAA0abC5ErrorOGctF"></a>
                     <a name="//apple_ref/swift/Method/open(uniqueID:viewController:completion:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:9PayByBank7PaylinkC4open8uniqueID14viewController10completionySS_So06UIViewI0Cys6ResultOyAA0abcL0VAA0abC5ErrorOGctF">open(uniqueID:<wbr>viewController:<wbr>completion:<wbr>)</a>
@@ -488,7 +588,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Opens webview using with <code>uniqueID</code> of paylink</p>
+                        <p>Opens webview using with <code>uniqueID</code> of Paylink.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This method requires authentication.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -511,7 +616,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Unique id value of paylink.</p>
+                                  <p>A system assigned unique identification for the Paylink.</p>
                                 </div>
                               </td>
                             </tr>
@@ -523,7 +628,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>UIViewController that provides to present bank selection</p>
+                                  <p>Instance&rsquo;s <code>UIViewController</code>, which provides to present bank selection.</p>
                                 </div>
                               </td>
                             </tr>
@@ -535,7 +640,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>It provides to handle result or error</p>
+                                  <p>It provides to handle <code><a href="../Structs/PayByBankResult.html">PayByBankResult</a></code> or <code><a href="../Enums/PayByBankError.html">PayByBankError</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -558,7 +663,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Opens webview using with request model of paylink</p>
+                        <p>Opens webview using with request model of Paylink.</p>
 
                       </div>
                       <div class="declaration">
@@ -581,7 +686,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Request to create paylink</p>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PaylinkCreateRequest.html">PaylinkCreateRequest</a></code>, which is request model to create Paylink.</p>
                                 </div>
                               </td>
                             </tr>
@@ -593,7 +698,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>UIViewController that provides to present bank selection</p>
+                                  <p>Instance&rsquo;s <code>UIViewController</code>, which provides to present bank selection.</p>
                                 </div>
                               </td>
                             </tr>
@@ -605,7 +710,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>It provides to handle result or error</p>
+                                  <p>It provides to handle <code><a href="../Structs/PayByBankResult.html">PayByBankResult</a></code> or <code><a href="../Enums/PayByBankError.html">PayByBankError</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -628,7 +733,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates Paylink</p>
+                        <p>Creates Paylink.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This method requires authentication.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -651,7 +761,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Request to create Paylink</p>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PaylinkCreateRequest.html">PaylinkCreateRequest</a></code>, which is request model to create Paylink.</p>
                                 </div>
                               </td>
                             </tr>
@@ -663,7 +773,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>It provides to handle result or error</p>
+                                  <p>It provides to handle <code><a href="../Structs/PaylinkCreateResponse.html">PaylinkCreateResponse</a></code> or <code><a href="../Enums/PayByBankError.html">PayByBankError</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -686,7 +796,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets Paylink detail</p>
+                        <p>Gets Paylink detail.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This method requires authentication.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -709,7 +824,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Request to get Paylink detail</p>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PaylinkGetRequest.html">PaylinkGetRequest</a></code>, which is request model to get details of Paylink.</p>
                                 </div>
                               </td>
                             </tr>
@@ -721,7 +836,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>It provides to handle result or error</p>
+                                  <p>It provides to handle <code><a href="../Structs/PaylinkGetResponse.html">PaylinkGetResponse</a></code> or <code><a href="../Enums/PayByBankError.html">PayByBankError</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -745,6 +860,11 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Soft deletes the Paylink with given id.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This method requires authentication.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
@@ -767,7 +887,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Request to deactivate Paylink</p>
+                                  <p>Instance&rsquo;s <code><a href="../Structs/PaylinkDeleteRequest.html">PaylinkDeleteRequest</a></code>, which is request model to delete Paylink.</p>
                                 </div>
                               </td>
                             </tr>
@@ -779,7 +899,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>It provides to handle result or error</p>
+                                  <p>It provides to handle <code>Bool</code> or <code><a href="../Enums/PayByBankError.html">PayByBankError</a></code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -797,7 +917,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-10)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-09-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

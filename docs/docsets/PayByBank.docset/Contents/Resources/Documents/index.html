@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          PayByBank 1.1.0 Docs
+          PayByBank 1.2.0 Docs
         </a>
          (100% documented)
       </p>
@@ -110,9 +110,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/PayByBankAccountType.html">PayByBankAccountType</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Enums/PayByBankAuthentication.html">PayByBankAuthentication</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/PayByBankCurrency.html">PayByBankCurrency</a>
@@ -473,11 +470,11 @@
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <p>To integrate PayByBank into your Xcode project using CocoaPods, add this to your <code>Podfile</code>:</p>
-<pre class="highlight plaintext"><code>pod 'PayByBank', :git =&gt; 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag =&gt; '1.1.0'
+<pre class="highlight plaintext"><code>pod 'PayByBank', :git =&gt; 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag =&gt; '1.2.0'
 
 # or
 
-pod 'PayByBank', '1.1.0'
+pod 'PayByBank', '1.2.0'
 </code></pre>
 
 <p>Then run <code>pod install</code>.</p>
@@ -489,17 +486,17 @@ pod 'PayByBank', '1.1.0'
 <ul>
 <li>File &gt; Swift Packages &gt; Add Package Dependency</li>
 <li>Add <code>https://github.com/ecospend/PayByBankSDK-iOS.git</code></li>
-<li>Select &ldquo;Dependency Rule&rdquo; with &ldquo;Exact Version&rdquo; and &ldquo;1.1.0&rdquo;</li>
+<li>Select &ldquo;Dependency Rule&rdquo; with &ldquo;Exact Version&rdquo; and &ldquo;1.2.0&rdquo;</li>
 </ul>
 <h4 id='manually' class='heading'>Manually</h4>
 
 <p>To integrate using Apple&rsquo;s Swift package manager, without Xcode integration, add the following as a dependency to your <code>Package.swift</code></p>
-<pre class="highlight plaintext"><code>.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.1.0")
+<pre class="highlight plaintext"><code>.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.2.0")
 </code></pre>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
 <p>To integrate PayByBank into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
-<pre class="highlight plaintext"><code>github "ecospend/PayByBankSDK-iOS" ~&gt; 1.1.0
+<pre class="highlight plaintext"><code>github "ecospend/PayByBankSDK-iOS" ~&gt; 1.2.0
 </code></pre>
 
 <p>Then run <code>carthage update --use-xcframeworks</code> and drag the built <code>PayByBank.xcframework</code> bundle from <code>Carthage/Build</code> into the &ldquo;Frameworks and Libraries&rdquo; section of your application’s Xcode project.</p>
@@ -535,19 +532,16 @@ pod 'PayByBank', '1.1.0'
 </ul>
 <h3 id='authentication' class='heading'>Authentication</h3>
 
-<p>PayByBank SDK supports <a href="https://en.wikipedia.org/wiki/OAuth">Client Credentials Flow</a> and <a href="https://en.wikipedia.org/wiki/Access_token">Token-Based Authentication</a> to access Ecospend Gateway APIs.</p>
+<p>PayByBank SDK supports <a href="https://en.wikipedia.org/wiki/Access_token">Token-Based Authentication</a> to access Ecospend Gateway APIs.</p>
 
-<ul>
-<li><p>Client Credentials Flow: <code>PayByBank.configure</code> function should be called once to access <code>client_id</code> and <code>client_secret</code> before using APIs of PayByBank SDK.</p></li>
-<li><p>Token-Based Authentication: <code>PayByBank.configure</code> function should be called to access <code>access_token</code> before using APIs of PayByBank SDK. When <code>access_token</code> is expired, <code>PayByBank.configure</code> function should be called again. To generate <code>access_token</code>, check out the <a href="https://docs.ecospend.com/api/intro/#tag/Get-Access-Token">Get Access Token</a> documentation.</p></li>
-</ul>
-<pre class="highlight plaintext"><code>PayByBank.configure(environment: &lt;environment&gt;, 
-                    authentication: .clientCredentials(clientID: &lt;client_id&gt;, clientSecret: &lt;client_secret&gt;))
+<p><code>PayByBank.configure</code> function should be called to access <code>access_token</code> before using APIs which requires authentication of PayByBank SDK. When <code>access_token</code> is expired, <code>PayByBank.configure</code> function should be called again. To generate <code>access_token</code>, check out the <a href="https://docs.ecospend.com/api/intro/#tag/Get-Access-Token">Get Access Token</a> documentation.</p>
+<pre class="highlight plaintext"><code>PayByBank.configure(environment: &lt;environment&gt;)
 
 // or
 
 PayByBank.configure(environment: &lt;environment&gt;, 
-                    authentication: .token(&lt;access_token&gt;))
+                    accessToken: &lt;accessToken&gt;,
+                    tokenType: &lt;tokenType&gt;)
 </code></pre>
 <h2 id='sample-projects' class='heading'>Sample Projects</h2>
 
@@ -563,7 +557,7 @@ PayByBank.configure(environment: &lt;environment&gt;,
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-08-10)</p>
+      <p>&copy; 2022 <a class="link" href="https://ecospend.com" target="_blank" rel="external noopener">Ecospend Technologies Limited</a>. All rights reserved. (Last updated: 2022-09-01)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
