@@ -9,6 +9,7 @@
 import Foundation
 import WebKit
 
+// MARK: - PayByBankHandlerProtocol
 protocol PayByBankHandlerProtocol {
     
     /// Identifier of the link.
@@ -33,11 +34,12 @@ protocol PayByBankHandlerProtocol {
     func closeTapped()
 }
 
+// MARK: - PayByBankHandlerDelegate
 protocol PayByBankHandlerDelegate: AnyObject {
     
     /// Event that returns loading status for webview.
     func handler(_ handler: PayByBankHandlerProtocol, isLoading: Bool)
     
     /// Event that returns completion status for webview.
-    func handler(_ handler: PayByBankHandlerProtocol, isCompleted: Bool)
+    func handler(_ handler: PayByBankHandlerProtocol, isCompleted: Bool, url: URL?)
 }

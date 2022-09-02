@@ -38,12 +38,10 @@ class PaymentHandler: PayByBankHandlerProtocol {
             handle(status: .initiated)
             return .allow
         case PayByBankConstant.URLHost.ecospendFull, PayByBankConstant.URLHost.fca:
-            UIApplication.shared.open(url)
-            handle(status: .initiated)
+            handle(status: .initiated, url: url)
             return .cancel
         default:
-            UIApplication.shared.open(url)
-            handle(status: .redirected)
+            handle(status: .redirected, url: url)
             return .cancel
         }
     }
@@ -56,10 +54,15 @@ class PaymentHandler: PayByBankHandlerProtocol {
 // MARK: - Logic
 private extension PaymentHandler {
     
-    func handle(status: PayByBankStatus) {
-        if status != .initiated {
-            delegate?.handler(self, isCompleted: true)
+    func handle(status: PayByBankStatus, url: URL? = nil) {
+        
+        switch status {
+        case .canceled, .redirected:
+            delegate?.handler(self, isCompleted: true, url: url)
+        case .initiated:
+            delegate?.handler(self, isCompleted: false, url: url)
         }
+        
         let result = PayByBankResult(uniqueID: uniqueID, status: status)
         completionHandler(.success(result))
     }

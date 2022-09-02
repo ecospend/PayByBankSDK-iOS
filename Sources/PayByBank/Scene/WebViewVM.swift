@@ -14,6 +14,8 @@ class WebViewVM: NSObject {
     
     private var dismissHandler: (() -> Void)?
     private var loadingHandler: ((Bool) -> Void)?
+    private var openURLHandler: ((URL) -> Void)?
+    private var openSafariHandler: ((URL) -> Void)?
     
     init(handler: PayByBankHandlerProtocol) {
         self.handler = handler
@@ -33,6 +35,14 @@ extension WebViewVM {
     func loading(_ completion: @escaping (Bool) -> Void) {
         loadingHandler = completion
     }
+    
+    func openURL(_ completion: @escaping (URL) -> Void) {
+        openURLHandler = completion
+    }
+    
+    func openSafari(_ completion: @escaping (URL) -> Void) {
+        openSafariHandler = completion
+    }
 }
 
 // MARK: - APIHandlerResultProtocol
@@ -42,8 +52,18 @@ extension WebViewVM: PayByBankHandlerDelegate {
         loadingHandler?(isLoading)
     }
     
-    func handler(_ handler: PayByBankHandlerProtocol, isCompleted: Bool) {
-        guard isCompleted else { return }
-        dismissHandler?()
+    func handler(_ handler: PayByBankHandlerProtocol, isCompleted: Bool, url: URL?) {
+        
+        switch isCompleted {
+        case true:
+            if let url = url {
+                openURLHandler?(url)
+            }
+            dismissHandler?()
+        case false:
+            if let url = url {
+                openSafariHandler?(url)
+            }
+        }
     }
 }

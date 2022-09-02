@@ -1226,7 +1226,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk;
 				PRODUCT_NAME = PayByBank;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1261,7 +1261,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ecospend.paylinkmobilesdk;
 				PRODUCT_NAME = PayByBank;
 				PROVISIONING_PROFILE_SPECIFIER = "";
