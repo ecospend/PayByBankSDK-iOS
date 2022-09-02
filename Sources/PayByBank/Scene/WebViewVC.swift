@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 import WebKit
 
 class WebViewVC: UIViewController {
@@ -92,6 +93,20 @@ class WebViewVC: UIViewController {
                 }
             }
         }
+        
+        viewModel.openURL { [weak self] url in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.openURL(with: url)
+            }
+        }
+        
+        viewModel.openSafari { [weak self] url in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.openSafari(with: url)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -160,6 +175,29 @@ private extension WebViewVC {
         let cssString = "* { user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; } textarea, input { user-select: text; -webkit-user-select: text }"
         let jsString = "var style = document.createElement('style'); style.innerHTML = '\(cssString)'; document.head.appendChild(style);"
         webView.evaluateJavaScript(jsString, completionHandler: nil)
+    }
+}
+
+// MARK: - Navigation
+private extension WebViewVC {
+
+    func openSafari(with url: URL) {
+        let configuration: SFSafariViewController.Configuration = {
+            let config = SFSafariViewController.Configuration()
+            config.barCollapsingEnabled = false
+            return config
+        }()
+        let safariVC: UIViewController = {
+            let vc = SFSafariViewController(url: url, configuration: configuration)
+            vc.dismissButtonStyle = .close
+            vc.modalPresentationStyle = .popover
+            return vc
+        }()
+        present(safariVC, animated: true)
+    }
+    
+    func openURL(with url: URL) {
+        UIApplication.shared.open(url)
     }
 }
 
