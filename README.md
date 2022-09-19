@@ -9,12 +9,14 @@
 
 The Ecospend Gateway presents PayByBank SDK as an alternative and easier form of Open Banking Instant Payment solutions. PayByBank SDK provides you the option of downsizing the development effort for a PIS and AIS journeys to a single SDK integration. PayByBank undertakes all of interaction in the payment user journey with your branding on display.
 
-- `Paylink` provides to execute the payment order.
-- `FrPayment` provides to execute a standing order.
-- `BulkPayment` provides to execute the Bulk Payment order.
-- `VRPlink` provides to execute the Variable Recurring Payments consent.
-- `Datalink` is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration.
-- `Payment` provides to execute the domestic instant payments, international payments, and scheduled payments.
+PayByBank SDK includes solutions of:
+
+- [Paylink](https://docs.ecospend.com/api/paylink/V2/#tag/Paylink-API) provides to execute the payment order.
+- [FrPayment](https://docs.ecospend.com/api/paylink/V2/#tag/FrPayments-API) provides to execute a standing order.
+- [BulkPayment](https://docs.ecospend.com/api/paylink/V2/#tag/Bulk-Paymentlink-API) provides to execute the Bulk Payment order.
+- [VRPlink](https://docs.ecospend.com/api/paylink/V2/#tag/Vrplink-API) provides to execute the Variable Recurring Payments consent.
+- [Datalink](https://docs.ecospend.com/api/ais/V2/#tag/Datalink-API) is a whitelabel consent journey solution provided by Ecospend that downsizes the required implementation for the consent journey to a single endpoint integration.
+- [Payment](https://docs.ecospend.com/api/pis/V2/#tag/Payments-API) provides to execute the domestic instant payments, international payments, and scheduled payments.
 
 ## Requirements
 
@@ -73,40 +75,32 @@ To get more information about PayByBank, check out the [documentation](https://e
 
 *Note: Please look at [API Specifications & Developer's Guide](https://docs.ecospend.com/api/intro) for more details.*
 
-### Onboarding
-
-To start using our API, you need to onboard with us and get a Client Id (`client_id`) and Client Secret (`client_secret`) via email to <support@ecospend.com>. For onboarding we will need the following information:
-
-- The full name of your company/organization
-- An email address for your admin user (used as username)
-- A mobile phone number for the admin user (used for two-factor authentication)
-
-Once onboarded, a Client Id is generated for you and you will have access to our Management Console, through which you can generate your Client Secret(s).
-
-- The `client_id` is created by Ecospend when your organization is registered with us.
-- The `client_secret` is a security key that your administrator should create from the Management Console. This is not visible to or accessible  by the Ecospend team. Therefore, you should store it safely.
-- The `access_token` is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.
-
-You will be given separate pairs of Client Id and Client Secret for our `Sandbox` and `Production` environments respectively. Ecospend does not store these parameters; therefore, you need to keep them safe and secure.
-
-- `Sandbox` environment should be used for testing purposes.
-- `Production` environment should be used for released applications.
-
-### Authentication
-
-PayByBank SDK supports [Token-Based Authentication](https://en.wikipedia.org/wiki/Access_token) to access Ecospend Gateway APIs.
-
-`PayByBank.configure` function should be called to access `access_token` before using APIs which requires authentication of PayByBank SDK. When `access_token` is expired, `PayByBank.configure` function should be called again. To generate `access_token`, check out the [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
+After creating a link, PayByBank SDK provides to manage easily client-side web view flows, when necessary parameters are passed.
 
 ```
-PayByBank.configure(environment: <environment>)
+PayByBank.open(paylink uniqueID: String, url: URL, redirectURL: URL, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
 
 // or
 
-PayByBank.configure(environment: <environment>, 
-                    accessToken: <accessToken>,
-                    tokenType: <tokenType>)
+PayByBank.open(frPayment uniqueID: String, url: URL, redirectURL: URL, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
+
+// or
+
+PayByBank.open(vrplink uniqueID: String, url: URL, redirectURL: URL, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
+
+// or
+
+PayByBank.open(bulkPayment uniqueID: String, url: URL, redirectURL: URL, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
+
+// or
+
+PayByBank.open(datalink uniqueID: String, url: URL, redirectURL: URL, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
+
+// or
+
+PayByBank.open(payment id: String, url: URL, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
 ```
+
 
 ## Sample Projects
 
@@ -114,4 +108,4 @@ We have provided a sample project in the repository. Source files for these are 
 
 ## License
 
-PayByBank SDK is released under the [Apache License](LICENSE).
+PayByBank SDK is released under the [Apache License](https://github.com/ecospend/PayByBankSDK-iOS/blob/master/LICENSE).
