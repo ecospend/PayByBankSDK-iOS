@@ -10,7 +10,6 @@ import Foundation
 
 protocol BulkPaymentFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
-    func makeBulkPaymentRepository() -> BulkPaymentRepositoryProtocol
     func makeBulkPaymentHandler(uniqueID: String,
                                 webViewURL: URL,
                                 redirectURL: URL,
@@ -27,10 +26,6 @@ class BulkPaymentFactory: BulkPaymentFactoryProtocol {
 }
 
 extension BulkPaymentFactory {
-    
-    func makeBulkPaymentRepository() -> BulkPaymentRepositoryProtocol {
-        return BulkPaymentRepository(networking: payByBankFactory.makeNetworking())
-    }
     
     func makeBulkPaymentHandler(uniqueID: String,
                                 webViewURL: URL,

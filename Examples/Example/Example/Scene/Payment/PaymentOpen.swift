@@ -2,7 +2,7 @@
 //  PaymentOpen.swift
 //  Example
 //
-//  Created by Yunus TÜR on 5.07.2022.
+//  Created by Yunus TÜR on 1.09.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
@@ -15,19 +15,22 @@ struct PaymentOpen: View {
     @EnvironmentObject var toast: Toast
     
     @AppStorage(Self.storage(key: .id)) var id: String = ""
+    @AppStorage(Self.storage(key: .url)) var url: String = ""
     
     var body: some View {
         VStack {
             Form {
                 TextField("", text: $id)
                     .titled(L10n.inputID.localized.required)
+                TextField("", text: $url)
+                    .titled(L10n.inputURL.localized.required)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {
                 submit()
             }
             .buttonStyle(.primary)
-            .disabled(id.isBlank)
+            .disabled(id.isBlank || !url.isURL)
             .padding()
         }
         .background(Color.formBackground)
@@ -37,8 +40,11 @@ struct PaymentOpen: View {
     
     func submit() {
         hideKeyboard()
+        guard let url = URL(string: url) else {
+            return
+        }
         loading(true)
-        PayByBank.payment.open(id: id) { result in
+        PayByBank.open(payment: id, url: url) { result in
             loading(false)
             toast(result.string)
         }

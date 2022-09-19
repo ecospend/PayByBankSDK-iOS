@@ -9,7 +9,6 @@ import Foundation
 
 protocol DatalinkFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
-    func makeDatalinkRepository() -> DatalinkRepositoryProtocol
     func makeDatalinkHandler(uniqueID: String,
                              webViewURL: URL,
                              redirectURL: URL,
@@ -26,10 +25,6 @@ class DatalinkFactory: DatalinkFactoryProtocol {
 }
 
 extension DatalinkFactory {
-    
-    func makeDatalinkRepository() -> DatalinkRepositoryProtocol {
-        return DatalinkRepository(networking: payByBankFactory.makeNetworking())
-    }
     
     func makeDatalinkHandler(uniqueID: String, webViewURL: URL, redirectURL: URL, completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
         return DatalinkHandler(uniqueID: uniqueID,

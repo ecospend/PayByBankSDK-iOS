@@ -10,7 +10,6 @@ import Foundation
 
 protocol VRPlinkFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
-    func makeVRPlinkRepository() -> VRPlinkRepositoryProtocol
     func makeVRPlinkHandler(uniqueID: String,
                             webViewURL: URL,
                             redirectURL: URL,
@@ -24,10 +23,9 @@ class VRPlinkFactory: VRPlinkFactoryProtocol {
     init(payByBankFactory: PayByBankFactoryProtocol) {
         self.payByBankFactory = payByBankFactory
     }
-    
-    func makeVRPlinkRepository() -> VRPlinkRepositoryProtocol {
-        return VRPlinkRepository(networking: payByBankFactory.makeNetworking())
-    }
+}
+
+extension VRPlinkFactory {
     
     func makeVRPlinkHandler(uniqueID: String,
                             webViewURL: URL,
@@ -35,4 +33,5 @@ class VRPlinkFactory: VRPlinkFactoryProtocol {
                             completionHandler: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) -> PayByBankHandlerProtocol {
         return VRPlinkHandler(uniqueID: uniqueID, webViewURL: webViewURL, redirectURL: redirectURL, completionHandler: completionHandler)
     }
+    
 }

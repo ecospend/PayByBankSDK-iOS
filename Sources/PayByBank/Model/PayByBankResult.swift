@@ -16,7 +16,7 @@ public struct PayByBankResult: Codable {
     public let uniqueID: String
     
     /// Status of the process.
-    /// - Enum: "Deleted" "Initiated" "Completed"
+    /// - Enum: "Canceled" "Initiated" "Redirected"
     public let status: PayByBankStatus
     
     /// Creates an instance from the specified parameters.

@@ -6,7 +6,7 @@
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - PayByBank
 /// PayByBank SDK.
@@ -16,27 +16,7 @@ public final class PayByBank {
 }
 
 // MARK: - API
-public extension PayByBank {
-    
-    /// Sets configuration for all PayByBank APIs.
-    ///
-    /// - Note: For more details, please look at the [API Specifications & Developer's Guide](https://docs.ecospend.com/api/intro).
-    /// - Note: Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token. During the life of the token, users access the Ecospend Gateway APIs. For more details, please look at [Get Access Token](https://docs.ecospend.com/api/intro/#tag/Get-Access-Token) documentation.
-    ///
-    /// - Warning: **Access token** should be passed before using any PayByBank API which requires authentication, otherwise, each API returns an error as `PayByBankError.notConfigured`.
-    ///
-    /// - Parameters:
-    ///     - environment: Instance's `PayByBankEnvironment`, which is environment for testing or released applications.
-    ///     - accessToken: The **Access Token** is required for all subsequent requests to the API. You should keep it safe and secure during its lifetime. The lifetime is configurable.
-    ///     - tokenType: Type of token provided. Defaults to "Bearer".
-    static func configure(environment: PayByBankEnvironment, accessToken: String = "", tokenType: String = "Bearer") {
-        PayByBankState.Config.environment = environment
-        
-        PayByBankState.Config.authentication = {
-            guard !accessToken.isEmpty else { return nil }
-            return .token(accessToken, type: tokenType)
-        }()
-    }
+extension PayByBank {
     
     /// Paylink API
     /// - Note: The Ecospend Gateway presents Paylink as an alternative and easier form of Open Banking Instant Payment solution. Paylink provides you the option of downsizing the development effort for a PIS journey to a single endpoint integration. Paylink undertakes all of interaction in the payment user journey with your branding on display.
@@ -72,5 +52,133 @@ public extension PayByBank {
     /// - Note: Domestic instant payments, international payments, and scheduled payments are all accomplished from the same /payments endpoint. The payment type is automatically identified by our system depending whether the debtor and creditor accounts are from different countries (for international payments), or whether a value has been set for the scheduled_for parameter (meaning a scheduled payment).
     static var payment: Payment {
         return Payment(factory: PaymentFactory(payByBankFactory: PayByBankFactory()))
+    }
+}
+
+// MARK: - WebView
+public extension PayByBank {
+    
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of Paylink.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the Paylink.
+    ///     - url: Unique Paylink URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of the paylink journey.
+    ///     - viewController:  Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    static func open(paylink uniqueID: String,
+                     url: URL,
+                     redirectURL: URL,
+                     viewController: UIViewController,
+                     completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.paylink.open(uniqueID: uniqueID,
+                              url: url,
+                              redirectURL: redirectURL,
+                              viewController: viewController,
+                              completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of FrPayment.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the FrPayment.
+    ///     - url: Unique FrPayment URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    static func open(frPayment uniqueID: String,
+                     url: URL,
+                     redirectURL: URL,
+                     viewController: UIViewController,
+                     completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.frPayment.open(uniqueID: uniqueID,
+                                url: url,
+                                redirectURL: redirectURL,
+                                viewController: viewController,
+                                completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of VRPlink.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the VRPlink.
+    ///     - url: Unique VRPlink URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    static func open(vrplink uniqueID: String,
+                     url: URL,
+                     redirectURL: URL,
+                     viewController: UIViewController,
+                     completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.vrplink.open(uniqueID: uniqueID,
+                              url: url,
+                              redirectURL: redirectURL,
+                              viewController: viewController,
+                              completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of BulkPayment Paylink.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the Bulk Payment Paylink.
+    ///     - url: Unique Bulk Payment Paylink URL that you will need to redirect PSU in order the payment to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of payment process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    static func open(bulkPayment uniqueID: String,
+                     url: URL,
+                     redirectURL: URL,
+                     viewController: UIViewController,
+                     completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.bulkPayment.open(uniqueID: uniqueID,
+                                  url: url,
+                                  redirectURL: redirectURL,
+                                  viewController: viewController,
+                                  completion: completion)
+        }
+    }
+    
+    /// Opens webview using with `uniqueID`, `url` and `redirectURL` of Datalink.
+    ///
+    /// - Parameters:
+    ///     - uniqueID: A system assigned unique identification for the Datalink.
+    ///     - url: Unique Datalink URL that you will need to redirect PSU in order the account access consent to proceed.
+    ///     - redirectURL: The URL of the Tenant that the PSU will be redirected at the end of account access process.
+    ///     - viewController: Instance's `UIViewController`, which provides to present bank selection.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    static func open(datalink uniqueID: String,
+                     url: URL,
+                     redirectURL: URL,
+                     viewController: UIViewController,
+                     completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.datalink.open(uniqueID: uniqueID,
+                               url: url,
+                               redirectURL: redirectURL,
+                               viewController: viewController,
+                               completion: completion)
+        }
+    }
+    
+    /// Opens bank application or bank website using with `id` and`url (payment_url)` of Payment.
+    ///
+    /// - Parameters:
+    ///     - id: A system assigned unique identification for the Payment.
+    ///     - url (payment_url): A unique and one time use only URL of the debtor's banking system. You will need to redirect PSU to this link in order the payment to proceed.
+    ///     - completion: It provides to handle `PayByBankResult` or `PayByBankError`.
+    static func open(payment id: String,
+                     url: URL,
+                     completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void) {
+        PayByBankConstant.GCD.dispatchQueue.async {
+            self.payment.open(id: id, url: url, completion: completion)
+        }
     }
 }

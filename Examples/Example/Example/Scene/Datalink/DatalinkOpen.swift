@@ -2,9 +2,11 @@
 //  DatalinkOpen.swift
 //  Example
 //
-//  Created by Yunus TÜR on 24.06.2022.
+//  Created by Yunus TÜR on 1.09.2022.
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
+
+import SwiftUI
 
 import SwiftUI
 import PayByBank
@@ -15,19 +17,25 @@ struct DatalinkOpen: View {
     @EnvironmentObject var toast: Toast
     
     @AppStorage(Self.storage(key: .uniqueID)) var uniqueID: String = ""
+    @AppStorage(Self.storage(key: .url)) var url: String = ""
+    @AppStorage(Self.storage(key: .redirectURL)) var redirectURL: String = ""
     
     var body: some View {
         VStack {
             Form {
                 TextField("", text: $uniqueID)
                     .titled(L10n.inputUniqueID.localized.required)
+                TextField("", text: $url)
+                    .titled(L10n.inputURL.localized.required)
+                TextField("", text: $redirectURL)
+                    .titled(L10n.inputRedirectURL.localized.required)
             }
             Spacer()
             Button(L10n.commonSubmit.localizedKey) {
                 submit()
             }
             .buttonStyle(.primary)
-            .disabled(uniqueID.isBlank)
+            .disabled(uniqueID.isBlank || !url.isURL || !redirectURL.isURL)
             .padding()
         }
         .background(Color.formBackground)
@@ -37,10 +45,13 @@ struct DatalinkOpen: View {
     
     func submit() {
         hideKeyboard()
-        guard let viewController = UIApplication.shared.topViewController else { return }
-        
+        guard let url = URL(string: url),
+              let redirectURL = URL(string: redirectURL),
+              let viewController = UIApplication.shared.topViewController else {
+            return
+        }
         loading(true)
-        PayByBank.datalink.open(uniqueID: uniqueID, viewController: viewController) { result in
+        PayByBank.open(datalink: uniqueID, url: url, redirectURL: redirectURL, viewController: viewController) { result in
             loading(false)
             toast(result.string)
         }

@@ -12,16 +12,6 @@ import PayByBank
 @main
 struct ExampleApp: App {
     
-    @AppStorage(Settings.storage(key: .settingsEnvironment)) var environment: PayByBankEnvironment = .sandbox
-    @AppStorage(Settings.storage(key: .settingsAccessToken)) var accessToken: String = ""
-    @AppStorage(Settings.storage(key: .settingsTokenType)) var tokenType: String = ""
-    
-    init() {
-        PayByBank.configure(environment: environment,
-                            accessToken: accessToken,
-                            tokenType: tokenType)
-    }
-    
     var body: some Scene {
         WindowGroup {
             ToastView {

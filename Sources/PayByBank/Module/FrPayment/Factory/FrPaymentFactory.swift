@@ -10,7 +10,6 @@ import Foundation
 
 protocol FrPaymentFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
-    func makeFrPaymentRepository() -> FrPaymentRepositoryProtocol
     func makeFrPaymentHandler(uniqueID: String,
                               webViewURL: URL,
                               redirectURL: URL,
@@ -24,10 +23,9 @@ class FrPaymentFactory: FrPaymentFactoryProtocol {
     init(payByBankFactory: PayByBankFactoryProtocol) {
         self.payByBankFactory = payByBankFactory
     }
-    
-    func makeFrPaymentRepository() -> FrPaymentRepositoryProtocol {
-        return FrPaymentRepository(networking: payByBankFactory.makeNetworking())
-    }
+}
+
+extension FrPaymentFactory {
     
     func makeFrPaymentHandler(uniqueID: String,
                               webViewURL: URL,
