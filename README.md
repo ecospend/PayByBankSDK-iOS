@@ -30,11 +30,11 @@ PayByBank SDK includes solutions of:
 To integrate PayByBank into your Xcode project using CocoaPods, add this to your `Podfile`:
 
 ```
-pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '1.2.1'
+pod 'PayByBank', :git => 'https://github.com/ecospend/PayByBankSDK-iOS.git', :tag => '2.0.0'
 
 # or
 
-pod 'PayByBank', '1.2.1'
+pod 'PayByBank', '2.0.0'
 ```
 
 Then run `pod install`.
@@ -47,14 +47,14 @@ To integrate using Apple's Swift package manager, with Xcode integration, apply 
 
 - File > Swift Packages > Add Package Dependency
 - Add `https://github.com/ecospend/PayByBankSDK-iOS.git`
-- Select "Dependency Rule" with "Exact Version" and "1.2.1"
+- Select "Dependency Rule" with "Exact Version" and "2.0.0"
 
 #### Manually
 
 To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`
 
 ```
-.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "1.2.1")
+.package(url: "https://github.com/ecospend/PayByBankSDK-iOS.git", from: "2.0.0")
 ```
 
 ### Carthage
@@ -62,7 +62,7 @@ To integrate using Apple's Swift package manager, without Xcode integration, add
 To integrate PayByBank into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "ecospend/PayByBankSDK-iOS" ~> 1.2.1
+github "ecospend/PayByBankSDK-iOS" ~> 2.0.0
 ```
 
 Then run `carthage update --use-xcframeworks` and drag the built `PayByBank.xcframework` bundle from `Carthage/Build` into the "Frameworks and Libraries" section of your application’s Xcode project.
@@ -75,7 +75,7 @@ To get more information about PayByBank, check out the [documentation](https://e
 
 *Note: Please look at [API Specifications & Developer's Guide](https://docs.ecospend.com/api/intro) for more details.*
 
-After creating a link, PayByBank SDK provides to manage easily client-side web view flows, when necessary parameters are passed.
+After creating a link ([Paylink](https://docs.ecospend.com/api/paylink/V2/#tag/Paylink-API), [FrPayment](https://docs.ecospend.com/api/paylink/V2/#tag/FrPayments-API), [BulkPayment](https://docs.ecospend.com/api/paylink/V2/#tag/Bulk-Paymentlink-API), [VRPlink](https://docs.ecospend.com/api/paylink/V2/#tag/Vrplink-API), [Datalink](https://docs.ecospend.com/api/ais/V2/#tag/Datalink-API), [Payment](https://docs.ecospend.com/api/pis/V2/#tag/Payments-API)),  PayByBank SDK provides to manage easily client-side web view flows, when necessary parameters are passed.
 
 ```
 PayByBank.open(paylink uniqueID: String, url: URL, redirectURL: URL, viewController: UIViewController, completion: @escaping (Result<PayByBankResult, PayByBankError>) -> Void)
