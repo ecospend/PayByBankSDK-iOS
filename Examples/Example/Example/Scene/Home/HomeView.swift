@@ -13,23 +13,14 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(L10n.paylinkTitle.localizedKey, destination: PaylinkAPIs())
-                NavigationLink(L10n.frPaymentTitle.localizedKey, destination: FrPaymentAPIs())
-                NavigationLink(L10n.bulkPaymentTitle.localizedKey, destination: BulkPaymentAPIs())
-                NavigationLink(L10n.vrplinkTitle.localizedKey, destination: VRPlinkAPIs())
-                NavigationLink(L10n.datalinkTitle.localizedKey, destination: DatalinkAPIs())
-                NavigationLink(L10n.paymentTitle.localizedKey, destination: PaymentAPIs())
+                NavigationLink(L10n.paylinkOpenTitle.localizedKey, destination: PaylinkOpen())
+                NavigationLink(L10n.frPaymentOpenTitle.localizedKey, destination: FrPaymentOpen())
+                NavigationLink(L10n.bulkPaymentOpenTitle.localizedKey, destination: BulkPaymentOpen())
+                NavigationLink(L10n.vrplinkOpenTitle.localizedKey, destination: VRPlinkOpen())
+                NavigationLink(L10n.datalinkOpenTitle.localizedKey, destination: DatalinkOpen())
+                NavigationLink(L10n.paymentOpenTitle.localizedKey, destination: PaymentOpen())
             }
             .navigationBarTitle(L10n.homeTitle.localizedKey)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        Settings()
-                    } label: {
-                        Image(systemName: "gear")
-                    }
-                }
-            }
         }
         .navigationViewStyle(.stack)
     }

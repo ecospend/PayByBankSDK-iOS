@@ -10,7 +10,6 @@ import Foundation
 
 protocol PaylinkFactoryProtocol {
     var payByBankFactory: PayByBankFactoryProtocol { get }
-    func makePaylinkRepository() -> PaylinkRepositoryProtocol
     func makePaylinkHandler(uniqueID: String,
                             webViewURL: URL,
                             redirectURL: URL,
@@ -27,10 +26,6 @@ class PaylinkFactory: PaylinkFactoryProtocol {
 }
 
 extension PaylinkFactory {
-    
-    func makePaylinkRepository() -> PaylinkRepositoryProtocol {
-        return PaylinkRepository(networking: payByBankFactory.makeNetworking())
-    }
     
     func makePaylinkHandler(uniqueID: String,
                             webViewURL: URL,

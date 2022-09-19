@@ -6,21 +6,5 @@
 //  Copyright © 2022 Ecospend. All rights reserved.
 //
 
-
-// MARK: - Network Error
-"network_error_no_data" = "No data received from the server.";
-"network_error_invalid_response" = "The server response was invalid (unexpected format).";
-"network_error_bad_request" = "The request was rejected: %@.";
-"network_error_server_error" = "Encoutered a server error: %@.";
-"network_error_parse_error" = "There was an error parsing the data.";
-"network_error_unknown" = "Unknown error.";
-"network_error_invalid_url" = "Invalid URL for: %@.";
-
 // MARK: - Paylink Error
-"paybybank_error_unknown" = "Unknown error.";
-"paybybank_error_not_configured" = "Wrong `accessToken` or `tokenType`.";
 "paybybank_error_wrong_link" = "Wrong Link.";
-"paybybank_error_network" = "Network Error: %@";
-
-// MARK: - Detailed Error
-"detailed_error" = "%@ (%@)";
